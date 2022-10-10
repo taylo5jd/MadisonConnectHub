@@ -1,0 +1,28 @@
+﻿@page
+@{
+    /*Justin Taylor*/
+}
+@model lab_1_part_3.Pages.Teams.AddTeamModel
+@{
+}
+<form asp-page="AddTeam">
+    <input type="text" asp-for="NewTeam.TeamEmail" placeholder="Team Email" />
+    <input type="text" asp-for="NewTeam.TeamDescription" placeholder="Team Description" />
+    <input type="text" asp-for="NewTeam.TeamName" placeholder="Team Name" />
+    <input type="date" asp-for="NewTeam.TeamMeetingDate" placeholder="Team Meeting Date" />
+    <select name="NewTeam.ProjectID">
+        <option value="">Choose Project</option>
+        @{
+            foreach (var proj in Model.ProjectList)
+            {
+                <option value=@proj.ProjectID>@proj.ProjectName</option>
+            }
+        }
+    </select>
+    <br />
+    <button type="submit">Add Team -> </button>
+    <button class="btn btn-outline-secondary" asp-page="AddTeam" asp-page-handler="PopulateHandler" formnovalidate>Populate</button>
+
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+
+</form>

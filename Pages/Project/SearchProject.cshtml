@@ -1,0 +1,49 @@
+﻿@page
+@model lab_1_part_3.Pages.Project.SearchProjectModel
+@{
+}
+@{
+    if (Model.SearchText == null)
+    {
+        <form asp-page="SearchProject">
+            <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
+        <br />
+        <input type="submit" class="btn btn-primary" />
+    </form>
+    <br />
+        <a asp-page="Index" class="btn btn-primary"> Return to My Projects </a>
+    }
+    else{
+
+        <h2 class="h2">Project List</h2>
+        <table class="table table-bordered table-striped table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th>ProjectName</th>
+                    <th>ProjectDescription</th>
+                    <th>ProjectType</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+
+
+                    foreach (var proj in Model.ProjectList)
+                    {
+                       
+                        <tr>
+                            <td>@proj.ProjectName</td>
+                            <td>@proj.ProjectDescription</td>
+                            <td>@proj.ProjectType</td>
+                            <td><a asp-page="SearchProject" class="btn btn-primary"  asp-route-ProjID="@proj.ProjectID"> Request to Join </a></td>
+                        </tr>
+                        
+                    }
+                }
+
+            </tbody>
+        </table>
+        <a asp-page="SearchProject" class="btn btn-primary"> Search Again -> </a>
+        <a asp-page="Index" class="btn btn-primary"> Return to My Projects -> </a>
+    }
+}

@@ -1,0 +1,45 @@
+﻿@page
+@{
+    /*Justin Taylor*/
+}
+@model lab_1_part_3.Pages.User.AddSkillsToUserModel
+@{
+    ViewData["Title"] = "View Skills";
+}
+
+<h2 class="h2">Skill List</h2>
+<table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>SkillType</th>
+            <th>SkillDescription</th>
+            
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+
+
+            foreach (var sk in Model.UserSkillList)
+            {
+                <tr>
+
+                    <td>@sk.SkillType</td>
+                    <td>@sk.SkillDescription</td>
+
+
+
+                    <td><a asp-page="AddSkillsToUserDisplay" class="btn btn-primary" asp-route-skillid="@sk.SkillID"> Add </a></td>
+
+
+
+                </tr>
+
+            }
+        }
+
+    </tbody>
+</table>
+<a asp-page="Index" class="btn btn-primary"> Cancel -> </a>

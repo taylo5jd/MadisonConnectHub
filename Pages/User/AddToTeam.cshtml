@@ -1,0 +1,45 @@
+﻿@page
+@{
+    /*Justin Taylor*/
+}
+@using lab_1_part_3.Pages.DBClasses
+@model lab_1_part_3.Pages.User.AddToTeamModel
+@{
+    ViewData["Title"] = "View Teams";
+}
+
+<h2 class="h2">Team List</h2>
+<table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>TeamName</th>
+            <th>TeamDescription</th>
+          
+      
+        </tr>
+    </thead>
+    <tbody>
+        @{
+                
+                       
+            foreach (var tm in Model.TeamList)
+            {
+                            <tr>
+
+                                <td>@tm.TeamName</td>
+                                <td>@tm.TeamDescription</td>
+                                
+                              
+                                
+                                <td><a asp-page="AddToTeamDisplay" class="btn btn-primary" asp-route-teamid="@tm.TeamID"> Join </a></td>
+
+                               
+                                
+                            </tr>
+
+            }
+        }
+
+    </tbody>
+</table>
+<a asp-page="Index" class="btn btn-primary"> Cancel -> </a>

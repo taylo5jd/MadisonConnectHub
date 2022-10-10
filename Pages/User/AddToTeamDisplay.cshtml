@@ -1,0 +1,49 @@
+﻿@page
+@{
+    /*Justin Taylor*/
+}
+@using System.Data.SqlClient
+@model lab_1_part_3.Pages.User.AddToTeamDisplayModel
+@{ ViewData["Title"] = "Team's Composition";
+}
+
+
+<h2 class="h2">Team & Their Members List</h2>
+<table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>TeamName</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            string sqlQuery =   "SELECT FirstName, LastName,Team.Team_Name FROM Team INNER JOIN TeamComposition ON Team.TeamID = TeamComposition.TeamID INNER JOIN UserProfile ON UserProfile.ProfileID = TeamComposition.ProfileID;";
+            SqlDataReader QueryResults = DBClasses.DBAddToTeamClass.GeneralReaderQuery(sqlQuery);
+                while(QueryResults.Read())
+         {
+                    <tr>
+                        <td>@QueryResults["Team_Name"]</td>
+                        <td>@QueryResults["FirstName"]</td>
+                        <td>@QueryResults["LastName"]</td>
+                        
+
+
+
+
+                       
+
+
+
+                    </tr>
+         }
+            
+        }
+
+    </tbody>
+</table>
+<a asp-page="Index" class="btn btn-primary"> Done Viewing </a>

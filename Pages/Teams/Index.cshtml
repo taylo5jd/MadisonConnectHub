@@ -1,0 +1,41 @@
+﻿@page
+@{
+    /*Justin Taylor*/
+}
+@model lab_1_part_3.Pages.Teams.IndexModel
+@{
+    ViewData["Title"] = "View Teams";
+}
+
+<h2 class="h2">My Teams</h2>
+<table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>TeamName</th>
+            <th>TeamEmail</th>
+            <th>TeamDescription</th>
+            <th>TeamMeetingDate</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var tm in Model.TeamList)
+            {
+                DateTime dt = DateTime.Parse(@tm.TeamMeetingDate);
+                <tr>
+                    <td>@tm.TeamName</td>
+                    <td>@tm.TeamEmail</td>
+                    <td>@tm.TeamDescription</td>
+                    <td>@String.Format("{0:M/d/yyyy}", dt)</td>
+                    <td><a asp-page="EditTeam" class="btn btn-primary" asp-route-teamid="@tm.TeamID"> Edit </a></td>
+                </tr>
+
+            }
+        }
+
+    </tbody>
+</table>
+<a asp-page="AddTeam" class="btn btn-primary"> Add A New Team -> </a>
+<a asp-page="ViewTeams" class="btn btn-primary"> View All Teams -> </a>
+<a asp-page="/User/AddToTeamDisplay" class="btn btn-primary"> View Team Rosters -> </a>

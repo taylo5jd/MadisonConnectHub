@@ -1,0 +1,40 @@
+﻿@page
+@using System.Data.SqlClient
+@using lab_1_part_3.Pages.DBClasses
+@model lab_1_part_3.Pages.JoinRequest.ViewJoinRequestModel
+@{
+}
+<h2 class="h2">Project List</h2>
+<table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>User Requesting Admittance</th>
+            <th>Project Name</th>
+            <th>Approve</th>
+            <th>Deny</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            // <td><a asp-page="Approve" class="btn btn-primary" asp-route-projectid="@proj.ProjectID"> Edit </a></td>
+            SqlDataReader joinReader = DBJoinRequest.JoinRequestReader(HttpContext.Session.GetString("username"));
+
+            while(joinReader.Read())
+            {
+                if (joinReader["StatusFlag"].ToString() == ("n"))
+                {
+                    <tr>
+
+                    <td>@joinReader["Requester"].ToString()</td>
+                    <td>@joinReader["Project Name"].ToString()</td>
+                        <td><a asp-page="ViewJoinRequest" class="btn btn-primary" asp-route-ProfileID="@Int32.Parse(joinReader["ProfileID"].ToString())" asp-route-TeamID="@Int32.Parse(joinReader["TeamID"].ToString())"> Approve </a></td>
+                    <td><a asp-page="ViewJoinRequest" class="btn btn-primary" asp-route-TeamID="0"> Deny </a></td>
+
+                </tr>
+                }
+
+            }
+        }
+
+    </tbody>
+</table>

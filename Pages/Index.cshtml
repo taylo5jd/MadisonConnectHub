@@ -1,0 +1,23 @@
+﻿@page
+@{/*Justin Taylor*/}
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>To access all available pages please use the nav bar above</p>
+    <br />
+    @{
+        if (HttpContext.Session.GetString("username") != null)
+        {
+            <p>User @HttpContext.Session.GetString("username") is logged in!</p>
+            <a class="btn btn-outline-success" asp-page="DBLogin" asp-route-logout="true">Logout</a>
+            
+        }
+
+    }
+    
+
+</div>

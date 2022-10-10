@@ -1,0 +1,76 @@
+﻿@page
+@{
+    /*Justin Taylor*/
+}
+@model lab_1_part_3.Pages.User.IndexModel
+@{
+    ViewData["Title"] = "View Users";
+
+}
+
+<h2 class="h2">Your Profile</h2>
+<table class = "table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>UserType</th>
+            <th>PhoneNumber</th>
+            <th>ProfessionalEmail</th>
+            <th>ProfessionalCompany</th>
+            <th>FacultyAssociation</th>
+        </tr>
+    </thead>
+<tbody>
+    @{
+        foreach (var usr in Model.UserList)
+        {
+                        <tr>
+                        <td>@usr.Username</td>
+                        <td>@usr.FirstName</td>
+                        <td>@usr.LastName</td>
+                        <td>@usr.Email</td>
+                        <td>@usr.UserType</td>
+                        <td>@usr.PhoneNumber</td>
+                        <td>@usr.ProfessionalEmail</td>
+                        <td>@usr.ProfessionalCompany</td>
+                        <td>@usr.FacultyAssociation</td>
+                                <td><a asp-page="EditUser" class="btn btn-primary" asp-route-profileid="@usr.ProfileID"> Edit </a></td>
+                        </tr>
+           
+    }
+   }
+   
+    </tbody>
+</table>
+<a asp-page = "/CreateHashLogin" class="btn btn-primary"> Add A New User -> </a>
+<br />
+<br />
+
+<h2 class="h2">Your Skillset</h2>
+<table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>Skill Name</th>
+            <th>Skill Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var skill in Model.SkillList)
+            {
+                            <tr>
+
+                                <td>@skill.SkillType</td>
+                                <td>@skill.SkillDescription</td
+                            </tr>
+
+            }
+        }
+
+    </tbody>
+</table>
+@{//<a asp-page = "AddSkillsToUser" class="btn btn-primary"> Expand Your Skillset -> </a>
+    }

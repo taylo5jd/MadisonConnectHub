@@ -1,0 +1,42 @@
+﻿@page
+@model lab_1_part_3.Pages.Project.ViewProjectsModel
+@{
+    ViewData["Title"] = "View Projects";
+}
+
+<h2 class="h2">Project List</h2>
+<table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>ProjectName</th>
+            <th>ProjectDescription</th>
+            <th>ProjectType</th>
+            <th>ProjectOwnerEmail</th>
+            <th>ProjectBeginDate</th>
+            <th>ProjectMissionStatement</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            
+
+            foreach (var proj in Model.ProjectList)
+            {
+                DateTime dt = DateTime.Parse(@proj.ProjectBeginDate);
+                <tr>
+                    <td>@proj.ProjectName</td>
+                    <td>@proj.ProjectDescription</td>
+                    <td>@proj.ProjectType</td>
+                    <td>@proj.ProjectOwnerEmail</td>
+                    <td>@String.Format("{0:M/d/yyyy}", dt)</td>
+                    <td>@proj.ProjectMissionStatement</td>
+                   
+                   
+                </tr>
+
+            }
+        }
+
+    </tbody>
+</table>
+<a asp-page="Index" class="btn btn-primary"> Return To My Projects -> </a>

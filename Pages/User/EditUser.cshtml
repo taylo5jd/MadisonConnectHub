@@ -1,0 +1,44 @@
+﻿@page
+@{
+    /*Justin Taylor*/
+}
+@model lab_1_part_3.Pages.User.EditUserModel
+@{
+    ViewData["Title"] = "Edit User Profile";
+}
+
+<form asp-page="EditUser">
+    <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
+    <label asp-for="@Model.UserToUpdate.FirstName"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.FirstName" />
+    <br />
+    <label asp-for="@Model.UserToUpdate.Username"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.Username" />
+    <br />
+    <label asp-for="@Model.UserToUpdate.LastName"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.LastName" />
+    <br />
+    <label asp-for="@Model.UserToUpdate.Email"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.Email" />
+    <br />
+    <label asp-for="@Model.UserToUpdate.UserType"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.UserType" />
+    <br />
+    <label asp-for="@Model.UserToUpdate.PhoneNumber"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.PhoneNumber" />
+    <br />
+    <label asp-for="@Model.UserToUpdate.ProfessionalEmail"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.ProfessionalEmail" />
+    <br />
+    <label asp-for="@Model.UserToUpdate.ProfessionalCompany"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.ProfessionalCompany" />
+    <br />
+    <label asp-for="@Model.UserToUpdate.FacultyAssociation"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.FacultyAssociation" />
+    <br /><br />
+    <a asp-page="AddToTeam" class="btn btn-primary" asp-route-profileid= "@Model.UserToUpdate.ProfileID">JoinTeam</a>
+    <a asp-page="AddSkillsToUser" class="btn btn-primary" asp-route-profileid="@Model.UserToUpdate.ProfileID">AddSKill</a>
+
+    <input type="submit" class="btn btn-success" asp-page="EditUser" />
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>

@@ -1,0 +1,25 @@
+﻿@page
+@{
+    /*Justin Taylor*/
+}
+@model lab_1_part_3.Pages.User.AddUserProfileModel
+@{
+    //took away add user button
+    //<button type="submit">Add User -> </button>}
+}
+<form asp-page="AddUser">
+    <input type="text" asp-for="NewUserProfile.Username" placeholder="Username" />
+    <input type="text" asp-for="NewUserProfile.FirstName" placeholder="First Name" />
+    <input type="text" asp-for="NewUserProfile.LastName" placeholder="Last Name" />
+    <input type="text" asp-for="NewUserProfile.Email" placeholder="Email" />
+    <input type="text" asp-for="NewUserProfile.UserType" placeholder="User Type" />
+    <input type="text" asp-for="NewUserProfile.PhoneNumber" placeholder="Phone Number" />
+    <input type="text" asp-for="NewUserProfile.ProfessionalEmail" placeholder="Professional Email" />
+    <input type="text" asp-for="NewUserProfile.ProfessionalCompany" placeholder="Professional Company" />
+    <input type="text" asp-for="NewUserProfile.FacultyAssociation" placeholder="Faculty Association" width="100" />
+    <br />
+    
+    <button class="btn btn-outline-secondary" asp-page="AddUser" asp-page-handler="PopulateHandler" formnovalidate>Populate</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+
+</form>

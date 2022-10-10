@@ -1,0 +1,17 @@
+﻿@page
+@{
+    /*Justin Taylor*/
+}
+@model lab_1_part_3.Pages.Skills.AddSkillModel
+@{
+}
+<form asp-page="AddSkill">
+    <input type="text" asp-for="NewSkill.SkillType" placeholder="Skill Type" />
+    <input type="text" asp-for="NewSkill.SkillDescription" placeholder="Skill Description" />
+    <br />
+    <button type="submit">Add Skill -> </button>
+    <button class="btn btn-outline-secondary" asp-page="AddSkill" asp-page-handler="PopulateHandler" formnovalidate>Populate</button>
+
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+
+</form>

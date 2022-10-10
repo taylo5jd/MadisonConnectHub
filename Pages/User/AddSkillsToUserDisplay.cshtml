@@ -1,0 +1,49 @@
+﻿@page
+@{
+    /*Justin Taylor*/
+}
+@using System.Data.SqlClient
+@model lab_1_part_3.Pages.User.AddSkillsToUserDisplayModel
+@{
+    ViewData["Title"] = "Skill List";
+}
+
+
+<h2 class="h2">Skill List</h2>
+<table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>SkillType</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            string sqlQuery = "SELECT FirstName, LastName,Skill.Skill_Type FROM Skill INNER JOIN UserProfile_Skill ON Skill.SkillID = UserProfile_Skill.SkillID INNER JOIN UserProfile ON UserProfile.ProfileID = UserProfile_Skill.ProfileID;";
+            SqlDataReader QueryResults = DBClasses.DBAddToTeamClass.GeneralReaderQuery(sqlQuery);
+            while (QueryResults.Read())
+            {
+                <tr>
+                    <td>@QueryResults["Skill_Type"]</td>
+                    <td>@QueryResults["FirstName"]</td>
+                    <td>@QueryResults["LastName"]</td>
+
+
+
+
+
+
+
+
+
+                </tr>
+            }
+
+        }
+
+    </tbody>
+</table>
+<a asp-page="Index" class="btn btn-primary"> Done Viewing </a>

@@ -1,0 +1,35 @@
+﻿@page
+@model lab_1_part_3.Pages.Teams.ViewTeamsModel
+@{
+    ViewData["Title"] = "View Teams";
+}
+
+<h2 class="h2">Team List</h2>
+<table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>Team Name</th>
+            <th>Team Description</th>
+            <th>Team Email</th>
+            <th>Team Meeting Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var tm in Model.TeamList)
+            {
+                DateTime dt = DateTime.Parse(@tm.TeamMeetingDate);
+                <tr>
+                    <td>@tm.TeamName</td>
+                    <td>@tm.TeamDescription</td>
+                    <td>@tm.TeamEmail</td>
+                    <td>@String.Format("{0:M/d/yyyy}", dt)</td>
+
+                </tr>
+
+            }
+        }
+
+    </tbody>
+</table>
+<a asp-page="Index" class="btn btn-primary"> Return To My Teams -> </a>

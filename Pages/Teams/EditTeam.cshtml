@@ -1,0 +1,35 @@
+﻿@page
+@{
+    /*Justin Taylor*/
+}
+@model lab_1_part_3.Pages.Teams.EditTeamModel
+@{
+    ViewData["Title"] = "Edit Team";
+}
+<form asp-page="EditTeam">
+    <input type="hidden" asp-for="@Model.TeamToUpdate.TeamID" />
+    <select name="TeamToUpdate.ProjectID">
+        <option value="">Choose Project</option>
+        @{
+            foreach (var proj in Model.ProjectList)
+            {
+                <option value=@proj.ProjectID>@proj.ProjectName</option>
+            }
+        }
+    </select>
+    <br />
+    <label asp-for="@Model.TeamToUpdate.TeamEmail"></label>
+    <input type="text" asp-for="@Model.TeamToUpdate.TeamEmail" />
+    <br />
+    <label asp-for="@Model.TeamToUpdate.TeamDescription"></label>
+    <input type="text" asp-for="@Model.TeamToUpdate.TeamDescription" />
+    <br />
+    <label asp-for="@Model.TeamToUpdate.TeamName"></label>
+    <input type="text" asp-for="@Model.TeamToUpdate.TeamName" />
+    <br />
+    <label asp-for="@Model.TeamToUpdate.TeamMeetingDate"></label>
+    <input type="date" asp-for="@Model.TeamToUpdate.TeamMeetingDate" />
+    <br /><br />
+    <input type="submit" class="btn btn-success" asp-page="EditTeam" />
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>

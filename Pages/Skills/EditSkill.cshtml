@@ -1,0 +1,19 @@
+﻿@page
+@{
+    /*Justin Taylor*/
+}
+@model lab_1_part_3.Pages.Skills.EditSkillModel
+@{
+    ViewData["Title"] = "Edit Skill";
+}
+<form asp-page="EditSkill">
+    <input type="hidden" asp-for="@Model.SkillToUpdate.SkillID" />
+    <label asp-for="@Model.SkillToUpdate.SkillType"></label>
+    <input type="text" asp-for="@Model.SkillToUpdate.SkillType" />
+    <br />
+    <label asp-for="@Model.SkillToUpdate.SkillDescription"></label>
+    <input type="text" asp-for="@Model.SkillToUpdate.SkillDescription" />
+    <br /><br />
+    <input type="submit" class="btn btn-success" asp-page="EditSkill" />
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>
