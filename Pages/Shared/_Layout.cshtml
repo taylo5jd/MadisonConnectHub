@@ -21,12 +21,12 @@
                 @{
                             if (Context.Session.GetString("username")==null)
                             {
-                                                                <a class="navbar-brand text-light" asp-area="" asp-page="/Index">Please login</a>
+                                                                    <a class="navbar-brand text-light" asp-area="" asp-page="/Index">Please login</a>
 
                     }
                     else{
                        
-                                                                <a class="navbar-brand text-light" asp-area="" asp-page="/Index">Welcome! </a>
+                                                                    <a class="navbar-brand text-light" asp-area="" asp-page="/Index">Welcome! </a>
 
                             }
                             }
@@ -62,14 +62,14 @@
                         @{
         if (Context.Session.GetString("username")==null)
         {
-            <li class="nav-item">
-            <a class=" btn btn-primary" style="background-color:gold" asp-area="" asp-page="/DBLogin">Login</a>
-            </li>
+                <li class="nav-item">
+                <a class=" btn btn-primary" style="background-color:gold" asp-area="" asp-page="/DBLogin">Login</a>
+                </li>
         }
         else{
-            <li class="nav-item">
-            <a class="btn btn-outline-success" style="background-color:gold" asp-page="/DBLogin" asp-route-logout="true">Logout</a>
-            </li>
+                <li class="nav-item">
+                <a class="btn btn-outline-success" style="color: white; background-color:gold" asp-page="/DBLogin" asp-route-logout="true">Logout</a>
+                </li>
         }
         }
 
