@@ -12,6 +12,7 @@ namespace lab_1_part_3.Pages.JoinRequest
         public List<UserProfile> UserList { get; set; }
         public void OnGet(int ProfileID, int TeamID)
         {
+
             SqlDataReader joinReader2 = DBTeamClass.TeamOwner(HttpContext.Session.GetString("username"),TeamID);
 
 
@@ -20,14 +21,14 @@ namespace lab_1_part_3.Pages.JoinRequest
                 while (joinReader2.Read())
                 {
                     DBAddToTeamClass.InsertUserTeamComposition(ProfileID, TeamID);
-                    DBJoinRequest.UpdateJoinRequest("y");
+                   //DBJoinRequest.UpdateJoinRequest("y");
                     break;
                 }
                
             }
-            else
+          //  else
             {
-                DBJoinRequest.UpdateJoinRequest("n");
+                //DBJoinRequest.UpdateJoinRequest("n");
             }
 
 

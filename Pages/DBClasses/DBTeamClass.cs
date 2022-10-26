@@ -7,7 +7,7 @@ namespace lab_1_part_3.Pages.DBClasses
     {
         //property with our connection string
         private static readonly string Lab1ConnStr
-            = @"Server=Localhost;Database=Lab2;Trusted_Connection=True";
+            = @"Server=Localhost;Database=Lab3;Trusted_Connection=True";
 
         public static SqlDataReader TeamReader()
         {

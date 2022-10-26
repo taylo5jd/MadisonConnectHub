@@ -2,7 +2,6 @@
 @using lab_1_part_3.Pages.DBClasses
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,12 +21,12 @@
                 @{
                             if (Context.Session.GetString("username")==null)
                             {
-                        <a class="navbar-brand" asp-area="" asp-page="/Index">Please login</a>
+                                                            <a class="navbar-brand" asp-area="" asp-page="/Index">Please login</a>
 
                     }
                     else{
                        
-                        <a class="navbar-brand" asp-area="" asp-page="/Index">Welcome! </a>
+                                                            <a class="navbar-brand" asp-area="" asp-page="/Index">Welcome! </a>
 
                             }
                             }
@@ -51,71 +50,113 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Skills/Index">Skills</a>
+                           
                         </li>
-                        @{
-                            if (Context.Session.GetString("username")==null)
-                            {
-                                            <li class="nav-item">
-                                                <a class=" btn btn-primary" asp-area="" asp-page="/DBLogin">Login</a>
-                                            </li>
-                            }
-                            else{
-                                        <li class="nav-item">
-                                            <a class="btn btn-outline-success" asp-page="/DBLogin" asp-route-logout="true">Logout</a>
-                                        </li>
-                            }
-                            }
-                     
-
-                                @{if(DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username")) > 0){
-                                    <li>
-                               <button type="button" class="btn btn-primary position-relative ">
-                                    Notifications
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                        @DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username"))
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-                                </button>
-                                </li>
+                        <li class = "nav-item">
+                            <a class=" btn btn-primary" asp-area="" asp-page="/JoinRequest/viewjoinrequest">Notifications @DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username"))</a>
+                            
                                 
-                                }
-                                else{
+                                
+                        </li>
+                        
+                        @{
+        if (Context.Session.GetString("username")==null)
+        {
+        <li class="nav-item">
+        <a class=" btn btn-primary" asp-area="" asp-page="/DBLogin">Login</a>
+        </li>
+        }
+        else{
+        <li class="nav-item">
+        <a class="btn btn-outline-success" asp-page="/DBLogin" asp-route-logout="true">Logout</a>
+        </li>
+        }
+        }
+
+
+        @{/*if(DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username")) > 0){
+        <li>
+        <button type="button" class="btn btn-primary position-relative ">
+        Notifications
+        <span  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        @DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username"))
+        <span class="visually-hidden">unread messages</span>
+        </span>
+        </button>
+        </li>
+
+        }
+        else{
+        <li>
+        <button type="button" class="btn btn-primary position-relative">
+        Notifications
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        0
+        <span class="visually-hidden">unread messages</span>
+        </span>
+                            </button>
+                            </li>
+                            */
+                        }
+
+
+                        
+                       
+
+
+                    </ul>
+
+                    @{/*
+                        if (DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username")) > 0)
+                        {
+
+                                        <ul class = "nav navbar-nav navbar-right">
+                                            <li>
+                                                <a class="nav align-items-center"  asp-page="/JoinRequest/ViewJoinRequest">
+                                                    Notifications
+                                                    <span class="nav align-items-center ">
+                                                        @DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username"))
+                                                        <span class="visually-hidden">unread messages</span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                        }
+                         else{
+                            <ul class="nav navbar-nav navbar-right">
                                 <li>
-                                    <button type="button" class="btn btn-primary position-relative">
+                                    <a class="nav align-items-center" asp-page="/JoinRequest/ViewJoinRequest">
                                         Notifications
-                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        <span class="nav align-items-center ">
                                             0
                                             <span class="visually-hidden">unread messages</span>
-                                        </span>
-                                    </button>
+                                    </a>
                                 </li>
-                                }
 
-                                    }
+                            </ul>
 
-                           
-                            
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+                       */ }
+                        
+                        </div>
+                                </div>
+                            </nav>
+                        </header>
+                        <div class="container">
+                            <main role="main" class="pb-3">
+                                @RenderBody()
+                            </main>
+                        </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - lab_1_part_3 - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+                        <footer class="border-top footer text-muted">
+                            <div class="container">
+                                &copy; 2022 - lab_1_part_3 - <a asp-area="" asp-page="/Privacy">Privacy</a>
+                            </div>
+                        </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+                        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                        <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
+                        @await RenderSectionAsync("Scripts", required: false)
+                    </body>
+                    </html>

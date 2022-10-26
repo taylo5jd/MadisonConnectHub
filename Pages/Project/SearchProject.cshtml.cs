@@ -36,7 +36,7 @@ namespace lab_1_part_3.Pages.Project
             //need to insert two profile id's
             if (ProjID != 0)
             {
-                SqlDataReader projectReader = DBProjectClass.SingleProjectReader(ProjID); ;
+                SqlDataReader projectReader = DBProjectClass.SingleProjectReader(ProjID); 
                 SqlDataReader userReader = DBUserClass.UserReader(HttpContext.Session.GetString("username"));
 
                 while (projectReader.Read())

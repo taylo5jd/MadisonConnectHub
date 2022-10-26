@@ -7,7 +7,7 @@ namespace lab_1_part_3.Pages.DBClasses
     public class DBLoginClass
     {
         private static readonly string Lab1ConnStr
-            = @"Server=Localhost;Database=Lab2;Trusted_Connection=True";
+            = @"Server=Localhost;Database=Lab3;Trusted_Connection=True";
         private static readonly string AuthConnStr
            = @"Server=Localhost;Database=Auth;Trusted_Connection=True";
         
