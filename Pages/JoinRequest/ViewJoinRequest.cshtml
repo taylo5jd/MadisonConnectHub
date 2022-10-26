@@ -21,14 +21,14 @@
 
             while(joinReader.Read())
             {
-                if (joinReader["StatusFlag"].ToString() == ("n"))
+                if (joinReader["StatusFlag"].ToString().Equals("n"))
                 {
                     <tr>
 
                     <td>@joinReader["Requester"].ToString()</td>
                     <td>@joinReader["Project Name"].ToString()</td>
-                        <td><a asp-page="ViewJoinRequest" class="btn btn-primary" asp-route-ProfileID="@Int32.Parse(joinReader["ProfileID"].ToString())" asp-route-TeamID="@Int32.Parse(joinReader["TeamID"].ToString())"> Approve </a></td>
-                    <td><a asp-page="ViewJoinRequest" class="btn btn-primary" asp-route-TeamID="0"> Deny </a></td>
+                        <td><a asp-page="ViewJoinRequest" class="btn btn-primary" asp-route-ProfileID="@Int32.Parse(joinReader["ProfileID"].ToString())" asp-route-RequestID="@Int32.Parse(joinReader["RequestID"].ToString())" asp-route-TeamID="@Int32.Parse(joinReader["TeamID"].ToString())"> Approve </a></td>
+                        <td><a asp-page="ViewJoinRequest" class="btn btn-primary" asp-route-RequestID="@Int32.Parse(joinReader["RequestID"].ToString())" asp-route-TeamID="0"> Deny </a></td>
 
                 </tr>
                 }

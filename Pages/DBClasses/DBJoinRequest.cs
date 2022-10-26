@@ -13,7 +13,7 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdUserRead = new SqlCommand();
             cmdUserRead.Connection = new SqlConnection();
             cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdUserRead.CommandText = "select count(*) from Join_Request left outer join UserProfile on Join_Request.ApproverID = UserProfile.ProfileID where UserProfile.Username = '"+  Username + "'";
+            cmdUserRead.CommandText = "select count(*) from Join_Request left outer join UserProfile on Join_Request.ApproverID = UserProfile.ProfileID where Join_Request.StatusFlag = 'n' and " + "UserProfile.Username = '"+  Username + "'";
             cmdUserRead.Connection.Open();
             int rowCount = (int)cmdUserRead.ExecuteScalar();
             return rowCount;
@@ -23,7 +23,7 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdUserRead = new SqlCommand();
             cmdUserRead.Connection = new SqlConnection();
             cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdUserRead.CommandText = @"select UserProfile.FirstName+ ' ' + UserProfile.LastName as Requester,
+            cmdUserRead.CommandText = @"select UserProfile.FirstName+ ' ' + UserProfile.LastName as Requester, Join_Request.RequestID,
             Join_Request.ProfileID,Join_Request.ApproverID, (select Project.Project_Name
             from Project where Join_Request.ProjectID = Project.ProjectID) as 'Project Name',
             Join_Request.StatusFlag, Join_Request.ProjectID,TeamComposition.TeamID
@@ -45,10 +45,10 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlDataReader tempReader = cmdUserRead.ExecuteReader();
             return tempReader;
         }
-        public static void UpdateJoinRequest(string s)
+        public static void UpdateJoinRequest(string s, int RequestID)
         {
             string sqlQuery = "UPDATE Join_Request SET ";
-            sqlQuery += "StatusFlag ='" + s + "'";
+            sqlQuery += "StatusFlag ='" + s + "' WHERE Join_Request.RequestID = " + RequestID;
             SqlCommand cmdProjectRead = new SqlCommand();
             cmdProjectRead.Connection = new SqlConnection();
             cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
