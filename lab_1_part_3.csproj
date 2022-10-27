@@ -26,4 +26,9 @@
     <None Include="Pages\Login.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+    <Folder Include="wwwroot\NewFolder\" />
+  </ItemGroup>
+
 </Project>

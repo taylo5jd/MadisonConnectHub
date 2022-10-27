@@ -1,0 +1,37 @@
+﻿@page
+@model lab_1_part_3.Pages.User.SearchUserModel
+@{
+}
+@{
+    if (Model.SearchText == null)
+    {
+    <form asp-page="SearchUser">
+                <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
+                <br />
+                <input type="submit" class="btn btn-primary" />
+    </form>
+    <br />
+    <a asp-page="Index" class="btn btn-primary"> Return to My Projects </a>
+    }
+    else
+    {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        foreach(var usr in Model.UserList){
+    <div class="card">
+                <img src="" alt="John" style="width:50%" height="75%">
+                <h1>@usr.FirstName @usr.LastName</h1>
+                <p class="title">@usr.UserType</p>
+                <p>@usr.Email</p>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <p><button>Contact</button></p>
+
+    </div>
+    <br />
+        }
+    <a asp-page="SearchUser" class="btn btn-primary"> Search Again -> </a>
+    <a asp-page="Index" class="btn btn-primary"> Return to User Page -> </a>
+    
+    }
+}

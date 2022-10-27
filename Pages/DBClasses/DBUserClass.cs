@@ -20,6 +20,17 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlDataReader tempReader = cmdUserRead.ExecuteReader();
             return tempReader;
         }
+
+        public static SqlDataReader UserSearch(string search)
+        {
+            SqlCommand cmdProjectRead = new SqlCommand();
+            cmdProjectRead.Connection = new SqlConnection();
+            cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
+            cmdProjectRead.CommandText = "SELECT * FROM  UserProfile WHERE FirstName LIKE '%" + search + "%' or LastName LIKE '%" + search + "%'";
+            cmdProjectRead.Connection.Open();
+            SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
+            return tempReader;
+        }
         public static SqlDataReader UsernameReader()
         {
             SqlCommand cmdUserRead = new SqlCommand();
