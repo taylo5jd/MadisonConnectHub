@@ -3,23 +3,157 @@
 @{
 }
 
-<form asp-page="DBLogin">
-    <input asp-for="Username" class="form-control" placeholder="Enter Username" />
-    <br />
-    <label>Enter Password:</label>
-    <input asp-for="Password" class="form-control" type="password" />
-    <br />
-    <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8" />
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            color: white;
+        }
+
+        svg {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .container {
+            display: inline-block;
+            position: absolute;
+            width: 100%;
+            padding-bottom: 100%;
+            vertical-align: middle;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+        .split {
+            height: 100%;
+            width: 52.4%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+            box-shadow:12px 0 15px -4px #95909D, -12px 0 15px -4px #95909D;
+        }
+
+        .left {
+            left: 0;
+            background-color: #E5DBF4;
+            color: #3E1C66;
+        }
+
+        .right {
+            right: 0;
+            background-color: #FFFFFF;
+            color: #3E1C66;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .centered img {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+
+        h2{
+            text-shadow: 2px 2px 8px #95909D;
+        }
+        h3{
+            text-align: left;
+        }
+
+        h4{
+            font-weight:100;
+            text-align: left;
+        }
+
+        h5{
+            font-size: 15px;
+            font-weight:200;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="split left">
+        <div class="centered">
+            <h2>
+                <font color="#3E1C66">Madison Connect</font>
+                <font color="#E7FAB2">Hub</font>
+            </h2>
+            <h5>Move big ideas forward.</h5>
+            <p style="color:#404040;">Don't have an account?</p>
+            <a class="btn btn-outline-success" style="color: #000AFF; background-color:#E5DBF4; border-color:#E5DBF4" asp-page="CreateHashLogin">Sign up</a>
+            @{
+                if (HttpContext.Session.GetString("username") != null)
+                {
+                        <p class="text-success">@ViewData["LoginMessage"]</p>
+                }
+                else
+                {
+                        <p class="text-danger">@ViewData["LoginMessage"]</p>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="split right">
+        <div class="centered">
+            <h4>Welcome back to</h4>
+            <h3>Madison Connect Hub!</h3>
+            <form asp-page="DBLogin">
+                <label>Email:</label>
+                <input asp-for="Username" class="form-control" />
+                <br />
+                <label>Password:</label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <br />
+                <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8" value="Log in"/>
+            </form>
+        </div>
+        <svg viewBox="0 0 350 350"
+             preserveAspectRatio="xMinYMin meet">
+
+            <path d="M0, 100 C150, 200 350,
+                0 500, 100 L500, 00 L0, 0 Z"
+                  style="stroke:none; fill:#E7FAB2;">
+            </path>
+        </svg>
+    </div>
+
+</body>
+</html>
+
+
+
+
 <br />
 <a class="btn btn-outline-success" style="color: white; background-color:#AC9CD8" asp-page="CreateHashLogin">Create New User</a>
 @{
     if (HttpContext.Session.GetString("username") != null)
     {
-        <p class="text-success">@ViewData["LoginMessage"]</p>
+    <p class="text-success">@ViewData["LoginMessage"]</p>
     }
     else
     {
-        <p class="text-danger">@ViewData["LoginMessage"]</p>
+    <p class="text-danger">@ViewData["LoginMessage"]</p>
     }
 }
