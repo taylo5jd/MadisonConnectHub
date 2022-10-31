@@ -19,31 +19,34 @@
     </thead>
     <tbody>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-       @{
+        @{
+            
+
             foreach (var usr in Model.UserList)
-        {
+            {
+                SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
+               // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
                
-                                                               <tr> <td><div class="card" style="color: white; background-color:#AC9CD8">
-                                                                <img src="" alt="John" style="width:50%" height="75%">
-                                                                <h1>@usr.FirstName @usr.LastName</h1>
-                                                                <p class="title">@usr.UserType</p>
-                                                                <p>@usr.Email</p>
-                                                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                                                <p><button>Contact</button></p>
-                                                                <br/>
-                                                                 </div> </td>
-                                                        @{
-                                                            SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
+                                                                       <tr> <td><div class="card" style="color: white; background-color:#AC9CD8">
+                                                                        <img src="" alt="John" style="width:50%" height="75%">
+                                                                        <h1>@usr.FirstName @usr.LastName</h1>
+                                                                        <p class="title">@usr.UserType</p>
+                                                                        <p>@usr.Email</p>
+                                                                        <a href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin"></i></a>
+                                                                        <a href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube"></i></a>
+                                                                        <p><button>Contact</button></p>
+                                                                        <br/>
+                                                                         </div> </td>
+                                                                @{
                                 
                                                             while(skillReader.Read()){
-                                                                    <td>@skillReader["Skill_Type"].ToString()</td>
+                                                                                    <td>@skillReader["Skill_Type"].ToString()</td>
+                                                                  
                                                             }
                                             
-                                                         }      
-                                                    </tr>
-                                        <br />
+                                                                 }      
+                                                            </tr>
+                                                <br />
         }
         }
         </tbody>

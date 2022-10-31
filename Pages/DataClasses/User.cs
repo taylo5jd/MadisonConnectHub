@@ -13,5 +13,7 @@
         public string ProfessionalEmail { get; set; }
         public string ProfessionalCompany { get; set; }
         public string FacultyAssociation { get; set; }
+        public string VideoIntroduction { get; set; }
+        public string LinkedIn { get; set; }
     }
 }
