@@ -16,6 +16,9 @@ a {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+button {
+    background-color: #AC9CD8;
+}
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
