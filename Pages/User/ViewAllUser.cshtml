@@ -1,0 +1,53 @@
+﻿@page
+@using System.Data.SqlClient
+@using lab_1_part_3.Pages.DBClasses
+@using lab_1_part_3.Pages.DataClasses
+@model lab_1_part_3.Pages.User.ViewAllUserModel
+@{
+  ViewData["Title"] = "View Users";
+
+}
+
+    <h2 class="h2">Your Profile</h2>
+<table class = "table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>User's Skills</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       @{
+            foreach (var usr in Model.UserList)
+        {
+               
+                                                               <tr> <td><div class="card" style="color: white; background-color:#AC9CD8">
+                                                                <img src="" alt="John" style="width:50%" height="75%">
+                                                                <h1>@usr.FirstName @usr.LastName</h1>
+                                                                <p class="title">@usr.UserType</p>
+                                                                <p>@usr.Email</p>
+                                                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                                                <p><button>Contact</button></p>
+                                                                <br/>
+                                                                 </div> </td>
+                                                        @{
+                                                            SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
+                                
+                                                            while(skillReader.Read()){
+                                                                    <td>@skillReader["Skill_Type"].ToString()</td>
+                                                            }
+                                            
+                                                         }      
+                                                    </tr>
+                                        <br />
+        }
+        }
+        </tbody>
+
+<a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return to User Page</a>
+<a asp-page="/CreateHashLogin" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Add A New User</a>
+<a asp-page="/User/SearchUser" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search for a User</a>

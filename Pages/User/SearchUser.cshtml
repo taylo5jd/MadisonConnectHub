@@ -11,13 +11,13 @@
                 <input type="submit" class="btn btn-primary" />
     </form>
     <br />
-    <a asp-page="Index" class="btn btn-primary"> Return to My Projects </a>
+    <a asp-page="Index" class="btn btn-primary"> Return to User Page </a>
     }
     else
     {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         foreach(var usr in Model.UserList){
-    <div class="card">
+            <div class="card" style="color: white; background-color:#AC9CD8">
                 <img src="" alt="John" style="width:50%" height="75%">
                 <h1>@usr.FirstName @usr.LastName</h1>
                 <p class="title">@usr.UserType</p>
@@ -30,8 +30,8 @@
     </div>
     <br />
         }
-    <a asp-page="SearchUser" class="btn btn-primary"> Search Again -> </a>
-    <a asp-page="Index" class="btn btn-primary"> Return to User Page -> </a>
+        <a asp-page="SearchUser" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search Again</a>
+        <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return to User Page</a>
     
     }
 }
