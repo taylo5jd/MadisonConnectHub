@@ -1,9 +1,76 @@
 ﻿@page
 @model lab_1_part_3.Pages.CreateHashLoginModel
-@{
-}
 
-<form asp-page="CreateHashLogin">
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+           
+        body {
+                font-family: Tahoma;
+                color: #3E1C66;
+            }
+
+        .split {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .left {
+            left: 0;
+            background-color: #E5DBF4 ;
+        }
+
+        .right {
+            right: 0;
+            background-color: #E7FAB2;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+            .centered img {
+                width: 150px;
+                border-radius: 50%;
+            }
+    </style>
+</head>
+<body>
+
+    <div style="background-color: #E5DBF4" ; width:"100%"; float: left; height:"100%";>
+
+
+        <div class="split left">
+            <div class="centered">
+                <img src="img_avatar2.png" alt="MH Logo">
+                <h2>Madison ConnectHub</h2>
+                <p>Move big ideas forward.</p>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <p>Already have an account?</p>
+                <a asp-page="DBLogin" class="btn btn-primary" style="color: #000AFF"; background-color: #E5DEBF4";> Log in</a>
+
+            </div>
+        </div>
+
+        <div class="split right">
+            <div class="centered">
+                <div style="background-color: #E7FAB2" ; width:"50%"; float: right; height:"100%";>
+    <form asp-page="CreateHashLogin">
     <label>Enter New Username:</label>
     <input asp-for="Username" class="form-control" placeholder="Enter Username" />
     <br />
@@ -26,7 +93,7 @@
     <input asp-for="NewUser.PhoneNumber" class="form-control" placeholder="Phone Number" />
     <br />
     <label>Enter Professional Email if Applicable:</label>
-    <input asp-for="NewUser.ProfessionalEmail" class="form-control" placeholder="Professional Email" />
+    <input asp-for="NewUser.ProfessionalEmail" class="form-control" placeholder="JMU email address" />
     <br />
     <label>Enter Professional Company if Applicable:</label>
     <input asp-for="NewUser.ProfessionalCompany" class="form-control" placeholder="Professional Company" />
@@ -34,13 +101,29 @@
     <label>Enter Faculty Association if Applicable:</label>
     <input asp-for="NewUser.FacultyAssociation" class="form-control" placeholder="Faculty Association" width="100" />
     <br />
+    <label>Enter Youtube URL for Introduction</label>
+    <input asp-for="NewUser.VideoIntroduction" class="form-control" placeholder="Faculty Association" width="100" />
+    <br />
+    <label>Enter LinkedIn URL</label>
+    <input asp-for="NewUser.LinkedIn" class="form-control" placeholder="Faculty Association" width="100" />
+
+
+    <br />
     <input type="submit" class="btn btn-primary" />
     <a asp-page="DBLogin" class="btn btn-secondary">Cancel</a>
 </form>
+  </div>
+</div>
+
+
+
+
 @{
     if (ViewData["UserCreate"] != null)
     {
-        <p class="text-success">@ViewData["UserCreate"]</p>
+                <p class="text-success">@ViewData["UserCreate"]</p>
     }
 
 }
+</body>
+</html>
