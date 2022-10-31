@@ -62,7 +62,7 @@
                 <br />
                 <br />
                 <p>Already have an account?</p>
-                <a asp-page="DBLogin" class="btn btn-primary" style="color: #000AFF"; background-color: #E5DEBF4";> Log in</a>
+                <a asp-page="DBLogin" class="btn btn-primary" style="color: #000AFF; background-color: #E5DBF4; border-color: #E5DBF4"> Log in</a>
 
             </div>
         </div>
@@ -71,25 +71,19 @@
             <div class="centered">
                 <div style="background-color: #E7FAB2" ; width:"50%"; float: right; height:"100%";>
     <form asp-page="CreateHashLogin">
-    <label>Enter New Username:</label>
+    <label>Please enter the following information to set up your account and information.</label>
     <input asp-for="Username" class="form-control" placeholder="Enter Username" />
     <br />
-    <label>Enter New User's Password:</label>
     <input asp-for="Password" class="form-control" type="password" />
     <br />
-    <label>Enter First Name:</label>
     <input asp-for="NewUser.FirstName"class="form-control" placeholder="First Name" />
     <br />
-    <label>Enter Last Name:</label>
     <input asp-for="NewUser.LastName" class="form-control" placeholder=" Last Name" />
     <br />
-    <label>Enter Email:</label>
     <input asp-for="NewUser.Email" class="form-control" placeholder="Email" />
     <br />
-    <label>Enter User Type:</label>
     <input asp-for="NewUser.UserType" class="form-control" placeholder="Faculty or Professional" />
     <br />
-    <label>Enter Phone Number:</label>
     <input asp-for="NewUser.PhoneNumber" class="form-control" placeholder="Phone Number" />
     <br />
     <label>Enter Professional Email if Applicable:</label>
@@ -102,10 +96,10 @@
     <input asp-for="NewUser.FacultyAssociation" class="form-control" placeholder="Faculty Association" width="100" />
     <br />
     <label>Enter Youtube URL for Introduction</label>
-    <input asp-for="NewUser.VideoIntroduction" class="form-control" placeholder="Faculty Association" width="100" />
+    <input asp-for="NewUser.VideoIntroduction" class="form-control" placeholder="Youtube URL" width="100" />
     <br />
     <label>Enter LinkedIn URL</label>
-    <input asp-for="NewUser.LinkedIn" class="form-control" placeholder="Faculty Association" width="100" />
+    <input asp-for="NewUser.LinkedIn" class="form-control" placeholder="LinkedIn URL" width="100" />
 
 
     <br />
@@ -121,7 +115,7 @@
 @{
     if (ViewData["UserCreate"] != null)
     {
-                <p class="text-success">@ViewData["UserCreate"]</p>
+                    <p class="text-success">@ViewData["UserCreate"]</p>
     }
 
 }
