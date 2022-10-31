@@ -29,6 +29,7 @@
             left: 0;
             display: block;
             margin: 0px auto;
+            margin-top: 200px;
         }
 
         .split {
@@ -75,8 +76,8 @@
         
         h1 {
 
-            font-size: 60px;
-            text-shadow: 2px 2px 8px #95909D;
+            font-size: 45px;
+            
         }
 
 
@@ -101,9 +102,7 @@
     <div class="split left">
         <div class="centered">
             <h3 style="text-align: left; font-style: italic;"> Welcome to</h3>
-            <h1>
-
-                <font color="#3E1C66">Madison Connect</font><font color="#E7FAB2">Hub</font>
+            <h1 style="text-shadow: 2px 2px 8px #95909D;"><font color="#3E1C66">Madison Connect</font><font color="#E7FAB2">Hub</font>
             </h1>
             <h4 style="text-align: center; font-weight: 100;">Move big ideas forward.</h4>
             <br />
@@ -115,11 +114,11 @@
             @{
                 if (HttpContext.Session.GetString("username") != null)
                 {
-                                                                <p class="text-success">@ViewData["LoginMessage"]</p>
+                                                                    <p class="text-success">@ViewData["LoginMessage"]</p>
                 }
                 else
                 {
-                                                                <p class="text-danger">@ViewData["LoginMessage"]</p>
+                                                                    <p class="text-danger">@ViewData["LoginMessage"]</p>
                 }
             }
         </div>
@@ -128,7 +127,7 @@
     <div class="split right">
         <div class="centered">
             <h4>Create a personal account with</h4>
-            <h3>Madison Connect Hub!</h3>
+            <h1 style="text-align:left">Madison Connect Hub!</h1>
             <form asp-page="CreateHashLogin">
                 <label>Please enter the following information to set up your account and information.</label>
                 <input asp-for="Username" class="form-control" placeholder="Username" />
