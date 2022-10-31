@@ -36,7 +36,7 @@
                         <td>@proj.ProjectOwnerEmail</td>
                         <td>@String.Format("{0:M/d/yyyy}", dt)</td>
                         <td>@proj.ProjectMissionStatement</td>
-                        <td><a asp-page="EditProject" class="btn btn-primary" asp-route-projectid="@proj.ProjectID"> Edit </a></td>
+                    <td><a asp-page="EditProject" class="btn btn-primary" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#AC9CD8"> Edit </a></td>
                     </tr>
 
             }
@@ -44,6 +44,6 @@
 
     </tbody>
 </table>
-<a asp-page="AddProject" class="btn btn-primary"> Add A New Project -> </a>
-<a asp-page="ViewProjects" class="btn btn-primary"> View All Projects -> </a>
-<a asp-page="SearchProject" class="btn btn-primary"> Search For Projects </a>
+<a asp-page="AddProject" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Add A New Project -> </a>
+<a asp-page="ViewProjects" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> View All Projects -> </a>
+<a asp-page="SearchProject" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search For Projects </a>
