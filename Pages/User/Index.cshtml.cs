@@ -52,6 +52,8 @@ namespace lab_1_part_3.Pages.User
                     ProfessionalEmail = userReader["Professional_Email"].ToString(),
                     ProfessionalCompany = userReader["Professional_Company"].ToString(),
                     FacultyAssociation = userReader["Faculty_Association"].ToString(),
+                    LinkedIn = userReader["LinkedIn"].ToString(),
+                    VideoIntroduction = userReader["Video_Introduction"].ToString(),
 
                 });
 

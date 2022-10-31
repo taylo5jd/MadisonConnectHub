@@ -1,7 +1,10 @@
 ﻿@page
+@using System.Data.SqlClient
+@using lab_1_part_3.Pages.DBClasses
 @{
     /*Justin Taylor*/
 }
+
 @model lab_1_part_3.Pages.User.IndexModel
 @{
     ViewData["Title"] = "View Users";
@@ -9,70 +12,47 @@
 }
 
 <h2 class="h2">Your Profile</h2>
-<table class = "table table-bordered table-striped table-hover table-responsive">
-    <thead>
-        <tr>
-            <th>Username</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Email</th>
-            <th>UserType</th>
-            <th>PhoneNumber</th>
-            <th>ProfessionalEmail</th>
-            <th>ProfessionalCompany</th>
-            <th>FacultyAssociation</th>
-        </tr>
-    </thead>
-<tbody>
+
     @{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         foreach (var usr in Model.UserList)
         {
-                        <tr>
-                        <td>@usr.Username</td>
-                        <td>@usr.FirstName</td>
-                        <td>@usr.LastName</td>
-                        <td>@usr.Email</td>
-                        <td>@usr.UserType</td>
-                        <td>@usr.PhoneNumber</td>
-                        <td>@usr.ProfessionalEmail</td>
-                        <td>@usr.ProfessionalCompany</td>
-                        <td>@usr.FacultyAssociation</td>
-                                <td><a asp-page="EditUser" class="btn btn-primary" asp-route-profileid="@usr.ProfileID"> Edit </a></td>
-                        </tr>
+        SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
+    <div class="profilecard" style="color: white; background-color:#AC9CD8">
+                                                                                <img src="" alt="John" style="width:50%" height="75%">
+                                                                                <h1>@usr.FirstName @usr.LastName</h1>
+                                                                                <p class="title">@usr.UserType</p>
+                                                                                <p>@usr.Email</p>
+                                                                             
+                                                                                <a href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin"></i></a>
+                                                                                <br/>
+                                                                              
+                                                                                <a href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube"></i></a>
+
+                                                                                <br/>
+                                                                                <p direction="right">@usr.PhoneNumber</p>
+                                                                                <p>@usr.FacultyAssociation</p>
+
+                                                                                <h3 style="color: black">Skills:</h3>
+                                                                                <p>
+                                                                                @{while(skillReader.Read()){
+                                                                                            @skillReader["Skill_Type"].ToString() 
+                                                                                            <br />
+                                                                          }       }
+                                                                                </p>
+                                                                                <p><button>View Profile</button></p>
+                                                                                <br/>
+    </div>
            
     }
    }
    
-    </tbody>
-</table>
-<a asp-page = "/CreateHashLogin" class="btn btn-primary"> Add A New User</a>
-<a asp-page = "/User/SearchUser" class="btn btn-primary"> Search for a User</a>
+
+
+
 <a asp-page = "/User/ViewAllUser" class="btn btn-primary"> View All Users</a>
 <br />
 <br />
 
-<h2 class="h2">Your Skillset</h2>
-<table class="table table-bordered table-striped table-hover table-responsive">
-    <thead>
-        <tr>
-            <th>Skill Name</th>
-            <th>Skill Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            foreach (var skill in Model.SkillList)
-            {
-                            <tr>
-
-                                <td>@skill.SkillType</td>
-                                <td>@skill.SkillDescription</td
-                            </tr>
-
-            }
-        }
-
-    </tbody>
-</table>
 @{//<a asp-page = "AddSkillsToUser" class="btn btn-primary"> Expand Your Skillset -> </a>
     }
