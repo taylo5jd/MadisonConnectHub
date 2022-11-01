@@ -17,7 +17,6 @@ namespace lab_1_part_3.Pages
             {
                if (HttpContext.Session.GetString("username") == null)
                 {
-                    return RedirectToPage("DBLogin");
                 }
 
                 return Page();
