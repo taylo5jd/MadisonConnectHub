@@ -86,16 +86,28 @@
             font-weight:200;
         }
 
+        .logo {
+  position: absolute;
+}
 
+.logo1 {
+          position: absolute;
+  top: 10px;
+  left: 10px;
+}
 
 
     </style>
 </head>
+
 <body>
 
     <div class="split left">
         <div class="centered">
             <h2>
+                <div class="logo"
+                <img class="logo1" src="/Images/logo.png"/>
+                </div>
                 <font color="#3E1C66">Madison Connect</font><font color="#E7FAB2"> Hub</font>
             </h2>
             <h5>Move big ideas forward.</h5>
@@ -119,10 +131,10 @@
             <h4>Welcome back to</h4>
             <h3>Madison Connect Hub!</h3>
             <form asp-page="DBLogin">
-                <label>Email:</label>
+                <label style ="text-align: left" >Username:</label>
                 <input asp-for="Username" class="form-control" />
                 <br />
-                <label>Password:</label>
+                <label style ="text-align: left" >Password:</label>
                 <input asp-for="Password" class="form-control" type="password" />
                 <br />
                 <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8" value="Log in"/>
