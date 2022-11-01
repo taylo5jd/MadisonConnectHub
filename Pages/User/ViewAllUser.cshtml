@@ -28,17 +28,34 @@
                // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
                
                                                                        <div class="card" style="color: white; background-color:#AC9CD8">
-                <img src="@Methods.imgFinder(usr.Username)" alt="John" style="width:50%" height="75%">
-                                                                        <div class=" = "container">
-                                                                        <h1>@usr.FirstName @usr.LastName</h1>
-                                                                        <p class="title">@usr.UserType</p>
-                                                                        <p>@usr.Email</p>
-                                                                        <a href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin"></i></a>
-                                                                        <a href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube"></i></a>
-                                                                        <p><button>View Profile</button></p>
-                                                                        <br/>
+                <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:50%" height="75%">
+                <h1>@usr.FirstName @usr.LastName</h1>
+                <p class="title">@usr.UserType</p>
+                <p>@usr.Email</p>
+
+                <a href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin"></i></a>
+                
+
+                <a href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube"></i></a>
+
+                <br />
+                <p direction="right">@usr.PhoneNumber</p>
+                <p>@usr.FacultyAssociation</p>
+
+                <h3 style="color: black">Skills:</h3>
+                <p>
+                    @{
+                        while (skillReader.Read())
+                        {
+                            @skillReader["Skill_Type"].ToString()
+                            <br />
+                        }
+                    }
+                </p>
+                <p><button>View User</button></p>
+                <br />
                         </div>
-                                                                         </div> 
+                                                                
                                                                
                                 
                                                             while(skillReader.Read()){

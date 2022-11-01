@@ -58,6 +58,8 @@ namespace lab_1_part_3.Pages.DBClasses
 
             return tempReader;
         }
+
+      
         public static SqlDataReader SingleProjectReader(int ProjectID)
         {
             SqlCommand cmdProjectRead = new SqlCommand();
