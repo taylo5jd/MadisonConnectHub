@@ -126,30 +126,35 @@
 
     <div class="split right">
         <div class="centered">
-            <h4>Create a personal account</h4>
+            <h4 style="text-align: center">Create a personal account</h4>
             <form asp-page="CreateHashLogin">
-                <label>Please enter the following information to set up your account and information.</label>
-                <input asp-for="Username" class="form-control" placeholder="Username*" />
-                <input asp-for="Password" class="form-control" type="password" placeholder="Password*" />
-                <input asp-for="NewUser.FirstName" class="form-control" placeholder="First Name*" />
-                <input asp-for="NewUser.LastName" class="form-control" placeholder="Last Name*" />
-                <input asp-for="NewUser.Email" class="form-control" placeholder="JMU Email Address*" />
-                <input asp-for="NewUser.PhoneNumber" class="form-control" placeholder="Phone Number*" />
+                <label style="text-align: left">Please enter the following information to set up your account and information.</label>
+                <br />
+                <br />
+                <input asp-for="Username" class="form-control" placeholder="Username *" />
+                <input asp-for="Password" class="form-control" type="password" placeholder="Password *" />
+                <input asp-for="NewUser.FirstName" class="form-control" placeholder="First Name *" />
+                <input asp-for="NewUser.LastName" class="form-control" placeholder="Last Name *" />
+                <input asp-for="NewUser.Email" class="form-control" placeholder="JMU Email Address *" />
+                <input asp-for="NewUser.PhoneNumber" class="form-control" placeholder="Phone Number *" />
                 <br />
                 <label>Select Affiliation:</label>
-                <input asp-for="NewUser.ProfessionalCompany" class="form-control" placeholder="Professional Company" />
-                <input asp-for="NewUser.FacultyAssociation" class="form-control" placeholder="Faculty Association" />
-                <br />@*
+                <br />
+                <select name="NewUser.FacultyAssociation">
+                    <option value ="Faculty">Faculty</option>
+                    <option value ="Student">Sutdent</option>
+                </select>
+                <br/>
+                @*<br />*@@*
                 <label>Enter Youtube URL for Introduction</label>
                 <input asp-for="NewUser.VideoIntroduction" class="form-control" placeholder="Youtube URL" />
-                <br />*@
+                <br />
                 <label>Enter LinkedIn URL</label>
-                <input asp-for="NewUser.LinkedIn" class="form-control" placeholder="LinkedIn URL" />
+                <input asp-for="NewUser.LinkedIn" class="form-control" placeholder="LinkedIn URL" />*@
 
 
                 <br />
-                <button type="button" class="btn btn-secondary" style=" color: white; background-color: #AC9CD8">Sign up</button>
-                <a asp-page="DBLogin" class="btn btn-secondary">Cancel</a>
+                <input type="submit" class="btn btn-secondary" style=" color: white; background-color: #AC9CD8" value="Sign Up""></input>
             </form>
         </div>
         <svg viewBox="0 0 350 350"
