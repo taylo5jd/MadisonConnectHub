@@ -9,15 +9,15 @@
 }
 
     <h2 class="h2">Your Profile</h2>
-<table class = "table table-bordered table-striped table-hover table-responsive">
-    <thead>
+<div class = "columncards">
+   @* <thead>
         <tr>
             <th>User</th>
             <th>User's Skills</th>
             
         </tr>
     </thead>
-    <tbody>
+    <tbody>*@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         @{
             
@@ -27,8 +27,9 @@
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
                
-                                                                       <tr> <td><div class="card" style="color: white; background-color:#AC9CD8">
-                                                                        <img src="" alt="John" style="width:50%" height="75%">
+                                                                       <div class="card" style="color: white; background-color:#AC9CD8">
+                <img src="@Methods.imgFinder(usr.Username)" alt="John" style="width:50%" height="75%">
+                                                                        <div class=" = "container">
                                                                         <h1>@usr.FirstName @usr.LastName</h1>
                                                                         <p class="title">@usr.UserType</p>
                                                                         <p>@usr.Email</p>
@@ -36,20 +37,21 @@
                                                                         <a href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube"></i></a>
                                                                         <p><button>View Profile</button></p>
                                                                         <br/>
-                                                                         </div> </td>
-                                                                @{
+                        </div>
+                                                                         </div> 
+                                                               
                                 
                                                             while(skillReader.Read()){
-                                                                                    <td>@skillReader["Skill_Type"].ToString()</td>
+                                                                                    @skillReader["Skill_Type"].ToString()
                                                                   
                                                             }
                                             
-                                                                 }      
-                                                            </tr>
+                                                                      
+                                                            
                                                 <br />
         }
         }
-        </tbody>
+        
 
 <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return to User Page</a>
 

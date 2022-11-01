@@ -41,6 +41,7 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlDataReader tempReader = cmdUserRead.ExecuteReader();
             return tempReader;
         }
+       
         public static SqlDataReader FirstNameReader(string Username)
         {
             SqlCommand cmdUserRead = new SqlCommand();

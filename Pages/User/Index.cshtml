@@ -15,11 +15,14 @@
 
     @{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        foreach (var usr in Model.UserList)
-        {
+    foreach (var usr in Model.UserList)
+    {
         SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
-    <div class="profilecard" style="color: white; background-color:#AC9CD8">
-                                                                                <img src="" alt="John" style="width:50%" height="75%">
+      
+        <div class="profilecard" style="color: white; background-color:#AC9CD8">
+            
+       
+                                                                                <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:50%" height="75%">
                                                                                 <h1>@usr.FirstName @usr.LastName</h1>
                                                                                 <p class="title">@usr.UserType</p>
                                                                                 <p>@usr.Email</p>
@@ -40,7 +43,7 @@
                                                                                             <br />
                                                                           }       }
                                                                                 </p>
-                                                                                <p><button>View Profile</button></p>
+                                                                                <p><button>Edit User</button></p>
                                                                                 <br/>
     </div>
            

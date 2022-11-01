@@ -19,9 +19,23 @@ body {
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
+    transition: 0.2s;
     margin: auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
+}
+
+
+
+.container {
+    padding: 2px 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 .profilecard {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 1200px;

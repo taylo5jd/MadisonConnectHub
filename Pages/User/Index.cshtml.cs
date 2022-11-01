@@ -10,6 +10,8 @@ namespace lab_1_part_3.Pages.User
     {
         public List<UserProfile> UserList { get; set; }
         public List<Skill> SkillList { get; set; }
+        [BindProperty]
+        public List<IFormFile> files { get; set; }
         public IndexModel()
         {
             UserList = new List<UserProfile>();
@@ -71,7 +73,9 @@ namespace lab_1_part_3.Pages.User
             skillReader.Close();
             return Page();
         }
+
     }
+
 }
 
     

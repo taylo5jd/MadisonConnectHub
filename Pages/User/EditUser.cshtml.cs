@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using System.Security.Cryptography.X509Certificates;
+using System.IO;
 
 namespace lab_1_part_3.Pages.User
 {
@@ -14,6 +15,7 @@ namespace lab_1_part_3.Pages.User
         [BindProperty]
         public string PRFID { get; private set; }
         public object Public { get; private set; }
+     
 
         public EditUserModel()
         {
@@ -55,6 +57,9 @@ namespace lab_1_part_3.Pages.User
             DBUserClass.UpdateUserProfile(UserToUpdate);
 
             return RedirectToPage("Index");
+
+           
+           
         }
     }
 }
