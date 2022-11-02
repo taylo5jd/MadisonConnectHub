@@ -36,7 +36,7 @@
     <label>Enter LinkedIn URL</label>
     <input asp-for="UserToUpdate.LinkedIn" class="form-control" placeholder="LinkedIn URL" />
     <br />
-    <a asp-page="AddToTeam" class="btn btn-primary" asp-route-profileid= "@Model.UserToUpdate.ProfileID">JoinTeam</a>
+ 
     <a asp-page="AddSkillsToUser" class="btn btn-primary" asp-route-profileid="@Model.UserToUpdate.ProfileID">AddSKill</a>
 
     <input type="submit" class="btn btn-success" asp-page="EditUser" style="color: white; background-color:#AC9CD8" />
