@@ -1,40 +1,116 @@
 ﻿@page
 @{/*Justin Taylor*/}
 @model IndexModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        *{
+            box-sizing: border-box;
+            align-items: center;
+
+        }
+        body{
+            align-items: center;
+            font-family: "IBM Plex Sans";
+        }
+        .column{
+            float:left;
+            width:30%;
+            padding: 10px 10px;
+        }
+        .row {margin: 0 -5px;
+        }
+        .row:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .card{
+            box-shadow: 0 4px 8px 0 rgba(0,0,0, 0.2);
+            padding: 16px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+       
+        .button {
+            border-radius: 10px;
+        }
+        
+    </style>
+</head>
+<body>
 @{
     ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome Back, @HttpContext.Session.GetString("username")!</h1>
-    <p>To access all available pages please use the nav bar above</p>
-    <br />
+    @*<h1 class="display-4">Welcome Back, @HttpContext.Session.GetString("username")!</h1>*@
+        <h1 style=" color: #3E1C66;">Projects</h1>
+    <p style=" color: #889099">Here are some of the projects Madison Connect Hub has to offer!</p>
     @{
     
         if (HttpContext.Session.GetString("username") != null)
         {
-            <p>User @HttpContext.Session.GetString("username") is logged in!</p>
-            <b />
-            <p>Our mission is to create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to form with the right expertise to move big ideas forward.</p>
-            <a class="btn btn-outline-success" style="color: white; background-color:#AC9CD8" asp-page="DBLogin" asp-route-logout="true">Logout</a>
+                                                                                                                                    <p>User @HttpContext.Session.GetString("username") is logged in!</p>
+                                                                                                                                    <b />
+                                                                                                                                    <p>Our mission is to create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to form with the right expertise to move big ideas forward.</p>
+                                                                                                                                    <a class="btn btn-outline-success" style="color: white; background-color:#AC9CD8" asp-page="DBLogin" asp-route-logout="true">Logout</a>
             
         }
 
 
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                                                                                                                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                                                                                                                        
+                                                                                                                                <div class="row">
+                                                                                                                                      <div class="column">
+                                                                                                                                           <div class="card">
+                                                                                                                                                         <img src="~/Images/Chris-O-Image-705x705.png" alt="John" style="width:50%" height="75%">
+                                                                                                                                                         <input type="submit" class="button" style=" color: white; background-color: #AC9CD8; border-color:#AC9CD8" value="Request to join"></input>
+                                                                                                                                                         <h1>Chris O'brien</h1>
+                                                                                                                                                        <p class="title">CEO & Founder</p>
+                                                                                                                                                        <p>Virginia Tech</p>
+                                                                                                                                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                                                                                                                                         <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                                                                                                                         <a href="#"><i class="fa fa-facebook"></i></a>
+                                                                                                                                                        <p><button>Contact</button></p>
+                                                                                                                                          </div>
+                                                                                                                                     </div>
 
-        <div class="card">
-            <img src="~/Images/Chris-O-Image-705x705.png" alt="John" style="width:50%" height="75%">
-            <h1>Chris O'brien</h1>
-            <p class="title">CEO & Founder</p>
-            <p>Virginia Tech</p>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <p><button>Contact</button></p>
-        </div>
-    }
-    
+                                                                                                                                  <div class="column">
+                                                                                                                                          <div class="card">
+                                                                                                                                          <img src="~/Images/Chris-O-Image-705x705.png" alt="John" style="width:50%" height="75%">
+                                                                                                                                           <input type="submit" class="button" style=" color: white; background-color: #AC9CD8; border-color:#AC9CD8"  value="Request to join"></input>
+                                                                                                                                           <h1>Chris O'brien</h1>
+                                                                                                                                           <p class="title">CEO & Founder</p>
+                                                                                                                                           <p>Virginia Tech</p>
+                                                                                                                                           <a href="#"><i class="fa fa-twitter"></i></a>
+                                                                                                                                           <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                                                                                                           <a href="#"><i class="fa fa-facebook"></i></a>
+                                                                                                                                           <p><button>Contact</button></p>
+                                                                                                                                           </div>
+                                                                                                                                        </div>
 
-</div>
+                                                                                                                                    <div class="column">
+                                                                                                                                        <div class="card">
+                                                                                                                                            <img src="~/Images/Chris-O-Image-705x705.png" alt="John" style="width:50%" height="75%">
+                                                                                                                                            <input type="submit" class="button" style=" color: white; background-color: #AC9CD8; border-color:#AC9CD8"  value="Request to join"></input>
+                                                                                                                                            <h1>Chris O'brien</h1>
+                                                                                                                                            <p class="title">CEO & Founder</p>
+                                                                                                                                            <p>Virginia Tech</p>
+                                                                                                                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                                                                                                                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                                                                                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                                                                                                                            <p><button>Contact</button></p>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                  </div>
+
+        }
+        
+
+    </div>
+    </body>
+    </html>

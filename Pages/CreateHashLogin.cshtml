@@ -96,6 +96,8 @@
             border-radius: 10px;
         }
 
+        
+        
     </style>
 </head>
 <body>
@@ -115,11 +117,11 @@
             @{
                 if (HttpContext.Session.GetString("username") != null)
                 {
-                                                                                <p class="text-success">@ViewData["LoginMessage"]</p>
+                                                                                        <p class="text-success">@ViewData["LoginMessage"]</p>
                 }
                 else
                 {
-                                                                                <p class="text-danger">@ViewData["LoginMessage"]</p>
+                                                                                        <p class="text-danger">@ViewData["LoginMessage"]</p>
                 }
             }
         </div>
