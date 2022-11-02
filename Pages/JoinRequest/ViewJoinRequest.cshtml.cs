@@ -16,7 +16,7 @@ namespace lab_1_part_3.Pages.JoinRequest
             SqlDataReader joinReader2 = DBTeamClass.TeamOwner(HttpContext.Session.GetString("username"),TeamID);
 
 
-            if (TeamID != 0)
+            if (TeamID != 0 || ProfileID !=0)
             {
                 while (joinReader2.Read())
                 {

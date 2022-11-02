@@ -19,18 +19,18 @@
             // <td><a asp-page="Approve" class="btn btn-primary" asp-route-projectid="@proj.ProjectID"> Edit </a></td>
             SqlDataReader joinReader = DBJoinRequest.JoinRequestReader(HttpContext.Session.GetString("username"));
 
-            while(joinReader.Read())
+            while (joinReader.Read())
             {
-                if (joinReader["StatusFlag"].ToString().Equals("n"))
+                if (joinReader["StatusFlag"].ToString() == ("n"))
                 {
                     <tr>
 
-                    <td>@joinReader["Requester"].ToString()</td>
-                    <td>@joinReader["Project Name"].ToString()</td>
-                        <td><a asp-page="ViewJoinRequest" class="btn btn-primary" asp-route-ProfileID="@Int32.Parse(joinReader["ProfileID"].ToString())" asp-route-RequestID="@Int32.Parse(joinReader["RequestID"].ToString())" asp-route-TeamID="@Int32.Parse(joinReader["TeamID"].ToString())" style="color: white; background-color:#AC9CD8"> Approve </a></td>
-                        <td><a asp-page="ViewJoinRequest" class="btn btn-primary" asp-route-RequestID="@Int32.Parse(joinReader["RequestID"].ToString())" asp-route-TeamID="0" style="color: white; background-color:#AC9CD8"> Deny </a></td>
+                        <td>@joinReader["Requester"].ToString()</td>
+                        <td>@joinReader["Project Name"].ToString()</td>
+                        <td><a asp-page="ViewJoinRequest" class="btn btn-primary" asp-route-RequestID="@Int32.Parse(joinReader["RequestID"].ToString())"asp-route-ProfileID="@Int32.Parse(joinReader["ProfileID"].ToString())" asp-route-TeamID="@Int32.Parse(joinReader["TeamID"].ToString())"> Approve </a></td>
+                        <td><a asp-page="ViewJoinRequest" class="btn btn-primary" asp-route-TeamID="0"> Deny </a></td>
 
-                </tr>
+                    </tr>
                 }
 
             }
