@@ -58,9 +58,20 @@
         }
 
 }
-    <h1 class="display-4">Welcome back, @firstName!</h1>
-    <p>To access all available pages, please use the nav bar above.</p>
-    <br />
+@{
+            if (HttpContext.Session.GetString("username") != null){
+                <h1 class="display-4">Welcome back, @firstName!</h1>
+            }
+            else {
+                <h1 class="display-4">Welcome to MadisonConnectHub!</h1>
+                <h5>Please create an account or log in to access all features</h5>
+            }
+            
+
+
+}
+    
+    @*<p>To access all available pages, please use the nav bar above.</p>*@
     @{
     
             if (HttpContext.Session.GetString("username") != null)
