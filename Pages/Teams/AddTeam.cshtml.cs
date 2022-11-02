@@ -46,6 +46,11 @@ namespace lab_1_part_3.Pages.Teams
         {
             DBTeamClass.InsertTeam(NewTeam);
 
+            int prfid = DBUserClass.UserIDReader(HttpContext.Session.GetString("username"));
+            int tid = DBTeamClass.TeamIDReader();
+
+            DBAddToTeamClass.InsertUserTeamComposition(prfid,tid );
+
             return RedirectToPage("Index");
         }
 

@@ -20,6 +20,19 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlDataReader tempReader = cmdUserRead.ExecuteReader();
             return tempReader;
         }
+        public static int UserIDReader(string username)
+        {
+        
+
+            SqlCommand cmdUserRead = new SqlCommand();
+            cmdUserRead.Connection = new SqlConnection();
+            cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
+            cmdUserRead.CommandText = "SELECT ProfileID FROM UserProfile WHERE Username ='" + username + "'";
+            cmdUserRead.Connection.Open();
+            int rowCount = (int)cmdUserRead.ExecuteScalar();
+            return rowCount;
+        }
+
 
         public static SqlDataReader UserSearch(string search)
         {

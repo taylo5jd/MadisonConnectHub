@@ -19,9 +19,21 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlDataReader tempReader = cmdTeamRead.ExecuteReader();
             return tempReader;
         }
-  
 
-             public static SqlDataReader TeamOwner (string Username, int TeamID)
+        public static int TeamIDReader()
+        {
+            SqlCommand cmdUserRead = new SqlCommand();
+                cmdUserRead.Connection = new SqlConnection();
+                cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
+                cmdUserRead.CommandText = "select MAX(Team.TeamID) from Team";
+                cmdUserRead.Connection.Open();
+                int rowCount = (int)cmdUserRead.ExecuteScalar();
+                return rowCount;
+            
+        }
+
+
+        public static SqlDataReader TeamOwner (string Username, int TeamID)
         {
             SqlCommand cmdTeamRead = new SqlCommand();
             cmdTeamRead.Connection = new SqlConnection();
