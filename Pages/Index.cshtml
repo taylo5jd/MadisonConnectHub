@@ -1,12 +1,23 @@
 ﻿@page
 @{/*Justin Taylor*/}
+@using Pages.DBClasses
+@using System.Data.SqlClient
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome Back, @HttpContext.Session.GetString("username")!</h1>
+    @{
+        string Username = HttpContext.Session.GetString("username");
+        SqlDataReader userReader = DBUserClass.FirstNameReader(Username);
+        string firstName = " ";
+        while (userReader.Read()){
+            firstName += userReader["FirstName"].ToString();
+        }
+
+}
+    <h1 class="display-4">Welcome Back, @firstName!</h1>
     <p>To access all available pages please use the nav bar above</p>
     <br />
     @{
