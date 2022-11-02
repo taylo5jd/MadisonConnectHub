@@ -8,7 +8,7 @@
 
 }
 
-    <h2 class="h2">Your Profile</h2>
+    <h2 class="h2">All Users</h2>
 <div class = "columncards">
    @* <thead>
         <tr>
@@ -25,10 +25,11 @@
             foreach (var usr in Model.UserList)
             {
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
+                SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
                // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
                
                
-                                                                       <div class="card" style="color: white; background-color:#AC9CD8">
+                                                                       <div class="card" style="color: black; background-color:#fff">
                 <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:50%" height="75%">
                 <h1>@usr.FirstName @usr.LastName</h1>
                 <p class="title">@usr.UserType</p>
@@ -52,6 +53,17 @@
                             <br />
                         }
                     }
+                </p>
+                <br />
+
+                <h3 style="color: black">Projects:</h3>
+                <p>
+                @{
+                    while(projReader.Read()){
+                        @projReader["Project_Name"].ToString()
+                        <br />
+                    }
+                }
                 </p>
                 <a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8">View User</a>
                 

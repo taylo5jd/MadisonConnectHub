@@ -28,6 +28,22 @@ namespace lab_1_part_3.Pages.DBClasses
             return tempReader;
         }
 
+        public static SqlDataReader UserProjectReader(string username)
+        {
+            SqlCommand cmdProjectRead = new SqlCommand();
+            cmdProjectRead.Connection = new SqlConnection();
+            cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
+            cmdProjectRead.CommandText = @"select Project.Project_Name, project.Project_Type, Project.Project_Description from
+Project inner join Team on Team.ProjectID = Project.ProjectID
+inner join TeamComposition on team.TeamID = TeamComposition.TeamID
+inner join UserProfile on TeamComposition.ProfileID = UserProfile.ProfileID
+where Username = '" + username + "'";
+            cmdProjectRead.Connection.Open();
+            SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
+            return tempReader;
+        }
+
+
         public static void InsertProject(ProjectProfile p)
         {
             String sqlQuery = "INSERT INTO Project (ProfileID,Project_Description,Project_Type,Project_Name,Project_Owner_Email,Project_Begin_Date,Project_Mission_Statement) VALUES(";
