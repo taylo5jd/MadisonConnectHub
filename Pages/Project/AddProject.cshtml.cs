@@ -58,7 +58,7 @@ namespace lab_1_part_3.Pages.Project
            // NewProjectProfile.ProjectBeginDate = dt;
             DBProjectClass.InsertProject(NewProjectProfile);
 
-                return RedirectToPage("Index");
+                return RedirectToPage("/Teams/AddTeam");
             }
         public IActionResult OnPostPopulateHandler()
         {
