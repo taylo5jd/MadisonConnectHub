@@ -13,7 +13,7 @@
         }
 
         svg {
-            display: inline-block;
+            display: inline;
             position: absolute;
             top: 0;
             left: 0;
@@ -91,9 +91,7 @@
         }
 
         .logo1 {
-            position: sticky;
-            top: 0;
-            left: 0;
+
         }
 
     </style>
@@ -118,11 +116,11 @@
             @{
                 if (HttpContext.Session.GetString("username") != null)
                 {
-                                <p class="text-success">@ViewData["LoginMessage"]</p>
+                            <p class="text-success">@ViewData["LoginMessage"]</p>
                 }
                 else
                 {
-                                <p class="text-danger">@ViewData["LoginMessage"]</p>
+                            <p class="text-danger">@ViewData["LoginMessage"]</p>
                 }
             }
         </div>
