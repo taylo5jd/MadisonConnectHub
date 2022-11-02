@@ -88,16 +88,28 @@
 
         .form-control {
             border-radius: 10px;
+        }
+
+        .logo1 {
+            position: sticky;
+            top: 0;
+            left: 0;
+        }
 
     </style>
+
+   
 </head>
+<header>
+    <img class="logo1" src="/Images/logo.png" />
+</header>
 
 <body>
 
     <div class="split left">
         <div class="centered">
             <h2>
-                <img class="logo1" src="/Images/logo.png"/>
+             
                 <font color="#3E1C66">Madison Connect</font><font color="#E7FAB2"> Hub</font>
             </h2>
             <h5>Move big ideas forward.</h5>
@@ -106,11 +118,11 @@
             @{
                 if (HttpContext.Session.GetString("username") != null)
                 {
-                        <p class="text-success">@ViewData["LoginMessage"]</p>
+                                <p class="text-success">@ViewData["LoginMessage"]</p>
                 }
                 else
                 {
-                        <p class="text-danger">@ViewData["LoginMessage"]</p>
+                                <p class="text-danger">@ViewData["LoginMessage"]</p>
                 }
             }
         </div>
@@ -123,11 +135,9 @@
             <br />
             <br />
             <form asp-page="DBLogin">
-                <label style ="text-align: left" >Username:</label>
-                <input asp-for="Username" class="form-control" />
+                <input asp-for="Username" class="form-control" placeholder="Username *" />
                 <br />
-                <label style ="text-align: left" >Password:</label>
-                <input asp-for="Password" class="form-control" type="password" />
+                <input asp-for="Password" class="form-control" type="password" placeholder="Password * "/>
                 <br />
                 <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8" value="Log in"/>
             </form>
