@@ -1,17 +1,20 @@
 ﻿@page
 @using System.Data.SqlClient
 @using lab_1_part_3.Pages.DBClasses
+@model lab_1_part_3.Pages.User.ViewUser
+@{
+}
 @{
     /*Justin Taylor*/
 }
 
-@model lab_1_part_3.Pages.User.IndexModel
+
 @{
     ViewData["Title"] = "View Users";
 
 }
 
-<h2 class="h2">Your Profile</h2>
+<h2 class="h2">Profile</h2>
 
     @{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -43,7 +46,7 @@
                                                                                             <br />
                                                                           }       }
                                                                                 </p>
-            <p><a asp-page="EditUser" class="btn btn-primary" style=" color: white; background-color: #AC9CD8" asp-route-profileid="@usr.ProfileID"> Edit </a></p>
+                                                                                
                                                                                 <br/>
     </div>
            

@@ -27,6 +27,7 @@
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
                
+               
                                                                        <div class="card" style="color: white; background-color:#AC9CD8">
                 <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:50%" height="75%">
                 <h1>@usr.FirstName @usr.LastName</h1>
@@ -52,7 +53,8 @@
                         }
                     }
                 </p>
-                <p><button>View User</button></p>
+                <a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8">View User</a>
+                
                 <br />
                         </div>
                                                                 
