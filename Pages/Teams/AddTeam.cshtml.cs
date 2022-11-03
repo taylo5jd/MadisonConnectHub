@@ -78,9 +78,9 @@ namespace lab_1_part_3.Pages.Teams
                 projectReader.Close();
 
                 ModelState.Clear();
-                NewTeam.TeamEmail= "TestTeamEmail@gmail.com";
-                NewTeam.TeamDescription = "A decent test team";
-                NewTeam.TeamName = "TeamViolet";
+                NewTeam.TeamEmail= "teamair@dukes.jmu";
+                NewTeam.TeamDescription = "A group of people who want to clean the air.";
+                NewTeam.TeamName = "Air Cleaners";
                 NewTeam.TeamMeetingDate = "2023-01-15";
                 NewTeam.ProjectID = 2;
             }

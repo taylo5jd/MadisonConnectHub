@@ -1,5 +1,7 @@
 ﻿@page
-@{/*Justin Taylor*/}
+@{
+    /*Justin Taylor*/
+}
 @using Pages.DBClasses
 @using System.Data.SqlClient
 @model IndexModel
@@ -8,125 +10,132 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        *{
+        * {
             box-sizing: border-box;
             align-items: center;
-
         }
-        body{
+
+        body {
             align-items: center;
             font-family: "IBM Plex Sans";
         }
-        .column{
-            float:left;
-            width:30%;
+
+        .column {
+            float: left;
+            width: 30%;
             padding: 10px 10px;
         }
-        .row {margin: 0 -5px;
+
+        .row {
+            margin: 0 -5px;
         }
-        .row:after{
-            content: "";
-            display: table;
-            clear: both;
-        }
-        .card{
+
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+        .card {
             box-shadow: 0 4px 8px 0 rgba(0,0,0, 0.2);
             padding: 16px;
             text-align: center;
             background-color: #ffffff;
             height: 325px;
         }
-       
+
         .button {
             border-radius: 15px;
         }
-        
     </style>
 </head>
 <body>
-@{
-    ViewData["Title"] = "Home page";
-}
-
-<div class="text-center">
     @{
-        string Username = HttpContext.Session.GetString("username");
-        SqlDataReader userReader = DBUserClass.FirstNameReader(Username);
-        string firstName = " ";
-        while (userReader.Read()){
-            firstName += userReader["FirstName"].ToString();
-        }
+        ViewData["Title"] = "Home page";
+    }
 
-}
-@{
-            if (HttpContext.Session.GetString("username") != null){
+    <div class="text-center">
+        @{
+            string Username = HttpContext.Session.GetString("username");
+            SqlDataReader userReader = DBUserClass.FirstNameReader(Username);
+            string firstName = " ";
+            while (userReader.Read())
+            {
+                firstName += userReader["FirstName"].ToString();
+            }
+
+        }
+        @{
+            if (HttpContext.Session.GetString("username") != null)
+            {
                 <h1 class="display-4">Welcome back, @firstName!</h1>
             }
-            else {
+            else
+            {
                 <h1 class="display-4">Welcome to MadisonConnectHub!</h1>
                 <h5>Please create an account or log in to access all features</h5>
             }
-            
 
 
-}
-    
-    @*<p>To access all available pages, please use the nav bar above.</p>*@
-    @{
-    
+
+        }
+
+        @*<p>To access all available pages, please use the nav bar above.</p>*@
+        @{
+
             if (HttpContext.Session.GetString("username") != null)
             {
-                        @*<p>User @HttpContext.Session.GetString("username") is logged in!</p>*@
-                        <p>Our mission is to create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to form with the right expertise to move big ideas forward.</p>
+                @*<p>User @HttpContext.Session.GetString("username") is logged in!</p>*@
+                <p>Our mission is to create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to form with the right expertise to move big ideas forward.</p>
 
             }
 
 
 
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-                    <div class="row">
-                        <div class="column">
-                            <div class="card">
-                                <img src="~/Images/one.jpg" alt="John" style="width:50%" height="75%">
-                               @* <input type="submit" class="button" style=" color: white; background-color: #AC9CD8; border-color:#AC9CD8" value="Request to join"></input>*@
-                                <h1>Codeathon</h1>
-                                <p>Our mission is to clean up code</p>
-                                @*
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                        <a href="#"><i class="fa fa-facebook"></i></a>*@
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="~/Images/one.jpg" alt="John" style="width:50%" height="75%">
+                        @* <input type="submit" class="button" style=" color: white; background-color: #AC9CD8; border-color:#AC9CD8" value="Request to join"></input>*@
+                        <h1>Codeathon</h1>
+                        <p>Our mission is to clean up code</p>
+                        @*
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>*@
                         <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                            </div>
-                        </div>
-
-                        <div class="column">
-                            <div class="card">
-                                <img src="~/Images/two.jpg" alt="pic" style="width:50%" height="75%">
-                                <h1>Marketing Mania</h1>
-                                <p >Revamp JMU Marketing</p>
-                        <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                            </div>
-                        </div>
-
-                        <div class="column">
-                            <div class="card">
-                                <img src="~/Images/three.jpg" alt="John" style="width:50%" height="75%">
-                                <h1>BRCC Revamp</h1>
-                                <p>Implement systems for BRCC</p>
-                                <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                            </div>
-                        </div>
-
-                        <div class="column">
-                            <div class="card">
-                                <img src="~/Images/four.jpg" alt="John" style="width:50%" height="75%">
-                                <h1>COB Web Design</h1>
-                                <p>Our goal is to develop a new website for COB</p>
-                        <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                            </div>
-                        </div>
                     </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="~/Images/two.jpg" alt="pic" style="width:50%" height="75%">
+                        <h1>Marketing Mania</h1>
+                        <p>Revamp JMU Marketing</p>
+                        <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="~/Images/three.jpg" alt="John" style="width:50%" height="75%">
+                        <h1>BRCC Revamp</h1>
+                        <p>Implement systems for BRCC</p>
+                        <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="~/Images/four.jpg" alt="John" style="width:50%" height="75%">
+                        <h1>COB Web Design</h1>
+                        <p>Our goal is to develop a new website for COB</p>
+                        <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
+                    </div>
+                </div>
+            </div>
 
         }
 

@@ -24,18 +24,18 @@
     <label asp-for="@Model.UserToUpdate.PhoneNumber"></label>
     <input type="text" asp-for="@Model.UserToUpdate.PhoneNumber" />
     <br />
+    <label asp-for="@Model.UserToUpdate.VideoIntroduction"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.VideoIntroduction" />
+    <br />
+    <label asp-for="@Model.UserToUpdate.LinkedIn"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.LinkedIn" />
     <br />
     <select name="NewUser.FacultyAssociation">
         <option value="Faculty">Faculty</option>
         <option value="Student">Student</option>
     </select>
 
-    <label>Enter Youtube URL for Introduction</label>
-    <input asp-for="UserToUpdate.VideoIntroduction" class="form-control" placeholder="Youtube URL" />
-    <br />
-    <label>Enter LinkedIn URL</label>
-    <input asp-for="UserToUpdate.LinkedIn" class="form-control" placeholder="LinkedIn URL" />
-    <br />
+
  
     <a asp-page="AddSkillsToUser" class="btn btn-primary" asp-route-profileid="@Model.UserToUpdate.ProfileID">AddSKill</a>
 

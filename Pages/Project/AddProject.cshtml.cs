@@ -81,17 +81,18 @@ namespace lab_1_part_3.Pages.Project
                         ProfessionalCompany = userReader["Professional_Company"].ToString(),
                         FacultyAssociation = userReader["Faculty_Association"].ToString(),
 
+
                     });
                 }
 
                 ModelState.Clear();
                 NewProjectProfile.ProfileID = 5;
-                NewProjectProfile.ProjectDescription = "This is a test project description";
-                NewProjectProfile.ProjectType = "Coding test";
-                NewProjectProfile.ProjectName = "Populate project";
-                NewProjectProfile.ProjectOwnerEmail = "jz@gmail.com";
-                NewProjectProfile.ProjectBeginDate = "2022-04-04";
-                NewProjectProfile.ProjectMissionStatement = "this is a test mission statement";
+                NewProjectProfile.ProjectDescription = "An effort to clean air";
+                NewProjectProfile.ProjectType = "Environmental";
+                NewProjectProfile.ProjectName = "Air Sustainability";
+                NewProjectProfile.ProjectOwnerEmail = "js@dukes.jmu";
+                NewProjectProfile.ProjectBeginDate = "2022-12-04";
+                NewProjectProfile.ProjectMissionStatement = "We need clean air for the valley.";
 
 
             }

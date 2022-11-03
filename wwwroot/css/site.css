@@ -38,8 +38,8 @@ body {
 
 .profilecard {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 1200px;
-    max-height: 1200px;
+    max-width: 1300px;
+    max-height: 1300px;
     margin: auto;
     text-align: center;
 }

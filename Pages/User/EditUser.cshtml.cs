@@ -42,6 +42,8 @@ namespace lab_1_part_3.Pages.User
                 UserToUpdate.ProfessionalEmail = singleUser["Professional_Email"].ToString();
                 UserToUpdate.ProfessionalCompany = singleUser["Professional_Company"].ToString();
                 UserToUpdate.FacultyAssociation = singleUser["Faculty_Association"].ToString();
+                UserToUpdate.LinkedIn = singleUser["LinkedIn"].ToString();
+                UserToUpdate.VideoIntroduction = singleUser["Video_Introduction"].ToString();
 
             }
 
