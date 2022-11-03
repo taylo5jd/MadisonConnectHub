@@ -49,6 +49,7 @@
             color: #3E1C66;
             display: block;
             margin: 0px auto;
+            padding-left: 50px;
         }
 
         .right {
@@ -96,6 +97,9 @@
             border-radius: 10px;
         }
 
+        img {
+            filter: drop-shadow(5px 5px 5px #6B6867);
+        }
         
         
     </style>
@@ -103,6 +107,7 @@
 <body>
 
     <div class="split left">
+        <img src="/Images/logo.PNG" alt="logo" height="200">
         <div class="centered">
             <h3 style="text-align: left; font-style: italic;"> Welcome to</h3>
             <h1 style="text-shadow: 2px 2px 8px #95909D;"><font color="#3E1C66">Madison Connect</font><font color="#E7FAB2"> Hub</font>
@@ -117,11 +122,11 @@
             @{
                 if (HttpContext.Session.GetString("username") != null)
                 {
-                                                                                        <p class="text-success">@ViewData["LoginMessage"]</p>
+                                                                                            <p class="text-success">@ViewData["LoginMessage"]</p>
                 }
                 else
                 {
-                                                                                        <p class="text-danger">@ViewData["LoginMessage"]</p>
+                                                                                            <p class="text-danger">@ViewData["LoginMessage"]</p>
                 }
             }
         </div>
