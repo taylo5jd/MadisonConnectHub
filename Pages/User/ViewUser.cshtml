@@ -2,7 +2,12 @@
 @using System.Data.SqlClient
 @using lab_1_part_3.Pages.DBClasses
 @model lab_1_part_3.Pages.User.ViewUser
-@{
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @{
 }
 @{
     /*Justin Taylor*/
@@ -13,7 +18,11 @@
     ViewData["Title"] = "View Users";
 
 }
-
+.profilecard {
+    border-radius: 10px;
+}
+</style>
+</head>
 <h2 class="h2">Profile</h2>
 
     @{
@@ -22,32 +31,32 @@
     {
         SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
       
-        <div class="profilecard" style="color: white; background-color:#AC9CD8">
-            
-       
-                                                                                <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:50%" height="75%">
-                                                                                <h1>@usr.FirstName @usr.LastName</h1>
-                                                                                <p class="title">@usr.UserType</p>
-                                                                                <p>@usr.Email</p>
-                                                                             
-                                                                                <a href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin"></i></a>
-                                                                                <br/>
-                                                                              
-                                                                                <a href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube"></i></a>
+    <div class="profilecard" style="color: white; background-color:#AC9CD8">
+                
+           
+                                                                                    <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:50%" height="75%">
+                                                                                    <h1>@usr.FirstName @usr.LastName</h1>
+                                                                                    <p class="title">@usr.UserType</p>
+                                                                                    <p>@usr.Email</p>
+                                                                                 
+                                                                                    <a href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin"></i></a>
+                                                                                    <br/>
+                                                                                  
+                                                                                    <a href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube"></i></a>
 
-                                                                                <br/>
-                                                                                <p direction="right">@usr.PhoneNumber</p>
-                                                                                <p>@usr.FacultyAssociation</p>
+                                                                                    <br/>
+                                                                                    <p direction="right">@usr.PhoneNumber</p>
+                                                                                    <p>@usr.FacultyAssociation</p>
 
-                                                                                <h3 style="color: black">Skills:</h3>
-                                                                                <p>
-                                                                                @{while(skillReader.Read()){
-                                                                                            @skillReader["Skill_Type"].ToString() 
-                                                                                            <br />
+                                                                                    <h3 style="color: black">Skills:</h3>
+                                                                                    <p>
+                                                                                    @{while(skillReader.Read()){
+                                                                                                    @skillReader["Skill_Type"].ToString() 
+                                                                                                    <br />
                                                                           }       }
-                                                                                </p>
-                                                                                
-                                                                                <br/>
+                                                                                    </p>
+                                                                                    
+                                                                                    <br/>
     </div>
            
     }
@@ -62,3 +71,4 @@
 
 @{//<a asp-page = "AddSkillsToUser" class="btn btn-primary"> Expand Your Skillset -> </a>
     }
+    </html>
