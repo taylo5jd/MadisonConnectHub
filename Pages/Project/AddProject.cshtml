@@ -1,32 +1,70 @@
 ﻿@page
-@{
-    /*Justin Taylor*/
-}
-@model lab_1_part_3.Pages.Project.AddProjectModel
-@{
-}
-<form asp-page="AddProject">
-    <select name = "NewProjectProfile.ProfileID">
-        <option value = "">Choose Project Owner</option>
-        @{
-            foreach(var usr in Model.UserList){
-                    <option value=@usr.ProfileID>@usr.Username</option>
-                }
-            }
-        </select>
-        <input type="text" asp-for="NewProjectProfile.ProjectDescription" placeholder="Project Description" />
-        <input type="text" asp-for="NewProjectProfile.ProjectType" placeholder="Project Type" />
-        <input type="text" asp-for="NewProjectProfile.ProjectName" placeholder="Project Name" />
-        <input type="text" asp-for="NewProjectProfile.ProjectOwnerEmail" placeholder="Project Owner's Email" />
-        <input type="date" asp-for="NewProjectProfile.ProjectBeginDate" placeholder="Project's Start Date" />
-        <br />
-  
-        <input type="text" asp-for="NewProjectProfile.ProjectMissionStatement" placeholder="Project's Mission Statement" />
-        <br />
-    <button type="submit" style="color: white; background-color:#AC9CD8">Add Project -> </button>
-        <br />
-    <button class="btn btn-outline-secondary" asp-page="AddProject" asp-page-handler="PopulateHandler" formnovalidate style="color: white; background-color:#AC9CD8">Populate</button>
-       <br />
-    <a asp-page="Index" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Cancel</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
 
-    </form>
+        .h1 {
+            text-align: center;
+            align-content: center;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            width: auto;
+            align-content: center;
+        }
+
+        .form {
+            align-content: center;
+            align-self: auto;
+        }
+
+    </style>
+</head>
+<body>
+    @{
+            /*Justin Taylor*/
+    }
+    @model lab_1_part_3.Pages.Project.AddProjectModel
+    @{
+    }
+    <div class="form">
+        <form class="form" style="align-content: center; text-align: center;" asp-page="AddProject">
+            <h1 style="text-align: center;">Start a Project!</h1>
+            <select class="form-control" name="NewProjectProfile.ProfileID">
+                <option value="">Choose Project Owner</option>
+                @{
+                    foreach (var usr in Model.UserList)
+                    {
+                        <option value=@usr.ProfileID>@usr.Username</option>
+                    }
+                }
+            </select>
+            <br />
+            <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectDescription" placeholder="Project Description" />
+            <br />
+            <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectType" placeholder="Project Type" />
+            <br />
+            <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectName" placeholder="Project Name" />
+            <br />
+            <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectOwnerEmail" placeholder="Project Owner's Email" />
+            <br />
+            <input type="date" class="form-control" asp-for="NewProjectProfile.ProjectBeginDate" placeholder="Project's Start Date" />
+            <br />
+
+            <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectMissionStatement" placeholder="Project's Mission Statement" />
+            <br />
+            <br />
+            <button type="submit" style="color: white; background-color:#AC9CD8">Add Project -> </button>
+            <br />
+            <button class="btn btn-outline-secondary" asp-page="AddProject" asp-page-handler="PopulateHandler" formnovalidate style="color: white; background-color:#AC9CD8">Populate</button>
+            <br />
+            <a asp-page="Index" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Cancel</a>
+
+
+        </form>
+    </div>
+</body>
+</html>
