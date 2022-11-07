@@ -121,11 +121,11 @@
             @{
                 if (HttpContext.Session.GetString("username") != null)
                 {
-                            <p class="text-success">@ViewData["LoginMessage"]</p>
+                                    <p class="text-success">@ViewData["LoginMessage"]</p>
                 }
                 else
                 {
-                            <p class="text-danger">@ViewData["LoginMessage"]</p>
+                                    <p class="text-danger">@ViewData["LoginMessage"]</p>
                 }
             }
         </div>
@@ -143,7 +143,7 @@
                 <br />
                 <input asp-for="Password" class="form-control" type="password" placeholder="Password"/>
                 <br />
-                <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8" value="Log in"/>
+                <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8; border-color: #AC9CD8;" value="Log in"/>
             </form>
         </div>
         <svg viewBox="0 0 350 350"
@@ -158,9 +158,6 @@
 
 </body>
 </html>
-
-
-
 
 <br />
 <a class="btn btn-outline-success" style="color: white; background-color:#AC9CD8" asp-page="CreateHashLogin">Create New User</a>
