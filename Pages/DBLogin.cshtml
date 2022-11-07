@@ -30,6 +30,11 @@
             top: 0;
             left: 0;
         }
+
+        .container img{
+            height: 200px;
+        }
+
         .split {
             height: 100%;
             width: 52.4%;
@@ -45,7 +50,7 @@
             left: 0;
             background-color: #E5DBF4;
             color: #3E1C66;
-            padding-left: 50px;
+            padding-left: 40px;
         }
 
         .right {
@@ -64,10 +69,6 @@
             text-align: center;
         }
 
-        .centered img {
-            width: 150px;
-            border-radius: 50%;
-        }
 
 
         h2{
@@ -106,7 +107,9 @@
 <body>
 
     <div class="split left">
+        <a href="/Index" style="background-color:#E5DBF4;border-color:#E5DBF4" class="btn btn-primary">
         <img src="/Images/logo.PNG" alt="logo" height="200">
+        </a>
         <div class="centered">
            <h3 style="text-align: left; font-style: italic;"> Welcome back to</h3>
             <h1 style="text-shadow: 2px 2px 8px #95909D;"><font color="#3E1C66">Madison Connect</font><font color="#E7FAB2"> Hub</font>
@@ -121,11 +124,11 @@
             @{
                 if (HttpContext.Session.GetString("username") != null)
                 {
-                            <p class="text-success">@ViewData["LoginMessage"]</p>
+                                                    <p class="text-success">@ViewData["LoginMessage"]</p>
                 }
                 else
                 {
-                            <p class="text-danger">@ViewData["LoginMessage"]</p>
+                                                    <p class="text-danger">@ViewData["LoginMessage"]</p>
                 }
             }
         </div>
