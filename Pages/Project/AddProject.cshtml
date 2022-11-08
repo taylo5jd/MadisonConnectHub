@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
 
+        * {
+            font-family: 'IBM Plex Sans';
+        }
+
         .h1 {
             text-align: center;
             align-content: center;
@@ -38,7 +42,7 @@
                 @{
                     foreach (var usr in Model.UserList)
                     {
-                        <option value=@usr.ProfileID>@usr.Username</option>
+                            <option value=@usr.ProfileID>@usr.Username</option>
                     }
                 }
             </select>
@@ -53,8 +57,7 @@
             <br />
             <input type="date" class="form-control" asp-for="NewProjectProfile.ProjectBeginDate" placeholder="Project's Start Date" />
             <br />
-
-            <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectMissionStatement" placeholder="Project's Mission Statement" />
+            <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectMissionStatement" style="height:120px; width:250px; " placeholder="Project's Mission Statement" />
             <br />
             <br />
             <button type="submit" style="color: white; background-color:#AC9CD8">Add Project -> </button>

@@ -18,6 +18,10 @@
             font: thin;
             text-align: left;
         }
+
+        .body {
+              font-family: 'IBM Plex Sans';
+        }
     </style>
 </head>
 
@@ -31,11 +35,11 @@
                     @{
                         if (Context.Session.GetString("username") == null)
                         {
-                            <h2 style="text-align: left; text-shadow: 2px 2px 8px #95909D;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
+                                <h2 style="text-align: left; text-shadow: 2px 2px 8px #95909D;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
                         }
                         else
                         {
-                            <h2 style="text-shadow: 2px 2px 8px #95909D;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
+                                <h2 style="text-shadow: 2px 2px 8px #95909D;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
                         }
                     }
                     @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -57,22 +61,22 @@
                     @{
                         if (Context.Session.GetString("username") == null)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-light" style="background-color:rebeccapurple;  border-color: rebeccapurple" asp-area="" asp-page="/DBLogin">Login</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" style="background-color:rebeccapurple;  border-color: rebeccapurple" asp-area="" asp-page="/DBLogin">Login</a>
+                                </li>
                         }
                         else
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-light" style="background-color:rebeccapurple; border-color: rebeccapurple" asp-area="" asp-page="/JoinRequest/viewjoinrequest">Notifications @DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username"))</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" style="background-color:rebeccapurple; border-color: rebeccapurple" asp-area="" asp-page="/JoinRequest/viewjoinrequest">Notifications @DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username"))</a>
+                                </li>
                             
-                    <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-page="/User/Index">View Profile</a>
-                    </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" style="background-color:rebeccapurple; border-color: rebeccapurple" asp-page="/DBLogin" asp-route-logout="true">Logout</a>
-                            </li>
+                        <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-page="/User/Index">View Profile</a>
+                        </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" style="background-color:rebeccapurple; border-color: rebeccapurple" asp-page="/DBLogin" asp-route-logout="true">Logout</a>
+                                </li>
                         }
                     }
 
