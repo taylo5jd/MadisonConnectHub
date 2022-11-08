@@ -1,5 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Http
+@using System.Data.SqlClient
 @using lab_1_part_3.Pages.DBClasses
+@using lab_1_part_3.Pages.User
+
+
+
 <!DOCTYPE html>
 <html>
 <html lang="en">
@@ -18,24 +23,100 @@
             font: thin;
             text-align: left;
         }
+
+        .navbar {
+            padding-left:15px;
+            padding-right:15px;
+        }
+
+        .navbar a {
+            padding-left:20px;
+        }
+
+        .notification {
+            background-color: #5B3D7E;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 10px 20px;
+            position: relative;
+            display: inline-block;
+            border-radius: 2px;
+        }
+
+
+
+            .notification .badge {
+                position: absolute;
+                top: -5px;
+                right: -4px;
+                padding: 5px 10px;
+                border-radius: 50%;
+                background: #D8D0E3;
+                color: #5B3D7E;
+            }
+
+
+
+
+        .dropbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
     </style>
 </head>
 
 <body style="background-color:#D8D0E3">
 
     <header>
-
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color:rebeccapurple">
-            <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color:#5B3D7E">
+            <img src="/Images/logo1.PNG" alt="logo" height="55" style="padding-right:15px">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav flex-grow-1">
                     @{
                         if (Context.Session.GetString("username") == null)
                         {
-                            <h2 style="text-align: left; text-shadow: 2px 2px 8px #95909D;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
+                                                                                        <h2 style="text-shadow: 2px 2px 8px #000000;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
                         }
                         else
                         {
-                            <h2 style="text-shadow: 2px 2px 8px #95909D;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
+                                                                                        <h2 style="text-shadow: 2px 2px 8px #000000;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
                         }
                     }
                     @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -51,28 +132,72 @@
                         <a class="nav-link text-light" asp-area="" asp-page="/Project/Index">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/User/ViewAllUser">Connect</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/User/ViewAllUser">Profiles</a>
                     </li>
-              
+              </ul>
+              <ul class="nav navbar-nav float-md-right">
                     @{
                         if (Context.Session.GetString("username") == null)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-light" style="background-color:rebeccapurple;  border-color: rebeccapurple" asp-area="" asp-page="/DBLogin">Login</a>
-                            </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link text-light" style="background-color:#5B3D7E;  border-color: #5B3D7E" asp-area="" asp-page="/CreateHashLogin">Sign up</a>
+                                               </li>
+                                               <li class="nav-item">
+                                                    <a class="nav-link text-light" style="background-color:#5B3D7E;  border-color: #5B3D7E" asp-area="" asp-page="/DBLogin">Log in</a>
+                                               </li>      
                         }
                         else
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-light" style="background-color:rebeccapurple; border-color: rebeccapurple" asp-area="" asp-page="/JoinRequest/viewjoinrequest">Notifications @DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username"))</a>
-                            </li>
+                                                                                 <li class="nav-item">
+                                                                                            
+                                                                                                <a href="/JoinRequest/viewjoinrequest" class="notification">
+                                                                                                <span style="color:#FFFFFF">Notifications</span>
+                                                                                                <span class="badge">@DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username"))</span>
+                                                                                            </a>
+                                                                                   </li>
                             
-                    <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-page="/User/Index">View Profile</a>
-                    </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" style="background-color:rebeccapurple; border-color: rebeccapurple" asp-page="/DBLogin" asp-route-logout="true">Logout</a>
-                            </li>
+                                                                          
+                                                                                <li class="nav-item">
+                                                                                            <a class="nav-link text-light" asp-area="" asp-page="/User/Index">View Profile</a>
+                                                                                </li>
+                                                                                        <li class="nav-item">
+                                                                <a class="nav-link text-light" style="background-color:#5B3D7E; border-color: #5B3D7E" asp-page="/DBLogin" asp-route-logout="true">Logout</a>
+                                                                                        </li>
+
+
+
+                                                                                    //<li class="nav-item">
+                                                                                    //    <div class="dropdown">
+                                                                                    //        <button class="dropbtn">Pic</button>
+                                                                                    //        <div class="dropdown-content">
+                                                                                    //            <a href="/User/Index">View Profile</a>
+                                                                                    //            <a href="#">Link 2</a>
+                                                                                    //            <a class="nav-link text-light" style="background-color:#5B3D7E; border-color: #5B3D7E" asp-page="/DBLogin" asp-route-logout="true">Logout</a>
+                                                                                    //    </div>
+                                                                                    //    </div>
+                                                                                    
+                                                                                    
+                                                                                    //</li>
+
+                                                                                    // <li class="nav-item">
+                                                                                    // @{
+                                                                                    //        foreach (var usr in Model.UserList)
+                                                                                    //            {
+                                                                                    //                SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
+                                                                                    //                SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
+
+                                                                                    //                        <div class="profilecard" style="color: black; background-color:#fff">
+
+
+                                                                                    //                            <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:25%" height="25%">
+                                                                                    //                        </div>
+
+                                                                                    //            }
+                                                                                    //        }
+                                                                                    //</li>
+
+
+
                         }
                     }
 
@@ -166,3 +291,6 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+@*<a class="nav-link text-light" style="background-color:#5B3D7E; border-color: #5B3D7E" asp-area="" asp-page="/JoinRequest/viewjoinrequest">Notifications @DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username"))</a>*@
