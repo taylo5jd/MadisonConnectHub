@@ -2,67 +2,72 @@
 @using System.Data.SqlClient
 @using lab_1_part_3.Pages.DBClasses
 @model lab_1_part_3.Pages.User.ViewUser
-@{
-}
-@{
-    /*Justin Taylor*/
-}
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .profpic {
+        }
+    </style>
+</head>
 
 @{
     ViewData["Title"] = "View Users";
 
 }
-
-<h2 class="h2">Profile</h2>
-
 @{
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     foreach (var usr in Model.UserList)
     {
         SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
 
-        <div class="profilecard" style="color: white; background-color:#AC9CD8">
+        <img class="profpic" src="@Methods.imgFinder(usr.Username)" alt="" style="width:15%" height="15%">
 
+        <h1>@usr.FirstName @usr.LastName</h1>
+        <p class="title">@usr.UserType</p>
+        <p>@usr.Email</p>
 
-            <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:50%" height="75%">
-            <h1>@usr.FirstName @usr.LastName</h1>
-            <p class="title">@usr.UserType</p>
-            <p>@usr.Email</p>
+        <a href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin"></i></a>
+        <br />
 
-            <a href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin"></i></a>
-            <br />
+        <a href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube"></i></a>
 
-            <a href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube"></i></a>
+        <br />
+        <p direction="right">@usr.PhoneNumber</p>
+        <p>@usr.FacultyAssociation</p>
 
-            <br />
-            <p direction="right">@usr.PhoneNumber</p>
-            <p>@usr.FacultyAssociation</p>
-
-            <h3 style="color: black">Skills:</h3>
-            <p>
-                @{
-                    while (skillReader.Read())
-                    {
-                        @skillReader["Skill_Type"].ToString()
-                        <br />
-                    }
+        <h3 style="color: black">Skills:</h3>
+        <p>
+            @{
+                while (skillReader.Read())
+                {
+                    @skillReader["Skill_Type"].ToString()
+                    <br />
                 }
-            </p>
+            }
+        </p>
+        //<h3 style="color: black">Projects:</h3>
+        //<p>
+        //        while (projReader.Read())
+        //        {
+        //    <p>
+        //            @projReader["Project_Name"].ToString()
+        //    </p>
+        //    <br />
+        //                }
+        //</p>
 
-            <br />
-        </div>
+        //    <br />
+        //</div>
 
     }
 }
-
-
-
-
-<a asp-page="/User/ViewAllUser" class="btn btn-primary"> View All Users</a>
 <br />
 <br />
 
 @{
     //<a asp-page = "AddSkillsToUser" class="btn btn-primary"> Expand Your Skillset -> </a>
 }
+    </th>
+</table>
+</html>
