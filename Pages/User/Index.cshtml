@@ -1,80 +1,112 @@
 ﻿@page
 @using System.Data.SqlClient
 @using lab_1_part_3.Pages.DBClasses
-@{
-    /*Justin Taylor*/
-}
-
 @model lab_1_part_3.Pages.User.IndexModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .userpic {
+            margin: 5px;
+            margin-right: 5px;
+        }
+
+        .profile {
+            margin-left: 10px;
+            padding-left: 5px;
+        }
+
+    </style>
+</head>
 @{
-    ViewData["Title"] = "View Users";
+    ViewData["Title"] = "View Profile";
 
 }
 
-<h2 class="h2">Your Profile</h2>
-
 @{
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     foreach (var usr in Model.UserList)
     {
         SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
         SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
 
-        <div class="profilecard" style="color: black; background-color:#fff">
-
-
-            <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:25%" height="25%">
-            <h1>@usr.FirstName @usr.LastName</h1>
-            <p class="title">@usr.UserType</p>
-            <p>@usr.Email</p>
-
-            <a href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin"></i></a>
-            <br />
-
-            <a href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube"></i></a>
-
-            <br />
-            <p direction="right">@usr.PhoneNumber</p>
-            <p>@usr.FacultyAssociation</p>
-
-            <h3 style="color: black">Skills:</h3>
-            <p>
-                @{
-                    while (skillReader.Read())
-                    {
-                        @skillReader["Skill_Type"].ToString()
-                        <br />
-                    }
-                }
-            </p>
-            <h3 style="color: black">Projects:</h3>
-            <p>
-                @{
-                    while (projReader.Read())
-                    {
-                        @projReader["Project_Name"].ToString()
-                        <br />
-                    }
-                }
-
-
-            <p><a asp-page="EditUser" class="btn btn-primary" style=" color: white; background-color: mediumpurple" asp-route-profileid="@usr.ProfileID"> Edit </a></p>
-
-            <br />
-        </div>
-
+        <img class="userpic" src="@Methods.imgFinder(usr.Username)" alt="" style="width:15%" height="15%">
     }
 }
 
+<table class="profile" style="float:right; width: 83%;">
+    <th>
+        @{
+            foreach (var usr in Model.UserList)
+            {
+                SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
+                SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
+                <h1>@usr.FirstName @usr.LastName</h1>
+                <p>Affiliation: @usr.UserType</p>
+            }
+        }
+    </th>
 
-<br />
+    <th>
+        @{
+            foreach (var usr in Model.UserList)
+            {
+                SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
+                SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
+                <p><a asp-page="EditUser" class="btn btn-primary" style=" color: white; background-color: mediumpurple" asp-route-profileid="@usr.ProfileID"> Edit </a></p>
+            }
+        }
+    </th>
 
-<a asp-page="/User/ViewAllUser" class="btn btn-primary" style=" color: white; background-color: #AC9CD8"> View All Users</a>
+
+    </tr>
+
+    <td>
+        @{
+            foreach (var usr in Model.UserList)
+            {
+                SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
+                SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
+
+                <p>@usr.Email</p>
+
+                <a href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin"></i></a>
+                <br />
+
+                <a href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube"></i></a>
+
+                <br />
+                <p direction="left">@usr.PhoneNumber</p>
 
 
-<br />
-<br />
+                <h4 style="color: black">Skills:</h4>
 
-@{
-    //<a asp-page = "AddSkillsToUser" class="btn btn-primary"> Expand Your Skillset -> </a>
-}
+
+
+                while (skillReader.Read())
+                {
+                    <p>
+
+                        @skillReader["Skill_Type"].ToString()
+                    </p>
+                }
+
+
+                <h4 style="color: black;">Projects:</h4>
+
+
+
+                while (projReader.Read())
+                {
+                    <p>
+                        @projReader["Project_Name"].ToString()
+                    </p>
+                    <br />
+                }
+            }
+        }
+        @{
+            //<a asp-page = "AddSkillsToUser" class="btn btn-primary"> Expand Your Skillset -> </a>
+        }
+</table>
+</html>
