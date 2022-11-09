@@ -9,31 +9,13 @@
 
 <form asp-page="EditUser">
     <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
-    <label asp-for="@Model.UserToUpdate.FirstName"></label>
-    <input type="text" asp-for="@Model.UserToUpdate.FirstName" />
-    <br />
-    <label asp-for="@Model.UserToUpdate.Username"></label>
-    <input type="text" asp-for="@Model.UserToUpdate.Username" />
-    <br />
-    <label asp-for="@Model.UserToUpdate.LastName"></label>
-    <input type="text" asp-for="@Model.UserToUpdate.LastName" />
-    <br />
-    <label asp-for="@Model.UserToUpdate.Email"></label>
-    <input type="text" asp-for="@Model.UserToUpdate.Email" />
-    <br />
-    <label asp-for="@Model.UserToUpdate.PhoneNumber"></label>
-    <input type="text" asp-for="@Model.UserToUpdate.PhoneNumber" />
-    <br />
-    <label asp-for="@Model.UserToUpdate.VideoIntroduction"></label>
+    <label asp-for="@Model.UserToUpdate.VideoIntroduction">Video Introduction Link</label>
     <input type="text" asp-for="@Model.UserToUpdate.VideoIntroduction" />
+    <label asp-for="@Model.UserToUpdate.Personality">Edit Meyer - Briggs Personality Type - </label>
+    <input type="text" asp-for="@Model.UserToUpdate.Personality" />
     <br />
-    <label asp-for="@Model.UserToUpdate.LinkedIn"></label>
+    <label asp-for="@Model.UserToUpdate.LinkedIn">LinkedIn Link</label>
     <input type="text" asp-for="@Model.UserToUpdate.LinkedIn" />
-    <br />
-    <select name="NewUser.FacultyAssociation">
-        <option value="Faculty">Faculty</option>
-        <option value="Student">Student</option>
-    </select>
 
 
  
