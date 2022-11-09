@@ -1,31 +1,56 @@
 ﻿@page
-@{
-    /*Justin Taylor*/
-}
+
 @model lab_1_part_3.Pages.User.EditUserModel
 @{
     ViewData["Title"] = "Edit User Profile";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .* {
+            width: 90%;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+        
+        .image {
+            float:left;
+        }
 
+        .skills {
+            float: right;
+        }
+</style>
+</head>
+<body>
 <form asp-page="EditUser">
     <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
-    <a asp-page="FileUpload" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Upload Image</a>
+    <br />
+        <a asp-page="FileUpload" class="image" style="color: white; background-color:#AC9CD8">Upload Image</a> <a asp-page="AddSkillsToUser" class="skills" style="color: white; background-color:#AC9CD8" asp-route-profileid="@Model.UserToUpdate.ProfileID">Edit Skills</a>
     <br /> <br />
-    <a asp-page="AddSkillsToUser" class="btn btn-secondary" style="color: white; background-color:#AC9CD8" asp-route-profileid="@Model.UserToUpdate.ProfileID">Edit Skills</a>
-    <br /> <br />
+        <label asp-for="@Model.UserToUpdate.Personality">Edit Meyer - Briggs Personality Type - <em>optional  </em></label>
+        <input type="text" style="padding-left: auto; width:60%;" asp-for="@Model.UserToUpdate.Personality" />
+        <br />  <br />
+        <label asp-for="@Model.UserToUpdate.Passions">Edit Passions - <em>optional</em></label>
+        <input type="text" style="width:74.6%;" />
+        <br /> <br />
+        <label asp-for="@Model.UserToUpdate.Availability">Edit Availability</label>
+        <input type="text" style="height: 20%; width:80%;" />
+        <br /> <br />
     <label asp-for="@Model.UserToUpdate.VideoIntroduction">Video Introduction Link</label>
-    <input type="text" style="padding-left: auto;" asp-for="@Model.UserToUpdate.VideoIntroduction" />
+    <input type="text" style="padding-left: auto; width:74.6%;" asp-for="@Model.UserToUpdate.VideoIntroduction" />
     <br />  <br />
-    <label asp-for="@Model.UserToUpdate.Personality">Edit Meyer - Briggs Personality Type - </label>
-    <input type="text" style="padding-left: auto;" asp-for="@Model.UserToUpdate.Personality" />
-    <br /> <br />
     <label asp-for="@Model.UserToUpdate.LinkedIn">LinkedIn Link</label>
-    <input type="text" style="padding-left: auto;" asp-for="@Model.UserToUpdate.LinkedIn" />
-    <br />
+    <input type="text" style="padding-left: auto; width:81%;" asp-for="@Model.UserToUpdate.LinkedIn" />
+        <br /><br />
     <input type="submit" class="btn btn-success" asp-page="EditUser" style="color: white; background-color:#AC9CD8" />
-    <br />
-    <a asp-page="Index" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Cancel</a>
+    
+@*    <a asp-page="Index" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Cancel</a>*@
    
 
    
 </form>
+</body>
+</html>
