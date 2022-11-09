@@ -9,17 +9,17 @@ namespace lab_1_part_3.Pages.Project
 {
     public class AddProjectModel : PageModel
     {
-        
-            [BindProperty]
-            public ProjectProfile NewProjectProfile { get; set; }
-            [BindProperty]
+
+        [BindProperty]
+        public ProjectProfile NewProjectProfile { get; set; }
+        [BindProperty]
         public List<UserProfile> UserList { get; set; }
         public AddProjectModel()
         {
             UserList = new List<UserProfile>();
         }
         public void OnGet()
-            {
+        {
             if (HttpContext.Session.GetString("username") == null)
             {
                 RedirectToPage("/DBLogin");
@@ -42,24 +42,25 @@ namespace lab_1_part_3.Pages.Project
                     ProfessionalCompany = userReader["Professional_Company"].ToString(),
                     FacultyAssociation = userReader["Faculty_Association"].ToString(),
 
+
                 });
             }
 
         }
 
         public IActionResult OnPost()
-            {
+        {
             //var dt = NewProjectProfile.ProjectBeginDate.Date;
             //  NewProjectProfile.ProjectBeginDate = NewProjectProfile.ProjectBeginDate.Date;
 
-           // 2022-09-27
+            // 2022-09-27
             //var dt = NewProjectProfile.ProjectBeginDate.ToString().Substring(0, 10);
             //Convert.ToDateTime(dt);
-           // NewProjectProfile.ProjectBeginDate = dt;
+            // NewProjectProfile.ProjectBeginDate = dt;
             DBProjectClass.InsertProject(NewProjectProfile);
 
-                return RedirectToPage("/Teams/AddTeam");
-            }
+            return RedirectToPage("/Teams/AddTeam");
+        }
         public IActionResult OnPostPopulateHandler()
         {
             if (!ModelState.IsValid)
@@ -82,6 +83,7 @@ namespace lab_1_part_3.Pages.Project
                         FacultyAssociation = userReader["Faculty_Association"].ToString(),
 
 
+
                     });
                 }
 
@@ -99,5 +101,5 @@ namespace lab_1_part_3.Pages.Project
             return Page();
         }
     }
-    }
+}
 

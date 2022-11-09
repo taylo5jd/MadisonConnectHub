@@ -12,11 +12,12 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdProjectRead = new SqlCommand();
             cmdProjectRead.Connection = new SqlConnection();
             cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdProjectRead.CommandText = "SELECT * FROM  Project WHERE Project_Name LIKE '%" + search + "%'" ;
+            cmdProjectRead.CommandText = "SELECT * FROM  Project WHERE Project_Name LIKE '%" + search + "%'";
             cmdProjectRead.Connection.Open();
             SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
             return tempReader;
         }
+     
         public static SqlDataReader ProjectReader()
         {
             SqlCommand cmdProjectRead = new SqlCommand();
@@ -34,10 +35,10 @@ namespace lab_1_part_3.Pages.DBClasses
             cmdProjectRead.Connection = new SqlConnection();
             cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
             cmdProjectRead.CommandText = @"select Project.Project_Name, project.Project_Type, Project.Project_Description from
-Project inner join Team on Team.ProjectID = Project.ProjectID
-inner join TeamComposition on team.TeamID = TeamComposition.TeamID
-inner join UserProfile on TeamComposition.ProfileID = UserProfile.ProfileID
-where Username = '" + username + "'";
+            Project inner join Team on Team.ProjectID = Project.ProjectID
+            inner join TeamComposition on team.TeamID = TeamComposition.TeamID
+            inner join UserProfile on TeamComposition.ProfileID = UserProfile.ProfileID
+            where Username = '" + username + "'";
             cmdProjectRead.Connection.Open();
             SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
             return tempReader;
@@ -47,7 +48,7 @@ where Username = '" + username + "'";
         public static void InsertProject(ProjectProfile p)
         {
             String sqlQuery = "INSERT INTO Project (ProfileID,Project_Description,Project_Type,Project_Name,Project_Owner_Email,Project_Begin_Date,Project_Mission_Statement) VALUES(";
-  
+
             sqlQuery += "'" + p.ProfileID + "'" + ",";
             sqlQuery += "'" + p.ProjectDescription + "'" + ",";
             sqlQuery += "'" + p.ProjectType + "'" + ",";
@@ -68,14 +69,14 @@ where Username = '" + username + "'";
             SqlCommand cmdProjectRead = new SqlCommand();
             cmdProjectRead.Connection = new SqlConnection();
             cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdProjectRead.CommandText = "SELECT Project.ProjectID,Project_Begin_Date,Project_Mission_Statement, Project.ProfileID,Project.Project_Name, Project.Project_Description, Project.Project_Type, Project.Project_Owner_Email FROM Project INNER JOIN UserProfile ON Project.ProfileID = UserProfile.ProfileID WHERE UserProfile.Username ='" + Username + "'";
+            cmdProjectRead.CommandText = "SELECT Project.ProjectID,Project_Begin_Date,Project_Mission_Statement, Project.ProfileID,Project.Project_Name, Project.Project_Description, Project.Project_Type,Project.Project_Owner_Email FROM Project INNER JOIN UserProfile ON Project.ProfileID = UserProfile.ProfileID WHERE UserProfile.Username ='" + Username + "'";
             cmdProjectRead.Connection.Open();
             SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
 
             return tempReader;
         }
 
-      
+
         public static SqlDataReader SingleProjectReader(int ProjectID)
         {
             SqlCommand cmdProjectRead = new SqlCommand();
@@ -94,7 +95,8 @@ where Username = '" + username + "'";
             sqlQuery += "Project_Description='" + p.ProjectDescription + "',";
             sqlQuery += "Project_Type='" + p.ProjectType + "',";
             sqlQuery += "Project_Name='" + p.ProjectName + "',";
-            sqlQuery += "Project_Owner_Email='" + p.ProjectOwnerEmail + ",Project_Begin_Date='" + p.ProjectBeginDate + 
+            sqlQuery += "Desired_Skills='" + p.DesiredSkills + "',";
+            sqlQuery += "Project_Owner_Email='" + p.ProjectOwnerEmail + ",Project_Begin_Date='" + p.ProjectBeginDate +
                 ",Project_Mission_Statement ='" + p.ProjectMissionStatement + "' WHERE ProjectID =" + p.ProjectID;
             SqlCommand cmdProjectRead = new SqlCommand();
             cmdProjectRead.Connection = new SqlConnection();

@@ -29,5 +29,11 @@ namespace lab_1_part_3.Pages.DBClasses
             }
             return "";
         }       
+        public static string[] splitter(string desiredSkills)
+        {
+            string[] splitArray = desiredSkills.Split(',');
+            return splitArray;
+        }
+      
     }
 }

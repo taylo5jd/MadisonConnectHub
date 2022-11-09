@@ -17,6 +17,7 @@
             <th>ProjectOwnerEmail</th>
             <th>ProjectBeginDate</th>
             <th>ProjectMissionStatement</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -36,6 +37,7 @@
                         <td>@proj.ProjectOwnerEmail</td>
                         <td>@String.Format("{0:M/d/yyyy}", dt)</td>
                         <td>@proj.ProjectMissionStatement</td>
+                    <td><a asp-page="/User/RecommendedUsers" class="btn btn-primary" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#AC9CD8"> Recommended Users </a></td>
                     <td><a asp-page="EditProject" class="btn btn-primary" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#AC9CD8"> Edit </a></td>
                     </tr>
 

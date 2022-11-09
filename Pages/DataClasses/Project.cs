@@ -10,5 +10,6 @@
         public string ProjectBeginDate { get; set; }
         public string ProjectMissionStatement { get; set; }
         public int ProfileID { get; set; }
+        public string DesiredSkills { get; set; }
     }
 }
