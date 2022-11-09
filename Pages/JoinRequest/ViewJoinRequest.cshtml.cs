@@ -9,6 +9,7 @@ namespace lab_1_part_3.Pages.JoinRequest
     {
         public int TeamID { get; set; }
         public int ProfileID { get; set; }
+        public string Username { get; set; }
         public List<UserProfile> UserList { get; set; }
         public void OnGet(int ProfileID, int TeamID, int RequestID)
         {
