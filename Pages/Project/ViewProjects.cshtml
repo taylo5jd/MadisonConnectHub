@@ -1,33 +1,88 @@
 ﻿@page
 @using System.Data.SqlClient
 @using lab_1_part_3.Pages.DBClasses
+@using lab_1_part_3.Pages.DataClasses
 @model lab_1_part_3.Pages.Project.ViewProjectsModel
-    @{
-        ViewData["Title"] = "View Projects";
-    }
+@{
+    ViewData["Title"] = "View Projects";
+}
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="wodth=device-width,initial-scale=1" />
+    <style>
+        *{
+            box-sizing: border-box;
+            align-items:center;
+        }
+        body{
+            align-items:center;
+            font-family:"IBM Plex Sans";
+            padding:0;
+            align-content:center;
+        }
+        .container{
+            display:flex;
+            flex-flow:row wrap;
+        }
+        .row{
+            margin:0;
+            padding-bottom: 10px;
+        }
+        .row:after{
+            content:"";
+            display:table;
+            clear:both;
+            padding-bottom: 10px;
+        }
+        .column{
+            float:left;
+            padding:10px;
+            align-content:center;
+            align-items: center;
+            margin:auto;
+        }
+        .card{
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,2);
+            padding:0px;
+            pading-bottom:10px;
+            width:600px;
+            text-align:center;
+            background-color:#f1f1f1;
+            flex:0 0 100%;
+        }
+    </style>
+</head>
+<body>
     <h2 class="h2">Project List</h2>
 
     @{
-        
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         foreach (var proj in Model.ProjectList)
         {
-        SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
-        <div class="card">
-            <p class="title">@proj.ProjectName</p>
-            <p>@proj.ProjectDescription</p>
-            <p>@proj.ProjectType</p>
-            <p>@proj.ProjectOwnerEmail</p>
-            <p>@proj.ProjectBeginDate</p>
-            <p>@proj.ProjectMissionStatement</p>
+            SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
+            <div class="column">
+                <div class="card" style="color: black; background-color: #fff">
+                    <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:50%" height="75%">
+                    <h3>@proj.ProjectName</h3>
+                    <p>@proj.ProjectMissionStatement</p>
+                    <p>@proj.ProjectType</p>
+                    <p>@proj.ProjectDescription</p>
+                    <p>@proj.ProjectOwnerEmail</p>
+                    <a asp-page="SearchProject" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#AC9CD8; width: 50%"> Request to Join </a>
+                    <br />
+                </div>
+                <br />
+            </div>
 
-        </div>
-        <br />
+
         }
     }
 
+    <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return To My Projects -> </a>
 
-
-
-<a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return To My Projects -> </a>
+</body>
+</html>
+                                                                                                                                                     </html>
