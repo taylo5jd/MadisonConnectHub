@@ -135,7 +135,7 @@
                         <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
                     </li>
                     <li>
-                        <a class="nav-link text-light" asp-area="" asp-page="/Project/Index">Projects</a>
+                        <a class="nav-link text-light" asp-area="" asp-page="/Project/ViewProjects">Projects</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-page="/User/ViewAllUser">Profiles</a>
@@ -168,9 +168,13 @@
 
                                                                                                                 <li class="nav-item">
                                                                                                                     <div class="dropdown">
-                                                                                                                        <button class="dropbtn" style="background-color:#5B3D7E">Pic</button>
+                                                                                                                        <button class="dropbtn" style="background-color:#5B3D7E">
+                                                                                                                            <img class="userpic" src="@Methods.imgFinder(Context.Session.GetString("username"))" alt="" height="55px">
+                                                                                                                        </button>
                                                                                                                         <div class="dropdown-content">
-                                                                                                                            <a href="/User/Index" style="background-color:#5B3D7E; border-color: #5B3D7E">View Profile</a>
+                                                                                                                            <a href="/User/Index" style="background-color:#5B3D7E; border-color: #5B3D7E">Your Profile</a>
+                                                                                                                            <a href="/Project/Index" style="background-color:#5B3D7E; border-color: #5B3D7E">Your Projects</a>
+
                                                                                                                             <a class="dropdown-item" style="background-color:#5B3D7E; border-color: #5B3D7E" asp-page="/DBLogin" asp-route-logout="true">Logout</a>
                                                                                                                     </div>
                                                                                                                     </div>
@@ -178,22 +182,7 @@
                                                                                                                 
                                                                                                                 </li>
 
-                                                                                    // <li class="nav-item">
-                                                                                    // @{
-                                                                                    //        foreach (var usr in Model.UserList)
-                                                                                    //            {
-                                                                                    //                SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
-                                                                                    //                SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
 
-                                                                                    //                        <div class="profilecard" style="color: black; background-color:#fff">
-
-
-                                                                                    //                            <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:25%" height="25%">
-                                                                                    //                        </div>
-
-                                                                                    //            }
-                                                                                    //        }
-                                                                                    //</li>
 
 
 
