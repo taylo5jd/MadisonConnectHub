@@ -17,6 +17,7 @@
         public string LinkedIn { get; set; }
         public string Bio { get; set; }
         public string Personality { get; set; }
-         
+         public string Passions { get; set; }
+        public string Availability { get; set; }
     }
 }
