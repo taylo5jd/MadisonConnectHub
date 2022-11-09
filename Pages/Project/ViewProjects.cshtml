@@ -1,42 +1,33 @@
 ﻿@page
+@using System.Data.SqlClient
+@using lab_1_part_3.Pages.DBClasses
 @model lab_1_part_3.Pages.Project.ViewProjectsModel
-@{
-    ViewData["Title"] = "View Projects";
-}
+    @{
+        ViewData["Title"] = "View Projects";
+    }
 
-<h2 class="h2">Project List</h2>
-<table class="table table-bordered table-striped table-hover table-responsive">
-    <thead>
-        <tr>
-            <th>ProjectName</th>
-            <th>ProjectDescription</th>
-            <th>ProjectType</th>
-            <th>ProjectOwnerEmail</th>
-            <th>ProjectBeginDate</th>
-            <th>ProjectMissionStatement</th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            
+    <h2 class="h2">Project List</h2>
 
-            foreach (var proj in Model.ProjectList)
-            {
-                DateTime dt = DateTime.Parse(@proj.ProjectBeginDate);
-                <tr>
-                    <td>@proj.ProjectName</td>
-                    <td>@proj.ProjectDescription</td>
-                    <td>@proj.ProjectType</td>
-                    <td>@proj.ProjectOwnerEmail</td>
-                    <td>@String.Format("{0:M/d/yyyy}", dt)</td>
-                    <td>@proj.ProjectMissionStatement</td>
-                   
-                   
-                </tr>
+    @{
+        
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        foreach (var proj in Model.ProjectList)
+        {
+        SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
+        <div class="card">
+            <p class="title">@proj.ProjectName</p>
+            <p>@proj.ProjectDescription</p>
+            <p>@proj.ProjectType</p>
+            <p>@proj.ProjectOwnerEmail</p>
+            <p>@proj.ProjectBeginDate</p>
+            <p>@proj.ProjectMissionStatement</p>
 
-            }
+        </div>
+        <br />
         }
+    }
 
-    </tbody>
-</table>
+
+
+
 <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return To My Projects -> </a>

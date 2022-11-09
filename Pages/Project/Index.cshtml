@@ -7,8 +7,11 @@
     ViewData["Title"] = "View Projects";
 }
 
+
+
 <h2 class="h2">Project List</h2>
 <table class="table table-bordered table-striped table-hover table-responsive">
+        
     <thead>
         <tr>
             <th>ProjectName</th>
@@ -19,6 +22,7 @@
             <th>ProjectMissionStatement</th>
         </tr>
     </thead>
+    
     <tbody>
         @{
             foreach (var proj in Model.ProjectList)
@@ -28,8 +32,8 @@
                 //ask about populate interfering with drop down for project id
                 //String.Format("{0:M/d/yyyy}", dt);
                DateTime dt =  DateTime.Parse(@proj.ProjectBeginDate);
-                <tr>
-
+               <tr>
+                    
                         <td>@proj.ProjectName</td>
                         <td>@proj.ProjectDescription</td>
                         <td>@proj.ProjectType</td>
@@ -37,7 +41,9 @@
                         <td>@String.Format("{0:M/d/yyyy}", dt)</td>
                         <td>@proj.ProjectMissionStatement</td>
                     <td><a asp-page="EditProject" class="btn btn-primary" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#AC9CD8"> Edit </a></td>
+                    
                     </tr>
+                   
 
             }
         }
@@ -47,3 +53,4 @@
 <a asp-page="AddProject" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Add A New Project -> </a>
 <a asp-page="ViewProjects" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> View All Projects -> </a>
 <a asp-page="SearchProject" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search For Projects </a>
+
