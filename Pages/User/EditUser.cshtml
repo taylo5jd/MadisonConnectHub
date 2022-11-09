@@ -9,21 +9,23 @@
 
 <form asp-page="EditUser">
     <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
-    <label asp-for="@Model.UserToUpdate.VideoIntroduction">Video Introduction Link</label>
-    <input type="text" asp-for="@Model.UserToUpdate.VideoIntroduction" />
-    <label asp-for="@Model.UserToUpdate.Personality">Edit Meyer - Briggs Personality Type - </label>
-    <input type="text" asp-for="@Model.UserToUpdate.Personality" />
-    <br />
-    <label asp-for="@Model.UserToUpdate.LinkedIn">LinkedIn Link</label>
-    <input type="text" asp-for="@Model.UserToUpdate.LinkedIn" />
-
-
- 
-    <a asp-page="AddSkillsToUser" class="btn btn-primary" style="color: white; background-color:#AC9CD8" asp-route-profileid="@Model.UserToUpdate.ProfileID">AddSKill</a>
-
-    <input type="submit" class="btn btn-success" asp-page="EditUser" style="color: white; background-color:#AC9CD8" />
-    <a asp-page="Index" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Cancel</a>
     <a asp-page="FileUpload" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Upload Image</a>
+    <br /> <br />
+    <a asp-page="AddSkillsToUser" class="btn btn-secondary" style="color: white; background-color:#AC9CD8" asp-route-profileid="@Model.UserToUpdate.ProfileID">Edit Skills</a>
+    <br /> <br />
+    <label asp-for="@Model.UserToUpdate.VideoIntroduction">Video Introduction Link</label>
+    <input type="text" style="padding-left: auto;" asp-for="@Model.UserToUpdate.VideoIntroduction" />
+    <br />  <br />
+    <label asp-for="@Model.UserToUpdate.Personality">Edit Meyer - Briggs Personality Type - </label>
+    <input type="text" style="padding-left: auto;" asp-for="@Model.UserToUpdate.Personality" />
+    <br /> <br />
+    <label asp-for="@Model.UserToUpdate.LinkedIn">LinkedIn Link</label>
+    <input type="text" style="padding-left: auto;" asp-for="@Model.UserToUpdate.LinkedIn" />
+    <br />
+    <input type="submit" class="btn btn-success" asp-page="EditUser" style="color: white; background-color:#AC9CD8" />
+    <br />
+    <a asp-page="Index" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Cancel</a>
+   
 
    
 </form>
