@@ -19,19 +19,31 @@
             // <td><a asp-page="Approve" class="btn btn-primary" asp-route-projectid="@proj.ProjectID"> Edit </a></td>
             SqlDataReader joinReader = DBJoinRequest.JoinRequestReader(HttpContext.Session.GetString("username"));
 
+
+
             while (joinReader.Read())
             {
-                if (joinReader["StatusFlag"].ToString() == ("n"))
+                SqlDataReader usernameReader = DBUserClass.UsernameReader2(@Int32.Parse(joinReader["ProfileID"].ToString()));
+                while (usernameReader.Read())
                 {
-                    <tr>
-
-                        <td>@joinReader["Requester"].ToString()</td>
-                        <td>@joinReader["Project Name"].ToString()</td>
-                        <td><a asp-page="ViewJoinRequest" class="btn btn-primary" style=" color: white; background-color: #AC9CD8" asp-route-RequestID="@Int32.Parse(joinReader["RequestID"].ToString())" asp-route-ProfileID="@Int32.Parse(joinReader["ProfileID"].ToString())" asp-route-TeamID="@Int32.Parse(joinReader["TeamID"].ToString())"> Approve </a></td>
-                        <td><a asp-page="ViewJoinRequest" class="btn btn-primary" style=" color: white; background-color: #AC9CD8" asp-route-TeamID="0"> Deny </a></td>
-
-                    </tr>
+                    Model.Username = usernameReader["Username"].ToString();
                 }
+
+                    if (joinReader["StatusFlag"].ToString() == ("n"))
+                    {
+                        <tr>
+
+                            <td>@joinReader["Requester"].ToString()</td>
+                            <td>@joinReader["Project Name"].ToString()</td>
+                            <td><a asp-page="ViewJoinRequest" class="btn btn-primary" style=" color: white; background-color: #AC9CD8" asp-route-RequestID="@Int32.Parse(joinReader["RequestID"].ToString())" asp-route-ProfileID="@Int32.Parse(joinReader["ProfileID"].ToString())" asp-route-TeamID="@Int32.Parse(joinReader["TeamID"].ToString())"> Approve </a></td>
+                            <td><a asp-page="ViewJoinRequest" class="btn btn-primary" style=" color: white; background-color: #AC9CD8" asp-route-TeamID="0"> Deny </a></td>
+                            <td><a asp-page="/User/ViewUser" class="btn btn-primary" asp-route-username= "@Model.Username"  style="color: white; background-color:#AC9CD8">View User</a></td>
+
+
+
+                        </tr>
+                }
+                
 
             }
         }
