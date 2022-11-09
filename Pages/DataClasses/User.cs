@@ -15,5 +15,8 @@
         public string FacultyAssociation { get; set; }
         public string VideoIntroduction { get; set; }
         public string LinkedIn { get; set; }
+        public string Bio { get; set; }
+        public string Personality { get; set; }
+         
     }
 }
