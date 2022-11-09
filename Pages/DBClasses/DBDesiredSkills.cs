@@ -10,7 +10,7 @@ namespace lab_1_part_3.Pages.DBClasses
         private static readonly string AuthConnStr
             = @"Server=Localhost;Database=Auth;Trusted_Connection=True";
 
-        public static void InsertUserProfile_Skills(int ProjectID, int SkillID)
+        public static void InsertDesiredSkills(int ProjectID, int SkillID)
         {//how to incorporate team ID through parameters?
             String sqlQuery = "INSERT INTO Desired_SKills (ProjectID,SkillID) VALUES(";
             sqlQuery += "'" + ProjectID + "',";

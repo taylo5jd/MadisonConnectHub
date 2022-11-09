@@ -58,8 +58,9 @@ namespace lab_1_part_3.Pages.Project
             //Convert.ToDateTime(dt);
             // NewProjectProfile.ProjectBeginDate = dt;
             DBProjectClass.InsertProject(NewProjectProfile);
-
-            return RedirectToPage("/Teams/AddTeam");
+            //MUST ADD AUTOMATED TEAM CREATION
+            HttpContext.Session.SetInt32("projid",  NewProjectProfile.ProjectID);
+            return RedirectToPage("/Project/AddDesiredSkills");
         }
         public IActionResult OnPostPopulateHandler()
         {

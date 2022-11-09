@@ -1,0 +1,40 @@
+﻿@page
+@model lab_1_part_3.Pages.Project.AddDesiredSkillsModel
+@{
+}
+<h2 class="h2">Skill List</h2>
+<table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>SkillType</th>
+            <th>SkillDescription</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+
+
+            foreach (var sk in Model.UserSkillList)
+            {
+                <tr>
+
+                    <td>@sk.SkillType</td>
+                    <td>@sk.SkillDescription</td>
+
+
+
+                    <td><a asp-page="AddDesiredSkills" class="btn btn-primary" asp-route-skillid="@sk.SkillID" style="color: white; background-color:#AC9CD8"> Add </a></td>
+
+
+
+                </tr>
+
+            }
+        }
+
+    </tbody>
+</table>
+<a asp-page="/Teams/AddTeam" class="btn btn-primary"> Finish </a>
