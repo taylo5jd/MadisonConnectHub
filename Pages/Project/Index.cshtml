@@ -1,51 +1,115 @@
 ﻿@page
-@{
-    /*Justin Taylor*/
-}
+@using System.Data.SqlClient
+@using lab_1_part_3.Pages.DBClasses
+@using lab_1_part_3.Pages.DataClasses
 @model lab_1_part_3.Pages.Project.IndexModel
 @{
-    ViewData["Title"] = "View Projects";
+    ViewData["Title"] = "View Project";
 }
-
-<h2 class="h2">Project List</h2>
-<table class="table table-bordered table-striped table-hover table-responsive">
-    <thead>
-        <tr>
-            <th>ProjectName</th>
-            <th>ProjectDescription</th>
-            <th>ProjectType</th>
-            <th>ProjectOwnerEmail</th>
-            <th>ProjectBeginDate</th>
-            <th>ProjectMissionStatement</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            foreach (var proj in Model.ProjectList)
-            {
-                //dates look funny in view when 10 or up is entered for month. Ask ezell in office hours
-                //<td>@proj.ProjectBeginDate.Substring(0,10)</td>
-                //ask about populate interfering with drop down for project id
-                //String.Format("{0:M/d/yyyy}", dt);
-               DateTime dt =  DateTime.Parse(@proj.ProjectBeginDate);
-                <tr>
-
-                        <td>@proj.ProjectName</td>
-                        <td>@proj.ProjectDescription</td>
-                        <td>@proj.ProjectType</td>
-                        <td>@proj.ProjectOwnerEmail</td>
-                        <td>@String.Format("{0:M/d/yyyy}", dt)</td>
-                        <td>@proj.ProjectMissionStatement</td>
-                    <td><a asp-page="/User/RecommendedUsers" class="btn btn-primary" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#AC9CD8"> Recommended Users </a></td>
-                    <td><a asp-page="EditProject" class="btn btn-primary" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#AC9CD8"> Edit </a></td>
-                    </tr>
-
-            }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="wodth=device-width,initial-scale=1" />
+    <style>
+        * {
+            box-sizing: border-box;
+            align-items: center;
         }
 
-    </tbody>
-</table>
-<a asp-page="AddProject" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Add A New Project -> </a>
-<a asp-page="ViewProjects" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> View All Projects -> </a>
-<a asp-page="SearchProject" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search For Projects </a>
+        body {
+            align-items: center;
+            font-family: "IBM Plex Sans";
+            padding: 0;
+            align-content: center;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .row {
+            margin: 0;
+            padding-bottom: 10px;
+        }
+
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+                padding-bottom: 10px;
+            }
+
+        .column {
+            float: left;
+            padding: 10px;
+            align-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,2);
+            padding: 0px;
+            pading-bottom: 10px;
+            width: 600px;
+            text-align: center;
+            background-color: #f1f1f1;
+            flex: 0 0 100%;
+        }
+
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+    </style>
+</head>
+<body>
+    <h2 class="h2">My Project List</h2>
+    <div class="topnav">
+        <a asp-page="AddProject" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Add A New Project </a>
+        <a asp-page="ViewProjects" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> View All Projects </a>
+        <a asp-page="SearchProject" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Search For Projects </a>
+    </div>
+    @{
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        foreach (var proj in Model.ProjectList)
+    {
+            SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
+            <div class="column">
+                <div class="card" style="color: black; background-color: #fff">
+                    <img src="@Methods.projimgFinder(proj.ProjectName)" alt="">
+                    <h3>@proj.ProjectName</h3>
+                    <p>@proj.ProjectMissionStatement</p>
+                    <p>@proj.ProjectType</p>
+                    <p>@proj.ProjectDescription</p>
+                    <p>@proj.ProjectOwnerEmail</p>
+                    <p><a asp-page="/User/RecommendedUsers" class="btn btn-primary" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#AC9CD8">Recommended Users</a></p>
+                    <p><a asp-page="EditProject" class="btn btn-outline-primary" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#AC9CD8">Edit</a></p>
+                    <br />
+                </div>
+                <br />
+            </div>
+
+        }
+    }
+
+</body>
+</html>
