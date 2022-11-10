@@ -5,14 +5,17 @@
  <form method = "post" enctype="multipart/form-data" asp-action="Index">
         <div class="form-group">
             <div class="col-md-10">
-                <p>Choose an Image to Upload:</p>
+                <h3>Choose an Image to Upload:</h3>
+                <br />
                 <input asp-for="files" type="file"/>
-
             </div>
         </div>
+
+        <br />
+
         <div class="form-group">
             <div class="col-md-10">
-                <input type="submit" value="Upload File" />
+            <input type="submit" value="Upload File" style="color: black; background-color: #DEFAB2; border-color: rebeccapurple; border-block-width:1px 1px; border-radius:15px;" />
             </div>
         </div>
         </form>
