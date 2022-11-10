@@ -10,45 +10,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         .* {
+            font-family: 'IBM Plex Sans';
             width: 90%;
             padding-left: 20%;
             padding-right: 20%;
         }
         
         .image {
+            font-size: 30px;
             float:left;
+            border-radius: 50px;
         }
 
         .skills {
-            float: right;
+            font-size: 30px;
+            clear: left;
+            margin-left: 20px;
+            border-radius: 50px;
+        }
+        .avail {
+            display: inline-block;
+            vertical-align: top;
         }
 </style>
 </head>
 <body>
 <form asp-page="EditUser">
+
     <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
     <br />
-        <a asp-page="FileUpload" class="image" style="color: white; background-color:#AC9CD8">Upload Image</a> <a asp-page="AddSkillsToUser" class="skills" style="color: white; background-color:#AC9CD8" asp-route-profileid="@Model.UserToUpdate.ProfileID">Edit Skills</a>
-    <br /> <br />
-        <label asp-for="@Model.UserToUpdate.Personality">Edit Meyer - Briggs Personality Type - <em>optional  </em></label>
-        <input type="text" style="padding-left: auto; width:60%;" asp-for="@Model.UserToUpdate.Personality" />
-        <br />  <br />
-        <label asp-for="@Model.UserToUpdate.Passions">Edit Passions - <em>optional</em></label>
-        <input type="text" style="width:74.6%;" />
+        <a asp-page="FileUpload" class="btn btn-secondary" style="color: white; background-color:#AC9CD8;">Upload Image</a> <a asp-page="AddSkillsToUser" class="btn btn-secondary" style="color: white; background-color:#AC9CD8" asp-route-profileid="@Model.UserToUpdate.ProfileID">Edit Skills</a>  <input type="submit" class="btn btn-success" asp-page="EditUser" style="float: right; color: black; background-color:#DEFAB2; border-color: rebeccapurple;border-radius: 15px;" />
+
+
         <br /> <br />
-        <label asp-for="@Model.UserToUpdate.Availability">Edit Availability</label>
-        <input type="text" style="height: 20%; width:80%;" />
+        <label asp-for="@Model.UserToUpdate.Availability" class="avail" style="padding-right: 20px; width: 270px;">Edit Availability</label>
+        <input type="text" style="height: 170px; width:60%;" />
         <br /> <br />
-    <label asp-for="@Model.UserToUpdate.VideoIntroduction">Video Introduction Link</label>
-    <input type="text" style="padding-left: auto; width:74.6%;" asp-for="@Model.UserToUpdate.VideoIntroduction" />
+        <label asp-for="@Model.UserToUpdate.VideoIntroduction" style="padding-right: 20px; width: 270px;">Video Introduction Link</label>
+    <input type="text" style="padding-left: auto; width:60%;" asp-for="@Model.UserToUpdate.VideoIntroduction" />
     <br />  <br />
-    <label asp-for="@Model.UserToUpdate.LinkedIn">LinkedIn Link</label>
-    <input type="text" style="padding-left: auto; width:81%;" asp-for="@Model.UserToUpdate.LinkedIn" />
+        <label asp-for="@Model.UserToUpdate.LinkedIn" style="padding-right: 20px; width: 270px;">LinkedIn Link</label>
+    <input type="text" style="padding-left: auto; width:60%;" asp-for="@Model.UserToUpdate.LinkedIn" />
         <br /><br />
-    <input type="submit" class="btn btn-success" asp-page="EditUser" style="color: white; background-color:#AC9CD8" />
-    
-@*    <a asp-page="Index" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Cancel</a>*@
-   
+        <label asp-for="@Model.UserToUpdate.Passions" style="padding-right: 20px; width: 270px;">Edit Passions - <em>optional</em></label>
+        <input type="text" style="width:60%;" />
+        <br /> <br />
+        <label asp-for="@Model.UserToUpdate.Personality" style="padding-right: 20px; width: 270px;">Edit Meyer - Briggs Personality Type - <em>optional</em></label>
+        <input type="text" style="padding-left: auto; width:60%; " asp-for="@Model.UserToUpdate.Personality" />
+        <br />  <br />
+
+     <a asp-page="Index" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Back</a>
+       
 
    
 </form>
