@@ -8,6 +8,8 @@ namespace lab_1_part_3.Pages.User
 {
     public class ViewAllUserModel : PageModel
     {
+        [BindProperty]
+        public string SearchText { get; set; }
         public List<UserProfile> UserList { get; set; }
         public List<Skill> SkillList { get; set; }
         public ViewAllUserModel()
