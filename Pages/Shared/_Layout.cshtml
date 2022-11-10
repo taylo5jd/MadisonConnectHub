@@ -132,11 +132,15 @@
                     @{
                         if (Context.Session.GetString("username") == null)
                         {
-                                                                                                                                                <h2 style="text-shadow: 2px 2px 8px #000000;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
+                            <a class="nav-link text-black-light" asp-area="" asp-page="/Index">                                                                                                                  
+                            <h2 style="text-shadow: 2px 2px 8px #000000;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
+                            </a>
                         }
                         else
                         {
-                                                                                                                                                <h2 style="text-shadow: 2px 2px 8px #000000;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
+                            <a class="nav-link text-black-light" asp-area="" asp-page="/Index">   
+                            <h2 style="text-shadow: 2px 2px 8px #000000;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
+                            </a>
                         }
                     }
                     @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -146,10 +150,10 @@
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">*@
 
                     <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
-                    </li>
-                    <li>
                         <a class="nav-link text-light" asp-area="" asp-page="/Project/ViewProjects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-page="/Project/AddProject">Create Project</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-page="/User/ViewAllUser">Profiles</a>
