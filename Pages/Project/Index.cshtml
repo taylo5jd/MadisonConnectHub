@@ -22,7 +22,13 @@
             padding: 0;
             align-content: center;
         }
-
+        .card img{
+            width: 120 px;
+            height: 120 px;
+            overflow: hidden;
+            border-radius: 3%;
+            margin: 0pz auto 0;
+        }
         .container {
             display: flex;
             flex-flow: row wrap;
@@ -89,24 +95,24 @@
     </div>
     @{
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         foreach (var proj in Model.ProjectList)
     {
             SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
-            <div class="column">
-                <div class="card" style="color: black; background-color: #fff" style="width:100%" height="75%">
-                    <img src="@Methods.projimgFinder(proj.ProjectName)" alt="">
-                    <h3>@proj.ProjectName</h3>
-                    <p>@proj.ProjectMissionStatement</p>
-                    <p>@proj.ProjectType</p>
-                    <p>@proj.ProjectDescription</p>
-                    <p>@proj.ProjectOwnerEmail</p>
-                    <p><a asp-page="/User/RecommendedUsers" class="btn btn-primary" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#AC9CD8">Recommended Users</a></p>
-                    <p><a asp-page="EditProject" class="btn btn-outline-primary" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#AC9CD8">Edit</a></p>
-                    <br />
-                </div>
-                <br />
-            </div>
+                                    <div class="column">
+                                        <div class="card" style="color: black; background-color: #fff">
+                                            <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:100%" height="75%">
+                                            <h3>@proj.ProjectName</h3>
+                                            <p>@proj.ProjectMissionStatement</p>
+                                            <p>@proj.ProjectType</p>
+                                            <p>@proj.ProjectDescription</p>
+                                            <p>@proj.ProjectOwnerEmail</p>
+                                            <p><a asp-page="/User/RecommendedUsers" class="btn btn-primary" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#AC9CD8">Recommended Users</a></p>
+                                            <p><a asp-page="EditProject" class="btn btn-outline-primary" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#AC9CD8">Edit</a></p>
+                                            <br />
+                                        </div>
+                                        <br />
+                                    </div>
 
         }
     }
