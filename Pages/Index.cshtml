@@ -23,43 +23,40 @@
         body {
             align-items: center;
             font-family: "IBM Plex Sans";
-            padding: 0;
             align-content: center;
+            margin: 0;
+            padding: 0;
         }
 
-        .column {
-            float: left;
-            width: 30%;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            align-content: center;
-            align-items: center;
-            margin: auto;
-        }
+   /*     .container {
+            display: flex;
+            flex-flow: row wrap;
+        }*/
 
         .row {
-            margin: auto;
+            margin: 0;
+            padding-bottom: 10px;
+            position: relative;
+            top: 390px;
         }
 
             .row:after {
                 content: "";
                 display: table;
                 clear: both;
+                padding-bottom: 10px;
             }
 
         .card {
-            box-shadow: 0 4px 8px 0 rgba(0,0,0, 0.2);
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,2);
+            padding: 0px;
+            pading-bottom: 10px;
+            width: 800px;
             text-align: center;
-            background-color: #ffffff;
-            height: auto;
-        }
-
-        .button {
-            border-radius: 15px;
-        }
-
-        .pic {
-            padding: 0;
+            background-color: #f1f1f1;
+            flex: 0 0 100%;
+            min-height:100%;
+            position: relative;
         }
 
         .mission {
@@ -67,21 +64,45 @@
             font-color: #3E1C66;
             text-align: right;
         }
+        .projects {
+            background-image: linear-gradient(180deg, #E7FAB2, #E5DBF4);
+            font-color: #3E1C66;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
 
+        .header {
+            min-height: 100%;
+            min-width: 1024px;
+            /* Set up proportionate scaling */
+            width: 100%;
+            height: auto;
+            /* Set up positioning */
+            position: absolute;
+            top: 0;
+            left: 0;
+           
+        }
+        
     </style>
 </head>
 <body>
     @{
         ViewData["Title"] = "Home page";
     }
+    <div class="header">
+        <div class="MCHub">
+            <img class="pic" src="~/Images/landingpage.png" alt="landpagegrouppic" style="width: 100%">
+        </div>
 
-    <div class="MCHub">
-        <img class="pic" style="padding: 0;" src="~/Images/landingpage.png" alt="landpagegrouppic">
-    </div>
-
-    <div class="Mission">
-        <h3>Our Mission</h3>
-        <p> Create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to frorm with the right expertise to move big ideas forward.</p>
+        <div class="Mission">
+            <h3>Our Mission</h3>
+            <p> Create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to frorm with the right expertise to move big ideas forward.</p>
+        </div>
+        <div class="projects">
+            <h4>Projects</h4>
+            <p>Here are some of the Projects Madison Connect Hub has to offer!</p>
+        </div>
     </div>
 
     <div class="text-center">
@@ -101,73 +122,92 @@
 
             if (HttpContext.Session.GetString("username") != null)
             {
-                    <h1 class="display-4">Welcome back, @firstName!</h1>
-                    @*<p>User @HttpContext.Session.GetString("username") is logged in!</p>*@
-                    <p>Our mission is to create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to form with the right expertise to move big ideas forward.</p>
+                                <h1 class="display-4">Welcome back, @firstName!</h1>
+                                @*<p>User @HttpContext.Session.GetString("username") is logged in!</p>*@
+                                <p>Our mission is to create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to form with the right expertise to move big ideas forward.</p>
             }
 
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-                <div class="row">
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Images/one.jpg" alt="John" style="width:100%" height="75%">
-                            @* <input type="submit" class="button" style=" color: white; background-color: #AC9CD8; border-color:#AC9CD8" value="Request to join"></input>*@
-                            <h2>Codeathon</h2>
-                            <p>Our mission is to clean up code</p>
-                            @*
+
+                            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="~/Images/one.jpg" alt="John" style="width:100%" height="75%">
+                                        @* <input type="submit" class="button" style=" color: white; background-color: #AC9CD8; border-color:#AC9CD8" value="Request to join"></input>*@
+                                        <h2>Networking Application</h2>
+                                        <p>Our mission is to connect people together</p>
+                                        @*
                     <a href="#"><i class="fa fa-twitter"></i></a>
                     <a href="#"><i class="fa fa-linkedin"></i></a>
                     <a href="#"><i class="fa fa-facebook"></i></a>*@
-                            <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                        </div>
-                    </div>
+                                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                                        <br />
+                                    </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Images/two.jpg" alt="pic" style="width:100%" height="75%">
-                            <h2>Marketing Mania</h2>
-                            <p>Revamp JMU Marketing</p>
-                            <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                        </div>
-                    </div>
+                                </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Images/three.jpg" alt="John" style="width:100%" height="75%">
-                            <h2>BRCC Revamp</h2>
-                            <p>Implement systems for BRCC</p>
-                            <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                        </div>
-                    </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Images/four.jpg" alt="John" style="width:100%" height="75%">
-                            <h2>COB Web Design</h2>
-                            <p>Our goal is to develop a new website for COB</p>
-                            <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                        </div>
-                    </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="~/Images/two.jpg" alt="pic" style="width:100%" height="75%">
+                                        <h2>NoVeRT</h2>
+                                        <p>Our innovative ideas will change the world</p>
+                                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                                        <br />
+                                    </div>
+                                </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Images/six.jpg" alt="John" style="width:100%" height="75%">
-                            <h2>Walk & Clean Movement</h2>
-                            <p>Coming together for the environment</p>
-                            <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                        </div>
-                    </div>
 
-                    <div class="column">
-                        <div class="card">
-                            <img src="~/Images/seven.jpg" alt="windmill" style="width:100%" height="75%">
-                            <h2>Air Sustainability</h2>
-                            <p>Promote air sustainability on campus<p>
-                            <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                        </div>
-                    </div>
-                </div>
+
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="~/Images/three.jpg" alt="John" style="width:100%" height="75%">
+                                        <h2>Collaborative Station</h2>
+                                        <p>We make our community a better place by working hard together</p>
+                                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                                        <br />
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="~/Images/four.jpg" alt="John" style="width:100%" height="75%">
+                                        <h2>IT Serv</h2>
+                                        <p>Passionate about technology and driven by innovation</p>
+                                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                                        <br />
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="~/Images/six.jpg" alt="John" style="width:100%" height="75%">
+                                        <h2>Walk & Clean Movement</h2>
+                                        <p>Coming together for the environment</p>
+                                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                                        <br />
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="~/Images/seven.jpg" alt="windmill" style="width:100%" height="75%">
+                                        <h2>Air Sustainability</h2>
+                                        <p>Promote air sustainability on campus<p>
+                                            <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                                            <br />
+                                    </div>
+                                </div>
+                            </div>
+
 
         }
 
