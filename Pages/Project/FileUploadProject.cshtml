@@ -1,0 +1,21 @@
+﻿@page
+@model lab_1_part_3.Pages.Project.FileUploadProjectModel
+@{
+}
+<form method="post" enctype="multipart/form-data" asp-action="Index">
+    <div class="form-group">
+        <div class="col-md-10">
+            <h3>Choose an Image to Upload:</h3>
+            <br />
+            <input asp-for="files" type="file" />
+        </div>
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" asp-route-projname="@Model.projName" value="Upload File" style="color: black; background-color: #DEFAB2; border-color: rebeccapurple; border-block-width:1px 1px; border-radius:15px;" />
+        </div>
+    </div>
+</form>
