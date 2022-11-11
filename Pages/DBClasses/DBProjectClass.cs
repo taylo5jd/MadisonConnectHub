@@ -28,6 +28,17 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
             return tempReader;
         }
+        public static int ProjectIDReader()
+        {
+            SqlCommand cmdUserRead = new SqlCommand();
+            cmdUserRead.Connection = new SqlConnection();
+            cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
+            cmdUserRead.CommandText = "select MAX(Project.ProjectID) from Project";
+            cmdUserRead.Connection.Open();
+            int rowCount = (int)cmdUserRead.ExecuteScalar();
+            return rowCount;
+
+        }
 
         public static SqlDataReader UserProjectReader(string username)
         {

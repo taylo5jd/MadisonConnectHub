@@ -33,15 +33,7 @@
     <div class="form">
         <form class="form" style="align-content: center; text-align: center;" asp-page="AddProject">
             <h1 style="text-align: center;">Start a Project!</h1>
-            <select class="form-control" name="NewProjectProfile.ProfileID">
-                <option value="">Choose Project Owner</option>
-                @{
-                    foreach (var usr in Model.UserList)
-                    {
-                        <option value=@usr.ProfileID>@usr.Username</option>
-                    }
-                }
-            </select>
+          
             <br />
             <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectDescription" placeholder="Project Description" />
             <br />
