@@ -12,10 +12,10 @@ namespace lab_1_part_3.Pages.User
     {
         [BindProperty]
         public UserProfile UserToUpdate { get; set; }
-        
-       
-        
-     
+
+
+
+
 
         public EditUserModel()
         {
@@ -44,13 +44,17 @@ namespace lab_1_part_3.Pages.User
                 UserToUpdate.FacultyAssociation = singleUser["Faculty_Association"].ToString();
                 UserToUpdate.LinkedIn = singleUser["LinkedIn"].ToString();
                 UserToUpdate.VideoIntroduction = singleUser["Video_Introduction"].ToString();
+                UserToUpdate.Availability = singleUser["Availability"].ToString();
+                UserToUpdate.Passions = singleUser["Passions"].ToString();
+                UserToUpdate.Personality = singleUser["Personality"].ToString();
+                UserToUpdate.Bio = singleUser["Bio"].ToString();
 
             }
 
-            
+
             singleUser.Close();
 
-            HttpContext.Session.SetString("profileid",ProfileID.ToString());
+            HttpContext.Session.SetString("profileid", ProfileID.ToString());
 
         }
 
@@ -60,8 +64,8 @@ namespace lab_1_part_3.Pages.User
 
             return RedirectToPage("Index");
 
-           
-           
+
+
         }
     }
 }
