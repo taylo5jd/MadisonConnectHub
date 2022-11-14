@@ -41,7 +41,7 @@
         SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
         SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
 
-    <img class="userpic" src="@Methods.imgFinder(usr.Username)" alt="" style="width:18%" height="18%"> <a asp-page="EditUser" class="btn btn-secondary" style="float: right; color: black; background-color: #DEFAB2; border-color: #DEFAB2" asp-route-profileid="@usr.ProfileID">Edit Profile</a>
+    <img class="userpic" src="@Methods.imgFinder(usr.Username)" alt="" style="width:18%" height="18%">      <a asp-page="EditUser" class="btn btn-secondary" style="float: right; color: black; background-color: #DEFAB2; border-color: #DEFAB2" asp-route-profileid="@usr.ProfileID">Edit Profile</a>
        
 
             <div class="name" style="float:left; width: 100%;">

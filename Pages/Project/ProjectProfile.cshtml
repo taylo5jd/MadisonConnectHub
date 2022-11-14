@@ -1,4 +1,118 @@
 ﻿@page
+@using System.Data.SqlClient
+@using lab_1_part_3.Pages.DBClasses
 @model lab_1_part_3.Pages.Project.ProjectProfileModel
 @{
 }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            font-family: 'IBM Plex Sans';
+        }
+
+        .pic {
+            margin: 5px;
+            margin-right: 5px;
+            float: left;
+        }
+
+        .profile {
+            margin-left: 5px;
+            padding-left: 5px;
+        }
+
+        .button {
+            float: right;
+            border-radius: 15px;
+        }
+
+        . connect {
+            float: left;
+        }
+
+    </style>
+</head>
+
+@{
+    ViewData["Title"] = "View Profile";
+}
+
+@{
+    foreach (var proj in Model.ProjectList)
+    {
+        SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(proj.ProjectName);
+        SqlDataReader projReader = DBProjectClass.UserProjectReader(proj.ProjectName);
+
+        <img class="pic" src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:18%" height="18%">
+    }
+}
+
+<table class="profile" style="float:right; width: 75%;">
+    <th>
+        @{
+            foreach (var proj in Model.ProjectList)
+            {
+                SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(proj.ProjectName);
+                SqlDataReader projReader = DBProjectClass.UserProjectReader(proj.ProjectName);
+                <div class="name" style=" width: 100%;">
+                    <h1><strong> @proj.ProjectName</strong></h1>
+                    <h5>Category:<strong> @proj.Category</strong></h5>
+                    <h5>Project Summary:<strong> @proj.ProjectDescription</strong></h5>
+                </div>
+
+                <div class="skills">
+                    <colgroup>
+                        <col span="4">
+                    </colgroup>
+            <tr align="left | right | center | justify | char">
+                <th style="width: auto;">Desirable Skills</th>
+                <th style="width: auto;">Team Members</th>
+            </tr>
+            </div>
+
+
+                //<p direction="left">@usr.PhoneNumber</p> }
+            }
+        }
+    </th>
+
+
+    <td>
+        @{
+            foreach (var proj in Model.ProjectList)
+            {
+                SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(proj.ProjectName);
+                SqlDataReader projReader = DBProjectClass.UserProjectReader(proj.ProjectName);
+
+                //<p direction="left">@usr.PhoneNumber</p>
+
+                <h5>Skills:</h5>
+                while (skillReader.Read())
+                {
+                    <p>
+
+                        @skillReader["Skill_Type"].ToString()
+                    </p>
+                }
+
+                <h5>Projects:</h5>
+
+                while (projReader.Read())
+                {
+                    <p>
+                        @projReader["Project_Name"].ToString()
+                        @*<a asp-page="ViewProject" class="button" style="color: black; background-color: #DEFAB2; border-color: #DEFAB2" asp-route-profileid="@proje.">@projReader["Project_Name"].ToString()</a>            }*@
+                    </p>
+                    <br />
+                }
+            }
+        }
+        @{
+            //<a asp-page = "AddSkillsToUser" class="btn btn-primary"> Expand Your Skillset -> </a>
+        }
+</table>
+</html>

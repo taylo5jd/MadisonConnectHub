@@ -106,7 +106,6 @@ namespace lab_1_part_3.Pages.DBClasses
             sqlQuery += "Project_Description='" + p.ProjectDescription + "',";
             sqlQuery += "Project_Type='" + p.ProjectType + "',";
             sqlQuery += "Project_Name='" + p.ProjectName + "',";
-            sqlQuery += "Desired_Skills='" + p.DesiredSkills + "',";
             sqlQuery += "Project_Owner_Email='" + p.ProjectOwnerEmail + ",Project_Begin_Date='" + p.ProjectBeginDate +
                 ",Project_Mission_Statement ='" + p.ProjectMissionStatement + "' WHERE ProjectID =" + p.ProjectID;
             SqlCommand cmdProjectRead = new SqlCommand();

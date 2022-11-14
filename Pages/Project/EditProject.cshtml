@@ -10,7 +10,7 @@
   
     <br />
     <a asp-page="FileUploadProject" asp-route-projname="@Model.ProjectToUpdate.ProjectName" class="btn btn-secondary" style="color: white; background-color:#AC9CD8;">Upload Image</a>
- 
+<input type="hidden" asp-for="@Model.ProjectToUpdate.ProjectID" />
     <br />
     <label asp-for="@Model.ProjectToUpdate.ProjectDescription"></label>
     <input type="text" asp-for="@Model.ProjectToUpdate.ProjectDescription" />
@@ -29,10 +29,6 @@
     <br />
     <label asp-for="@Model.ProjectToUpdate.ProjectMissionStatement"></label>
     <input type="text" asp-for="@Model.ProjectToUpdate.ProjectMissionStatement" />
-    <br />
-    <label asp-for="@Model.ProjectToUpdate.DesiredSkills"></label>
-    <input type="text" asp-for="@Model.ProjectToUpdate.DesiredSkills" />
-    <br />
     <br /><br />
     <input type="submit" class="btn btn-success" style="color: white; background-color:#AC9CD8" asp-page="EditProject" />
     <a asp-page="Index" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Cancel</a>
