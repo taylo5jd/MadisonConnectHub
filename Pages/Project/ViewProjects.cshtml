@@ -64,34 +64,14 @@
     </style>
 </head>
 <body>
-    <h2 class="h2">All Projects</h2>
-    <p>Explore all projects Madison Connect Hub has to offer!</p>
+
+    <h4 style="font-weight:lighter; color:#3E1C66">All Projects</h4>
+    <h3 style="font-weight:bold; color:#3E1C66">Explore all projects Madison Connect Hub has to offer!</h3>
     
 
-    @{
 
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        foreach (var proj in Model.ProjectList)
-        {
-            SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
-                <div class="column">
-                    <div class="card" style="color: black; background-color: #fff">
-                        <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:50%" height="75%">
-                        <h3>@proj.ProjectName</h3>
-                        <p>@proj.ProjectMissionStatement</p>
-                        <p>@proj.ProjectType</p>
-                        <p>@proj.ProjectDescription</p>
-                        <p>@proj.ProjectOwnerEmail</p>
-                        <a asp-page="SearchProject" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#AC9CD8; width: 50%"> Request to Join </a>
-                        <br />
-                    </div>
-                    <br />
-                </div>
-        }
-        }
 
-    <h4 style="font-weight:lighter; color:#3E1C66">Explore projects</h4>
-    <h3 style="font-weight:bold; color:#3E1C66">All Projects</h3>
+
 
 @{
     if (Model.SearchText == null)
