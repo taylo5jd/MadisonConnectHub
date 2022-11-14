@@ -26,25 +26,25 @@ namespace lab_1_part_3.Pages.Project
 
 
             //called when page first loads
-            SqlDataReader ProjectReader = DBProjectClass.SingleProjectReader(ProjectID);
+            SqlDataReader projectReader = DBProjectClass.SingleProjectReader(ProjectID);
 
-            while (ProjectReader.Read())
+            while (projectReader.Read())
             {
                 ProjectList.Add(new ProjectProfile
                 {
-                    ProjectID = Int32.Parse(ProjectReader["ProjectID"].ToString()),
-                    ProjectDescription = ProjectReader["ProjectDescription"].ToString(),
-                    ProjectType = ProjectReader["ProjectType"].ToString(),
-                    ProjectName = ProjectReader["ProjectName"].ToString(),
-                    ProjectOwnerEmail = ProjectReader["ProjectName"].ToString(),
-                    ProjectBeginDate = ProjectReader["ProjectName"].ToString(),
-                    ProjectMissionStatement = ProjectReader["ProjectName"].ToString(),
-                    ProfileID = Int32.Parse(ProjectReader["ProjectID"].ToString()),
-                    DesiredSkills = ProjectReader["DesiredSkills"].ToString(),
-                    Category = ProjectReader["ProjectName"].ToString()
+                    ProjectID = Int32.Parse(projectReader["ProjectID"].ToString()),
+                    ProjectDescription = projectReader["Project_Description"].ToString(),
+                    ProjectType = projectReader["Project_Type"].ToString(),
+                    ProjectName = projectReader["Project_Name"].ToString(),
+                    ProjectOwnerEmail = projectReader["Project_Owner_Email"].ToString(),
+                    ProjectBeginDate = projectReader["Project_Begin_Date"].ToString(),
+                    ProjectMissionStatement = projectReader["Project_Mission_Statement"].ToString(),
+                    ProfileID = Int32.Parse(projectReader["ProfileID"].ToString())//,
+                    //DesiredSkills = ProjectReader["Desired_Skill"].ToString(),
+                    //Category = ProjectReader["Category"].ToString()
                 });
 
-                ProjectReader.Close();
+                //projectReader.Close();
             }
             return Page();
         }
