@@ -135,6 +135,7 @@ namespace lab_1_part_3.Pages.DBClasses
             sqlQuery += "Professional_Company='" + u.ProfessionalCompany + "',";
             sqlQuery += "LinkedIn='" + u.LinkedIn + "',";
             sqlQuery += "Video_Introduction='" + u.VideoIntroduction + "',";
+            sqlQuery += "Availability='" + u.Availability + "',";
             sqlQuery += "Faculty_Association='" + u.FacultyAssociation + "' WHERE ProfileID =" + u.ProfileID;
             SqlCommand cmdUpdateUser = new SqlCommand();
             cmdUpdateUser.Connection = new SqlConnection();
