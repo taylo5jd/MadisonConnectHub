@@ -24,35 +24,73 @@
         body {
             align-items: center;
             font-family: "IBM Plex Sans";
-            padding: 0;
             align-content: center;
+            margin: 0;
+            padding: 0;
         }
 
-        .column {
-            float: left;
-            width: 30%;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            align-content: center;
-            align-items: center;
-            margin: auto;
-        }
+        /*     .container {
+                    display: flex;
+                    flex-flow: row wrap;
+                }*/
 
         .row {
-            margin: auto;
+            margin: 0;
+            padding-bottom: 10px;
+            position: relative;
+            top: 500px;
         }
 
             .row:after {
                 content: "";
                 display: table;
                 clear: both;
+                padding-bottom: 10px;
             }
 
         .card {
-            box-shadow: 0 4px 8px 0 rgba(0,0,0, 0.2);
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,2);
             text-align: center;
-            background-color: #ffffff;
+            background-color: #f1f1f1;
+            flex: 0 0 100%;
+            height:auto;
+            border-radius: 3%;
+            position: relative;
+        }
+
+        .mission {
+            background-color: #3E1C66;
+            font-color: #3E1C66;
+            text-align: center;
+            float: right;
+        }
+
+        .projects {
+            background-image: linear-gradient(180deg, #E7FAB2, #E5DBF4);
+            font-color: #3E1C66;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        .header {
+            min-height: 100%;
+            min-width: 1024px;
+            /* Set up proportionate scaling */
+            width: 100%;
             height: auto;
+
+            /* Set up positioning */
+            position: absolute;
+            top: 70px;
+            left: 0;
+        }
+
+        .icon {
+            border: none;
+            font-color: #3c005a;
+            padding: 10px 15px;
+            font-size: 36px;
+            align-content: center;
             border-radius: 3%;
         }
 
@@ -69,16 +107,28 @@
             border-radius: 15px;
         }
 
-        .pic {
-            padding: 0;
+        .caption {
+            display: inline-block;
+            font-color: #E7FAB2;
+            font-size: 15px;
         }
 
-        .mission {
-            background-color: #3E1C66;
-            font-color: #3E1C66;
-            text-align: right;
+        .card img {
+            width: 100px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 3%;
+            margin: 0px auto 0;
+            object-fit: cover;
         }
-
+       .card h2{
+            font-size: 200%;
+            clear:both;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .card p{
         h2 {
             font-size: 200%;
             clear: both;
@@ -100,7 +150,39 @@
     @{
         ViewData["Title"] = "Home page";
     }
+    <div class="header">
+        <div class="MCHub">
+            <img class="pic" src="~/Images/landingpage.png" alt="landpagegrouppic" style="width: 100%">
+        </div>
 
+
+        <div style="display: table-row; height: 100px; align-content:center">
+            <div style="width: 50%; display: table-cell;">
+                <div class="icon">
+
+                    <i class="fa fa-group" style="border-radius: 50%; padding: 20px; background-color: #E7FAB2;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"></i>
+                    <span class="caption">COLLABORATE</span>
+                    <i class="fa fa-edit" style="border-radius: 50%; padding: 20px; background-color: #E7FAB2;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"></i>
+                    <span class="caption">CREATE</span>
+                    <i class="fa fa-hand-holding-heart" style="border-radius: 50%; padding: 20px; background-color: #E7FAB2;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"></i>
+                    <span class="caption">SHARE PASSION</span>
+
+                </div>
+            </div>
+
+
+            <div style="display: table-cell;">
+                <div class="Mission">
+                    <h3 style="text-align: center"><strong>OUR MISSION</strong></h3>
+                    <p> Create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to frorm with the right expertise to move big ideas forward.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects">
+            <h4>Projects</h4>
+            <p>Here are some of the Projects Madison Connect Hub has to offer!</p>
+        </div>
 
     <div class="text-center">
         <div class="MCHub">
@@ -134,6 +216,94 @@
                                                                 <h1 class="display-4">Welcome back, @firstName!</h1>
                                                                 @*<p>User @HttpContext.Session.GetString("username") is logged in!</p>*@
                                                                 <p>Our mission is to create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to form with the right expertise to move big ideas forward.</p>
+
+            }
+
+                                                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+                                                            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                                                                <div class="col">
+                                                                    <div class="card h-100">
+                                                                        <img src="~/Images/one.jpg" alt="John" style="width:100%" height="75%">
+                                                                        @* <input type="submit" class="button" style=" color: white; background-color: #AC9CD8; border-color:#AC9CD8" value="Request to join"></input>*@
+                                                                        <h2>Networking Application</h2>
+                                                                        <p>Our mission is to connect people together</p>
+                                                                        @*
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>*@
+                                                                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                                                                        <br />
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                                <div class="col">
+                                                                    <div class="card h-100">
+                                                                        <img src="~/Images/two.jpg" alt="pic" style="width:100%" height="75%">
+                                                                        <h2>NoVeRT</h2>
+                                                                        <p>Our innovative ideas will change the world</p>
+                                                                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                                                                        <br />
+                                                                    </div>
+                                                                </div>
+
+
+
+                                                                <div class="col">
+                                                                    <div class="card h-100">
+                                                                        <img src="~/Images/three.jpg" alt="John" style="width:100%" height="75%">
+                                                                        <h2>Collaborative Station</h2>
+                                                                        <p>We make our community a better place by working hard together</p>
+                                                                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                                                                        <br />
+                                                                    </div>
+                                                                </div>
+
+
+
+                                                                <div class="col">
+                                                                    <div class="card h-100">
+                                                                        <img src="~/Images/four.jpg" alt="John" style="width:100%" height="75%">
+                                                                        <h2>IT Serv</h2>
+                                                                        <p>Passionate about technology and driven by innovation</p>
+                                                                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                                                                        <br />
+                                                                    </div>
+                                                                </div>
+
+
+
+                                                                <div class="col">
+                                                                    <div class="card h-100">
+                                                                        <img src="~/Images/six.jpg" alt="John" style="width:100%" height="75%">
+                                                                        <h2>Walk & Clean Movement</h2>
+                                                                        <p>Coming together for the environment</p>
+                                                                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                                                                        <br />
+                                                                    </div>
+                                                                </div>
+
+
+
+                                                                <div class="col">
+                                                                    <div class="card h-100">
+                                                                        <img src="~/Images/seven.jpg" alt="windmill" style="width:100%" height="75%">
+                                                                        <h2>Air Sustainability</h2>
+                                                                        <p>Promote air sustainability on campus<p>
+                                                                            <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                                                                            <br />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                    <h1 class="display-4">Welcome back, @firstName!</h1>
+                                    @*<p>User @HttpContext.Session.GetString("username") is logged in!</p>*@
+                                    <p>Our mission is to create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to form with the right expertise to move big ideas forward.</p>
             }
 
                                                             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
