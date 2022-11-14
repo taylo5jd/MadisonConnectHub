@@ -15,14 +15,14 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdUserRead = new SqlCommand();
             cmdUserRead.Connection = new SqlConnection();
             cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdUserRead.CommandText = "SELECT * FROM UserProfile WHERE Username ='"+ username + "'";
+            cmdUserRead.CommandText = "SELECT * FROM UserProfile WHERE Username ='" + username + "'";
             cmdUserRead.Connection.Open();
             SqlDataReader tempReader = cmdUserRead.ExecuteReader();
             return tempReader;
         }
         public static int UserIDReader(string username)
         {
-        
+
 
             SqlCommand cmdUserRead = new SqlCommand();
             cmdUserRead.Connection = new SqlConnection();
@@ -93,9 +93,9 @@ namespace lab_1_part_3.Pages.DBClasses
         {
             String sqlQuery = "INSERT INTO UserProfile (Username, Password,FirstName,LastName,Email,UserType,PhoneNumber,Professional_Email,Professional_Company,Faculty_Association) VALUES(";
             sqlQuery += "'" + p.Username + "',";
-         
+
             sqlQuery += "'" + p.FirstName + "',";
-            sqlQuery += "'" + p.LastName + "'"  + ",";
+            sqlQuery += "'" + p.LastName + "'" + ",";
             sqlQuery += "'" + p.Email + "'" + ",";
             sqlQuery += "'" + p.UserType + "'" + ",";
             sqlQuery += "'" + p.PhoneNumber + "'" + ",";
@@ -136,7 +136,11 @@ namespace lab_1_part_3.Pages.DBClasses
             sqlQuery += "LinkedIn='" + u.LinkedIn + "',";
             sqlQuery += "Video_Introduction='" + u.VideoIntroduction + "',";
             sqlQuery += "Availability='" + u.Availability + "',";
+            sqlQuery += "Bio='" + u.Bio + "',";
+            sqlQuery += "Passions='" + u.Passions + "',";
+            sqlQuery += "Personality='" + u.Personality + "',";
             sqlQuery += "Faculty_Association='" + u.FacultyAssociation + "' WHERE ProfileID =" + u.ProfileID;
+
             SqlCommand cmdUpdateUser = new SqlCommand();
             cmdUpdateUser.Connection = new SqlConnection();
             cmdUpdateUser.Connection.ConnectionString = Lab1ConnStr;
