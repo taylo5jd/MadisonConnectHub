@@ -98,8 +98,7 @@
     @{
         foreach (var proj in Model.ProjectList)
         {
-            SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(proj.ProjectName);
-            SqlDataReader projReader = DBProjectClass.UserProjectReader(proj.ProjectName);
+            SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
 
             <a asp-page="EditProject" class="btn btn-secondary" style="float: right; color: black; background-color: #DEFAB2; border-color: #DEFAB2" asp-route-projectid="@proj.ProjectName">Edit Project</a>
 
