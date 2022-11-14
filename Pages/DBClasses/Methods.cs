@@ -26,12 +26,12 @@ namespace lab_1_part_3.Pages.DBClasses
                 {
                     return @"\images\" + originalName[0] + "." + originalName[1];
                 }
-                else
-                {
-                    return @"\images\stock.png";
-                }
             }
-            return @"\images\stock.png";
+                
+                    return @"\images\stock.png";
+                
+            
+         
         }
         public static string rename(string imgName, string ProjectName)
         {
