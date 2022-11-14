@@ -119,7 +119,8 @@ namespace lab_1_part_3.Pages.Project
                     ProjectName = projectReader["Project_Name"].ToString(),
                     ProjectOwnerEmail = projectReader["Project_Owner_Email"].ToString(),
                     ProjectMissionStatement = projectReader["Project_Mission_Statement"].ToString(),
-                   
+
+                    //DesiredSkills = projectReader["Desired_Skills"].ToString(),
 
 
                 });
