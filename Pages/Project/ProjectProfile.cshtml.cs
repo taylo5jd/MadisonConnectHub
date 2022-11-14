@@ -36,12 +36,12 @@ namespace lab_1_part_3.Pages.Project
                     ProjectDescription = ProjectReader["ProjectDescription"].ToString(),
                     ProjectType = ProjectReader["ProjectType"].ToString(),
                     ProjectName = ProjectReader["ProjectName"].ToString(),
-                    ProjectOwnerEmail = ProjectReader["ProjectName"].ToString(),
-                    ProjectBeginDate = ProjectReader["ProjectName"].ToString(),
-                    ProjectMissionStatement = ProjectReader["ProjectName"].ToString(),
-                    ProfileID = Int32.Parse(ProjectReader["ProjectID"].ToString()),
+                    ProjectOwnerEmail = ProjectReader["ProjectOwnerEmail"].ToString(),
+                    ProjectBeginDate = ProjectReader["ProjectBeginDate"].ToString(),
+                    ProjectMissionStatement = ProjectReader["ProjectMissionStatement"].ToString(),
+                    ProfileID = Int32.Parse(ProjectReader["ProfileID"].ToString()),
                     DesiredSkills = ProjectReader["DesiredSkills"].ToString(),
-                    Category = ProjectReader["ProjectName"].ToString()
+                    Category = ProjectReader["Category"].ToString()
                 });
 
                 ProjectReader.Close();
