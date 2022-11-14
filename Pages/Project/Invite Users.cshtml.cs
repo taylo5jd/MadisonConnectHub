@@ -14,6 +14,7 @@ namespace lab_1_part_3.Pages.Project
         public List<Skill> SkillList { get; set; }
         
         public int ProjID = 0;
+        public string message;
         public Invite_UsersModel()
         {
             UserList = new List<UserProfile>();
@@ -31,7 +32,7 @@ namespace lab_1_part_3.Pages.Project
 
             if(ProjectID != 0 && ProfileID != 0)
             {
-
+                message = "Invite Sent!";
                 DBJoinRequest.CreateJoinRequest(Requester, ProjID, ProfileID, "n", "Invite");
             }
 

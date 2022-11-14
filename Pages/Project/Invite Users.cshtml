@@ -117,6 +117,7 @@
 	}
 	else
 	{
+		
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		foreach (var usr in Model.UserList)
 			{
@@ -168,7 +169,7 @@
 
 					<div class="text-center">
 
-		@{
+		@{<h3>@Model.message</h3>
 			foreach (var usr in Model.UserList)
 			{
 				SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);

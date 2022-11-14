@@ -76,32 +76,33 @@
 @{
     if (Model.SearchText == null)
     {
-        <form asp-page="SearchProject">
-                    <input asp-for="SearchText" class="form-control" placeholder="Search Here" width="60%"/>
-                    <br />
-                <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8" />
-        </form>
-        <br />
+            <form asp-page="SearchProject">
+                        <input asp-for="SearchText" class="form-control" placeholder="Search Here" width="60%"/>
+                        <br />
+                    <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8" />
+            </form>
+            <br />
     }
     else
     {
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             foreach (var proj in Model.ProjectList)
             {
                 SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
-                    <div class="column">
-                        <div class="card" style="color: black; background-color: #fff">
-                            <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:50%" height="75%">
-                            <h3>@proj.ProjectName</h3>
-                            <p>@proj.ProjectMissionStatement</p>
-                            <p>@proj.ProjectType</p>
-                            <p>@proj.ProjectDescription</p>
-                            <p>@proj.ProjectOwnerEmail</p>
-                            <a asp-page="SearchProject" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#AC9CD8; width: 50%"> Request to Join </a>
+                        <div class="column">
+                            <div class="card" style="color: black; background-color: #fff">
+                                <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:50%" height="75%">
+                                <h3>@proj.ProjectName</h3>
+                                <p>@proj.ProjectMissionStatement</p>
+                                <p>@proj.ProjectType</p>
+                                <p>@proj.ProjectDescription</p>
+                                <p>@proj.ProjectOwnerEmail</p>
+                                <a asp-page="ViewProjects" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#AC9CD8; width: 50%"> Request to Join </a>
+                                <p>@Model.Message</p>
+                                <br />
+                            </div>
                             <br />
                         </div>
-                        <br />
-                    </div>
 
 
             }
@@ -110,29 +111,35 @@
 
 
     @{
+        <h3>@Model.Message</h3>
 
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         foreach (var proj in Model.ProjectList)
         {
             SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
-                    <div class="column">
-                        <div class="card" style="color: black; background-color: #fff">
-                            <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:50%" height="75%">
-                            <h3>@proj.ProjectName</h3>
-                            <p>@proj.ProjectMissionStatement</p>
-                            <p>@proj.ProjectType</p>
-                            <p>@proj.ProjectDescription</p>
-                            <p>@proj.ProjectOwnerEmail</p>
-                            <a asp-page="SearchProject" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#AC9CD8; width: 50%"> Request to Join </a>
+                        <div class="column">
+                            <div class="card" style="color: black; background-color: #fff">
+                                <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:50%" height="75%">
+                                <h3>@proj.ProjectName</h3>
+                                <p>@proj.ProjectMissionStatement</p>
+                                <p>@proj.ProjectType</p>
+                                <p>@proj.ProjectDescription</p>
+                                <p>@proj.ProjectOwnerEmail</p>
+                               
+                                    <a asp-page="ViewProjects" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#AC9CD8; width: 50%"> Request to Join </a>
+                             
+
+                                <br />
+                            </div>
                             <br />
                         </div>
-                        <br />
-                    </div>
 
 
         }
     }
-
+    <br />
+    
+    
     <a asp-page="Index" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Return To My Projects </a>
 
     <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8">Return To My Projects</a>
