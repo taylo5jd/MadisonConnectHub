@@ -66,9 +66,9 @@
 			display: inline-block;
 		}
 
-		.text-center{
-			padding-left: 120px;
-		}
+        .text-center{
+            padding-left: 5 %;
+        }
 
 
 
@@ -83,9 +83,13 @@
 
 
 
-	<h2 class="h2">All Users</h2>
-	<a asp-page="/User/SearchUser" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search for a User</a>
-	<div class="container">*@
+    <h2 class="h2">All Users</h2>
+
+    <a asp-page="/User/SearchUser" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Search for a User</a>
+    <div class="container">
+
+    <a asp-page="/User/SearchUser" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search for a User</a>
+    <div class="container">*@
 
 
 		@* <thead>
@@ -131,31 +135,35 @@
 						</div class>
 						 <h1 style="color:black; font-size:30px" display="inline-block">@usr.FirstName @usr.LastName</h1>
 
-																																																		<div class="icon">
-																																																		<a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
-																																																		<a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
-																																																		</div>
-																																																		<br />
+                        <div class="icon">
+                            <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
+                            <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
+                        </div>
+                        <br />
 
 
-																																																		<h2 style="color: black; font-size:20px">Current projects:</h2>
-																																																		<p>
-																																																			@{
-								while (projReader.Read())
-								{
-								 @projReader["Project_Name"].ToString()
-																																																																																																	<br />
-								}
-																																																			}
-																																																		</p>
-																																																		<a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8">View User</a>
-																																																	    
+                        <h2 style="color: black; font-size:20px">Current projects:</h2>
+                        <p>
+                        @{
+                                while (projReader.Read())
+                                {
+                                 @projReader["Project_Name"].ToString()
+                                                                                                                                                                                                                                                                                                                                                                                                    <br />
+                                }
+
+                                                                                                                                }
+                                                                                                                            </p>
+                                                                                                                            <a asp-page="ViewUser" class="btn btn-basic" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8">View User</a>
+
+                        }
+                        </p>
+                         <a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8">View User</a>
 
 
-																																																		<br />
-																																																	</div>
-																																																</div>
-																																									
+                        <br />
+                        </div>
+                        </div>
+                                                                                                                                                                    
 
 			}
 	<br />
@@ -167,7 +175,11 @@
 }
 
 
-					<div class="text-center">
+
+    </div>
+    <a asp-page="Index" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Return to User Page</a>
+
+                    <div class="text-center">
 
 		@{
 			foreach (var usr in Model.UserList)
@@ -201,10 +213,11 @@
 																																																		</p>
 																																																		<a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8">View User</a>
 
-																																																		<br />
-																																																	</div>
-																																																</div>
-																																									
+
+                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                </div>
+                                                                                                                                                                    
 
 			}
 		}

@@ -4,8 +4,9 @@
 @using lab_1_part_3.Pages.DataClasses
 @model lab_1_part_3.Pages.Project.IndexModel
 @{
-    ViewData["Title"] = "View Project";
+    ViewData["Title"] = "View My Projects";
 }
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,7 +66,7 @@
         }
 
         .topnav {
-            background-color: #333;
+            background-color: #f1f1f1;
             overflow: hidden;
         }
 
@@ -97,6 +98,21 @@
         foreach (var proj in Model.ProjectList)
     {
             SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
+            <div class="column">
+                <div class="card" style="color: black; background-color: #fff">
+                    <img src="@Methods.projimgFinder(proj.ProjectName)" alt="">
+                    <h3>@proj.ProjectName</h3>
+                    <p>@proj.ProjectMissionStatement</p>
+                    <p>@proj.ProjectType</p>
+                    <p>@proj.ProjectDescription</p>
+                    <p>@proj.ProjectOwnerEmail</p>
+                    <p><a asp-page="/User/RecommendedUsers" class="btn btn-basic" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#AC9CD8">Recommended Users</a></p>
+                    <p><a asp-page="EditProject" class="btn btn-outline-basic" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#AC9CD8">Edit</a></p>
+                    <br />
+                </div>
+                <br />
+            </div>
+
                                     <div class="column">
                                         <div class="card" style="color: black; background-color: #fff">
                                             <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:100%" height="75%">

@@ -7,6 +7,8 @@ namespace lab_1_part_3.Pages.Project
 {
     public class ViewProjectsModel : PageModel
     {
+        [BindProperty]
+        public string SearchText { get; set; }
         public List<ProjectProfile> ProjectList { get; set; }
         public ViewProjectsModel()
         {
