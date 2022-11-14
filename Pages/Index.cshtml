@@ -54,14 +54,16 @@
             background-color: #ffffff;
             height: auto;
             border-radius: 3%;
+
         }
 
             .card img {
-                width: 120 px;
-                height: 120 px;
+                width: 150px;
+                height: 150px;
                 overflow: hidden;
                 border-radius: 3%;
                 margin: 0px auto 0;
+                object-fit: cover;
             }
 
         .button {
@@ -76,6 +78,21 @@
             background-color: #3E1C66;
             font-color: #3E1C66;
             text-align: right;
+        }
+
+        h2 {
+            font-size: 200%;
+            clear: both;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        p {
+            clear: both;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
         }
 
     </style>
@@ -115,73 +132,73 @@
 
             if (HttpContext.Session.GetString("username") != null)
             {
-                <h1 class="display-4">Welcome back, @firstName!</h1>
-                @*<p>User @HttpContext.Session.GetString("username") is logged in!</p>*@
-                <p>Our mission is to create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to form with the right expertise to move big ideas forward.</p>
+                                    <h1 class="display-4">Welcome back, @firstName!</h1>
+                                    @*<p>User @HttpContext.Session.GetString("username") is logged in!</p>*@
+                                    <p>Our mission is to create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to form with the right expertise to move big ideas forward.</p>
             }
 
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-            <div class="row">
-                <div class="column">
-                    <div class="card">
-                        <img src="~/Images/one.jpg" alt="John" style="width:100%" height="75%">
-                        @* <input type="submit" class="button" style=" color: white; background-color: #AC9CD8; border-color:#AC9CD8" value="Request to join"></input>*@
-                        <h2>Codeathon</h2>
-                        <p>Our mission is to clean up code</p>
-                        @*
+                                <div class="row">
+                                    <div class="column">
+                                        <div class="card">
+                                            <img src="~/Images/one.jpg" alt="John" style="width:100%" height="75%">
+                                            @* <input type="submit" class="button" style=" color: white; background-color: #AC9CD8; border-color:#AC9CD8" value="Request to join"></input>*@
+                                            <h2>Codeathon</h2>
+                                            <p>Our mission is to clean up code</p>
+                                            @*
                     <a href="#"><i class="fa fa-twitter"></i></a>
                     <a href="#"><i class="fa fa-linkedin"></i></a>
                     <a href="#"><i class="fa fa-facebook"></i></a>*@
-                        <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                    </div>
-                </div>
+                                            <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
+                                        </div>
+                                    </div>
 
-                <div class="column">
-                    <div class="card">
-                        <img src="~/Images/two.jpg" alt="pic" style="width:100%" height="75%">
-                        <h2>Marketing Mania</h2>
-                        <p>Revamp JMU Marketing</p>
-                        <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                    </div>
-                </div>
+                                    <div class="column">
+                                        <div class="card">
+                                            <img src="~/Images/two.jpg" alt="pic" style="width:100%" height="75%">
+                                            <h2>Marketing Mania</h2>
+                                            <p>Revamp JMU Marketing</p>
+                                            <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
+                                        </div>
+                                    </div>
 
-                <div class="column">
-                    <div class="card">
-                        <img src="~/Images/three.jpg" alt="John" style="width:100%" height="75%">
-                        <h2>BRCC Revamp</h2>
-                        <p>Implement systems for BRCC</p>
-                        <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                    </div>
-                </div>
+                                    <div class="column">
+                                        <div class="card">
+                                            <img src="~/Images/three.jpg" alt="John" style="width:100%" height="75%">
+                                            <h2>BRCC Revamp</h2>
+                                            <p>Implement systems for BRCC</p>
+                                            <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
+                                        </div>
+                                    </div>
 
-                <div class="column">
-                    <div class="card">
-                        <img src="~/Images/four.jpg" alt="John" style="width:100%" height="75%">
-                        <h2>COB Web Design</h2>
-                        <p>Our goal is to develop a new website for COB</p>
-                        <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                    </div>
-                </div>
+                                    <div class="column">
+                                        <div class="card">
+                                            <img src="~/Images/four.jpg" alt="John" style="width:100%" height="75%">
+                                            <h2>COB Web Design</h2>
+                                            <p>Our goal is to develop a new website for COB</p>
+                                            <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
+                                        </div>
+                                    </div>
 
-                <div class="column">
-                    <div class="card">
-                        <img src="~/Images/six.jpg" alt="John" style="width:100%" height="75%">
-                        <h2>Walk & Clean Movement</h2>
-                        <p>Coming together for the environment</p>
-                        <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                    </div>
-                </div>
+                                    <div class="column">
+                                        <div class="card">
+                                            <img src="~/Images/six.jpg" alt="John" style="width:100%" height="75%">
+                                            <h2>Walk & Clean Movement</h2>
+                                            <p>Coming together for the environment</p>
+                                            <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
+                                        </div>
+                                    </div>
 
-                <div class="column">
-                    <div class="card">
-                        <img src="~/Images/seven.jpg" alt="windmill" style="width:100%" height="75%">
-                        <h2>Air Sustainability</h2>
-                        <p>Promote air sustainability on campus<p>
-                        <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
-                    </div>
-                </div>
-            </div>
+                                    <div class="column">
+                                        <div class="card">
+                                            <img src="~/Images/seven.jpg" alt="windmill" style="width:100%" height="75%">
+                                            <h2>Air Sustainability</h2>
+                                            <p>Promote air sustainability on campus<p>
+                                            <p><button style="color: #E5DBF4">Contact Project Owner</button></p>
+                                        </div>
+                                    </div>
+                                </div>
 
         }
 
