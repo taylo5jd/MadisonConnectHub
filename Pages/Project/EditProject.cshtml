@@ -7,17 +7,10 @@
     ViewData["Title"] = "Edit Project";
 }
 <form asp-page="EditProject">
-    <input type="hidden" asp-for="@Model.ProjectToUpdate.ProjectID" />
-    <select name="NewProjectProfile.ProfileID">
-        <option value="">Choose Project Owner</option>
-        @{
-            foreach (var usr in Model.UserList)
-            {
-                <option value=@usr.ProfileID>@usr.Username</option>
-            }
-        }
-    </select>
-    <a asp-page="AddSkillsToUser" class="btn btn-primary"> Expand Your Skillset -> </a>
+  
+    <br />
+    <a asp-page="FileUploadProject" asp-route-projname="@Model.ProjectToUpdate.ProjectName" class="btn btn-secondary" style="color: white; background-color:#AC9CD8;">Upload Image</a>
+<input type="hidden" asp-for="@Model.ProjectToUpdate.ProjectID" />
     <br />
     <label asp-for="@Model.ProjectToUpdate.ProjectDescription"></label>
     <input type="text" asp-for="@Model.ProjectToUpdate.ProjectDescription" />
@@ -36,10 +29,6 @@
     <br />
     <label asp-for="@Model.ProjectToUpdate.ProjectMissionStatement"></label>
     <input type="text" asp-for="@Model.ProjectToUpdate.ProjectMissionStatement" />
-    <br />
-    <label asp-for="@Model.ProjectToUpdate.DesiredSkills"></label>
-    <input type="text" asp-for="@Model.ProjectToUpdate.DesiredSkills" />
-    <br />
     <br /><br />
     <input type="submit" class="btn btn-success" style="color: white; background-color:#AC9CD8" asp-page="EditProject" />
     <a asp-page="Index" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Cancel</a>

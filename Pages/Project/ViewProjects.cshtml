@@ -11,6 +11,8 @@
 <html>
 <head>
     <meta name="viewport" content="wodth=device-width,initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
     <style>
         * {
             box-sizing: border-box;
@@ -50,13 +52,14 @@
         }
 
         .card {
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,2);
-            padding: 0px;
-            pading-bottom: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            padding-bottom: 10px;
             width: 600px;
             text-align: center;
             background-color: #f1f1f1;
             flex: 0 0 100%;
+            border-radius: 10%;
         }
     </style>
 </head>
@@ -86,10 +89,72 @@
                     </div>
 
 
+    <h4 style="font-weight:lighter; color:#3E1C66">Explore projects</h4>
+    <h3 style="font-weight:bold; color:#3E1C66">All Projects</h3>
+
+@{
+    if (Model.SearchText == null)
+    {
+    <form asp-page="SearchProject">
+                <input asp-for="SearchText" class="form-control" placeholder="Search Here" width="60%"/>
+                <br />
+            <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8" />
+    </form>
+    <br />
+    }
+    else
+    {
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            foreach (var proj in Model.ProjectList)
+            {
+                SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
+                <div class="column">
+                    <div class="card" style="color: black; background-color: #fff">
+                        <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:50%" height="75%">
+                        <h3>@proj.ProjectName</h3>
+                        <p>@proj.ProjectMissionStatement</p>
+                        <p>@proj.ProjectType</p>
+                        <p>@proj.ProjectDescription</p>
+                        <p>@proj.ProjectOwnerEmail</p>
+                        <a asp-page="SearchProject" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#AC9CD8; width: 50%"> Request to Join </a>
+                        <br />
+                    </div>
+                    <br />
+                </div>
+
+
+            }
+    }
+    }
+
+
+    @{
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        foreach (var proj in Model.ProjectList)
+        {
+            SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
+                <div class="column">
+                    <div class="card" style="color: black; background-color: #fff">
+                        <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:50%" height="75%">
+                        <h3>@proj.ProjectName</h3>
+                        <p>@proj.ProjectMissionStatement</p>
+                        <p>@proj.ProjectType</p>
+                        <p>@proj.ProjectDescription</p>
+                        <p>@proj.ProjectOwnerEmail</p>
+                        <a asp-page="ProjectProfile" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#AC9CD8; width: 50%"> Project Details </a>
+                        <br />
+                    </div>
+                    <br />
+                </div>
+
+
         }
     }
 
     <a asp-page="Index" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Return To My Projects </a>
+
+    <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8">Return To My Projects</a>
 
 </body>
 </html>

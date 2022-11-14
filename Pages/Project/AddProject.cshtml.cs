@@ -57,9 +57,10 @@ namespace lab_1_part_3.Pages.Project
             //var dt = NewProjectProfile.ProjectBeginDate.ToString().Substring(0, 10);
             //Convert.ToDateTime(dt);
             // NewProjectProfile.ProjectBeginDate = dt;
+            NewProjectProfile.ProfileID = DBUserClass.UserIDReader(HttpContext.Session.GetString("username"));
             DBProjectClass.InsertProject(NewProjectProfile);
             //MUST ADD AUTOMATED TEAM CREATION
-            HttpContext.Session.SetInt32("projid",  NewProjectProfile.ProjectID);
+            HttpContext.Session.SetInt32("projid", DBProjectClass.ProjectIDReader());
             return RedirectToPage("/Project/AddDesiredSkills");
         }
         public IActionResult OnPostPopulateHandler()

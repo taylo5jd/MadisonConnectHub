@@ -28,6 +28,17 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
             return tempReader;
         }
+        public static int ProjectIDReader()
+        {
+            SqlCommand cmdUserRead = new SqlCommand();
+            cmdUserRead.Connection = new SqlConnection();
+            cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
+            cmdUserRead.CommandText = "select MAX(Project.ProjectID) from Project";
+            cmdUserRead.Connection.Open();
+            int rowCount = (int)cmdUserRead.ExecuteScalar();
+            return rowCount;
+
+        }
 
         public static SqlDataReader UserProjectReader(string username)
         {
@@ -95,7 +106,6 @@ namespace lab_1_part_3.Pages.DBClasses
             sqlQuery += "Project_Description='" + p.ProjectDescription + "',";
             sqlQuery += "Project_Type='" + p.ProjectType + "',";
             sqlQuery += "Project_Name='" + p.ProjectName + "',";
-            sqlQuery += "Desired_Skills='" + p.DesiredSkills + "',";
             sqlQuery += "Project_Owner_Email='" + p.ProjectOwnerEmail + ",Project_Begin_Date='" + p.ProjectBeginDate +
                 ",Project_Mission_Statement ='" + p.ProjectMissionStatement + "' WHERE ProjectID =" + p.ProjectID;
             SqlCommand cmdProjectRead = new SqlCommand();

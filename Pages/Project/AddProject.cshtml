@@ -25,46 +25,58 @@
 </head>
 <body>
     @{
-            /*Justin Taylor*/
+        /*Justin Taylor*/
     }
     @model lab_1_part_3.Pages.Project.AddProjectModel
     @{
     }
-    <div class="form">
-        <form class="form" style="align-content: center; text-align: center;" asp-page="AddProject">
-            <h1 style="text-align: center;">Start a Project!</h1>
-            <select class="form-control" name="NewProjectProfile.ProfileID">
-                <option value="">Choose Project Owner</option>
-                @{
-                    foreach (var usr in Model.UserList)
-                    {
-                        <option value=@usr.ProfileID>@usr.Username</option>
-                    }
-                }
-            </select>
-            <br />
-            <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectDescription" placeholder="Project Description" />
-            <br />
-            <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectType" placeholder="Project Type" />
-            <br />
-            <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectName" placeholder="Project Name" />
-            <br />
-            <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectOwnerEmail" placeholder="Project Owner's Email" />
-            <br />
-            <input type="date" class="form-control" asp-for="NewProjectProfile.ProjectBeginDate" placeholder="Project's Start Date" />
-            <br />
 
-            <input type="text" class="form-control" asp-for="NewProjectProfile.ProjectMissionStatement" placeholder="Project's Mission Statement" />
-            <br />
+    @{
 
-            <button type="submit" style="color: white; background-color:#AC9CD8">Add Project -> </button>
-            <br />
-            <button class="btn btn-outline-secondary" asp-page="AddProject" asp-page-handler="PopulateHandler" formnovalidate style="color: white; background-color:#AC9CD8">Populate</button>
-            <br />
-            <a asp-page="Index" class="btn btn-secondary" style="color: white; background-color:#AC9CD8">Cancel</a>
+        if (HttpContext.Session.GetString("username") != null)
+        {
+
+                                                                    
+                                                                                                    <form class="form" style="align-content: center; text-align: center;" asp-page="AddProject">
+                                                        <h1 style="text-align: left; color: rebeccapurple;"><strong>Create a Project!</strong></h1>
+                                                                                                <br />
+                                                    <label asp-for="@Model.NewProjectProfile.ProjectName" style="width: 200px; text-align:left; float: left;">Project Name</label>
+                    <input type="text" style="width: 250px;" class="form-control" asp-for="NewProjectProfile.ProjectName" style="align-content: center; " />
+                                                                                                <br />
+                                    <label asp-for="@Model.NewProjectProfile.ProjectDescription" style="width: 200px; text-align:left;  float: left;">Project Description</label>
+                <input type="text" style="width: 250px;" class="form-control" asp-for="NewProjectProfile.ProjectDescription" />
+                                                                                                <br />
+                                    <label asp-for="@Model.NewProjectProfile.ProjectType" style="width: 200px; text-align:left;  float: left;">Project Type</label>
+                            <select name="NewProjectProfile.ProjectType" style="float: left;">
+                            <option value="Arts">Arts</option>
+                                <option value="Enviromental">Enviromental</option>
+                                <option value="Technology">Technology</option>
+                                          <option value="Volunteer">Volunteer</option>
+                            <option value="Other">Other</option>
+                            </select>
+                            <br />
+                                                                                                <br />
+                                    <label asp-for="@Model.NewProjectProfile.ProjectMissionStatement" style="width: 200px; text-align:left;  float: left;">Mission Statement</label>
+                    <input type="text" style="width: 250px; padding-left: auto;" class="form-control" asp-for="NewProjectProfile.ProjectMissionStatement" />
+                                                                                                <br />
+                                    <label asp-for="@Model.NewProjectProfile.ProjectBeginDate" style="width: 200px; text-align:left ; float: left;">Project Start Date</label>
+                                    <input type="date" class="form-control" style="align-content: center;" asp-for="NewProjectProfile.ProjectBeginDate" placeholder="Project's Start Date" />
+                                                                                                 <br />
+                                    <label asp-for="@Model.NewProjectProfile.ProjectOwnerEmail" style="width: 200px; text-align:left;  float: left;">Project Owner Email</label>
+
+                <input type="text" style="align-content: center; width: 250px;" class="form-control" asp-for="NewProjectProfile.ProjectOwnerEmail" />
+                                                                                                <br />
+                                                                                        <a asp-page="Index" class="btn btn-secondary" style=" float: left;color: white; background-color:#AC9CD8">Cancel</a><button type="submit" class="btn btn-primary" style=" width: auto; margin-left: 0px; color: white; background-color:#AC9CD8">Create Project</button>
+                                                                                                <br />
+                                                                                    @*            <button class="btn btn-outline-secondary" asp-page="AddProject" asp-page-handler="PopulateHandler" formnovalidate style="color: white; background-color:#AC9CD8">Populate</button>
+*@            <br />
+                                                                                                
 
 
-        </form>
-    </div>
-</body>
-</html>
+                                                                                            </form>
+
+                                                      
+        }
+ }
+    </body>
+    </html>

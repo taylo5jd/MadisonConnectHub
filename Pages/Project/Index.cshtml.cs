@@ -1,3 +1,4 @@
+using lab_1_part_3.Pages.DataClasses;
 using lab_1_part_3.Pages.DBClasses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,19 +10,32 @@ namespace lab_1_part_3.Pages.Project
     public class IndexModel : PageModel
     {
         public List<ProjectProfile> ProjectList { get; set; }
+        public Team NewTeam { get; set; }
         public IndexModel()
         {
             ProjectList = new List<ProjectProfile>();
+            NewTeam = new Team();
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int team)
         {
 
             if (HttpContext.Session.GetString("username") == null)
             {
                 return RedirectToPage("/DBLogin");
             }
+            if (team == 1)
+            {
+                NewTeam.TeamName = HttpContext.Session.GetString("username");
+                NewTeam.ProjectID = (int)HttpContext.Session.GetInt32("projid");
 
+                int prfid = DBUserClass.UserIDReader(HttpContext.Session.GetString("username"));
+                int tid = DBTeamClass.TeamIDReader();
+
+                DBTeamClass.InsertTeam(NewTeam);
+
+                DBAddToTeamClass.InsertUserTeamComposition(prfid, tid);
+            }
 
 
 

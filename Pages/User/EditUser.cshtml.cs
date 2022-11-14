@@ -12,9 +12,9 @@ namespace lab_1_part_3.Pages.User
     {
         [BindProperty]
         public UserProfile UserToUpdate { get; set; }
-        [BindProperty]
-        public string PRFID { get; private set; }
-        public object Public { get; private set; }
+        
+       
+        
      
 
         public EditUserModel()

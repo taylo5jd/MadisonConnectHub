@@ -14,7 +14,8 @@ namespace lab_1_part_3.Pages.Teams
         public List<ProjectProfile> ProjectList { get; set; }
         public AddTeamModel()
         {
-            ProjectList = new List<ProjectProfile>();   
+            ProjectList = new List<ProjectProfile>();
+            NewTeam = new Team();
         }
         public void OnGet()
         {
@@ -22,70 +23,19 @@ namespace lab_1_part_3.Pages.Teams
             {
                 RedirectToPage("/DBLogin");
             }
-            SqlDataReader projectReader = DBProjectClass.ProjectReader();
-
-            while (projectReader.Read())
-            {
-                ProjectList.Add(new ProjectProfile
-                {
-                    ProjectID = Int32.Parse(projectReader["ProjectID"].ToString()),
-                    ProfileID = Int32.Parse(projectReader["ProfileID"].ToString()),
-                    ProjectDescription = projectReader["Project_Description"].ToString(),
-                    ProjectType = projectReader["Project_Type"].ToString(),
-                    ProjectName = projectReader["Project_Name"].ToString(),
-                    ProjectOwnerEmail = projectReader["Project_Owner_Email"].ToString(),
-
-
-                });
-
-            }
-            projectReader.Close();
-        }
-
-        public IActionResult OnPost()
-        {
-            DBTeamClass.InsertTeam(NewTeam);
+            NewTeam.TeamName = HttpContext.Session.GetString("username");
+            NewTeam.ProjectID = (int)HttpContext.Session.GetInt32("projid");
 
             int prfid = DBUserClass.UserIDReader(HttpContext.Session.GetString("username"));
             int tid = DBTeamClass.TeamIDReader();
 
-            DBAddToTeamClass.InsertUserTeamComposition(prfid,tid );
+            DBTeamClass.InsertTeam(NewTeam);
 
-            return RedirectToPage("Index");
+            DBAddToTeamClass.InsertUserTeamComposition(prfid, tid);
+            RedirectToPage("/Project/Index");
+
         }
 
-        public IActionResult OnPostPopulateHandler()
-        {
-            if (!ModelState.IsValid)
-            {
-                SqlDataReader projectReader = DBProjectClass.ProjectReader();
-
-                while (projectReader.Read())
-                {
-                    ProjectList.Add(new ProjectProfile
-                    {
-                        ProjectID = Int32.Parse(projectReader["ProjectID"].ToString()),
-                        ProfileID = Int32.Parse(projectReader["ProfileID"].ToString()),
-                        ProjectDescription = projectReader["Project_Description"].ToString(),
-                        ProjectType = projectReader["Project_Type"].ToString(),
-                        ProjectName = projectReader["Project_Name"].ToString(),
-                        ProjectOwnerEmail = projectReader["Project_Owner_Email"].ToString(),
-
-
-                    });
-
-                }
-                projectReader.Close();
-
-                ModelState.Clear();
-                NewTeam.TeamEmail= "teamair@dukes.jmu";
-                NewTeam.TeamDescription = "A group of people who want to clean the air.";
-                NewTeam.TeamName = "Air Cleaners";
-                NewTeam.TeamMeetingDate = "2023-01-15";
-                NewTeam.ProjectID = 2;
-            }
-            return Page();
-        }
 
     }
 }
