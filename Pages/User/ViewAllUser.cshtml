@@ -104,19 +104,22 @@
         <h4 style="font-weight:lighter; color:#3E1C66">Explore profiles</h4>
         <h3 style="font-weight:bold; color:#3E1C66">All Profiles</h3>
 
+        
         @{
-                if (Model.SearchText == null)
+    if (Model.SearchText == null)
     {
-            <form asp-page="ViewAllUser">
+    <form asp-page="SearchUser">
                 <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
-                                <br />
+                <br />
             <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8" />
-            </form>
-        }
-        else
-        {
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            foreach (var usr in Model.UserList)
+    </form>
+    <br />
+        <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return to User Page </a>
+    }
+    else
+    {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        foreach (var usr in Model.UserList)
             {
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
@@ -140,7 +143,7 @@
                                                                                                                                                                                                             @{
                                 while (projReader.Read())
                                 {
-                                                                                                                                                                                                                                                                                                                                                                                                    @projReader["Project_Name"].ToString()
+                                 @projReader["Project_Name"].ToString()
                                                                                                                                                                                                                                                                                                                                                                                                     <br />
                                 }
                                                                                                                                                                                                             }
@@ -153,8 +156,13 @@
                                                                                                                                                                     
 
             }
-        }
-     }
+    <br />
+        
+        <a asp-page="ViewAllUser" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search Again</a>
+        <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return to User Page</a>
+    
+    }
+}
 
 
                     <div class="text-center">
@@ -199,8 +207,6 @@
             }
         }
     </div>
-
-    <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return to User Page</a>
    
 
 
