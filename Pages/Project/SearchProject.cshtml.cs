@@ -93,7 +93,7 @@ namespace lab_1_part_3.Pages.Project
                 }
 
 
-                DBJoinRequest.CreateJoinRequest(ProfID, ProjID, ApproverID,StatusFlag);
+                DBJoinRequest.CreateJoinRequest(ProfID, ProjID, ApproverID,StatusFlag,"Join Request");
             }
         }
         public IActionResult OnPost()

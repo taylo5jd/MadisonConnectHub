@@ -30,8 +30,7 @@ namespace lab_1_part_3.Pages
 
                 DBLoginClass.CreateHashedUser(Username, Password, NewUser);
 
-                // Perform actual logic to check if user was successfully
-                //  added in your projects but for demo purposes we can say:
+           
 
                 ViewData["UserCreate"] = "User Successfully Created!";
 

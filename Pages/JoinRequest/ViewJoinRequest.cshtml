@@ -12,6 +12,8 @@
             <th>Project Name</th>
             <th>Approve</th>
             <th>Deny</th>
+            <th>View User</th>
+            <th>Type</th>
         </tr>
     </thead>
     <tbody>
@@ -38,7 +40,7 @@
                             <td><a asp-page="ViewJoinRequest" class="btn btn-primary" style=" color: white; background-color: #AC9CD8" asp-route-RequestID="@Int32.Parse(joinReader["RequestID"].ToString())" asp-route-ProfileID="@Int32.Parse(joinReader["ProfileID"].ToString())" asp-route-TeamID="@Int32.Parse(joinReader["TeamID"].ToString())"> Approve </a></td>
                             <td><a asp-page="ViewJoinRequest" class="btn btn-primary" style=" color: white; background-color: #AC9CD8" asp-route-RequestID="@Int32.Parse(joinReader["RequestID"].ToString())" asp-route-ProfileID="0" asp-route-TeamID="0"> Deny </a></td>
                             <td><a asp-page="/User/ViewUser" class="btn btn-primary" asp-route-username= "@Model.Username"  style="color: white; background-color:#AC9CD8">View User</a></td>
-
+                            <td>@joinReader["_Type"].ToString()</td>
 
 
                         </tr>

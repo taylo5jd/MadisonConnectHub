@@ -26,7 +26,7 @@ namespace lab_1_part_3.Pages.DBClasses
             cmdUserRead.CommandText = @"select UserProfile.FirstName+ ' ' + UserProfile.LastName as Requester, Join_Request.RequestID,
             Join_Request.ProfileID,Join_Request.ApproverID, (select Project.Project_Name
             from Project where Join_Request.ProjectID = Project.ProjectID) as 'Project Name',
-            Join_Request.StatusFlag, Join_Request.ProjectID,TeamComposition.TeamID
+            Join_Request.StatusFlag, Join_Request._Type, Join_Request.ProjectID,TeamComposition.TeamID
             from Join_Request inner join UserProfile on Join_Request.ProfileID = UserProfile.ProfileID
             inner join TeamComposition on Join_Request.ApproverID = TeamComposition.ProfileID
             WHERE (select UserProfile.Username from UserProfile where UserProfile.ProfileID = Join_Request.ApproverID)  =  '" + Username + "'";
@@ -35,12 +35,12 @@ namespace lab_1_part_3.Pages.DBClasses
             return tempReader;
         }
         //need to insert two profile ID's
-        public static SqlDataReader CreateJoinRequest(int ProfileID, int ProjectID,int ApproverID,string StatusFlag)
+        public static SqlDataReader CreateJoinRequest(int ProfileID, int ProjectID,int ApproverID,string StatusFlag,string Type)
         {
             SqlCommand cmdUserRead = new SqlCommand();
             cmdUserRead.Connection = new SqlConnection();
             cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdUserRead.CommandText = "INSERT INTO Join_Request(ProfileID, ProjectID,ApproverID,StatusFlag) VALUES( " + ProfileID +"," + ProjectID +"," +ApproverID+",'"+ StatusFlag +"')";
+            cmdUserRead.CommandText = "INSERT INTO Join_Request(ProfileID, ProjectID,ApproverID,StatusFlag,_Type) VALUES( " + ProfileID +"," + ProjectID +"," +ApproverID+",'"+ StatusFlag +"','"+ Type + "')";
             cmdUserRead.Connection.Open();
             SqlDataReader tempReader = cmdUserRead.ExecuteReader();
             return tempReader;

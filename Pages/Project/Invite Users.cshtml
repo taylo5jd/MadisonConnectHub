@@ -1,10 +1,9 @@
 ﻿@page
 @using System.Data.SqlClient
 @using lab_1_part_3.Pages.DBClasses
-@using lab_1_part_3.Pages.DataClasses
-@model lab_1_part_3.Pages.User.ViewAllUserModel
+@model lab_1_part_3.Pages.Project.Invite_UsersModel
 @{
-	ViewData["Title"] = "View Users";
+	ViewData["Title"] = "Invite Users";
 
 }
 <!DOCTYPE html>
@@ -148,8 +147,8 @@
 								}
 																																																			}
 																																																		</p>
-																																																		<a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8">View User</a>
-																																																	    
+																													
+																																																	    <a asp-page="Invite Users" class="btn btn-primary" asp-route-ProfileID="@usr.ProfileID" asp-route-ProjectID = "@Model.ProjID" style="color: white; background-color:#AC9CD8">Invite User</a>
 
 
 																																																		<br />
@@ -199,7 +198,7 @@
 								 }
 																																																			}
 																																																		</p>
-																																																		<a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8">View User</a>
+																																																	    <a asp-page="Invite Users" class="btn btn-primary" asp-route-ProfileID="@usr.ProfileID" asp-route-ProjectID = "@Model.ProjID" style="color: white; background-color:#AC9CD8">Invite User</a>
 
 																																																		<br />
 																																																	</div>
@@ -215,3 +214,4 @@
 </body>
 
 </html>
+
