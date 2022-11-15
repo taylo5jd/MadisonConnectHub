@@ -34,6 +34,8 @@
             float: left;
         }
 
+
+
     </style>
 </head>
 
@@ -44,7 +46,6 @@
 @{
     foreach (var proj in Model.ProjectList)
     {
-        SqlDataReader skillReader = DesiredSkill.DesiredSkillReader(proj.ProjectID);
         SqlDataReader projReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
 
         <img class="pic" src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:18%" height="18%">
