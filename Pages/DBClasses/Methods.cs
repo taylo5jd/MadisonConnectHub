@@ -49,12 +49,12 @@ namespace lab_1_part_3.Pages.DBClasses
             foreach (var file in fileListing)
             {
                 string[] originalName = file.Name.Split('.');
-                if (originalName[0].Equals(ProjectName))
+                if (originalName[0].ToLower().Replace(" ", "").Equals(ProjectName.ToLower().Replace(" ", "")))
                 {
                     return @"\images\" + originalName[0] + "." + originalName[1];
                 }
             }
-            return "";
+            return @"\images\project.webp";
         }
         
 

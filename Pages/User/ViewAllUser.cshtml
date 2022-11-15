@@ -61,6 +61,8 @@
         .text-center{
             padding-left: 120px;
         }
+
+
     </style>
 </head>
 
@@ -93,108 +95,108 @@
         @{
     if (Model.SearchText == null)
     {
-    <form asp-page="SearchUser">
-                <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
-                <br />
-            <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8" />
-    </form>
-    <br />
-        <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return to User Page </a>
+                                    <form asp-page="SearchUser">
+                                                <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
+                                                <br />
+                                            <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8; border:none" />
+                                    </form>
+                                    <br />
+                                        <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8; border:none"> Return to User Page </a>
     }
     else
     {
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         foreach (var usr in Model.UserList)
             {
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
                 // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
-                        <div class="column">
-                        <div class="card" style="color: black; background-color:#fff">
-                        <div class="card_img">
-                            <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
-                        </div class>
-                         <h1 style="color:black; font-size:30px" display="inline-block">@usr.FirstName @usr.LastName</h1>
+                                                        <div class="column">
+                                                        <div class="card" style="color: black; background-color:#fff">
+                                                        <div class="card_img">
+                                                            <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
+                                                        </div class>
+                                                         <h1 style="color:black; font-size:30px" display="inline-block">@usr.FirstName @usr.LastName</h1>
 
-                                                                                                                                                                                                        <div class="icon">
-                                                                                                                                                                                                        <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
-                                                                                                                                                                                                        <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
-                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                        <div class="icon">
+                                                                                                                                                                                                                                        <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
+                                                                                                                                                                                                                                        <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
+                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                        <br />
 
 
-                                                                                                                                                                                                        <h2 style="color: black; font-size:20px">Current projects:</h2>
-                                                                                                                                                                                                        <p>
-                                                                                                                                                                                                            @{
+                                                                                                                                                                                                                                        <h2 style="color: black; font-size:20px">Current projects:</h2>
+                                                                                                                                                                                                                                        <p>
+                                                                                                                                                                                                                                            @{
                                 while (projReader.Read())
                                 {
-                                 @projReader["Project_Name"].ToString()
-                                                                                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                 @projReader["Project_Name"].ToString()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <br />
                                 }
-                                                                                                                                                                                                            }
-                                                                                                                                                                                                        </p>
-                                                                                                                                                                                                        <a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8">View User</a>
+                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                        </p>
+                                                                                                                                                                                                                                        <a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8; border: none; outline: none">View User</a>
 
-                                                                                                                                                                                                        <br />
-                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                </div>
 
 
-            }
-    <br />
+                }
+                                    <br />
 
-        <a asp-page="ViewAllUser" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search Again</a>
-        <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return to User Page</a>
+                                        <a asp-page="ViewAllUser" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search Again</a>
+                                        <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return to User Page</a>
 
+        }
     }
-}
 
 
-                    <div class="text-center">
+                        <div class="text-center">
 
-        @{
+            @{
             foreach (var usr in Model.UserList)
             {
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
                 // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
-                        <div class="column">
-                        <div class="card" style="color: black; background-color:#fff">
-                        <div class="card_img">
-                            <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
-                        </div class>
-                         <h1 style="color:black; font-size:30px" display="inline-block">@usr.FirstName @usr.LastName</h1>
+                                                            <div class="column">
+                                                            <div class="card" style="color: black; background-color:#fff">
+                                                            <div class="card_img">
+                                                                <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
+                                                            </div class>
+                                                             <h1 style="color:black; font-size:30px" display="inline-block">@usr.FirstName @usr.LastName</h1>
 
-                                                                                                                                                                                                        <div class="icon">
-                                                                                                                                                                                                        <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
-                                                                                                                                                                                                        <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
-                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                            <div class="icon">
+                                                                                                                                                                                                                                            <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
+                                                                                                                                                                                                                                            <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
+                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                            <br />
 
 
-                                                                                                                                                                                                        <h2 style="color: black; font-size:20px">Current projects:</h2>
-                                                                                                                                                                                                        <p>
-                                                                                                                                                                                                            @{
+                                                                                                                                                                                                                                            <h2 style="color: black; font-size:20px">Current projects:</h2>
+                                                                                                                                                                                                                                            <p>
+                                                                                                                                                                                                                                                @{
                                 while (projReader.Read())
                                 {
-                                                                                                                                                                                                                                                                                                                                                                                                    @projReader["Project_Name"].ToString()
-                                                                                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @projReader["Project_Name"].ToString()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <br />
                                 }
-                                                                                                                                                                                                            }
-                                                                                                                                                                                                        </p>
-                                                                                                                                                                                                        <a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8">View User</a>
+                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                            </p>
+                                                                                                                                                                                                                                            <a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8; border:none">View User</a>
 
-                                                                                                                                                                                                        <br />
-                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                    </div>
 
 
             }
-        }
-    </div>
+            }
+        </div>
 
 
 
-</body>
+    </body>
 
-</html>
+    </html>
