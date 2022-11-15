@@ -52,22 +52,22 @@
 
 
     <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
-    <label asp-for="@Model.UserToUpdate.FirstName"></label>
+    <label asp-for="@Model.UserToUpdate.FirstName" style="padding-right: 20px; width: 270px;">First Name</label>
     <input type="text" asp-for="@Model.UserToUpdate.FirstName" />
     <br />
-    <label asp-for="@Model.UserToUpdate.Username"></label>
-    <input type="text" asp-for="@Model.UserToUpdate.Username" />
-    <br />
-    <label asp-for="@Model.UserToUpdate.LastName"></label>
+    <label asp-for="@Model.UserToUpdate.LastName" style="padding-right: 20px; width: 270px;">Last Name</label>
     <input type="text" asp-for="@Model.UserToUpdate.LastName" />
     <br />
-    <label asp-for="@Model.UserToUpdate.Email"></label>
+    <label asp-for="@Model.UserToUpdate.Email" style="padding-right: 20px; width: 270px;">Email</label>
     <input type="text" asp-for="@Model.UserToUpdate.Email" />
     <br />
-    <label asp-for="@Model.UserToUpdate.UserType"></label>
+    <label asp-for="@Model.UserToUpdate.UserType" style="padding-right: 20px; width: 270px;">Association</label>
     <input type="text" asp-for="@Model.UserToUpdate.UserType" />
     <br />
-    <label asp-for="@Model.UserToUpdate.Availability"></label>
+    <label asp-for="@Model.UserToUpdate.Bio" style="padding-right: 20px; width: 270px;">Biography</label>
+    <input type="text" asp-for="@Model.UserToUpdate.Bio" style="height: 170px; width:60%;" />
+    <br />
+    <label asp-for="@Model.UserToUpdate.Availability" style="padding-right: 20px; width: 270px;">Update Availability</label>
     <input type="text" asp-for="@Model.UserToUpdate.Availability" style="height: 170px; width:60%;" />
     <br />
     <label asp-for="@Model.UserToUpdate.VideoIntroduction" style="padding-right: 20px; width: 270px;">Video Introduction Link</label>
