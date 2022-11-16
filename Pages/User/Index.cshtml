@@ -107,15 +107,12 @@
                     </p>
                 }
                 <h5><strong>Projects:</strong></h5>
-
                 while (projReader.Read())
                 {
                     <p>
-                        <a asp-page="/Project/ProjectProfile" class="btn btn-secondary " style="color: #5B3D7E; background-color: #D8D0E3; border-color: #D8D0E3;" asp-route-projectid="@Int32.Parse(projReader["ProjectID"].ToString())">@projReader["Project_Name"].ToString()</a>
-
+                        &#8226<a asp-page="/Project/ProjectProfile" class="btn btn-secondary " style="color: #5B3D7E; background-color: #D8D0E3; border-color: #D8D0E3;" asp-route-projectid="@Int32.Parse(projReader["ProjectID"].ToString())">@projReader["Project_Name"].ToString()</a>
                     </p>
-                    <br />
-
+                    
 
                     //foreach (var proj in Model.ProjectList)
                     //{
