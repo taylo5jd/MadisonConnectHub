@@ -36,7 +36,7 @@ namespace lab_1_part_3.Pages.User
             //called when page first loads
             SqlDataReader userReader = DBUserClass.UserReader(HttpContext.Session.GetString("username"));
             SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(HttpContext.Session.GetString("username"));
-            SqlDataReader projectReader = DBProjectClass.SingleProjectReader(ProjectID);
+            SqlDataReader projectReader = DBProjectClass.SingleUserProjectReader("ProjectID");
 
 
             while (userReader.Read())
