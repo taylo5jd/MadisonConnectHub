@@ -28,4 +28,6 @@ namespace lab_1_part_3.Pages.DBClasses
             return tempReader;
         }
     }
+
 }
+

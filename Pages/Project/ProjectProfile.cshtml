@@ -71,15 +71,14 @@
                     </colgroup>
             <tr align="left | right | center | justify | char">
                 <th style="width: auto;">
-                    Desirable Skills:                 @{
+                            Desirable Skills: @{
                                 SqlDataReader desiredSkillReader = DesiredSkill.DesiredSkillNameReader(proj.ProjectID);
                                 while (desiredSkillReader.Read())
                                 {
-                            <P>@desiredSkillReader["Skill_Type"]</P>
+                                    @desiredSkillReader["Skill_Type"]
                                 }
                             }
                 </th>
-
                 <th style="width: auto;">Team Members</th>
             </tr>
             </div>

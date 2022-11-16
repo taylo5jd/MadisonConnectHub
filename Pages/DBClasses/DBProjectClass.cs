@@ -46,7 +46,7 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdProjectRead = new SqlCommand();
             cmdProjectRead.Connection = new SqlConnection();
             cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdProjectRead.CommandText = @"select Project.ProjectID, Project.Project_Name, project.Project_Type, Project.Project_Description from
+            cmdProjectRead.CommandText = @"select Project.ProjectID,Project.Project_Name, project.Project_Type, Project.Project_Description from
             Project inner join Team on Team.ProjectID = Project.ProjectID
             inner join TeamComposition on team.TeamID = TeamComposition.TeamID
             inner join UserProfile on TeamComposition.ProfileID = UserProfile.ProfileID
