@@ -66,6 +66,7 @@
             padding-left: 120px;
         }
 
+
     </style>
 </head>
 
@@ -92,7 +93,7 @@
                                                                                                                                                                                                                                             <br />
 
 
-                                                                                                                                                                                                                                            <h2 style="color: black; font-size:20px">Current projects:</h2>
+                                                                                                                                                                                                                                            <h3 style="color: black">Projects:</h3>
                                                                                                                                                                                                                                             <p>
                                                                                                                                                                                                                                                 @{
                                 while (projReader.Read())
@@ -102,8 +103,8 @@
                                 }
                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                             </p>
-                                                                                                                                                                                                                                            <a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8; border:none">View User</a>
-                                                                                                                                                                                                                                            <a asp-page="/Project/Invite Users" class="btn btn-primary" asp-route-ProfileID="@usr.ProfileID" asp-route-ProjectID = "@Model.projID" style="color: white; background-color:#AC9CD8">Invite User</a>
+                                                                                                                                                                                                                                            <a asp-page="ViewUser" class="btn btn-basic" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
+                                                                                                                                                                                                                                            <a asp-page="/Project/Invite Users" class="btn btn-basic" asp-route-ProfileID="@usr.ProfileID" asp-route-ProjectID = "@Model.projID" style="color: white; background-color:#34135B">Invite User</a>
                                                                                                                                                                                                                                             <br />
                                                                                                                                                                                                                                         </div>
                                                                                                                                                                                                                                     </div>

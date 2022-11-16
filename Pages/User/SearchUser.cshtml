@@ -76,7 +76,7 @@
 
 <body>
 
-        <h4 style="font-weight:lighter; color:#3E1C66">Explore profiles</h4>
+        <h4 style="font-weight:lighter; color:#34135B">Explore profiles</h4>
 
 @{
     if (Model.SearchText == null)
@@ -84,10 +84,10 @@
     <form asp-page="SearchUser">
                 <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
                 <br />
-            <input type="submit" class="btn btn-basic" style="color: white; background-color:#AC9CD8" />
+            <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" />
     </form>
     <br />
-        <a asp-page="Index" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Return to User Page </a>
+        <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B"> Return to User Page </a>
     }
     else
     {
@@ -121,7 +121,7 @@ foreach (var usr in Model.UserList)
                                 }
                         }
                         </p>
-                        <a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8">View User</a>
+                        <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
 
                         <br />
                         </div>
@@ -132,11 +132,11 @@ foreach (var usr in Model.UserList)
     <br />
         }
 
-        <a asp-page="SearchUser" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Search Again</a>
-        <a asp-page="Index" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Return to User Page</a>
+        <a asp-page="SearchUser" class="btn btn-dark" style="color: white; background-color:#34135B"> Search Again</a>
+        <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B"> Return to User Page</a>
 
-        <a asp-page="ViewAllUser" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search Again</a>
-        <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return to User Page</a>
+        <a asp-page="ViewAllUser" class="btn btn-dark" style="color: white; background-color:#34135B"> Search Again</a>
+        <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B"> Return to User Page</a>
 
     
     }

@@ -46,7 +46,7 @@
         .left {
             left: 0;
             background-color: #E5DBF4;
-            color: #3E1C66;
+            color: #34135B;
             display: block;
             margin: 0px auto;
             padding-left: 40px;
@@ -55,7 +55,7 @@
         .right {
             right: 0;
             background-color: #FFFFFF;
-            color: #3E1C66;
+            color: #34135B;
             border-top-left-radius: 50px;
             border-bottom-left-radius: 50px;
             display: block;
@@ -110,12 +110,12 @@
 <body>
 
     <div class="split left">
-        <a href="/Index" style="background-color:#E5DBF4;border-color:#E5DBF4" class="btn btn-primary">
+        <a href="/Index" style="background-color:#E5DBF4;border-color:#E5DBF4" class="btn btn-dark">
             <img src="/Images/logo1.PNG" alt="logo" height="175">
         </a>
         <div class="centered">
             <h3 style="text-align: left; font-style: italic;"> Welcome to</h3>
-            <h1 style="text-shadow: 2px 2px 8px #95909D;"><font color="#3E1C66">Madison Connect</font><font color="#E7FAB2"> Hub</font>
+            <h1 style="text-shadow: 2px 2px 8px #95909D;"><font color="#34135B">Madison Connect</font><font color="#E7FAB2"> Hub</font>
             </h1>
             <h4 style="text-align: center; font-weight: 100;">Move big ideas forward.</h4>
             <br />
@@ -123,7 +123,7 @@
             <br />
             <br />
             <p style=" color: black">Already have an account?</p>
-            <a asp-page="DBLogin" class="btn btn-primary" style="color: #000AFF; background-color: #E5DBF4; border-color: #E5DBF4"> Log in</a>
+            <a asp-page="DBLogin" class="btn btn-dark" style="color: #000AFF; background-color: #E5DBF4; border-color: #E5DBF4"> Log in</a>
             @{
                 if (HttpContext.Session.GetString("username") != null)
                 {
@@ -167,7 +167,7 @@
                 </select>
                 </div>
                 <br />
-                <input type="submit" class="btn btn-primary" style="color: white; background-color: #AC9CD8;" value="Sign Up" />
+                <input type="submit" class="btn btn-dark" style="color: white; background-color: #34135B;" value="Sign Up" />
                 </form>
                 <br/>
             
@@ -190,7 +190,7 @@
 
 
 <br />
-<a class="btn btn-outline-success" style="color: white; background-color:#AC9CD8" asp-page="CreateHashLogin">Create New User</a>
+<a class="btn btn-outline-dark" style="color: white; background-color:#34135B" asp-page="CreateHashLogin">Create New User</a>
 @{
     if (HttpContext.Session.GetString("username") != null)
     {
