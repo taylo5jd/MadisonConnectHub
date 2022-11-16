@@ -47,6 +47,10 @@ namespace lab_1_part_3.Pages.User
                     FacultyAssociation = userReader["Faculty_Association"].ToString(),
                     LinkedIn = userReader["LinkedIn"].ToString(),
                     VideoIntroduction = userReader["Video_Introduction"].ToString(),
+                    Availability = userReader["Availability"].ToString(),
+                    Bio = userReader["Bio"].ToString(),
+                    Passions = userReader["Passions"].ToString(),
+                    Personality = userReader["Personality"].ToString(),
 
                 });
 
