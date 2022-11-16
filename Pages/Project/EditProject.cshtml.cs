@@ -35,9 +35,10 @@ namespace lab_1_part_3.Pages.Project
                     ProjectToUpdate.ProjectType = singleProject["Project_Type"].ToString();
                     ProjectToUpdate.ProjectName = singleProject["Project_Name"].ToString();
                     ProjectToUpdate.ProjectOwnerEmail = singleProject["Project_Owner_Email"].ToString();
+                ProjectToUpdate.ProjectMissionStatement = singleProject["Project_Mission_Statement"].ToString();
 
 
-                }
+            }
                 SqlDataReader userReader = DBUserClass.MultipleUserReader();
 
                 while (userReader.Read())
