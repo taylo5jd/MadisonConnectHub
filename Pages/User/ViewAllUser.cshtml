@@ -98,15 +98,20 @@
     </script>
 
 
-   
+
+        <h4 style="font-weight:lighter; color:#34135B">Explore profiles</h4>
+        <h3 style="font-weight:bold; color:#34135B">All Profiles</h3>
+
 
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for users..">
+
 
             <table id="myTable">
                 <tr class="header">
             </tr>
             @{
             foreach (var usr in Model.UserList)
+
             {
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
@@ -135,16 +140,18 @@
                                 }
                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                         </p>
-                                                                                                                                                                                                                                        <a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8; border: none; outline: none">View User</a>
+                                                                                                                                                                                                                                        <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B;">View User</a>
 
                                                                                                                                                                                                                                         <br />
                                                                                                                                                                                                                                     </div>
+
                                                                                                                                                                                                                                 </div></td>
                  </tr>
    
         }
     }
      </table>
+
 
     </body>
 

@@ -74,7 +74,7 @@
 
 <body>
     
-    <a asp-page="ViewProjects" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Back</a>
+    <a asp-page="ViewProjects" class="btn btn-dark" style="color: black; background-color:#DEFAB2"> Back</a>
 
 @{
     if (Model.SearchText == null)
@@ -82,10 +82,10 @@
     <form asp-page="SearchProject">
                 <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
             <br />
-                <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8" />
+                <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" />
     </form>
     <br />
-    <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return to My Projects </a>
+            <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B"> Return to My Projects </a>
     }
     else{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -100,7 +100,7 @@
                         <p>@proj.ProjectType</p>
                         <p>@proj.ProjectDescription</p>
                         <p>@proj.ProjectOwnerEmail</p>
-                        <a asp-page="SearchProject" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#AC9CD8; width: 50%"> Request to Join </a>
+                        <a asp-page="SearchProject" class="btn btn-dark" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#34135B; width: 50%"> Request to Join </a>
                         <br />
                     </div>
                     <br />
