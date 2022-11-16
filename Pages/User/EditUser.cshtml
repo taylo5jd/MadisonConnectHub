@@ -52,6 +52,17 @@
 
 
     <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
+    <input type="hidden" asp-for="@Model.UserToUpdate.UserType" />
+    <input type="hidden" asp-for="@Model.UserToUpdate.PhoneNumber" />
+    <input type="hidden" asp-for="@Model.UserToUpdate.ProfessionalEmail" />
+    <input type="hidden" asp-for="@Model.UserToUpdate.ProfessionalCompany" />
+    <input type="hidden" asp-for="@Model.UserToUpdate.FacultyAssociation" />
+    <input type="hidden" asp-for="@Model.UserToUpdate.Passions" />
+    <input type="hidden" asp-for="@Model.UserToUpdate.LinkedIn" />
+
+
+
+
     <label asp-for="@Model.UserToUpdate.FirstName"></label>
     <input type="text" asp-for="@Model.UserToUpdate.FirstName" />
     <br />
