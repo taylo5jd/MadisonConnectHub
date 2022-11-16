@@ -114,9 +114,8 @@
                         <a asp-page="/Project/ProjectProfile" class="btn btn-secondary " style="color: #5B3D7E; background-color: #D8D0E3; border-color: #D8D0E3;" asp-route-projectid="@Int32.Parse(projReader["ProjectID"].ToString())">@projReader["Project_Name"].ToString()</a>
 
                     </p>
-                    <br />
 
-
+                    <h5><strong>Availability </strong> @usr.Availability</h5>
                     //foreach (var proj in Model.ProjectList)
                     //{
                     //    SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
