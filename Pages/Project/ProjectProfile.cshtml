@@ -60,7 +60,7 @@
             {
                 SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
                 SqlDataReader desiredSkillReader = DesiredSkill.DesiredSkillNameReader(proj.ProjectID);
-
+                SqlDataReader teamMembers = DBProjectClass.TeamMember(proj.ProjectID);
 
                             <div class="name" style=" width: 100%;">
                                 <h1><strong> @proj.ProjectName</strong></h1>
@@ -74,21 +74,28 @@
                                     <col span="4">
                                 </colgroup>
                         <tr align="left | right | center | justify | char">
-                            <th style="width: 30%;"><strong> Desired Skills</strong></th>
-                            <th style="width: 30%;"><strong>Team Members</strong> </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                        @{
-                                while (desiredSkillReader.Read())
-                                {
-                                                    <p>&#8226 @desiredSkillReader["Skill_Type"].ToString()</p>
+                <th style="width: 30%;">
+                    <strong>
+                        Desired Skills:  @{
+                                    while (desiredSkillReader.Read())
+                                    {
+                                <p>&#8226 @desiredSkillReader["Skill_Type"].ToString()</p>
+                                    }
                                 }
-                                        }
-                            </td>
-                            <td>
-                            </td>
+                    </strong>
+                </th>
+                <th style="width: 30%;">
+                    <strong>
+                        Team Members:  @{
+                                    while (teamMembers.Read())
+                                    {
+                                <p>&#8226 @teamMembers["Name"].ToString()</p>
+                                    }
+                                }
+                    </strong>
+                </th>
                         </tr>
+                        
                         </div>
                 //<p direction="left">@usr.PhoneNumber</p> }
             }
