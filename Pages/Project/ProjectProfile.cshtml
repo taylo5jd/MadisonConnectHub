@@ -58,6 +58,7 @@
             foreach (var proj in Model.ProjectList)
             {
                 SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
+                
                 <div class="name" style=" width: 100%;">
                     <h1><strong> @proj.ProjectName</strong></h1>
                     <h5>Category:<strong> @proj.Category</strong></h5>
@@ -69,7 +70,16 @@
                         <col span="4">
                     </colgroup>
             <tr align="left | right | center | justify | char">
-                <th style="width: auto;">Desirable Skills</th>
+                <th style="width: auto;">
+                    Desirable Skills:                 @{
+                                SqlDataReader desiredSkillReader = DesiredSkill.DesiredSkillNameReader(proj.ProjectID);
+                                while (desiredSkillReader.Read())
+                                {
+                            <P>@desiredSkillReader["Skill_Type"]</P>
+                                }
+                            }
+                </th>
+
                 <th style="width: auto;">Team Members</th>
             </tr>
             </div>
