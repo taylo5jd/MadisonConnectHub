@@ -22,6 +22,7 @@ namespace lab_1_part_3.Pages.Project
 
         public void OnGet(int skillid)
         {
+
             if(skillid != 0)
             {
                 DBDesiredSkills.InsertDesiredSkills((int)HttpContext.Session.GetInt32("projid"), skillid);

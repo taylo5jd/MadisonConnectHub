@@ -29,11 +29,11 @@ namespace lab_1_part_3.Pages.Project
                 NewTeam.TeamName = HttpContext.Session.GetString("username");
                 NewTeam.ProjectID = (int)HttpContext.Session.GetInt32("projid");
 
-                int prfid = DBUserClass.UserIDReader(HttpContext.Session.GetString("username"));
-                int tid = DBTeamClass.TeamIDReader();
+                
 
                 DBTeamClass.InsertTeam(NewTeam);
-
+                int prfid = DBUserClass.UserIDReader(HttpContext.Session.GetString("username"));
+                int tid = DBTeamClass.TeamIDReader();
                 DBAddToTeamClass.InsertUserTeamComposition(prfid, tid);
             }
 
