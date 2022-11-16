@@ -60,7 +60,7 @@
                 SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
                 <div class="name" style=" width: 100%;">
                     <h1><strong> @proj.ProjectName</strong></h1>
-                    <h5>Category:<strong> @proj.Category</strong></h5>
+                    <h5>Category:<strong> @proj.ProjectType</strong></h5>
                     <h5>Project Summary:<strong> @proj.ProjectDescription</strong></h5>
                 </div>
 
@@ -78,7 +78,9 @@
                                 }
                             }
                 </th>
-                <th style="width: auto;">Team Members</th>
+                <th style="width: auto;">Team Members (show team members + method)</th>
+                
+
             </tr>
             </div>
                 //<p direction="left">@usr.PhoneNumber</p> }
