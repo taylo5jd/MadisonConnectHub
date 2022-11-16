@@ -52,7 +52,7 @@ namespace lab_1_part_3.Pages.User
                 {
                     SkillType = skillReader["Skill_Type"].ToString(),
                     SkillID = Int32.Parse(skillReader["SkillID"].ToString()),
-                    SkillDescription = skillReader["Skill_Description"].ToString(),
+                    
                    
                  
 

@@ -22,10 +22,10 @@ namespace lab_1_part_3.Pages.DBClasses
 
         public static void InsertSkill(Skill s)
         {
-            String sqlQuery = "INSERT INTO Skill (Skill_Type,Skill_Description) VALUES(";
+            String sqlQuery = "INSERT INTO Skill (Skill_Type) VALUES(";
 
-            sqlQuery += "'" + s.SkillType + "'" + ",";
-            sqlQuery += "'" + s.SkillDescription + "')";
+           
+            sqlQuery += "'" + s.SkillType + "')";
             SqlCommand cmdInsertSkill = new SqlCommand();
             cmdInsertSkill.Connection = new SqlConnection();
             cmdInsertSkill.Connection.ConnectionString = Lab1ConnStr;
@@ -50,7 +50,7 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdSingleSkillRead = new SqlCommand();
             cmdSingleSkillRead.Connection = new SqlConnection();
             cmdSingleSkillRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdSingleSkillRead.CommandText = "SELECT Skill.SkillID,UserProfile.FirstName, UserProfile.LastName, Skill.Skill_Type, Skill.Skill_Description FROM   UserProfile INNER JOIN UserProfile_Skill ON UserProfile.ProfileID = UserProfile_Skill.ProfileID INNER JOIN Skill ON UserProfile_Skill.SkillID = Skill.SkillID WHERE UserProfile.Username = '" + Username + "'";
+            cmdSingleSkillRead.CommandText = "SELECT Skill.SkillID,UserProfile.FirstName, UserProfile.LastName, Skill.Skill_Type FROM   UserProfile INNER JOIN UserProfile_Skill ON UserProfile.ProfileID = UserProfile_Skill.ProfileID INNER JOIN Skill ON UserProfile_Skill.SkillID = Skill.SkillID WHERE UserProfile.Username = '" + Username + "'";
             cmdSingleSkillRead.Connection.Open();
             SqlDataReader tempReader = cmdSingleSkillRead.ExecuteReader();
 
@@ -62,7 +62,7 @@ namespace lab_1_part_3.Pages.DBClasses
         {
             string sqlQuery = "UPDATE Skill SET ";
             sqlQuery += "Skill_Type ='" + s.SkillType + "',";
-            sqlQuery += "Skill_Description='" + s.SkillDescription + "' WHERE SkillID =" + s.SkillID;
+            sqlQuery +=  "' WHERE SkillID =" + s.SkillID;
             SqlCommand cmdUpdateSkill = new SqlCommand();
             cmdUpdateSkill.Connection = new SqlConnection();
             cmdUpdateSkill.Connection.ConnectionString = Lab1ConnStr;
