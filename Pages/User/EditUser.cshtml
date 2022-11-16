@@ -44,11 +44,12 @@
     <a asp-page="FileUpload" class="btn btn-secondary" style="color: white; background-color:#AC9CD8;">Upload Image</a>
     <a asp-page="AddSkillsToUser" class="btn btn-secondary" style="color: white; background-color:#AC9CD8" asp-route-profileid="@Model.UserToUpdate.ProfileID">Edit Skills</a>
 
-    <input type="submit" class="btn btn-success" asp-page="EditUser" style="float: right; color: black; background-color:#DEFAB2; border-color: rebeccapurple;border-radius: 15px;" />
 
-    <br />
 
-    <br /> <br />
+   <input type="submit" class="btn btn-success" asp-page="EditUser" style="float: right; color: black; background-color:#DEFAB2; border-color: rebeccapurple;border-radius:500px;" />
+        
+        <br />
+        <br />
 
 
     <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
@@ -76,7 +77,7 @@
     <input type="text" style="padding-left: auto; width:60%;" asp-for="@Model.UserToUpdate.VideoIntroduction" />
     <br />
     <label asp-for="@Model.UserToUpdate.Passions" style="padding-right: 20px; width: 270px;">Edit Passions - <em>optional</em></label>
-    <input type="text" style="width:60%;" />
+    <input type="text" style="padding-left: auto; width:60%;" />
     <br />
     <label asp-for="@Model.UserToUpdate.Personality" style="padding-right: 20px; width: 270px;">Edit Meyer - Briggs Personality Type - <em>optional</em></label>
     <input type="text" style="padding-left: auto; width:60%; " asp-for="@Model.UserToUpdate.Personality" />
