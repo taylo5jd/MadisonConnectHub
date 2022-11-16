@@ -99,6 +99,9 @@
         foreach (var proj in Model.ProjectList)
         {
             SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
+
+            <a asp-page="EditProject" class="btn btn-dark" style="float: right; color: black; background-color: #DEFAB2; border-color: black" asp-route-profileid="@proj.ProfileID">Edit Project</a>
+
         }
     }
     @{
