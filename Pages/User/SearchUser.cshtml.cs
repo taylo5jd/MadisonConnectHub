@@ -59,11 +59,7 @@ namespace lab_1_part_3.Pages.User
                     ProfessionalCompany = userReader["Professional_Company"].ToString(),
                     FacultyAssociation = userReader["Faculty_Association"].ToString(),
                     VideoIntroduction = userReader["Video_Introduction"].ToString(),
-                    LinkedIn = userReader["LinkedIn"].ToString(),
-                    Availability = userReader["Availability"].ToString(),
-                    Bio = userReader["Bio"].ToString(),
-                    Passions = userReader["Passions"].ToString(),
-                    Personality = userReader["Personality"].ToString(),
+                    LinkedIn = userReader["LinkedIn"].ToString()
 
                 });
 
