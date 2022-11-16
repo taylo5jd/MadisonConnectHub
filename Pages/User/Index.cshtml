@@ -61,14 +61,14 @@
             {
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
+
                 <div class="name" style=" width: 100%;">
                     <a asp-page="EditUser" class="btn btn-dark" style="float: right; color: black; background-color: #DEFAB2; border-color: black" asp-route-profileid="@usr.ProfileID">Edit Profile</a>
                     <h1><strong>@usr.FirstName @usr.LastName</strong></h1>
-                    <h5>Affiliation:<strong> @usr.UserType</strong></h5>
-                    <h5><strong>Biography</h5>
+                    <h5><strong>Affiliation: </strong>@usr.UserType</h5>
+                    <h5><strong>Biography: </strong> @usr.Bio</h5>
                 </div>
 
-                <p>@usr.Bio</p>
                 <div class="skills">
                     <colgroup>
                         <col span="4">
