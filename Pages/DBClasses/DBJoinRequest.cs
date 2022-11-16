@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using lab_1_part_3.Pages.DataClasses;
+using System.Data.SqlClient;
 
 namespace lab_1_part_3.Pages.DBClasses
 {
@@ -23,7 +24,7 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdUserRead = new SqlCommand();
             cmdUserRead.Connection = new SqlConnection();
             cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdUserRead.CommandText = @"select UserProfile.FirstName+ ' ' + UserProfile.LastName as Requester, Join_Request.RequestID,
+            cmdUserRead.CommandText = @"select UserProfile.FirstName+ ' ' + UserProfile.LastName as Requester, Join_Request.RequestID, Join_Request._Type,
             Join_Request.ProfileID,Join_Request.ApproverID, (select Project.Project_Name
             from Project where Join_Request.ProjectID = Project.ProjectID) as 'Project Name',
             Join_Request.StatusFlag, Join_Request._Type, Join_Request.ProjectID,TeamComposition.TeamID
@@ -55,6 +56,26 @@ namespace lab_1_part_3.Pages.DBClasses
             cmdProjectRead.CommandText = sqlQuery;
             cmdProjectRead.Connection.Open();
             cmdProjectRead.ExecuteNonQuery();
+        }
+        public static SqlDataReader TeamIDReader(int ProfileID)
+        {
+            SqlCommand cmdUserRead = new SqlCommand();
+            cmdUserRead.Connection = new SqlConnection();
+            cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
+            cmdUserRead.CommandText = "select Project.ProjectID, Team.TeamID from Project\r\ninner join Team on project.ProjectID = team.ProjectID where project.ProfileID = " + ProfileID;
+            cmdUserRead.Connection.Open();
+            SqlDataReader tempReader = cmdUserRead.ExecuteReader();
+            return tempReader;
+        }
+        public static SqlDataReader RequestType(int RequestID)
+        {
+            SqlCommand cmdUserRead = new SqlCommand();
+            cmdUserRead.Connection = new SqlConnection();
+            cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
+            cmdUserRead.CommandText = "select Join_Request._Type from Join_Request where RequestID =" + RequestID;
+            cmdUserRead.Connection.Open();
+            SqlDataReader tempReader = cmdUserRead.ExecuteReader();
+            return tempReader;
         }
     }
 }
