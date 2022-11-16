@@ -29,10 +29,7 @@
             border-radius: 50px;
         }
 
-        .avail {
-            display: inline-block;
-            vertical-align: top;
-        }
+
     </style>
 </head>
 
@@ -61,33 +58,31 @@
     <input type="hidden" asp-for="@Model.UserToUpdate.FacultyAssociation" />
     <input type="hidden" asp-for="@Model.UserToUpdate.Passions" />
     <input type="hidden" asp-for="@Model.UserToUpdate.LinkedIn" />
+    <input type="hidden" asp-for="@Model.UserToUpdate.Username" />
 
 
 
 
-    <label asp-for="@Model.UserToUpdate.FirstName"></label>
-    <input type="text" asp-for="@Model.UserToUpdate.FirstName" />
+    <label asp-for="@Model.UserToUpdate.FirstName" style="padding-right: 20px; width: 270px;">First Name</label>
+    <input type="text" asp-for="@Model.UserToUpdate.FirstName" style="padding-left: auto; width:60%; " />
     <br />
-    <label asp-for="@Model.UserToUpdate.Username"></label>
-    <input type="text" asp-for="@Model.UserToUpdate.Username" />
+    <label asp-for="@Model.UserToUpdate.LastName" style="padding-right: 20px; width: 270px;">Last Name</label>
+    <input type="text" asp-for="@Model.UserToUpdate.LastName" style="padding-left: auto; width:60%; " />
     <br />
-    <label asp-for="@Model.UserToUpdate.LastName"></label>
-    <input type="text" asp-for="@Model.UserToUpdate.LastName" />
+    <label asp-for="@Model.UserToUpdate.Email" style="padding-right: 20px; width: 270px;"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.Email" style="padding-left: auto; width:60%; " />
     <br />
-    <label asp-for="@Model.UserToUpdate.Email"></label>
-    <input type="text" asp-for="@Model.UserToUpdate.Email" />
+    <label asp-for="@Model.UserToUpdate.Bio" style="padding-right: 20px; width: 270px;">Biography</label>
+    <input type="text" asp-for="@Model.UserToUpdate.Bio" style="height: 170px; width:60%;" />
     <br />
-    <label asp-for="@Model.UserToUpdate.Bio"></label>
-    <input type="text" asp-for="@Model.UserToUpdate.Bio" />
-    <br />
-    <label asp-for="@Model.UserToUpdate.Availability"></label>
+    <label asp-for="@Model.UserToUpdate.Availability" style="padding-right: 20px; width: 270px;"></label>
     <input type="text" asp-for="@Model.UserToUpdate.Availability" style="height: 170px; width:60%;" />
     <br />
     <label asp-for="@Model.UserToUpdate.VideoIntroduction" style="padding-right: 20px; width: 270px;">Video Introduction Link</label>
     <input type="text" style="padding-left: auto; width:60%;" asp-for="@Model.UserToUpdate.VideoIntroduction" />
     <br />
     <label asp-for="@Model.UserToUpdate.Passions" style="padding-right: 20px; width: 270px;">Edit Passions - <em>optional</em></label>
-    <input type="text" style="width:60%;" asp-for="@Model.UserToUpdate.Passions" />
+    <input type="text" style="padding-left: auto; width:60%; " asp-for="@Model.UserToUpdate.Passions" />
     <br />
     <label asp-for="@Model.UserToUpdate.Personality" style="padding-right: 20px; width: 270px;">Edit Meyer - Briggs Personality Type - <em>optional</em></label>
     <input type="text" style="padding-left: auto; width:60%; " asp-for="@Model.UserToUpdate.Personality" />

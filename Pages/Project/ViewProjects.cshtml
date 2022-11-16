@@ -29,6 +29,7 @@
         .container {
             display: flex;
             flex-flow: row wrap;
+            padding-left:520px;
         }
 
         .row {
@@ -72,11 +73,14 @@
 
     </style>
 </head>
+
+<h4 style="font-weight:lighter; color:#34135B">All Projects</h4>
+<h3 style="font-weight:bold; color:#34135B">Explore all projects Madison Connect Hub has to offer!</h3>
+
 <body>
 
 
-    <h4 style="font-weight:lighter; color:#34135B">All Projects</h4>
-    <h3 style="font-weight:bold; color:#34135B">Explore all projects Madison Connect Hub has to offer!</h3>
+    
 
 
 
@@ -117,33 +121,33 @@
                     {
                         SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
 
-                                                <tr>
-                                                    <td><div class="column">
-                                                            <div class="card" style="color: black; background-color: #fff">
-                                                                <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:100%" height="75%">
-                                                                <h3>@proj.ProjectName</h3>
-                                                                <p>@proj.ProjectMissionStatement</p>
-                                                                <p>@proj.ProjectType</p>
-                                                                <p>@proj.ProjectDescription</p>
-                                                                <p>@proj.ProjectOwnerEmail</p>
-                                                                <p><a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B; border:none">Project Details</a></p><p>@Model.Message</p>
-                                                        
-                                                                <p>
-                                                                @{
+                                                        <tr>
+                                                            <td><div class="column">
+                                                                    <div class="card" style="color: black; background-color: #fff">
+                                                                        <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:100%" height="75%">
+                                                                        <h3>@proj.ProjectName</h3>
+                                                                        <p>@proj.ProjectMissionStatement</p>
+                                                                        <p>@proj.ProjectType</p>
+                                                                        <p>@proj.ProjectDescription</p>
+                                                                        <p>@proj.ProjectOwnerEmail</p>
+                                                                        <p><a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B; border:none">Project Details</a></p><p>@Model.Message</p>
+                                                                
+                                                                        <p>
+                                                                        @{
                                                             if(HttpContext.Session.GetString("username")==null){
                                                         }
                                                         else{
-                                                    <a asp-page="ViewProjects" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#34135B; border:none"> Request to Join </a>
+                                                                    <a asp-page="ViewProjects" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#34135B; border:none"> Request to Join </a>
 
                                                         }
-                                                                }
-                                                            </p>
-                                                            </div>
-                                                            <br />
-                                                        </div>
+                                                                        }
+                                                                    </p>
+                                                                    </div>
+                                                                    <br />
+                                                                </div>
 
-                                                    </td>
-                                                </tr>
+                                                            </td>
+                                                        </tr>
                     }
                             }
                         </table>
