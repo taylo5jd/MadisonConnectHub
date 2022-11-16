@@ -7,39 +7,107 @@
     ViewData["Title"] = "View Skills";
 }
 
-<h2 class="h2">Skill List</h2>
-<table class="table table-bordered table-striped table-hover table-responsive">
-    <thead>
-        <tr>
-            <th>SkillType</th>
-            <th>SkillDescription</th>
-            
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+
+	<style>
+
+        #myInput {
+            background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+            background-position: 10px 12px; /* Position the search icon */
+            background-repeat: no-repeat; /* Do not repeat the icon image */
+            width: 100%; /* Full-width */
+            font-size: 16px; /* Increase font-size */
+            padding: 12px 20px 12px 40px; /* Add some padding */
+            border: 1px solid #ddd; /* Add a grey border */
+            margin-bottom: 12px; /* Add some space below the input */
+        }
+
+        #myTable {
+            border-collapse: collapse; /* Collapse borders */
+            width: 100%; /* Full-width */
+            border: 1px solid #ddd; /* Add a grey border */
+            font-size: 18px; /* Increase font-size */
+        }
+
+            #myTable th, #myTable td {
+                text-align: left; /* Left-align text */
+                padding: 12px; /* Add padding */
+            }
+
+            #myTable tr {
+                /* Add a bottom border to all table rows */
+                border-bottom: 1px solid #ddd;
+            }
+
+                #myTable tr.header, #myTable tr:hover {
+                    /* Add a grey background color to the table header and on hover */
+                    background-color: #f1f1f1;
+                }
+
+    </style>
+</head>
+
+<body>
 
 
-        </tr>
-    </thead>
-    <tbody>
-        @{
+    <script>
+        function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 
 
+   
+       
+            <h2 class="h2">Skill List</h2>
+
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for skills..">
+
+            <table id="myTable">
+                <tr class="header">
+                <th>Skill Type</th>
+                <th>Skill Description</th>
+                <th>Add Skill</th>
+            </tr>
+            @{
             foreach (var sk in Model.UserSkillList)
             {
                 <tr>
-
                     <td>@sk.SkillType</td>
-                    <td>@sk.SkillDescription</td>
-
-
-
-                    <td><a asp-page="AddSkillsToUser" class="btn btn-basic" asp-route-skillid="@sk.SkillID" style="color: white; background-color:#AC9CD8"> Add </a></td>
-
-
-
+                     <td>@sk.SkillDescription</td>
+                    <td><a asp-page="AddSkillsToUserDisplay" class="btn btn-basic" asp-route-skillid="@sk.SkillID" style="color: black; background-color:#AC9CD8; border-radius:500px"> Add </a></td>
                 </tr>
-
-            }
+   
         }
+    }
+     </table>
 
-    </tbody>
-</table>
-<a asp-page="Index" class="btn btn-basic"> Cancel -> </a>
+
+@*table table-bordered table-striped table-hover table-responsive*@
+   
+<br />
+    <a asp-page="Index" class="btn btn-secondary" style="border-radius:500px">Cancel</a>
+</body>
+</html>
