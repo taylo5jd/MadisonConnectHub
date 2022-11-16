@@ -48,7 +48,7 @@
     {
         SqlDataReader projReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
 
-    <img class="pic" src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:18%" height="18%">
+        <img class="pic" src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:18%" height="18%">
     }
 }
 
@@ -58,35 +58,39 @@
             foreach (var proj in Model.ProjectList)
             {
                 SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
-                SqlDataReader desiredSkillReader = DesiredSkill.DesiredSkillNameReader(proj.ProjectID);
+                <div class="name" style=" width: 100%;">
+                    <h1><strong> @proj.ProjectName</strong></h1>
+                    <h5>Category:<strong> @proj.Category</strong></h5>
+                    <h5>Project Summary:<strong> @proj.ProjectDescription</strong></h5>
+                </div>
 
-
-                    <div class="name" style=" width: 100%;">
-                        <h1><strong> @proj.ProjectName</strong></h1>
-                        <h5>Category:<strong> @proj.ProjectType</strong></h5>
-                        <h5>Project Summary:<strong> @proj.ProjectDescription</strong></h5>
-                    </div>
-
-                    <div class="skills">
-                        <colgroup>
-                            <col span="4">
-                        </colgroup>
-                        <tr align="left | right | center | justify | char">
-                    <th style="width: 20%;"> Desired Skills</th>
-                    <th style="width: 20%;">Team Members</th>
-                </tr>
-                <tr>
-                <td> @{
+                <div class="skills">
+                    <colgroup>
+                        <col span="4">
+                    </colgroup>
+                    <tr align="left | right | center | justify | char">
+                <th style="width: 20%;"> Desired Skills</th>
+                <th style="width: 20%;">Team Members</th>
+            </tr>
+            <tr>
+            <td> @{
+                                SqlDataReader desiredSkillReader = DesiredSkill.DesiredSkillNameReader(proj.ProjectID);
                                 while (desiredSkillReader.Read())
                                 {
-                                            <p>@desiredSkillReader["Skill_Type"].ToString()</p>
+                                    @desiredSkillReader["Skill_Type"]
                                 }
+                            }
+                            </td> 
+                            <td> @{
+                                SqlDataReader teamMemberReader = DesiredSkill.DesiredSkillNameReader(proj.ProjectID);
+                                while (desiredSkillReader.Read())
+                                {
+                                    @desiredSkillReader["Skill_Type"]
                                 }
-                                </td> 
-                                <td> 
-                                </td>
-      </tr>
-                </div>
+                            }
+                            </td>
+  </tr>
+            </div>
                 //<p direction="left">@usr.PhoneNumber</p> }
             }
         }

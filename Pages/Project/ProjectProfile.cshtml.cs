@@ -40,7 +40,7 @@ namespace lab_1_part_3.Pages.Project
                     ProjectBeginDate = projectReader["Project_Begin_Date"].ToString(),
                     ProjectMissionStatement = projectReader["Project_Mission_Statement"].ToString(),
                     ProfileID = Int32.Parse(projectReader["ProfileID"].ToString()),
-                    //DesiredSkills = projectReader["Desired_Skill"].ToString()
+                    DesiredSkills = projectReader["Desired_Skill"].ToString()
                 }) ;
 
                 //projectReader.Close();
