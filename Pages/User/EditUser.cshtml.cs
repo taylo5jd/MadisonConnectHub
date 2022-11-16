@@ -30,26 +30,26 @@ namespace lab_1_part_3.Pages.User
             }
             SqlDataReader singleUser = DBUserClass.SingleUserReader(ProfileID);
 
-            while (singleUser.Read())
-            {
-                UserToUpdate.Username = singleUser["Username"].ToString();
-                UserToUpdate.ProfileID = ProfileID;
-                UserToUpdate.FirstName = singleUser["FirstName"].ToString();
-                UserToUpdate.LastName = singleUser["LastName"].ToString();
-                UserToUpdate.Email = singleUser["Email"].ToString();
-                UserToUpdate.UserType = singleUser["UserType"].ToString();
-                UserToUpdate.PhoneNumber = singleUser["PhoneNumber"].ToString();
-                UserToUpdate.ProfessionalEmail = singleUser["Professional_Email"].ToString();
-                UserToUpdate.ProfessionalCompany = singleUser["Professional_Company"].ToString();
-                UserToUpdate.FacultyAssociation = singleUser["Faculty_Association"].ToString();
-                UserToUpdate.LinkedIn = singleUser["LinkedIn"].ToString();
-                UserToUpdate.VideoIntroduction = singleUser["Video_Introduction"].ToString();
-                UserToUpdate.Availability = singleUser["Availability"].ToString();
-                UserToUpdate.Passions = singleUser["Passions"].ToString();
-                UserToUpdate.Personality = singleUser["Personality"].ToString();
-                UserToUpdate.Bio = singleUser["Bio"].ToString();
+                while (singleUser.Read())
+                {
+                    UserToUpdate.Username = singleUser["Username"].ToString();
+                    UserToUpdate.ProfileID = Int32.Parse(singleUser["ProfileID"].ToString());
+                    UserToUpdate.FirstName = singleUser["FirstName"].ToString();
+                    UserToUpdate.LastName = singleUser["LastName"].ToString();
+                    UserToUpdate.Email = singleUser["Email"].ToString();
+                    UserToUpdate.UserType = singleUser["UserType"].ToString();
+                    UserToUpdate.PhoneNumber = singleUser["PhoneNumber"].ToString();
+                    UserToUpdate.ProfessionalEmail = singleUser["Professional_Email"].ToString();
+                    UserToUpdate.ProfessionalCompany = singleUser["Professional_Company"].ToString();
+                    UserToUpdate.FacultyAssociation = singleUser["Faculty_Association"].ToString();
+                    UserToUpdate.LinkedIn = singleUser["LinkedIn"].ToString();
+                    UserToUpdate.VideoIntroduction = singleUser["Video_Introduction"].ToString();
+                    UserToUpdate.Availability = singleUser["Availability"].ToString();
+                    UserToUpdate.Passions = singleUser["Passions"].ToString();
+                    UserToUpdate.Personality = singleUser["Personality"].ToString();
+                    UserToUpdate.Bio = singleUser["Bio"].ToString();
 
-            }
+                }
 
 
             singleUser.Close();
