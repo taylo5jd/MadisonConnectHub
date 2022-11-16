@@ -62,9 +62,9 @@
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
                     <div class="name" style=" width: 100%;">
-                        <a asp-page="EditUser" class="btn btn-dark" style="float: right; color: black; background-color: #DEFAB2; border-color: black" asp-route-profileid="@usr.ProfileID">Edit Profile</a>
+                        <a asp-page="EditUser" input type="submit" class="btn btn-dark" style="float: right; color: black; background-color: #DEFAB2; border-color: black" asp-route-profileid="@usr.ProfileID">Edit Profile</a>
                         <h1><strong>@usr.FirstName @usr.LastName</strong></h1>
-                        <h5>Affiliation:<strong> @usr.UserType</strong></h5>
+                    <h5>Affiliation:<strong> @usr.UserType</strong></h5>
                         <h5><strong>Biography</strong></h5>
                         <p>@usr.Bio</p>
                     </div>
@@ -75,13 +75,13 @@
                         </colgroup>
                 <tr align="left | right | center | justify | char">
                     <th style="width: 20%;">Personality Type</th>
-                    
-                    <p>@usr.Personality</p>
                     <th style="width: 20%;">Passions</th>
-                <p>@usr.Passions</p>
+                    </tr>
+<tr>
+                <td>@usr.Personality</td>
+                <td>@usr.Passions</td>
                 </tr>
                 </div>
-
 
                 //<p direction="left">@usr.PhoneNumber</p> }
             }

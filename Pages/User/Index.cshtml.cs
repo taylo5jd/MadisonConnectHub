@@ -54,7 +54,10 @@ namespace lab_1_part_3.Pages.User
                     ProfessionalCompany = userReader["Professional_Company"].ToString(),
                     FacultyAssociation = userReader["Faculty_Association"].ToString(),
                     LinkedIn = userReader["LinkedIn"].ToString(),
+                    Bio = userReader["Bio"].ToString(),
                     VideoIntroduction = userReader["Video_Introduction"].ToString(),
+                    Passions = userReader["Passions"].ToString(),
+                    Personality = userReader["Personality"].ToString(),
                 });
 
             } while (skillReader.Read())
@@ -77,9 +80,9 @@ namespace lab_1_part_3.Pages.User
                         ProjectOwnerEmail = projectReader["Project_Owner_Email"].ToString(),
                         ProjectBeginDate = projectReader["Project_Begin_Date"].ToString(),
                         ProjectMissionStatement = projectReader["Project_Mission_Statement"].ToString(),
-                        ProfileID = Int32.Parse(projectReader["ProfileID"].ToString())//,
-                        //DesiredSkills = ProjectReader["Desired_Skill"].ToString(),
-                        //Category = ProjectReader["Category"].ToString()
+                        ProfileID = Int32.Parse(projectReader["ProfileID"].ToString()),
+                        DesiredSkills = projectReader["Desired_Skill"].ToString(),
+                        Category = projectReader["Category"].ToString()
                     });
                 }
                 userReader.Close();
