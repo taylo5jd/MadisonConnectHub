@@ -24,7 +24,7 @@ namespace lab_1_part_3.Pages.User
         {
             if (HttpContext.Session.GetString("username") == null)
             {
-              return  RedirectToPage("/DBLogin");
+                return RedirectToPage("/DBLogin");
             }
 
             if (teamid != null)
@@ -54,10 +54,11 @@ namespace lab_1_part_3.Pages.User
                     ProfessionalCompany = userReader["Professional_Company"].ToString(),
                     FacultyAssociation = userReader["Faculty_Association"].ToString(),
                     LinkedIn = userReader["LinkedIn"].ToString(),
-                    Bio = userReader["Bio"].ToString(),
                     VideoIntroduction = userReader["Video_Introduction"].ToString(),
+                    Availability = userReader["Availability"].ToString(),
                     Passions = userReader["Passions"].ToString(),
                     Personality = userReader["Personality"].ToString(),
+                    Bio = userReader["Bio"].ToString()
                 });
 
             } while (skillReader.Read())
@@ -66,26 +67,26 @@ namespace lab_1_part_3.Pages.User
                 {
                     SkillID = Int32.Parse(skillReader["SkillID"].ToString()),
                     SkillType = skillReader["Skill_Type"].ToString(),
-                   
+
                 });
             }
-                while (projectReader.Read())
+            while (projectReader.Read())
+            {
+                ProjectList.Add(new ProjectProfile
                 {
-                    ProjectList.Add(new ProjectProfile
-                    {
-                        ProjectID = Int32.Parse(projectReader["ProjectID"].ToString()),
-                        ProjectDescription = projectReader["Project_Description"].ToString(),
-                        ProjectType = projectReader["Project_Type"].ToString(),
-                        ProjectName = projectReader["Project_Name"].ToString(),
-                        ProjectOwnerEmail = projectReader["Project_Owner_Email"].ToString(),
-                        ProjectBeginDate = projectReader["Project_Begin_Date"].ToString(),
-                        ProjectMissionStatement = projectReader["Project_Mission_Statement"].ToString(),
-                        ProfileID = Int32.Parse(projectReader["ProfileID"].ToString()),
-                        DesiredSkills = projectReader["Desired_Skill"].ToString(),
-                        Category = projectReader["Category"].ToString()
-                    });
-                }
-                userReader.Close();
+                    ProjectID = Int32.Parse(projectReader["ProjectID"].ToString()),
+                    ProjectDescription = projectReader["Project_Description"].ToString(),
+                    ProjectType = projectReader["Project_Type"].ToString(),
+                    ProjectName = projectReader["Project_Name"].ToString(),
+                    ProjectOwnerEmail = projectReader["Project_Owner_Email"].ToString(),
+                    ProjectBeginDate = projectReader["Project_Begin_Date"].ToString(),
+                    ProjectMissionStatement = projectReader["Project_Mission_Statement"].ToString(),
+                    ProfileID = Int32.Parse(projectReader["ProfileID"].ToString())//,
+                                                                                  //DesiredSkills = ProjectReader["Desired_Skill"].ToString(),
+                                                                                  //Category = ProjectReader["Category"].ToString()
+                });
+            }
+            userReader.Close();
             skillReader.Close();
             projectReader.Close();
             return Page();
@@ -95,6 +96,6 @@ namespace lab_1_part_3.Pages.User
 
 }
 
-    
+
 
 
