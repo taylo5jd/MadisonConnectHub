@@ -94,11 +94,11 @@
             @{
             foreach (var sk in Model.UserSkillList)
             {
-            <tr>
-                <td>@sk.SkillType</td>
-                 <td>@sk.SkillDescription</td>
-                <td><a asp-page="AddSkillsToUserDisplay" class="btn btn-basic" asp-route-skillid="@sk.SkillID" style="color: white; background-color:#AC9CD8"> Add </a></td>
-            </tr>
+                <tr>
+                    <td>@sk.SkillType</td>
+                     <td>@sk.SkillDescription</td>
+                    <td><a asp-page="AddSkillsToUserDisplay" class="btn btn-basic" asp-route-skillid="@sk.SkillID" style="color: black; background-color:#AC9CD8; border-radius:500px"> Add </a></td>
+                </tr>
    
         }
     }
@@ -107,7 +107,7 @@
 
 @*table table-bordered table-striped table-hover table-responsive*@
    
-
-<a asp-page="Index" class="btn btn-basic"> Cancel </a>
+<br />
+    <a asp-page="Index" class="btn btn-secondary" style="border-radius:500px">Cancel</a>
 </body>
 </html>

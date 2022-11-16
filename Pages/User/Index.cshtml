@@ -40,34 +40,34 @@
         SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
 
     <table>
-                                            <tr>
-                                                <td><img class="profpic" src="@Methods.imgFinder(usr.Username)" alt="Profile Picture"></td>
-                                                <td><h1><strong>@usr.FirstName @usr.LastName</strong></h1></td>
-                                                <td><a asp-page="EditUser" class="btn btn-secondary" style="float: right; color: black; background-color: #DEFAB2; border-color: #DEFAB2" asp-route-profileid="@usr.ProfileID">Edit Profile</a></td>
-                                            </tr>
-                                            <tr>
-                                            <td>  </td>
-                                                <td>
-                                                    <h5>Affiliation:<strong> @usr.UserType</strong></h5>
-                                                    <br />
-                                                    <h5><strong>Biography</h5>
-                                                    <p>@usr.Bio</p>
+                                                <tr>
+                                                    <td><img class="profpic" src="@Methods.imgFinder(usr.Username)" alt="Profile Picture"></td>
+                                                    <td><h1><strong>@usr.FirstName @usr.LastName</strong></h1></td>
+                                                    <td><a asp-page="EditUser" class="btn btn-secondary" style="float: right; color: black; background-color: #DEFAB2; border-color: #DEFAB2; border-radius:500px" asp-route-profileid="@usr.ProfileID">Edit Profile</a></td>
+                                                </tr>
+                                                <tr>
+                                                <td>  </td>
+                                                    <td>
+                                                        <h5>Affiliation:<strong> @usr.UserType</strong></h5>
+                                                        <br />
+                                                        <h5><strong>Biography</h5>
+                                                        <p>@usr.Bio</p>
 
-                                                    <div class="skills">
-                                                        <colgroup>
-                                                            <col span="4">
-                                                        </colgroup>
-                                                        
-                                            <tr>
-                                                <th style="width: auto; margin-right:20px;">Hard Skills</th>
-                <th style="width: auto;margin-right:20px;">Soft Skills</th>
-                <th style="width: auto; margin-right:20px;">Personality Type</th>
-                                                <th style="width: auto;">Passions</th>
-                                            </tr>
-                                            </div>
+                                                        <div class="skills">
+                                                            <colgroup>
+                                                                <col span="4">
+                                                            </colgroup>
+                                                            
+                                                <tr>
+                                                    <th style="width: auto; margin-right:20px;">Hard Skills</th>
+                    <th style="width: auto;margin-right:20px;">Soft Skills</th>
+                    <th style="width: auto; margin-right:20px;">Personality Type</th>
+                                                    <th style="width: auto;">Passions</th>
+                                                </tr>
+                                                </div>
 
-                                            </td>
-                                            </tr>
+                                                </td>
+                                                </tr>
     </table>
         //<p style="clear:none">@usr.Email</p>
         //    <a style="clear: none;" href="@usr.LinkedIn.ToString()" class="fa fa-linkedin"></a>
@@ -85,7 +85,7 @@
         while (skillReader.Read())
         {
     <p>
-                                                @skillReader["Skill_Type"].ToString()
+                                                    @skillReader["Skill_Type"].ToString()
     </p>
         }
     }
@@ -99,7 +99,7 @@
         while (projectReader.Read())
         {
     <p>
-                                                <a asp-page="ProjectProfile" class="btn btn-outline-primary" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#AC9CD8"> @projectReader["Project_Name"].ToString()</a>
+                                                    <a asp-page="ProjectProfile" class="btn btn-outline-primary" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#AC9CD8"> @projectReader["Project_Name"].ToString()</a>
     </p>
         }
     <br />
