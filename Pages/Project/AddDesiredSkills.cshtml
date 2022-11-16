@@ -2,12 +2,13 @@
 @model lab_1_part_3.Pages.Project.AddDesiredSkillsModel
 @{
 }
-<h2 class="h2">Skill List</h2>
-<table class="table table-bordered table-striped table-hover table-responsive">
+
+<h1>Add Desired Skills for this Project</h1> <a asp-page="/Project/Index" asp-route-team="1" style="float:right; color: black; background-color: #DEFAB2;" class="btn btn-primary"> Finish </a> <br />
+<table style="text-align:center;" class="table table-bordered table-striped table-hover table-responsive">
+    <br />
     <thead>
         <tr>
             <th>SkillType</th>
-            <th>SkillDescription</th>
 
 
 
@@ -19,22 +20,21 @@
 
             foreach (var sk in Model.UserSkillList)
             {
-                <tr>
+                            <tr>
 
-                    <td>@sk.SkillType</td>
-                    <td>@sk.SkillDescription</td>
-
-
-
-                    <td><a asp-page="AddDesiredSkills" class="btn btn-primary" asp-route-skillid="@sk.SkillID" style="color: white; background-color:#AC9CD8"> Add </a></td>
+                                <td>@sk.SkillType</td>
 
 
 
-                </tr>
+                                <td><a asp-page="AddDesiredSkills" class="btn btn-primary" asp-route-skillid="@sk.SkillID" style="color: white; background-color:#AC9CD8"> Add </a></td>
+
+
+
+                            </tr>
 
             }
         }
 
     </tbody>
 </table>
-<a asp-page="/Project/Index" asp-route-team = "1" class="btn btn-primary"> Finish </a>
+
