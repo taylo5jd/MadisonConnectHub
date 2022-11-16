@@ -100,7 +100,7 @@
         {
             SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
 
-            <a asp-page="EditProject" class="btn btn-secondary" style="float: right; color: black; background-color: #DEFAB2; border-color: #DEFAB2" asp-route-projectid="@proj.ProjectName">Edit Project</a>
+            <a asp-page="EditProject" class="btn btn-secondary" style="float: right; color: black; background-color: #DEFAB2; border-color: #DEFAB2" asp-route-projectid="@proj.ProjectID">Edit Project</a>
 
         }
     }
