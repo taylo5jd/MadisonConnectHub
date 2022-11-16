@@ -123,7 +123,9 @@
                         <p>@proj.ProjectDescription</p>
                         <p>@proj.ProjectOwnerEmail</p>
                         <p><a asp-page="ProjectProfile" class="btn btn-outline-primary" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#AC9CD8; border:none">Project Details</a></p><p>@Model.Message</p>
-                        <br />
+                        
+                        <p><a asp-page="ViewProjects" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#AC9CD8; border:none"> Request to Join </a>
+                        </p>
                     </div>
                     <br />
                 </div>
