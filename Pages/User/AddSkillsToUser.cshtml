@@ -88,7 +88,6 @@
             <table id="myTable">
                 <tr class="header">
                 <th>Skill Type</th>
-                <th>Skill Description</th>
                 <th>Add Skill</th>
             </tr>
             @{
@@ -96,7 +95,6 @@
             {
             <tr>
                 <td>@sk.SkillType</td>
-                 <td>@sk.SkillDescription</td>
                 <td><a asp-page="AddSkillsToUserDisplay" class="btn btn-basic" asp-route-skillid="@sk.SkillID" style="color: white; background-color:#AC9CD8"> Add </a></td>
             </tr>
    

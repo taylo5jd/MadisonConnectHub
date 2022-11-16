@@ -45,7 +45,9 @@
 
         .column {
             float: left;
-            padding: 10px;
+            width: 30%;
+            padding-top: 10px;
+            padding-bottom: 10px;
             align-content: center;
             align-items: center;
             margin: auto;
@@ -78,11 +80,63 @@
     <h3 style="font-weight:bold; color:#3E1C66">Explore all projects Madison Connect Hub has to offer!</h3>
     
 
+    <script>
+        function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
 
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for projects..">
 
+    <table id="myTable">
+        <tr class="header">
+        </tr>
+            @{
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                foreach (var proj in Model.ProjectList)
+                {
+                    SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
+                    <tr>
+                    <td>
+                <div class="column">
+                    <div class="card" style="color: black; background-color: #fff">
+                        <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:100%" height="75%">
+                        <h3>@proj.ProjectName</h3>
+                        <p>@proj.ProjectMissionStatement</p>
+                        <p>@proj.ProjectType</p>
+                        <p>@proj.ProjectDescription</p>
+                        <p>@proj.ProjectOwnerEmail</p>
+                        <p><a asp-page="ProjectProfile" class="btn btn-outline-primary" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#AC9CD8; border:none">Project Details</a></p><p>@Model.Message</p>
+                        <br />
+                    </div>
+                    <br />
+                </div>
+                </td>
 
-@{
+                </tr>
+                }
+            }
+        </table>
+
+@*@{
     if (Model.SearchText == null)
     {
                                 <form asp-page="SearchProject">
@@ -146,7 +200,7 @@
 
         }
     }
-    <br />
+    <br />*@
     
     
     <a asp-page="Index" class="btn btn-basic" style="color: white; background-color:#AC9CD8; position: center"> Return To My Projects </a>
