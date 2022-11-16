@@ -37,55 +37,55 @@
 </head>
 
 
-    <form asp-page="EditUser">
-
-        <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
-        <br />
-        <a asp-page="FileUpload" class="btn btn-secondary" style="color: white; background-color:#AC9CD8;border-radius:500px">Upload Image</a> 
-        <a asp-page="AddSkillsToUser" class="btn btn-secondary" style="color: white; background-color:#AC9CD8;border-radius:500px" asp-route-profileid="@Model.UserToUpdate.ProfileID">Edit Skills</a>
-
-   <input type="submit" class="btn btn-success" asp-page="EditUser" style="float: right; color: black; background-color:#DEFAB2; border-color: rebeccapurple;border-radius:500px;" />
-        
-        <br />
-        <br />
+<form asp-page="EditUser">
 
     <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
-    <label asp-for="@Model.UserToUpdate.FirstName" style="padding-right: 20px; width: 270px;">First Name</label>
+    <br />
+    <a asp-page="FileUpload" class="btn btn-secondary" style="color: white; background-color:#AC9CD8;">Upload Image</a>
+    <a asp-page="AddSkillsToUser" class="btn btn-secondary" style="color: white; background-color:#AC9CD8" asp-route-profileid="@Model.UserToUpdate.ProfileID">Edit Skills</a>
+
+    <input type="submit" class="btn btn-success" asp-page="EditUser" style="float: right; color: black; background-color:#DEFAB2; border-color: rebeccapurple;border-radius: 15px;" />
+
+    <br />
+
+    <br /> <br />
+
+
+    <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
+    <label asp-for="@Model.UserToUpdate.FirstName"></label>
     <input type="text" asp-for="@Model.UserToUpdate.FirstName" />
     <br />
-    <label asp-for="@Model.UserToUpdate.LastName" style="padding-right: 20px; width: 270px;">Last Name</label>
+    <label asp-for="@Model.UserToUpdate.Username"></label>
+    <input type="text" asp-for="@Model.UserToUpdate.Username" />
+    <br />
+    <label asp-for="@Model.UserToUpdate.LastName"></label>
     <input type="text" asp-for="@Model.UserToUpdate.LastName" />
     <br />
-    <label asp-for="@Model.UserToUpdate.Email" style="padding-right: 20px; width: 270px;">Email</label>
+    <label asp-for="@Model.UserToUpdate.Email"></label>
     <input type="text" asp-for="@Model.UserToUpdate.Email" />
     <br />
-    <label asp-for="@Model.UserToUpdate.UserType" style="padding-right: 20px; width: 270px;">Association</label>
+    <label asp-for="@Model.UserToUpdate.UserType"></label>
     <input type="text" asp-for="@Model.UserToUpdate.UserType" />
     <br />
-    <label asp-for="@Model.UserToUpdate.Bio" style="padding-right: 20px; width: 270px;">Biography</label>
-    <input type="text" asp-for="@Model.UserToUpdate.Bio" style="height: 170px; width:60%;" />
-    <br />
-    <label asp-for="@Model.UserToUpdate.Availability" style="padding-right: 20px; width: 270px;">Update Availability</label>
+    <label asp-for="@Model.UserToUpdate.Availability"></label>
     <input type="text" asp-for="@Model.UserToUpdate.Availability" style="height: 170px; width:60%;" />
     <br />
     <label asp-for="@Model.UserToUpdate.VideoIntroduction" style="padding-right: 20px; width: 270px;">Video Introduction Link</label>
     <input type="text" style="padding-left: auto; width:60%;" asp-for="@Model.UserToUpdate.VideoIntroduction" />
     <br />
     <label asp-for="@Model.UserToUpdate.Passions" style="padding-right: 20px; width: 270px;">Edit Passions - <em>optional</em></label>
-    <input type="text" style="padding-left: auto; width:60%;" />
+    <input type="text" style="width:60%;" />
     <br />
     <label asp-for="@Model.UserToUpdate.Personality" style="padding-right: 20px; width: 270px;">Edit Meyer - Briggs Personality Type - <em>optional</em></label>
     <input type="text" style="padding-left: auto; width:60%; " asp-for="@Model.UserToUpdate.Personality" />
     <br />
 
-    <a asp-page="Index" class="btn btn-secondary" style="float: right; border-radius: 500px">Cancel</a>
-
-       
+    <a asp-page="Index" class="btn btn-secondary" style="float: right;">Cancel</a>
 
 
 
-    </form>
+
+
+</form>
 
 </html>
-
-
