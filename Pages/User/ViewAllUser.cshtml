@@ -88,8 +88,8 @@
 
 
 
-        <h4 style="font-weight:lighter; color:#3E1C66">Explore profiles</h4>
-        <h3 style="font-weight:bold; color:#3E1C66">All Profiles</h3>
+        <h4 style="font-weight:lighter; color:#34135B">Explore profiles</h4>
+        <h3 style="font-weight:bold; color:#34135B">All Profiles</h3>
 
 
         @{
@@ -98,10 +98,10 @@
                                     <form asp-page="SearchUser">
                                                 <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
                                                 <br />
-                                            <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8; border:none" />
+                                            <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B; border:none" />
                                     </form>
                                     <br />
-                                        <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8; border:none"> Return to User Page </a>
+                                        <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B; border:none"> Return to User Page </a>
     }
     else
     {
@@ -135,7 +135,7 @@
                                 }
                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                         </p>
-                                                                                                                                                                                                                                        <a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8; border: none; outline: none">View User</a>
+                                                                                                                                                                                                                                        <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B;">View User</a>
 
                                                                                                                                                                                                                                         <br />
                                                                                                                                                                                                                                     </div>
@@ -145,8 +145,8 @@
                 }
                                     <br />
 
-                                        <a asp-page="ViewAllUser" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search Again</a>
-                                        <a asp-page="Index" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Return to User Page</a>
+                                        <a asp-page="ViewAllUser" class="btn btn-dark" style="color: white; background-color:#34135B"> Search Again</a>
+                                        <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B"> Return to User Page</a>
 
         }
     }
@@ -184,7 +184,7 @@
                                 }
                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                             </p>
-                                                                                                                                                                                                                                            <a asp-page="ViewUser" class="btn btn-primary" asp-route-username="@usr.Username" style="color: white; background-color:#AC9CD8; border:none">View User</a>
+                                                                                                                                                                                                                                            <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B; border:none">View User</a>
 
                                                                                                                                                                                                                                             <br />
                                                                                                                                                                                                                                         </div>

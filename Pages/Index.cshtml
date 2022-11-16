@@ -61,14 +61,12 @@
         }
 
         .mission {
-            background-color: ded6e4;
-            font-color: #3E1C66;
+            background-color: #ded6e4;
             text-align: center;
         }
 
         .projects {
             background-image: linear-gradient(180deg, #E7FAB2, #E5DBF4);
-            font-color: 	#3E1C66;
             text-align: center;
             box-shadow: #808080 0px 3px 8px;
         }
@@ -87,11 +85,10 @@
 
         .icon {
             border: none;
-            padding: 10px 15px;
+            padding: 10px 10px;
             font-size: 36px;
             text-align: center;
-            border-radius: 3%;
-            font-color:	#3E1C66;
+           
         }
 
         .card img {
@@ -146,12 +143,12 @@
             <div style="width: 50%; display: table-cell;">
                 <div class="icon">
 
-                    <i class="fa fa-group" style="border-radius: 50%; padding: 20px; background-color: #E7FAB2;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"></i>
+                    <i class="fa fa-group" style="border-radius: 50%; width: 10%; height: 10%; padding: 20px; background-color: #E7FAB2;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"></i>
                     <span class="caption" style="position: relative;top: 40px; right: 95px;">COLLABORATE</span>
-                    <i class="fa fa-edit" style="border-radius: 50%; padding: 20px; background-color: #E7FAB2;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"></i>
+                    <i class="fa fa-edit" style="border-radius: 50%;width: 10%; height: 10%; padding: 20px; background-color: #E7FAB2;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"></i>
                     <span class="caption" style="position: relative;top: 40px; right: 75px;">CREATE</span>
-                    @*<i class="fa fa-hands-holding-heart" style="border-radius: 50%; padding: 20px; background-color: #E7FAB2;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"></i>
-                    <span class="caption" style="position: relative;top: 40px; right: 95px;">SHARE PASSION</span>*@
+                    <i class="fa fa-lightbulb-o" style="border-radius: 50%; width: 10%; height: 10%; position:relative; top: 0; left: 40px; padding: 20px; background-color: #E7FAB2;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;"></i>
+                    <span class="caption" style="position: relative;top: 40px; right: 65px;">SHARE PASSION</span>
 
                 </div>
             </div>
@@ -187,8 +184,8 @@
 
             if (HttpContext.Session.GetString("username") != null)
             {
-                                                            <h1 class="display-4" style="position: relative; top: 510px;">Welcome back, @firstName!</h1>
-                                                                    @*<p>User @HttpContext.Session.GetString("username") is logged in!</p>*@
+                                                                            <h1 class="display-4" style="position: relative; top: 510px;">Welcome back, @firstName!</h1>
+                                                                                    @*<p>User @HttpContext.Session.GetString("username") is logged in!</p>*@
                
             }
         }
@@ -207,7 +204,7 @@
                     <a href="#"><i class="fa fa-twitter"></i></a>
                     <a href="#"><i class="fa fa-linkedin"></i></a>
                     <a href="#"><i class="fa fa-facebook"></i></a>*@
-                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                    <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
                         <br />
                     </div>
 
@@ -219,7 +216,7 @@
                         <img src="~/Images/two.jpg" alt="pic" style="width:100%" height="75%">
                         <h2>NoVeRT</h2>
                         <p>Our innovative ideas will change the world</p>
-                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                    <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
                         <br />
                     </div>
                 </div>
@@ -231,7 +228,7 @@
                         <img src="~/Images/three.jpg" alt="John" style="width:100%" height="75%">
                         <h2>Collaborative Station</h2>
                         <p>We make our community a better place by working hard together</p>
-                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                    <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
                         <br />
                     </div>
                 </div>
@@ -243,7 +240,7 @@
                         <img src="~/Images/four.jpg" alt="John" style="width:100%" height="75%">
                         <h2>IT Serv</h2>
                         <p>Passionate about technology and driven by innovation</p>
-                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                    <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
                         <br />
                     </div>
                 </div>
@@ -255,7 +252,7 @@
                         <img src="~/Images/six.jpg" alt="John" style="width:100%" height="75%">
                         <h2>Walk & Clean Movement</h2>
                         <p>Coming together for the environment</p>
-                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                    <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
                         <br />
                     </div>
                 </div>
@@ -267,7 +264,7 @@
                         <img src="~/Images/seven.jpg" alt="windmill" style="width:100%" height="75%">
                         <h2>Air Sustainability</h2>
                         <p>Promote air sustainability on campus<p>
-                            <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Sign Up to Explore </a>
+                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
                             <br />
                     </div>
                 </div>

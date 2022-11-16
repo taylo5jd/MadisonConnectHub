@@ -74,8 +74,8 @@
 </head>
 <body>
 
-    <h4 style="font-weight:lighter; color:#3E1C66">All Projects</h4>
-    <h3 style="font-weight:bold; color:#3E1C66">Explore all projects Madison Connect Hub has to offer!</h3>
+    <h4 style="font-weight:lighter; color:#34135B">All Projects</h4>
+    <h3 style="font-weight:bold; color:#34135B">Explore all projects Madison Connect Hub has to offer!</h3>
     
 
 
@@ -88,7 +88,7 @@
                                 <form asp-page="SearchProject">
                                             <input asp-for="SearchText" class="form-control" placeholder="Search Here" width="60%"/>
                                             <br />
-                                        <input type="submit" class="btn btn-primary" style="color: white; background-color:#AC9CD8" />
+                <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" />
                                 </form>
                                 <br />
     }
@@ -106,7 +106,7 @@
                                                     <p>@proj.ProjectType</p>
                                                     <p>@proj.ProjectDescription</p>
                                                     <p>@proj.ProjectOwnerEmail</p>
-                                            <p><a asp-page="ProjectProfile" class="btn btn-outline-primary" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#AC9CD8; border:none">Project Details</a></p><p>@Model.Message</p>
+                        <p><a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B; border:none">Project Details</a></p><p>@Model.Message</p>
                                                     <br />
                                                 </div>
                                                 <br />
@@ -133,9 +133,9 @@
                                                     <p>@proj.ProjectType</p>
                                                     <p>@proj.ProjectDescription</p>
                                                     <p>@proj.ProjectOwnerEmail</p>
-                                                    <a asp-page="ProjectProfile" class="btn btn-outline-primary" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#AC9CD8; border:none">Project Details</a>
+                    <a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B; border:none">Project Details</a>
                                                     <br />
-                                                     <a asp-page="ViewProjects" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#AC9CD8; width: 50%; border:none"> Request to Join </a>
+                    <a asp-page="ViewProjects" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#34135B; width: 50%; border:none"> Request to Join </a>
                                                  
 
                                                     <br />
@@ -149,7 +149,7 @@
     <br />
     
     
-    <a asp-page="Index" class="btn btn-basic" style="color: white; background-color:#AC9CD8; position: center"> Return To My Projects </a>
+    <a asp-page="Index" class="btn btn-basic" style="color: white; background-color:#34135B; position: center"> Return To My Projects </a>
 
 </body>
 </html>

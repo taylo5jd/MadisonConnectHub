@@ -41,10 +41,10 @@
 
     <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
     <br />
-    <a asp-page="FileUpload" class="btn btn-secondary" style="color: white; background-color:#AC9CD8;">Upload Image</a>
-    <a asp-page="AddSkillsToUser" class="btn btn-secondary" style="color: white; background-color:#AC9CD8" asp-route-profileid="@Model.UserToUpdate.ProfileID">Edit Skills</a>
+    <a asp-page="FileUpload" class="btn btn-dark" style="color: white; background-color:#34135B;">Upload Image</a>
+    <a asp-page="AddSkillsToUser" class="btn btn-dark" style="color: white; background-color:#34135B" asp-route-profileid="@Model.UserToUpdate.ProfileID">Edit Skills</a>
 
-    <input type="submit" class="btn btn-success" asp-page="EditUser" style="float: right; color: black; background-color:#DEFAB2; border-color: rebeccapurple;border-radius: 15px;" />
+    <input type="submit" class="btn btn-dark" asp-page="EditUser" style="float: right; color: black; background-color:#DEFAB2; border-color: rebeccapurple;" />
 
     <br />
 
@@ -80,7 +80,7 @@
     <input type="text" style="padding-left: auto; width:60%; " asp-for="@Model.UserToUpdate.Personality" />
     <br />
 
-    <a asp-page="Index" class="btn btn-secondary" style="float: right;">Cancel</a>
+    <a asp-page="Index" class="btn btn-dark" style="float: right;">Cancel</a>
 
 
 

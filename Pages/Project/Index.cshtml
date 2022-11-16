@@ -68,13 +68,13 @@
         }
 
         .topnav {
-            background-color: #f1f1f1;
+            background-color: #e5dbf4;
             overflow: hidden;
         }
 
             .topnav a {
                 float: left;
-                color: #f2f2f2;
+                color: #e5dbf4;
                 text-align: center;
                 padding: 14px 16px;
                 text-decoration: none;
@@ -82,7 +82,7 @@
             }
 
                 .topnav a:hover {
-                    background-color: #ddd;
+                    background-color: #e5dbf4;
                     color: black;
                 }
     </style>
@@ -90,9 +90,9 @@
 <body>
     <h2 class="h2">My Project List</h2>
     <div class="topnav">
-        <a asp-page="AddProject" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Add A New Project </a>
-        <a asp-page="ViewProjects" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> View All Projects </a>
-        <a asp-page="SearchProject" class="btn btn-basic" style="color: white; background-color:#AC9CD8"> Search For Projects </a>
+        <a asp-page="AddProject" class="btn btn-outline-basic" style="color: white; background-color:#34135B"> Add A New Project </a>
+        <a asp-page="ViewProjects" class="btn btn-outline-basic" style="color: white; background-color:#34135B"> View All Projects </a>
+        <a asp-page="SearchProject" class="btn btn-outline-basic" style="color: white; background-color:#34135B"> Search For Projects </a>
     </div>
 
     @{
@@ -100,7 +100,7 @@
         {
             SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
 
-            <a asp-page="EditProject" class="btn btn-secondary" style="float: right; color: black; background-color: #DEFAB2; border-color: #DEFAB2" asp-route-projectid="@proj.ProjectName">Edit Project</a>
+  
 
         }
     }
@@ -118,9 +118,10 @@
                     <p>@proj.ProjectType</p>
                     <p>@proj.ProjectDescription</p>
                     <p>@proj.ProjectOwnerEmail</p>
-                    <p><a asp-page="/User/RecommendedUsers" class="btn btn-primary" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#AC9CD8">Recommended Users</a></p>
-                    <p><a asp-page="ProjectProfile" class="btn btn-outline-primary" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#AC9CD8">Project Details</a></p>
-                    <p><a asp-page="Invite Users" class="btn btn-outline-primary" asp-route-ProjectID="@proj.ProjectID" style="color:white; background-color:#AC9CD8">Invite Users</a></p>
+                    <p><a asp-page="/User/RecommendedUsers" class="btn btn-basic" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#34135B">Recommended Users</a></p>
+                    <p><a asp-page="ProjectProfile" class="btn btn-outline-basic" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B">Project Details</a></p>
+                    <p><a asp-page="Invite Users" class="btn btn-outline-basic" asp-route-ProjectID="@proj.ProjectID" style="color:white; background-color:#34135B">Invite Users</a></p>
+                    <a asp-page="EditProject" class="btn btn-dark" style=" color: black; background-color: #DEFAB2; border-color: black" asp-route-projectid="@proj.ProjectName">Edit Project</a>
                     <br />
                 </div>
                 <br />
