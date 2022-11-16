@@ -26,13 +26,20 @@ namespace lab_1_part_3.Pages.User
 
 
 
-        public void OnGet(int prf)
+        public void OnGet(int prf, int skillid)
         {
             if (HttpContext.Session.GetString("username") == null)
             {
                 RedirectToPage("/DBLogin");
             }
             Uuid = prf;
+            if (skillid != 0)
+            {
+
+                int teamIDInt = (skillid);
+
+                DBAddSkillToUser.InsertUserProfile_Skills(Int32.Parse(HttpContext.Session.GetString("profileid").ToString()), teamIDInt);
+            }
 
             int profileIDTest = Int32.Parse(HttpContext.Session.GetString("profileid"));
 
@@ -45,7 +52,7 @@ namespace lab_1_part_3.Pages.User
                 {
                     SkillType = skillReader["Skill_Type"].ToString(),
                     SkillID = Int32.Parse(skillReader["SkillID"].ToString()),
-                    SkillDescription = skillReader["Skill_Description"].ToString(),
+                    
                    
                  
 

@@ -68,23 +68,34 @@
 
 
 <body>
-
-
-@*<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-    <h2 class="h2">All Users</h2>
-    <a asp-page="/User/SearchUser" class="btn btn-primary" style="color: white; background-color:#AC9CD8"> Search for a User</a>
-    <div class="container">*@
-
-
-        @* <thead>
-        <tr>
-        <th>User</th>
-        <th>User's Skills</th>
-        </tr>
-        </thead>
-        <tbody>*@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <h4 style="font-weight:lighter; color:#3E1C66">Explore profiles</h4>
+        <h3 style="font-weight:bold; color:#3E1C66">All Profiles</h3>
+
+        <script>
+        function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 
 
 
@@ -92,26 +103,20 @@
         <h3 style="font-weight:bold; color:#34135B">All Profiles</h3>
 
 
-        @{
-    if (Model.SearchText == null)
-    {
-                                    <form asp-page="SearchUser">
-                                                <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
-                                                <br />
-                                            <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B; border:none" />
-                                    </form>
-                                    <br />
-                                        <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B; border:none"> Return to User Page </a>
-    }
-    else
-    {
-                                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        foreach (var usr in Model.UserList)
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for users..">
+
+
+            <table id="myTable">
+                <tr class="header">
+            </tr>
+            @{
+            foreach (var usr in Model.UserList)
+
             {
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
-                // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
-                                                        <div class="column">
+            <tr>
+                <td>  <div class="column">
                                                         <div class="card" style="color: black; background-color:#fff">
                                                         <div class="card_img">
                                                             <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
@@ -139,62 +144,13 @@
 
                                                                                                                                                                                                                                         <br />
                                                                                                                                                                                                                                     </div>
-                                                                                                                                                                                                                                </div>
 
-
-                }
-                                    <br />
-
-                                        <a asp-page="ViewAllUser" class="btn btn-dark" style="color: white; background-color:#34135B"> Search Again</a>
-                                        <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B"> Return to User Page</a>
-
+                                                                                                                                                                                                                                </div></td>
+                 </tr>
+   
         }
     }
-
-
-                        <div class="text-center">
-
-            @{
-            foreach (var usr in Model.UserList)
-            {
-                SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
-                SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
-                // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
-                                                            <div class="column">
-                                                            <div class="card" style="color: black; background-color:#fff">
-                                                            <div class="card_img">
-                                                                <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
-                                                            </div class>
-                                                             <h1 style="color:black; font-size:30px" display="inline-block">@usr.FirstName @usr.LastName</h1>
-
-                                                                                                                                                                                                                                            <div class="icon">
-                                                                                                                                                                                                                                            <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
-                                                                                                                                                                                                                                            <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
-                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                            <br />
-
-
-                                                                                                                                                                                                                                            <h2 style="color: black; font-size:20px">Current projects:</h2>
-                                                                                                                                                                                                                                            <p>
-                                                                                                                                                                                                                                                @{
-                                while (projReader.Read())
-                                {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @projReader["Project_Name"].ToString()
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <br />
-                                }
-                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                            </p>
-                                                                                                                                                                                                                                            <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B; border:none">View User</a>
-
-                                                                                                                                                                                                                                            <br />
-                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                    </div>
-
-
-            }
-            }
-        </div>
-
+     </table>
 
 
     </body>

@@ -34,8 +34,9 @@
             float: left;
         }
 
-
-
+        p {
+            margin:0;
+        }
     </style>
 </head>
 
@@ -48,7 +49,7 @@
     {
         SqlDataReader projReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
 
-        <img class="pic" src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:18%" height="18%">
+    <img class="pic" src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:18%" height="18%">
     }
 }
 
@@ -58,21 +59,44 @@
             foreach (var proj in Model.ProjectList)
             {
                 SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
-                <div class="name" style=" width: 100%;">
-                    <h1><strong> @proj.ProjectName</strong></h1>
-                    <h5>Category:<strong> @proj.Category</strong></h5>
-                    <h5>Project Summary:<strong> @proj.ProjectDescription</strong></h5>
-                </div>
+                SqlDataReader desiredSkillReader = DesiredSkill.DesiredSkillNameReader(proj.ProjectID);
+                SqlDataReader teamMembers = DBProjectClass.TeamMember(proj.ProjectID);
 
-                <div class="skills">
-                    <colgroup>
-                        <col span="4">
-                    </colgroup>
-            <tr align="left | right | center | justify | char">
-                <th style="width: auto;">Desirable Skills</th>
-                <th style="width: auto;">Team Members</th>
-            </tr>
-            </div>
+                            <div class="name" style=" width: 100%;">
+                                <h1><strong> @proj.ProjectName</strong></h1>
+                                <h5>Category:<strong> @proj.ProjectType</strong></h5>
+                                <br />
+                                <h5>Project Summary:<strong> @proj.ProjectDescription</strong></h5>
+                            </div>
+                            <br />
+                            <div class="skills">
+                                <colgroup>
+                                    <col span="4">
+                                </colgroup>
+                        <tr align="left | right | center | justify | char">
+                <th style="width: 30%;">
+                    <strong>
+                        Desired Skills:  @{
+                                    while (desiredSkillReader.Read())
+                                    {
+                                <p>&#8226 @desiredSkillReader["Skill_Type"].ToString()</p>
+                                    }
+                                }
+                    </strong>
+                </th>
+                <th style="width: 30%;">
+                    <strong>
+                        Team Members:  @{
+                                    while (teamMembers.Read())
+                                    {
+                                <p>&#8226 @teamMembers["Name"].ToString()</p>
+                                    }
+                                }
+                    </strong>
+                </th>
+                        </tr>
+                        
+                        </div>
                 //<p direction="left">@usr.PhoneNumber</p> }
             }
         }
@@ -105,7 +129,7 @@
                 //        @*<a asp-page="ViewProject" class="button" style="color: black; background-color: #DEFAB2; border-color: #DEFAB2" asp-route-profileid="@proje.">@projReader["Project_Name"].ToString()</a>            }*@
                 //    </p>
                 //    <br />
-            //    }
+                //    }
             }
         }
         @{

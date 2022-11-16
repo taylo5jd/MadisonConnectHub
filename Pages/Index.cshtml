@@ -153,11 +153,10 @@
                 </div>
             </div>
 
-
             <div style="display: table-cell;">
                 <div class="Mission">
                     <h3 style="text-align: center;"><strong>OUR MISSION</strong></h3>
-                    <p> Create a collaborative platform for students to find and share ideas. It creates transparency into the project ideas and make it easier for teams to frorm with the right expertise to move big ideas forward.</p>
+                    <p> Three Cs. Collaborate, Confer, Create. Our collaborative platform is for dukes to share ideas and connect with one another. We want transparency with each project and make it easier for teams to frorm with the right expertise to move big ideas forward.</p>
                 </div>
             </div>
         </div>
@@ -184,8 +183,10 @@
 
             if (HttpContext.Session.GetString("username") != null)
             {
-                                                                            <h1 class="display-4" style="position: relative; top: 510px;">Welcome back, @firstName!</h1>
-                                                                                    @*<p>User @HttpContext.Session.GetString("username") is logged in!</p>*@
+
+                                                                <h1 class="display-4" style="position: relative; top: 510px;">Welcome back, @firstName!</h1>
+                                                                        @*<p>User @HttpContext.Session.GetString("username") is logged in!</p>*@
+
                
             }
         }
@@ -198,13 +199,22 @@
                     <div class="card h-100">
                         <img src="~/Images/one.jpg" alt="John" style="width:100%" height="75%">
                         @* <input type="submit" class="button" style=" color: white; background-color: #AC9CD8; border-color:#AC9CD8" value="Request to join"></input>*@
-                        <h2>Networking Application</h2>
-                        <p>Our mission is to connect people together</p>
+                        <h2>Codeathon</h2>
+                        <p>Our mission is to clean code.</p>
                         @*
                     <a href="#"><i class="fa fa-twitter"></i></a>
                     <a href="#"><i class="fa fa-linkedin"></i></a>
                     <a href="#"><i class="fa fa-facebook"></i></a>*@
-                    <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
+
+                    @{if(HttpContext.Session.GetString("username")==null){
+                            <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B8"> Sign Up to Explore </a>
+                    }
+                    else{
+                            <a asp-page="/Project/ProjectProfile" asp-route-ProjectID="1" class="btn btn-basic" style="color: white; background-color:#34135B"> Project Details </a>
+
+                    }
+                        }
+
                         <br />
                     </div>
 
@@ -214,9 +224,21 @@
                 <div class="col">
                     <div class="card h-100">
                         <img src="~/Images/two.jpg" alt="pic" style="width:100%" height="75%">
-                        <h2>NoVeRT</h2>
+                        <h2>Marketing Mania</h2>
                         <p>Our innovative ideas will change the world</p>
-                    <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
+
+                    @{
+                        if (HttpContext.Session.GetString("username") == null)
+                        {
+                            <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
+                        }
+                        else
+                        {
+                            <a asp-page="/Project/ProjectProfile" asp-route-ProjectID="2" class="btn btn-basic" style="color: white; background-color:#34135B"> Project Details </a>
+
+                        }
+                    }
+
                         <br />
                     </div>
                 </div>
@@ -226,9 +248,21 @@
                 <div class="col">
                     <div class="card h-100">
                         <img src="~/Images/three.jpg" alt="John" style="width:100%" height="75%">
-                        <h2>Collaborative Station</h2>
+                        <h2>BRCC Revamp</h2>
                         <p>We make our community a better place by working hard together</p>
-                    <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
+
+                    @{
+                        if (HttpContext.Session.GetString("username") == null)
+                        {
+                            <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
+                        }
+                        else
+                        {
+                            <a asp-page="/Project/ProjectProfile" asp-route-ProjectID="3" class="btn btn-basic" style="color: white; background-color:#34135B"> Project Details </a>
+
+                        }
+                    }
+
                         <br />
                     </div>
                 </div>
@@ -238,9 +272,21 @@
                 <div class="col">
                     <div class="card h-100">
                         <img src="~/Images/four.jpg" alt="John" style="width:100%" height="75%">
-                        <h2>IT Serv</h2>
+                        <h2>COB Web Design</h2>
                         <p>Passionate about technology and driven by innovation</p>
-                    <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
+
+                    @{
+                        if (HttpContext.Session.GetString("username") == null)
+                        {
+                            <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
+                        }
+                        else
+                        {
+                            <a asp-page="/Project/ProjectProfile" asp-route-ProjectID="4" class="btn btn-basic" style="color: white; background-color:#34135B"> Project Details </a>
+
+                        }
+                    }
+
                         <br />
                     </div>
                 </div>
@@ -250,9 +296,21 @@
                 <div class="col">
                     <div class="card h-100">
                         <img src="~/Images/six.jpg" alt="John" style="width:100%" height="75%">
-                        <h2>Walk & Clean Movement</h2>
+                        <h2>Litter Pick Up</h2>
                         <p>Coming together for the environment</p>
-                    <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
+
+                    @{
+                        if (HttpContext.Session.GetString("username") == null)
+                        {
+                            <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
+                        }
+                        else
+                        {
+                            <a asp-page="/Project/ProjectProfile" asp-route-ProjectID="5" class="btn btn-basic" style="color: white; background-color:#34135B"> Project Details </a>
+
+                        }
+                    }
+
                         <br />
                     </div>
                 </div>
@@ -264,7 +322,19 @@
                         <img src="~/Images/seven.jpg" alt="windmill" style="width:100%" height="75%">
                         <h2>Air Sustainability</h2>
                         <p>Promote air sustainability on campus<p>
-                        <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
+
+                                @{
+                                    if (HttpContext.Session.GetString("username") == null)
+                                    {
+                                <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
+                                    }
+                                    else
+                                    {
+                                <a asp-page="/Project/ProjectProfile" asp-route-ProjectID="6" class="btn btn-basic" style="color: white; background-color:#34135B"> Project Details </a>
+
+                                    }
+                                }
+
                             <br />
                     </div>
                 </div>

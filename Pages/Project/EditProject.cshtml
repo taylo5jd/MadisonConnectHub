@@ -6,29 +6,27 @@
 @{
     ViewData["Title"] = "Edit Project";
 }
-<form asp-page="EditProject">
+<form asp-page="EditProject" style="align-content: center;">
   
     <br />
     <a asp-page="FileUploadProject" asp-route-projname="@Model.ProjectToUpdate.ProjectName" class="btn btn-dark" style="color: white; background-color:#34135B;">Upload Image</a>
 <input type="hidden" asp-for="@Model.ProjectToUpdate.ProjectID" />
-    <br />
-    <label asp-for="@Model.ProjectToUpdate.ProjectDescription"></label>
-    <input type="text" asp-for="@Model.ProjectToUpdate.ProjectDescription" />
-    <br />
-    <label asp-for="@Model.ProjectToUpdate.ProjectType"></label>
-    <input type="text" asp-for="@Model.ProjectToUpdate.ProjectType" />
-    <br />
-    <label asp-for="@Model.ProjectToUpdate.ProjectName"></label>
-    <input type="text" asp-for="@Model.ProjectToUpdate.ProjectName" />
-    <br />
-    <label asp-for="@Model.ProjectToUpdate.ProjectOwnerEmail"></label>
-    <input type="text" asp-for="@Model.ProjectToUpdate.ProjectOwnerEmail" />
-    <br />
-    <label asp-for="@Model.ProjectToUpdate.ProjectBeginDate"></label>
-    <input type="date" asp-for="@Model.ProjectToUpdate.ProjectBeginDate" />
-    <br />
-    <label asp-for="@Model.ProjectToUpdate.ProjectMissionStatement"></label>
-    <input type="text" asp-for="@Model.ProjectToUpdate.ProjectMissionStatement" />
+    <br /><br />
+     <label asp-for="@Model.ProjectToUpdate.ProjectName" style="width: 200px; padding-right: 2px;">Project Name</label>
+    <input type="text" asp-for="@Model.ProjectToUpdate.ProjectName" style="width: 300px;"/>
+    <br /><br />
+    <label asp-for="@Model.ProjectToUpdate.ProjectMissionStatement" style="width: 200px;  padding-right: 20px;">Mission Statement</label>
+    <input type="text" asp-for="@Model.ProjectToUpdate.ProjectMissionStatement" style="width: 300px;" />
+    <br /><br />
+    <label asp-for="@Model.ProjectToUpdate.ProjectDescription" style="width: 200px; padding-right: 20px;">Project Description</label>
+    <input type="text" asp-for="@Model.ProjectToUpdate.ProjectDescription" style="width: 300px; " />
+    <br /><br />
+    <label asp-for="@Model.ProjectToUpdate.ProjectType" style="width: 200px;  padding-right: 20px;">Project Type</label>
+    <input type="text" asp-for="@Model.ProjectToUpdate.ProjectType" style="width: 300px;"  />
+    <br /><br />
+    <label asp-for="@Model.ProjectToUpdate.ProjectOwnerEmail" style="width: 200px;  padding-right: 20px;">Project Owner  Email</label>
+    <input type="text" asp-for="@Model.ProjectToUpdate.ProjectOwnerEmail" style="width: 300px;"  />
+
     <br /><br />
     <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" asp-page="EditProject" />
     <a asp-page="Index" class="btn btn-dark" style="color: black; background-color:#DEFAB2">Cancel</a>

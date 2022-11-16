@@ -89,27 +89,21 @@
 </head>
 <body>
     <h2 class="h2">My Project List</h2>
-    <div class="topnav">
+
+   <div class="topnav">
         <a asp-page="AddProject" class="btn btn-outline-basic" style="color: white; background-color:#34135B"> Add A New Project </a>
         <a asp-page="ViewProjects" class="btn btn-outline-basic" style="color: white; background-color:#34135B"> View All Projects </a>
         <a asp-page="SearchProject" class="btn btn-outline-basic" style="color: white; background-color:#34135B"> Search For Projects </a>
     </div>
 
     @{
+
+
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         foreach (var proj in Model.ProjectList)
         {
             SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
 
-  
-
-        }
-    }
-    @{
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        foreach (var proj in Model.ProjectList)
-        {
-            SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
             <div class="column">
                 <div class="card" style="color: black; background-color: #fff">
                     <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:100%" height="75%">
@@ -126,6 +120,7 @@
                 </div>
                 <br />
             </div>
+
 
         }
     }

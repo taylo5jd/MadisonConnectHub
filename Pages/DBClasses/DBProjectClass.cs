@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using lab_1_part_3.Pages.DataClasses;
+using System.Data.SqlClient;
 
 namespace lab_1_part_3.Pages.DBClasses
 {
@@ -13,6 +14,21 @@ namespace lab_1_part_3.Pages.DBClasses
             cmdProjectRead.Connection = new SqlConnection();
             cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
             cmdProjectRead.CommandText = "SELECT * FROM  Project WHERE Project_Name LIKE '%" + search + "%'";
+            cmdProjectRead.Connection.Open();
+            SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
+            return tempReader;
+        }
+
+        public static SqlDataReader TeamMember(int ProjectID)
+        {
+            SqlCommand cmdProjectRead = new SqlCommand();
+            cmdProjectRead.Connection = new SqlConnection();
+            cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
+            cmdProjectRead.CommandText = @"select UserProfile.FirstName + ' ' + UserProfile.LastName as Name from UserProfile
+                                        inner join TeamComposition on UserProfile.ProfileID = TeamComposition.ProfileID
+                                        inner join team on team.TeamID = TeamComposition.TeamID
+                                        inner join project on team.ProjectID = project.ProjectID
+                                        where Project.ProjectID = " + ProjectID;
             cmdProjectRead.Connection.Open();
             SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
             return tempReader;
@@ -46,7 +62,7 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdProjectRead = new SqlCommand();
             cmdProjectRead.Connection = new SqlConnection();
             cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdProjectRead.CommandText = @"select Project.Project_Name, project.Project_Type, Project.Project_Description from
+            cmdProjectRead.CommandText = @"select Project.ProjectID,Project.Project_Name, project.Project_Type, Project.Project_Description from
             Project inner join Team on Team.ProjectID = Project.ProjectID
             inner join TeamComposition on team.TeamID = TeamComposition.TeamID
             inner join UserProfile on TeamComposition.ProfileID = UserProfile.ProfileID
