@@ -9,14 +9,18 @@ namespace lab_1_part_3.Pages.User
     public class RecommendedUsersModel : PageModel
     {
         public List<UserProfile> UserList { get; set; }
+        public List<UserProfile> UserList2 { get; set; }
+        [BindProperty]
+        public int projID { get; set; }
         public RecommendedUsersModel()
         {
             UserList = new List<UserProfile>();
+            UserList2 = new List<UserProfile>();
             
         }
         public void OnGet(int ProjectID)
         {
-            
+             projID = ProjectID;
             SqlDataReader tempReader = DBClasses.DBDesiredSkills.UserReader(ProjectID);
             while (tempReader.Read())
             {
@@ -44,13 +48,47 @@ namespace lab_1_part_3.Pages.User
 
                     });
 
+
                 }
+
+
 
                 userReader.Close();
 
               
             }
-            
+
+            int test = 0;
+            bool flag = false;
+
+            for (int i = 0; i < UserList.Count; i++)
+            {
+                if (UserList2.Count == 0)
+                {
+                    UserList2.Add(UserList[i]);
+                    continue;
+                }
+
+                for (int k = 0; k < UserList2.Count; k++)
+                {
+                    if ((UserList[i].Username.Equals(UserList2[k].Username)) )
+                    {
+                        flag = true;
+                        break;
+                        
+                    }
+
+                }
+                if(flag == false)
+                {
+                    UserList2.Add(UserList[i]);
+                }
+                else
+                {
+                    flag = false;
+                }
+            }
+
         }
     }
 }
