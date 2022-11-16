@@ -34,8 +34,6 @@
             float: left;
         }
 
-
-
     </style>
 </head>
 
@@ -58,29 +56,35 @@
             foreach (var proj in Model.ProjectList)
             {
                 SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
+                SqlDataReader desiredSkillReader = DesiredSkill.DesiredSkillNameReader(proj.ProjectID);
+
+
                 <div class="name" style=" width: 100%;">
                     <h1><strong> @proj.ProjectName</strong></h1>
                     <h5>Category:<strong> @proj.ProjectType</strong></h5>
+                    <br />
                     <h5>Project Summary:<strong> @proj.ProjectDescription</strong></h5>
                 </div>
-
+                <br />
                 <div class="skills">
                     <colgroup>
                         <col span="4">
                     </colgroup>
             <tr align="left | right | center | justify | char">
-                <th style="width: 20%;">
-                            Desirable Skills: @{
-                                SqlDataReader desiredSkillReader = DesiredSkill.DesiredSkillNameReader(proj.ProjectID);
+                <th style="width: 20%;"><strong> Desired Skills</strong></th>
+                <th style="width: 20%;"><strong>Team Members</strong> </th>
+            </tr>
+            <tr>
+                <td>
+                            @{
                                 while (desiredSkillReader.Read())
                                 {
-                                    @desiredSkillReader["Skill_Type"]
+                            <p>@desiredSkillReader["Skill_Type"].ToString()</p>
                                 }
                             }
-                </th>
-
-                <th style="width: auto;">Team Members (show team members + method)</th>
-
+                </td>
+                <td>
+                </td>
             </tr>
             </div>
                 //<p direction="left">@usr.PhoneNumber</p> }
@@ -115,7 +119,7 @@
                 //        @*<a asp-page="ViewProject" class="button" style="color: black; background-color: #DEFAB2; border-color: #DEFAB2" asp-route-profileid="@proje.">@projReader["Project_Name"].ToString()</a>            }*@
                 //    </p>
                 //    <br />
-            //    }
+                //    }
             }
         }
         @{
