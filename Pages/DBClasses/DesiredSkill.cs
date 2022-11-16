@@ -11,7 +11,7 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdProjectRead = new SqlCommand();
             cmdProjectRead.Connection = new SqlConnection();
             cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdProjectRead.CommandText = "SELECT * FROM  Desired_SKills WHERE ProjectID =" + ProjectID;
+            cmdProjectRead.CommandText = "SELECT * FROM  Desired_Skills WHERE ProjectID = " + ProjectID;
             cmdProjectRead.Connection.Open();
             SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
             return tempReader;
@@ -22,7 +22,7 @@ namespace lab_1_part_3.Pages.DBClasses
             cmdProjectRead.Connection = new SqlConnection();
             cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
             cmdProjectRead.CommandText = @"select Desired_Skills.DesiredSkillID, Desired_Skills.SkillID, Skill.SkillID,
-            skill.Skill_Type from Desired_Skills inner join Skill on skill.SkillID = Desired_Skills.SkillID where ProjectID =" + ProjectID;
+            skill.Skill_Type from Desired_Skills inner join Skill on skill.SkillID = Desired_Skills.SkillID where ProjectID = " + ProjectID;
             cmdProjectRead.Connection.Open();
             SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
             return tempReader;
