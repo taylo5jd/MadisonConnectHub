@@ -5,10 +5,21 @@ namespace lab_1_part_3.Pages.DBClasses
 {
     public class DBDesiredSkills
     {
+        //private static readonly string Lab1ConnStr
+        //= @"Server=Localhost;Database=Lab3;Trusted_Connection=True";
+
+        //AWS connection string
         private static readonly string Lab1ConnStr
-            = @"Server=Localhost;Database=Lab3;Trusted_Connection=True";
+            = @"Server=madisonconnecthubdb.cu2y6i9mdjnr.us-east-1.rds.amazonaws.com;
+		    Database=Lab3;uid=MCH_Admin;password=MCH_Password";
+
+
+        //private static readonly string AuthConnStr
+        //= @"Server=Localhost;Database=Auth;Trusted_Connection=True";
+
         private static readonly string AuthConnStr
-            = @"Server=Localhost;Database=Auth;Trusted_Connection=True";
+            = @"Server=madisonconnecthubdb.cu2y6i9mdjnr.us-east-1.rds.amazonaws.com;
+		    Database=Auth;uid=MCH_Admin;password=MCH_Password";
 
         public static void InsertDesiredSkills(int ProjectID, int SkillID)
         {//how to incorporate team ID through parameters?
@@ -18,6 +29,8 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdUserInsert = new SqlCommand();
             cmdUserInsert.Connection = new SqlConnection();
             cmdUserInsert.Connection.ConnectionString = Lab1ConnStr;
+            
+
             cmdUserInsert.CommandText = sqlQuery;
             cmdUserInsert.Connection.Open();
             cmdUserInsert.ExecuteNonQuery();
@@ -29,6 +42,8 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdProjectRead = new SqlCommand();
             cmdProjectRead.Connection = new SqlConnection();
             cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
+            
+
             cmdProjectRead.CommandText = @"select desired_skills.skillid from desired_skills
             inner join project on Desired_Skills.projectid = project.projectid
             where project.ProjectID =" + ProjectID;
@@ -48,6 +63,9 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdProjectRead = new SqlCommand();
             cmdProjectRead.Connection = new SqlConnection();
             cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
+
+            
+
             cmdProjectRead.CommandText = @"select UserProfile_Skill.SkillID,skill_type,UserProfile_Skill.ProfileID from UserProfile_Skill
             inner join skill on skill.SkillID = UserProfile_Skill.SkillID
             where UserProfile_Skill.ProfileID = " + ProfileID;
@@ -69,6 +87,7 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdUserRead = new SqlCommand();
             cmdUserRead.Connection = new SqlConnection();
             cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
+            
             cmdUserRead.CommandText = @"select UserProfile_Skill.ProfileID, Desired_Skills.ProjectID, Desired_skills.skillid from UserProfile_Skill
                                         inner join  Desired_Skills on UserProfile_Skill.SkillID = Desired_Skills.SkillID
                                         where UserProfile_Skill.SkillID = desired_skills.skillid and desired_skills.projectid =" +ProjectID;

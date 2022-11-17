@@ -5,15 +5,26 @@ namespace lab_1_part_3.Pages.DBClasses
 {
     public class DBJoinRequest
     {
+        //private static readonly string Lab1ConnStr
+        //= @"Server=Localhost;Database=Lab3;Trusted_Connection=True";
+
+        //AWS connection string
         private static readonly string Lab1ConnStr
-            = @"Server=Localhost;Database=Lab3;Trusted_Connection=True";
+            = @"Server=madisonconnecthubdb.cu2y6i9mdjnr.us-east-1.rds.amazonaws.com;
+		    Database=Lab3;uid=MCH_Admin;password=MCH_Password";
+
+        //private static readonly string AuthConnStr
+        //= @"Server=Localhost;Database=Auth;Trusted_Connection=True";
+
         private static readonly string AuthConnStr
-            = @"Server=Localhost;Database=Auth;Trusted_Connection=True";
+            = @"Server=madisonconnecthubdb.cu2y6i9mdjnr.us-east-1.rds.amazonaws.com;
+		    Database=Auth;uid=MCH_Admin;password=MCH_Password";
         public static int JoinRequestCheck (string Username)
         {
             SqlCommand cmdUserRead = new SqlCommand();
             cmdUserRead.Connection = new SqlConnection();
             cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
+            
             cmdUserRead.CommandText = "select count(*) from Join_Request left outer join UserProfile on Join_Request.ApproverID = UserProfile.ProfileID where Join_Request.StatusFlag = 'n' and " + "UserProfile.Username = '"+  Username + "'";
             cmdUserRead.Connection.Open();
             int rowCount = (int)cmdUserRead.ExecuteScalar();
