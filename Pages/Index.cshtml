@@ -207,7 +207,7 @@
                     <a href="#"><i class="fa fa-facebook"></i></a>*@
 
                     @{if(HttpContext.Session.GetString("username")==null){
-                            <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B8"> Sign Up to Explore </a>
+                            <a asp-page="CreateHashLogin" class="btn btn-basic" style="color: white; background-color:#34135B"> Sign Up to Explore </a>
                     }
                     else{
                             <a asp-page="/Project/ProjectProfile" asp-route-ProjectID="1" class="btn btn-basic" style="color: white; background-color:#34135B"> Project Details </a>

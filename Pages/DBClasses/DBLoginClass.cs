@@ -6,19 +6,19 @@ namespace lab_1_part_3.Pages.DBClasses
 {
     public class DBLoginClass
     {
-        //private static readonly string Lab1ConnStr
-        //= @"Server=Localhost;Database=Lab3;Trusted_Connection=True";
-
         private static readonly string Lab1ConnStr
-            = @"Server=madisonconnecthubdb.cu2y6i9mdjnr.us-east-1.rds.amazonaws.com;
-		    Database=Lab3;uid=MCH_Admin;password=MCH_Password";
+        = @"Server=Localhost;Database=Lab3;Trusted_Connection=True";
 
-        //private static readonly string AuthConnStr
-        //= @"Server=Localhost;Database=Auth;Trusted_Connection=True";
+      //  private static readonly string Lab1ConnStr
+      //      = @"Server=madisonconnecthubdb.cu2y6i9mdjnr.us-east-1.rds.amazonaws.com;
+		    //Database=Lab3;uid=MCH_Admin;password=MCH_Password";
 
         private static readonly string AuthConnStr
-            = @"Server=madisonconnecthubdb.cu2y6i9mdjnr.us-east-1.rds.amazonaws.com;
-		    Database=Auth;uid=MCH_Admin;password=MCH_Password";
+        = @"Server=Localhost;Database=Auth;Trusted_Connection=True";
+
+      //  private static readonly string AuthConnStr
+      //      = @"Server=madisonconnecthubdb.cu2y6i9mdjnr.us-east-1.rds.amazonaws.com;
+		    //Database=Auth;uid=MCH_Admin;password=MCH_Password";
 
         public static bool StoredProcedure(string Username, string Password)
         {
