@@ -1,0 +1,114 @@
+﻿@page
+@using System.Data.SqlClient
+@using lab_1_part_3.Pages.DBClasses
+@model lab_1_part_3.Pages.Project.RecommendedProjectsModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            align-items: center;
+        }
+
+        body {
+            align-items: center;
+            font-family: "IBM Plex Sans";
+            padding: 0;
+            align-content: center;
+        }
+
+        .column {
+            float: left;
+            width: 30%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            align-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            padding-bottom: 10px;
+            width: 600px;
+            text-align: center;
+            background-color: #f1f1f1;
+            flex: 0 0 100%;
+            border-radius: 10%;
+        }
+
+        .card_img {
+            width: 120 px;
+            height: 120 px;
+            overflow: hidden;
+            border-radius: 100%;
+            margin: 0px auto 0;
+        }
+
+            .card_img img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+            }
+
+        .icon {
+            display: inline-block;
+        }
+
+        .text-center {
+            padding-left: 120px;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    @{
+
+        foreach (var proj in Model.ProjectList2)
+        {
+           // SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
+                        SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
+                // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
+                                                            <div class="column">
+                                                            <div class="card" style="color: black; background-color:#fff">
+                                                            <div class="card_img">
+                                                                <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:100px" height="100px">
+                                                            </div class>
+                                                             
+                                                            <h3>@proj.ProjectName</h3>
+                                                                        <p>@proj.ProjectMissionStatement</p>
+                                                                        <p>@proj.ProjectType</p>
+                                                                        <p>@proj.ProjectDescription</p>
+                                                                        <p>@proj.ProjectOwnerEmail</p>
+                                                                        <p><a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B; border:none">Project Details</a></p><p>View Project Details</p>
+                                                                
+                                                            <br />
+                                                            <h3 style="color: black">Projects:</h3>
+                                                             <p>
+                                                         
+                       </p>
+                                <a asp-page="/Project/Invite Users" class="btn btn-basic" asp-route-ProfileID="@proj.ProfileID" asp-route-ProjectID = "@Model.projID" style="color: white; background-color:#34135B">Invite User</a>
+                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                    </div>
+
+
+            }
+            }
+        </div>
+
+  <a asp-page="/Project/Index" class="btn btn-primary"  style="color: white; background-color:#AC9CD8; border:none">Return to Projects</a>
+</body>
+
+    </html>

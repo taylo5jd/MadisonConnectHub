@@ -94,5 +94,19 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlDataReader tempReader = cmdUserRead.ExecuteReader();
             return tempReader;
         }
+
+        public static SqlDataReader ProjectReader(int ProfileID)
+        {
+            SqlCommand cmdUserRead = new SqlCommand();
+            cmdUserRead.Connection = new SqlConnection();
+            cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
+
+            cmdUserRead.CommandText = @"select UserProfile_Skill.ProfileID, Desired_Skills.ProjectID, Desired_skills.skillid from UserProfile_Skill
+                                        inner join  Desired_Skills on UserProfile_Skill.SkillID = Desired_Skills.SkillID
+                                        where UserProfile_Skill.SkillID = desired_skills.skillid and UserProfile_Skill.ProfileID ="+ ProfileID;
+            cmdUserRead.Connection.Open();
+            SqlDataReader tempReader = cmdUserRead.ExecuteReader();
+            return tempReader;
+        }
     }
 }
