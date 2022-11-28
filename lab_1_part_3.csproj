@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Content Remove="Pages\Login.cshtml" />
-    <Content Remove="Pages\Project\RecommendedProjects.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,7 +24,6 @@
 
   <ItemGroup>
     <None Include="Pages\Login.cshtml" />
-    <None Include="Pages\Project\RecommendedProjects.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
