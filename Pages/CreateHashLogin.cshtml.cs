@@ -34,7 +34,25 @@ namespace lab_1_part_3.Pages
 
                 ViewData["UserCreate"] = "User Successfully Created!";
 
-                return RedirectToPage("Index");
+                return RedirectToPage("DBLogin");
             }
+        public IActionResult OnPostPopulateHandler()
+        {
+            if (!ModelState.IsValid)
+            {
+                ModelState.Clear();
+                NewUser.Username = "je123";
+                NewUser.FirstName = "Jeremy";
+                NewUser.LastName = "Ezell";
+                NewUser.Email = "jz@gmail.com";
+                NewUser.UserType = "Professional";
+                NewUser.PhoneNumber = "5711231234";
+                NewUser.ProfessionalEmail = "jz@jmu.edu";
+                NewUser.ProfessionalCompany = "JMU";
+                NewUser.FacultyAssociation = null;
+            }
+            return Page();
         }
+
+    }
     }
