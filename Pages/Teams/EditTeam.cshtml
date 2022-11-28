@@ -13,7 +13,7 @@
         @{
             foreach (var proj in Model.ProjectList)
             {
-                <option value=@proj.ProjectID>@proj.ProjectName</option>
+                    <option value=@proj.ProjectID>@proj.ProjectName</option>
             }
         }
     </select>
@@ -31,5 +31,5 @@
     <input type="date" asp-for="@Model.TeamToUpdate.TeamMeetingDate" />
     <br /><br />
     <input type="submit" class="btn btn-dark" asp-page="EditTeam" style="color: white; background-color:#34135B" />
-    <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B">Cancel</a>
+    <a asp-page="Index" class="btn btn-dark" style="color: white;">Cancel</a>
 </form>

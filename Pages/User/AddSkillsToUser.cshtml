@@ -82,7 +82,7 @@
 
 
 
-    <a asp-page="Index" class="btn btn-basic" style="color: black; background-color:#AC9CD8; border-radius:500px"> Finish </a>
+    <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B;"> Finish </a>
             <h2 class="h2">Skill List</h2>
 
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for skills..">
@@ -97,7 +97,7 @@
             {
                 <tr>
                     <td>@sk.SkillType</td>
-                    <td><a asp-page="AddSkillsToUser" class="btn btn-basic" asp-route-skillid="@sk.SkillID" style="color: black; background-color:#AC9CD8; border-radius:500px"> Add </a></td>
+                    <td><a asp-page="AddSkillsToUser" class="btn btn-dark" asp-route-skillid="@sk.SkillID" style="color: white; background-color:#34135B;"> Add </a></td>
                 </tr>
    
         }
