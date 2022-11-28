@@ -23,13 +23,13 @@
             foreach (var tm in Model.TeamList)
             {
                 DateTime dt = DateTime.Parse(@tm.TeamMeetingDate);
-                <tr>
-                    <td>@tm.TeamName</td>
-                    <td>@tm.TeamEmail</td>
-                    <td>@tm.TeamDescription</td>
-                    <td>@String.Format("{0:M/d/yyyy}", dt)</td>
-                    <td><a asp-page="EditTeam" class="btn btn-dark" asp-route-teamid="@tm.TeamID" style="color: white; background-color:#34135B"> Edit </a></td>
-                </tr>
+                    <tr>
+                        <td>@tm.TeamName</td>
+                        <td>@tm.TeamEmail</td>
+                        <td>@tm.TeamDescription</td>
+                        <td>@String.Format("{0:M/d/yyyy}", dt)</td>
+                        <td><a asp-page="EditTeam" class="btn btn-dark" asp-route-teamid="@tm.TeamID" style="color: black; background-color:#DEFAB2;"> Edit </a></td>
+                    </tr>
 
             }
         }

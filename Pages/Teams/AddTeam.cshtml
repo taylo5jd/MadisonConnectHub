@@ -15,14 +15,14 @@
         @{
             foreach (var proj in Model.ProjectList)
             {
-                <option value=@proj.ProjectID>@proj.ProjectName</option>
+                        <option value=@proj.ProjectID>@proj.ProjectName</option>
             }
         }
     </select>
     <br />
     <button type="submit" style="color: white; background-color:#34135B">Add Team -> </button>
-    <button class="btn btn-outline-dark" asp-page="AddTeam" asp-page-handler="PopulateHandler" formnovalidate style="color: white; background-color:#34135B">Populate</button>
+    <button class="btn btn-light" asp-page="AddTeam" asp-page-handler="PopulateHandler" formnovalidate style="color: black;">Populate</button>
 
-    <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B">Cancel</a>
+    <a asp-page="Index" class="btn btn-dark" style="color: white;">Cancel</a>
 
 </form>

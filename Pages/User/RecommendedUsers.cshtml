@@ -102,12 +102,14 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @projReader["Project_Name"].ToString()
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <br />
                                 }
-                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                </p>
-                                                                                                                                                                                                                                                <a asp-page="ViewUser" class="btn btn-basic" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
-                                                                                                                                                                                                                                                <a asp-page="/Project/Invite Users" class="btn btn-basic" asp-route-ProfileID="@usr.ProfileID" asp-route-ProjectID = "@Model.projID" style="color: white; background-color:#34135B">Invite User</a>
-                                                                                                                                                                                                                                                <br />
-                                                                                                                                                                                                                                            </div>
+
+                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                            </p>
+                                                                                                                                                                                                                                            <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
+                                                                                                                                                                                                                                            <br />
+                                                                                                                                                                                                                                            <a asp-page="/Project/Invite Users" class="btn btn-dark" asp-route-ProfileID="@usr.ProfileID" asp-route-ProjectID = "@Model.projID" style="color: white; background-color:#34135B">Invite User</a>
+                                                                                                                                                                                                                                            <br />
+
                                                                                                                                                                                                                                         </div>
 
 
@@ -116,7 +118,7 @@
             }
         </div>
 
-  <a asp-page="/Project/Index" class="btn btn-primary"  style="color: white; background-color:#AC9CD8; border:none">Return to Projects</a>
+  <a asp-page="/Project/Index" class="btn btn-dark"  style="color: black; background-color:#DEFAB2;">Return to Projects</a>
 </body>
 
     </html>
