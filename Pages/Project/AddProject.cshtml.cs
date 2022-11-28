@@ -90,7 +90,7 @@ namespace lab_1_part_3.Pages.Project
                 }
 
                 ModelState.Clear();
-                NewProjectProfile.ProfileID = 5;
+                NewProjectProfile.ProfileID = 2;
                 NewProjectProfile.ProjectDescription = "An effort to clean air";
                 NewProjectProfile.ProjectType = "Environmental";
                 NewProjectProfile.ProjectName = "Air Sustainability";

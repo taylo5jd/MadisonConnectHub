@@ -1,10 +1,7 @@
-    using lab_1_part_3.Pages.DBClasses;
-using Microsoft.AspNetCore.Http;
+using lab_1_part_3.Pages.DBClasses;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
-using System.Security.Cryptography.X509Certificates;
-using System.IO;
 
 namespace lab_1_part_3.Pages.User
 {
@@ -66,6 +63,29 @@ namespace lab_1_part_3.Pages.User
 
 
 
+        }
+        public IActionResult OnPostPopulateHandler()
+        {
+            if (!ModelState.IsValid)
+            {
+
+
+
+
+                UserToUpdate.FirstName = "Jeremy";
+                UserToUpdate.LastName = "Ezell";
+                UserToUpdate.Email = "jz@gmail.com";
+                UserToUpdate.LinkedIn = "https://www.linkedin.com/in/chrisobrienux/";
+                UserToUpdate.VideoIntroduction = "https://www.youtube.com/watch?v=flKc89EE2bw";
+                UserToUpdate.Availability = "I am available Tuesdays and Thursdays in the afternoon.";
+                UserToUpdate.Passions = "I am passionate about the environment and the Valley";
+                UserToUpdate.Personality = "INFP";
+                UserToUpdate.Bio = "I am a Professor at JMU who cares for the environment";
+                
+
+
+            }
+            return Page();
         }
     }
 }
