@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\Login.cshtml" />
-    <_ContentIncludedByDefault Remove="Pages\Project\RecommendedProjects.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,10 +30,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\NewFolder\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Project\RecommendedProjects.cshtml" />
   </ItemGroup>
 
 </Project>
