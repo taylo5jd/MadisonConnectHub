@@ -73,15 +73,13 @@
 
     </style>
 </head>
-<a asp-page="/Project/RecommendedProjects" class="btn btn-basic" style="color: white; background-color:#34135B; position: center"> View Recommended Projects </a>
 
 <h4 style="font-weight:lighter; color:#34135B">All Projects</h4>
 <h3 style="font-weight:bold; color:#34135B">Explore all projects Madison Connect Hub has to offer!</h3>
 
+
 <body>
 
-
-    
 
 
 
@@ -112,6 +110,11 @@
  
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Projects..">
    
+            <br />
+
+    <a asp-page="/Project/RecommendedProjects" class="btn btn-basic" style="color: white; background-color:#34135B; position: center"> View Recommended Projects </a>
+
+    <a asp-page="Index" class="btn btn-basic" style="color: white; background-color:#34135B; position: center"> Return To My Projects </a>
    
                         <table id="myTable">
                             <tr class="header">
@@ -162,7 +165,6 @@
     
     
 
-    <a asp-page="Index" class="btn btn-basic" style="color: white; background-color:#34135B; position: center"> Return To My Projects </a>
 
 
 </body>
