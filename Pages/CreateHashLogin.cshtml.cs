@@ -34,7 +34,7 @@ namespace lab_1_part_3.Pages
 
                 ViewData["UserCreate"] = "User Successfully Created!";
 
-                return RedirectToPage("Index");
+                return RedirectToPage("DBLogin");
             }
         }
     }
