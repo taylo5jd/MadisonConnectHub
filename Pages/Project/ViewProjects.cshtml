@@ -95,6 +95,7 @@
     </article>
 
     <article class="testimonial">
+                        <a asp-page="/Index" style="float: right;" class="btn btn-dark" justify-item="center">Return</a>
     </article>
     <body>
 
@@ -137,8 +138,9 @@
 
                 //<tr>
                 //    <td>
-                <article class="testimonial">
-                    <div class="column">
+                    <article class="testimonial">
+                        <div class="column">
+
 
 
                         <div class="card" style="color: black; background-color: #fff">
@@ -156,13 +158,14 @@
                                     }
                                     else
                                     {
-                                        <a asp-page="ViewProjects" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#34135B; border:none"> Request to Join </a>
+                                                <a asp-page="ViewProjects" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#34135B; border:none"> Request to Join </a>
 
                                     }
-                                }
-                            </p>
-                        </div>
-                        <br />
+                                    }
+                                </p>
+                            </div>
+                            <br />
+
 
                     </div>
                 </article>
@@ -192,7 +195,6 @@
 
 
 
-        <a asp-page="Index" class="btn btn-basic" style="color: white; background-color:#34135B; position: center"> Return To My Projects </a>
 
 
     </body>

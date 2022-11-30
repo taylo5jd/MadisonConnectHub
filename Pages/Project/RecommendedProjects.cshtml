@@ -67,12 +67,35 @@
             padding-left: 120px;
         }
 
+        
+
+        .grid-col-span-2 {
+            grid-column: span 2;
+        }
+
+
+
+        .testimonial-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            padding-block: 2rem;
+            width: min(95%, 70rem);
+            margin-inline: auto;
+        }
+
+        .testimonial {
+  font-size: var(--fs-400);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
 
     </style>
 </head>
 
 
 <body>
+    <main class="testimonial-grid">
     @{
 
         foreach (var proj in Model.ProjectList2)
@@ -80,7 +103,7 @@
            // SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                         SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
                 // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
-                                                            <div class="column">
+                                                                <article class="testimonial">
                                                             <div class="card" style="color: black; background-color:#fff">
                                                             <div class="card_img">
                                                                 <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:100px" height="100px">
@@ -96,14 +119,14 @@
                                 <a asp-page="/Project/Invite Users" class="btn btn-dark" asp-route-ProfileID="@proj.ProfileID" asp-route-ProjectID = "@Model.projID" style="color: white; background-color:#34135B">Invite User</a>
                                                                                                                                                                                                                                             <br />
                                                                                                                                                                                                                                         </div>
-                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                               </article>
 
 
             }
             }
-        </div>
-
-  <a asp-page="/Project/Index" class="btn btn-dark"  style="color: black; background-color:#DEFAB2;">Return to Projects</a>
+ 
+        </main>
+  <a asp-page="/Project/Index" class="btn btn-dark">Return to Projects</a>
 </body>
 
     </html>
