@@ -109,8 +109,7 @@
                         <p>@proj.ProjectType</p>
                         <p>@proj.ProjectDescription</p>
                         <p>@proj.ProjectOwnerEmail</p>
-                        <p><a asp-page="/User/RecommendedUsers" class="btn btn-dark" asp-route-projectid="@proj.ProjectID" style="color: white; background-color:#34135B">Recommended Users</a></p>
-                        <p><a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B">Project Details</a></p>
+                        <p><a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B">Project Details & Recommended Users</a></p>
                         <p><a asp-page="Invite Users" class="btn btn-outline-dark" asp-route-ProjectID="@proj.ProjectID" style="color:white; background-color:#34135B">Invite Users</a></p>
                     <a asp-page="EditProject" class="btn btn-outline-basic" style=" color: white; background-color: #34135B;" asp-route-projectid="@proj.ProjectID">Edit Project</a>
                         <br />
