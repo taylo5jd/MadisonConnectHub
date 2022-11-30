@@ -128,6 +128,11 @@ namespace lab_1_part_3.Pages.Project
             projectReader.Close();
 
         }
+
+        public IActionResult OnPost() {
+            SqlDataReader projectReader = DBProjectClass.ProjectSearch(SearchText);
+            return Page();
+        }
     }
 }
 

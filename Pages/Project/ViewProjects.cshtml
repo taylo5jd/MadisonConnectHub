@@ -91,8 +91,15 @@
 
     <article class="testimonial">
         <h4 style="font-weight:lighter; color:#34135B">All Projects</h4>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Projects..">
-    </article>
+@*        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Projects..">
+
+*@
+        <form asp-page="SearchProject">
+            <input asp-for="SearchText" class="form-control" placeholder="Search for Projects   " />
+            <br />
+            <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" />
+        </form>
+</article>
 
     <article class="testimonial">
                         <a asp-page="/Index" style="float: right;" class="btn btn-dark" justify-item="center">Return</a>
@@ -100,7 +107,38 @@
     <body>
 
 
-        <script>
+        @{
+            if (Model.SearchText == null)
+            {
+
+            
+            }
+            else
+            {
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                foreach (var proj in Model.ProjectList)
+                {
+                    SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
+                    <div class="column">
+                        <div class="card" style="color: black; background-color: #fff">
+                            <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:295px" height="200px">
+                            <h3>@proj.ProjectName</h3>
+                            <p>@proj.ProjectMissionStatement</p>
+                            <p>@proj.ProjectType</p>
+                            <p>@proj.ProjectDescription</p>
+                            <p>@proj.ProjectOwnerEmail</p>
+                            <a asp-page="SearchProject" class="btn btn-dark" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#34135B; width: 50%"> Request to Join </a>
+                            <br />
+                        </div>
+                        <br />
+                    </div>
+                }
+
+
+            }
+        }
+
+        @*<script>
             function myFunction() {
                 // Declare variables
                 var input, filter, table, tr, td, i, txtValue;
@@ -123,7 +161,7 @@
                 }
 
             }
-        </script>
+        </script>*@
 
 
         @*

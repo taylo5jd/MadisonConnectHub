@@ -37,7 +37,6 @@
 
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            padding: 10px;
             padding-bottom: 10px;
             width: 600px;
             text-align: center;
@@ -46,20 +45,15 @@
             border-radius: 10%;
         }
 
-        .card_img {
-            width: 120 px;
-            height: 120 px;
+
+
+        .card img {
             overflow: hidden;
-            border-radius: 100%;
+            border-radius: 10%;
             margin: 0px auto 0;
+            object-fit: cover;
+            padding-bottom: 10px;
         }
-
-            .card_img img {
-                width: 100px;
-                height: 100px;
-                object-fit: cover;
-            }
-
 
         .icon {
             display: inline-block;
@@ -69,12 +63,28 @@
             padding-left: 120px;
         }
 
+                .grid-col-span-2 {
+            grid-column: span 2;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            padding-block: 2rem;
+            width: min(95%, 70rem);
+            margin-inline: auto;
+        }
+
+
     </style>
 </head>
 
 <body>
     
-    <a asp-page="ViewProjects" class="btn btn-dark" style="color: black; background-color:#DEFAB2"> Back</a>
+    <a asp-page="ViewProjects" class="btn btn-dark" style="float:right"> Return</a>
+
+    <article class="testimonial-grid">
 
 @{
     if (Model.SearchText == null)
@@ -92,9 +102,9 @@
         foreach (var proj in Model.ProjectList)
         {
             SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
-    <div class="column">
+    <article class="testimonial">
                     <div class="card" style="color: black; background-color: #fff">
-                        <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:50%" height="75%">
+                            <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:295px" height="200px">
                         <h3>@proj.ProjectName</h3>
                         <p>@proj.ProjectMissionStatement</p>
                         <p>@proj.ProjectType</p>
@@ -104,12 +114,12 @@
                         <br />
                     </div>
                     <br />
-    </div>
+                        </article>
     }
 
     
 }
 }
-
+</article>
 </body>
 </html>
