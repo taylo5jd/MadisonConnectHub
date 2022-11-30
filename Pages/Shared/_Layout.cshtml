@@ -136,17 +136,17 @@
                         if (Context.Session.GetString("username") == null)
                         {
 
-                                <a class="nav-link text-black-light" asp-area="" asp-page="/Index">
-                                    <h2 style="text-shadow: 2px 2px 8px #000000;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
-                                </a>
+                                        <a class="nav-link text-black-light" asp-area="" asp-page="/Index">
+                                            <h2 style="text-shadow: 2px 2px 8px #000000;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
+                                        </a>
                             }
                         else
                         {
                                                                                                                                                                
 
-                                <a class="nav-link text-black-light" asp-area="" asp-page="/Index">                                                                                                                  
-                                <h2 style="text-shadow: 2px 2px 8px #000000;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
-                                </a>
+                                        <a class="nav-link text-black-light" asp-area="" asp-page="/Index">                                                                                                                  
+                                        <h2 style="text-shadow: 2px 2px 8px #000000;"><font color="#FFFFFF">Madison Connect</font><font color="#E7FAB2"> Hub</font></h2>
+                                        </a>
                         }
                      
                     }
@@ -157,8 +157,16 @@
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">*@
 
                     <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Project/ViewProjects">Projects</a>
-                    </li>
+                        <div class="dropdown">
+                            <button class="dropbtn" style="font-size:145%;font-family:IBM Plex Sans;background-color:#5B3D7E">
+                                Projects
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="/Project/ViewProjects" style="background-color:#34135B; border-color: #34135B">All Projects</a>
+                                <a href="/Project/RecommendedProjects" style="background-color:#34135B; border-color: #34135B">Recommended Projects</a>
+
+                            </div>
+                        </div>
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-page="/Project/AddProject">Create Project</a>
                     </li>
@@ -170,42 +178,42 @@
                     @{
                         if (Context.Session.GetString("username") == null)
                         {
-                                                                                                                            <li class="nav-item">
-                                                                                                                                <a class="nav-link text-light" style="background-color:#5B3D7E;  border-color: #5B3D7E" asp-area="" asp-page="/CreateHashLogin">Sign up</a>
-                                                                                                                           </li>
-                                                                                                                           <li class="nav-item">
-                                                                                                                                <a class="nav-link text-light" style="background-color:#5B3D7E;  border-color: #5B3D7E" asp-area="" asp-page="/DBLogin">Log in</a>
-                                                                                                                           </li>      
+                                                                                                                                    <li class="nav-item">
+                                                                                                                                        <a class="nav-link text-light" style="background-color:#5B3D7E;  border-color: #5B3D7E" asp-area="" asp-page="/CreateHashLogin">Sign up</a>
+                                                                                                                                   </li>
+                                                                                                                                   <li class="nav-item">
+                                                                                                                                        <a class="nav-link text-light" style="background-color:#5B3D7E;  border-color: #5B3D7E" asp-area="" asp-page="/DBLogin">Log in</a>
+                                                                                                                                   </li>      
                         }
                         else
                         {
-                                                                                                                                                                <li class="nav-item">
+                                                                                                                                                                        <li class="nav-item">
 
-                                                                                                                                                                            <a href="/JoinRequest/viewjoinrequest" class="notification">
-                                                                                                                                                                            <span style="color:#FFFFFF">Notifications</span>
-                                                                                                                                                                            <span class="badge">@DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username"))</span>
-                                                                                                                                                                        </a>
-                                                                                                                                                               </li>
-
-
+                                                                                                                                                                                    <a href="/JoinRequest/viewjoinrequest" class="notification">
+                                                                                                                                                                                    <span style="color:#FFFFFF">Notifications</span>
+                                                                                                                                                                                    <span class="badge">@DBJoinRequest.JoinRequestCheck(Context.Session.GetString("username"))</span>
+                                                                                                                                                                                </a>
+                                                                                                                                                                       </li>
 
 
 
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <button class="dropbtn" style="background-color:#5B3D7E">
-                                        <img class="userpic" src="@Methods.imgFinder(Context.Session.GetString("username"))" alt="" height="55px">
-                                    </button>
-                                    <div class="dropdown-content">
-                                        <a href="/User/Index" style="background-color:#34135B; border-color: #34135B">Your Profile</a>
-                                        <a href="/Project/Index" style="background-color:#34135B; border-color: #34135B">Your Projects</a>
 
-                                        <a class="dropdown-item" style="background-color:#34135B; border-color: #34135B" asp-page="/DBLogin" asp-route-logout="true">Logout</a>
-                                    </div>
-                                </div>
-                                                                                                                                                                
-                                                                                                                                                                
-                                                                                                                                                                </li>
+
+                                    <li class="nav-item">
+                                        <div class="dropdown">
+                                            <button class="dropbtn" style="background-color:#5B3D7E">
+                                                <img class="userpic" src="@Methods.imgFinder(Context.Session.GetString("username"))" alt="" height="55px">
+                                            </button>
+                                            <div class="dropdown-content">
+                                                <a href="/User/Index" style="background-color:#34135B; border-color: #34135B">Your Profile</a>
+                                                <a href="/Project/Index" style="background-color:#34135B; border-color: #34135B">Your Projects</a>
+
+                                                <a class="dropdown-item" style="background-color:#34135B; border-color: #34135B" asp-page="/DBLogin" asp-route-logout="true">Logout</a>
+                                            </div>
+                                        </div>
+                                                                                                                                                                        
+                                                                                                                                                                        
+                                                                                                                                                                        </li>
 
 
 
