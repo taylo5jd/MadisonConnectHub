@@ -211,7 +211,7 @@
                                                                                                                         }
                                                                                                                         <br />
                                                                                                                     </p>
-                                                                                                                    <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
+                                                                                                                    <a asp-page="/User/ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
                                                                                                                     <br />
                         @{
                             if (DBProjectClass.ProjOwner(Model.projID) == HttpContext.Session.GetString("username"))
