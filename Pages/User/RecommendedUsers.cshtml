@@ -24,24 +24,23 @@
         }
 
         .column {
-            float: left;
-            width: 30%;
-            padding-top: 10px;
-            padding-bottom: 10px;
+            width: 300px;
             align-content: center;
             align-items: center;
             margin: auto;
+            float: left;
         }
 
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             padding: 10px;
             padding-bottom: 10px;
-            width: 600px;
+            width: 300px;
             text-align: center;
             background-color: #f1f1f1;
             flex: 0 0 100%;
             border-radius: 10%;
+            
         }
 
         .card_img {
@@ -80,41 +79,41 @@
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
                 // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
-                    <div class="column">
-                        <div class="card" style="color: black; background-color:#fff">
-                            <div class="card_img">
-                                <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
-                            </div class>
-                            <h1 style="color:black; font-size:30px" display="inline-block">@usr.FirstName @usr.LastName</h1>
+                                        <div class="column">
+                                            <div class="card" style="color: black; background-color:#fff">
+                                                <div class="card_img">
+                                                    <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
+                                                </div class>
+                                                <h1 style="color:black; font-size:30px" display="inline-block">@usr.FirstName @usr.LastName</h1>
 
-                            <div class="icon">
-                                <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
-                                <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
-                            </div>
-                            <br />
+                                                <div class="icon">
+                                                    <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
+                                                    <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
+                                                </div>
+                                                <br />
 
 
-                            <h3 style="color: black">Projects:</h3>
-                            <p>
-                                @{
+                                                <h3 style="color: black">Projects:</h3>
+                                                <p>
+                                                    @{
                                 while (projReader.Read())
                                 {
-                                            @projReader["Project_Name"].ToString()
-                                            <br />
+                                                                                    @projReader["Project_Name"].ToString()
+                                                                                    <br />
                                 }
 
-                                }
-                            </p>
-                            <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
-                            <br />
-                            <a asp-page="/Project/Invite Users" class="btn btn-dark" asp-route-ProfileID="@usr.ProfileID" asp-route-ProjectID = "@Model.projID" style="color: white; background-color:#34135B">Invite User</a>
-                            <br />
+                                                    }
+                                                </p>
+                                                <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
+                                                <br />
+                                                <a asp-page="/Project/Invite Users" class="btn btn-dark" asp-route-ProfileID="@usr.ProfileID" asp-route-ProjectID = "@Model.projID" style="color: white; background-color:#34135B">Invite User</a>
+                                                <br />
 
-                        </div>
+                                            </div>
 
 
-                      
-                    </div>
+                                          
+                                        </div>
             }
         }
         }
