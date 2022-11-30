@@ -163,7 +163,18 @@
                             </button>
                             <div class="dropdown-content">
                                 <a href="/Project/ViewProjects" style="background-color:#34135B; border-color: #34135B">All Projects</a>
-                                <a href="/Project/RecommendedProjects" style="background-color:#34135B; border-color: #34135B">Recommended Projects</a>
+                                    @{
+                                        if (Context.Session.GetString("username") == null)
+                                        {
+                                        }
+                                        else
+                                        {
+                                        <a href="/Project/RecommendedProjects" style="background-color:#34135B; border-color: #34135B">Recommended Projects</a>
+
+
+
+                                        }
+                                    }
 
                             </div>
                         </div>

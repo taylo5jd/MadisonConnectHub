@@ -24,6 +24,7 @@ namespace lab_1_part_3.Pages.DBClasses
             return tempReader;
         }
 
+
         public static void InsertSkill(Skill s)
         {
             String sqlQuery = "INSERT INTO Skill (Skill_Type) VALUES(";

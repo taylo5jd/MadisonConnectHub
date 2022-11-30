@@ -12,8 +12,60 @@
     <style>
         * {
             font-family: 'IBM Plex Sans';
+             box-sizing: border-box;
+            align-items: center;
+        }
+         body {
+            align-items: center;
+            font-family: "IBM Plex Sans";
+            padding: 0;
+            align-content: center;
+        }
+        .column {
+            width: 300px;
+            align-content: center;
+            align-items: center;
+            margin: auto;
+            display: inline;
+            border-top: 25px;
+            padding-top: 100px;
+            
+            
+        }
+         .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+            background-color: #f1f1f1;
+            flex: 0 0 100%;
+            border-radius: 10%;
+            border-top: 100px;
+            float: left;
+            margin-right: 10px;
+            padding: 10px;
+            
+            
+            
+        }
+         .card_img {
+            width: 120 px;
+            height: 120 px;
+            overflow: hidden;
+            border-radius: 100%;
+            margin: 0px auto 0;
+        }
+         .card_img img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+            }
+            .icon {
+            display: inline-block;
         }
 
+        .text-center {
+            padding-left: 120px;
+        }
         .pic {
             margin: 5px;
             margin-right: 5px;
@@ -62,41 +114,41 @@
                 SqlDataReader desiredSkillReader = DesiredSkill.DesiredSkillNameReader(proj.ProjectID);
                 SqlDataReader teamMembers = DBProjectClass.TeamMember(proj.ProjectID);
 
-                            <div class="name" style=" width: 100%;">
-                                <h1><strong> @proj.ProjectName</strong></h1>
-                                <h5>Category:<strong> @proj.ProjectType</strong></h5>
-                                <br />
-                                <h5>Project Summary:<strong> @proj.ProjectDescription</strong></h5>
-                            </div>
-                            <br />
-                            <div class="skills">
-                                <colgroup>
-                                    <col span="4">
-                                </colgroup>
-                        <tr align="left | right | center | justify | char">
-                <th style="width: 30%;">
-                    <strong>
-                        Desired Skills:  @{
+                                                                                                <div class="name" style=" width: 100%;">
+                                                                                                    <h1><strong> @proj.ProjectName</strong></h1>
+                                                                                                    <h5>Category:<strong> @proj.ProjectType</strong></h5>
+                                                                                                    <br />
+                                                                                                    <h5>Project Summary:<strong> @proj.ProjectDescription</strong></h5>
+                                                                                                </div>
+                                                                                                <br />
+                                                                                                <div class="skills">
+                                                                                                    <colgroup>
+                                                                                                        <col span="4">
+                                                                                                    </colgroup>
+                                                                                            <tr align="left | right | center | justify | char">
+                                                                                    <th style="width: 30%;">
+                                                                                        <strong>
+                                                                                            Desired Skills:  @{
                                     while (desiredSkillReader.Read())
                                     {
-                                <p>&#8226 @desiredSkillReader["Skill_Type"].ToString()</p>
+                                                                                                                                                                        <p>&#8226 @desiredSkillReader["Skill_Type"].ToString()</p>
                                     }
-                                }
-                    </strong>
-                </th>
-                <th style="width: 30%;">
-                    <strong>
-                        Team Members:  @{
+                                                                                                    }
+                                                                                        </strong>
+                                                                                    </th>
+                                                                                    <th style="width: 30%;">
+                                                                                        <strong>
+                                                                                            Team Members:  @{
                                     while (teamMembers.Read())
                                     {
-                                <p>&#8226 @teamMembers["Name"].ToString()</p>
+                                                                                                                                                                        <p>&#8226 @teamMembers["Name"].ToString()</p>
                                     }
-                                }
-                    </strong>
-                </th>
-                        </tr>
-                        
-                        </div>
+                                                                                                    }
+                                                                                        </strong>
+                                                                                    </th>
+                                                                                            </tr>
+                                                                                            
+                                                                                            </div>
                 //<p direction="left">@usr.PhoneNumber</p> }
             }
         }
@@ -108,8 +160,22 @@
 </table>
 <br />
 <br />
-<table>
-    <td>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<body>
+    <h2>Potential Teammates</h2>
     @{
         foreach (var usr in Model.UserList2)
         {
@@ -118,44 +184,51 @@
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
                 // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
-                    <div class="column">
-                        <div class="card" style="color: black; background-color:#fff">
-                            <div class="card_img">
-                                <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
-                            </div class>
-                            <h1 style="color:black; font-size:30px" display="inline-block">@usr.FirstName @usr.LastName</h1>
+                                                                                                            <div class="column">
+                                                                                                                <div class="card" style="color: black; background-color:#fff">
+                                                                                                                    <div class="card_img">
+                                                                                                                        <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
+                                                                                                                    </div class>
+                                                                                                                    <h1 style="color:black; font-size:30px" display="inline-block">@usr.FirstName @usr.LastName</h1>
 
-                            <div class="icon">
-                                <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
-                                <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
-                            </div>
-                            <br />
+                                                                                                                    <div class="icon">
+                                                                                                                        <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
+                                                                                                                        <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
+                                                                                                                    </div>
+                                                                                                                    <br />
 
 
-                            <h3 style="color: black">Projects:</h3>
-                            <p>
-                                @{
+                                                                                                                    <h3 style="color: black">Projects:</h3>
+                                                                                                                    <p>
+                                                                                                                        @{
                                 while (projReader.Read())
                                 {
-                                            @projReader["Project_Name"].ToString()
-                                            <br />
+                                                                                                                                                                                                                            @projReader["Project_Name"].ToString()
+                                                                                                                                                                                                                            <br />
                                 }
+                                
+                                                                                                                        }
+                                                                                                                    </p>
+                                                                                                                    <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
+                                                                                                                    <br />
+                        @{
+                            if (DBProjectClass.ProjOwner(Model.projID) == HttpContext.Session.GetString("username"))
+                            {
+                                <a asp-page="/Project/Invite Users" class="btn btn-dark" asp-route-ProfileID="@usr.ProfileID" asp-route-ProjectID = "@Model.projID" style="color: white; background-color:#34135B">Invite User</a>
+                                <br />
+                            }
+                        }
 
-                                }
-                            </p>
-                            <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
-                            <br />
-                            <a asp-page="/Project/Invite Users" class="btn btn-dark" asp-route-ProfileID="@usr.ProfileID" asp-route-ProjectID = "@Model.projID" style="color: white; background-color:#34135B">Invite User</a>
-                            <br />
-
-                        </div>
+                                                                                                                </div>
 
 
-                      
-                    </div>
+                                                                                                              
+                                                                                                            </div>
             }
         }
         }
-        </td>
-        </table>
+
+
+</body>
+
 </html>

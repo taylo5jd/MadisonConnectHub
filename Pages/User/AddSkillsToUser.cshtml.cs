@@ -14,7 +14,7 @@ namespace lab_1_part_3.Pages.User
         [BindProperty]
         public Skill SkillToAdd { get; set; }
         public List<Skill> UserSkillList { get; set; }
-
+        public List<int> SkillIDLIst { get; set; }
 
         public AddSkillsToUserModel()
         {

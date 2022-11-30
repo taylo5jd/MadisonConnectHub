@@ -24,10 +24,7 @@ namespace lab_1_part_3.Pages.Project
 
         public IActionResult OnGet(int ProjectID)
         {
-            if (HttpContext.Session.GetString("username") == null)
-            {
-                return RedirectToPage("/DBLogin");
-            }
+        
 
 
             //called when page first loads
