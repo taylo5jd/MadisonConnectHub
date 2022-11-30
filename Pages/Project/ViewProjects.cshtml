@@ -98,15 +98,18 @@
             <input asp-for="SearchText" class="form-control" placeholder="Search for Projects   " />
             <br />
             <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" />
+            <br />
+           <h3>@Model.Message</h3>
         </form>
 </article>
 
     <article class="testimonial">
                         <a asp-page="/Index" style="float: right;" class="btn btn-dark" justify-item="center">Return</a>
     </article>
+    
     <body>
 
-
+      
         @{
             if (Model.SearchText == null)
             {
@@ -188,7 +191,7 @@
                             <p>@proj.ProjectType</p>
                             <p>@proj.ProjectDescription</p>
                             <p>@proj.ProjectOwnerEmail</p>
-                            <p><a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B; border:none">Project Details</a></p><p>@Model.Message</p>
+                            <p><a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B; border:none">Project Details</a></p>
                             <p>
                                 @{
                                     if (HttpContext.Session.GetString("username") == null)
