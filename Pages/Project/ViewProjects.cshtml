@@ -7,23 +7,17 @@
     ViewData["Title"] = "View Projects";
 }
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="wodth=device-width,initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="./style.css">
 
-
-
     <style>
         * {
             box-sizing: border-box;
             align-items: center;
         }
-
-
 
         body {
             align-items: center;
@@ -32,21 +26,15 @@
             align-content: center;
         }
 
-
-
         .container {
             display: flex;
             flex-flow: row wrap;
         }
 
-
-
         .row {
             margin: 0;
             padding-bottom: 10px;
         }
-
-
 
             .row:after {
                 content: "";
@@ -55,8 +43,6 @@
                 padding-bottom: 10px;
             }
 
-
-
         .column {
             float: left;
             padding: 10px;
@@ -64,8 +50,6 @@
             align-items: center;
             margin: auto;
         }
-
-
 
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -77,8 +61,6 @@
         }
 
 
-
-
             .card img {
                 overflow: hidden;
                 border-radius: 10%;
@@ -87,13 +69,9 @@
                 padding-bottom: 10px;
             }
 
-
-
         .grid-col-span-2 {
             grid-column: span 2;
         }
-
-
 
         .testimonial-grid {
             display: grid;
@@ -111,19 +89,14 @@
         <h3 style="font-weight:bold; color:#34135B">Explore all projects Madison Connect Hub has to offer!</h3>
     </article>
 
-
-
     <article class="testimonial">
         <h4 style="font-weight:lighter; color:#34135B">All Projects</h4>
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Projects..">
     </article>
 
-
     <article class="testimonial">
     </article>
     <body>
-
-
 
 
         <script>
@@ -134,8 +107,6 @@
                 filter = input.value.toUpperCase();
                 table = document.getElementById("myTable");
                 tr = table.getElementsByTagName("tr");
-
-
 
                 // Loop through all table rows, and hide those who don't match the search query
                 for (i = 0; i < tr.length; i++) {
@@ -150,12 +121,8 @@
                     }
                 }
 
-
-
             }
         </script>
-
-
 
 
         @*
@@ -163,21 +130,15 @@
         <tr class="header">
         </tr>*@
 
-
-
         @{
             foreach (var proj in Model.ProjectList)
             {
                 SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
 
-
-
                 //<tr>
                 //    <td>
                 <article class="testimonial">
                     <div class="column">
-
-
 
 
                         <div class="card" style="color: black; background-color: #fff">
@@ -188,9 +149,6 @@
                             <p>@proj.ProjectDescription</p>
                             <p>@proj.ProjectOwnerEmail</p>
                             <p><a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B; border:none">Project Details</a></p><p>@Model.Message</p>
-
-
-
                             <p>
                                 @{
                                     if (HttpContext.Session.GetString("username") == null)
@@ -200,15 +158,11 @@
                                     {
                                         <a asp-page="ViewProjects" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#34135B; border:none"> Request to Join </a>
 
-
-
                                     }
                                 }
                             </p>
                         </div>
                         <br />
-
-
 
                     </div>
                 </article>
@@ -217,8 +171,6 @@
             }
         }
         @*            </table>
-
-
 
         *@
         <article class="testimonial">
@@ -240,11 +192,7 @@
 
 
 
-
-
         <a asp-page="Index" class="btn btn-basic" style="color: white; background-color:#34135B; position: center"> Return To My Projects </a>
-
-
 
 
     </body>
