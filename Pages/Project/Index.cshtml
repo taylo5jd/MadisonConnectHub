@@ -58,13 +58,14 @@
         }
 
         .card {
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,2);
-            padding: 0px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 10px;
             padding-bottom: 10px;
             width: 600px;
             text-align: center;
             background-color: #f1f1f1;
             flex: 0 0 100%;
+            border-radius: 10%;
         }
 
         .topnav {
@@ -102,7 +103,7 @@
 
                 <div class="column">
                     <div class="card" style="color: black; background-color: #fff">
-                        <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:100%" height="75%">
+                        <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:295px" height="220px">
                         <h3>@proj.ProjectName</h3>
                         <p>@proj.ProjectMissionStatement</p>
                         <p>@proj.ProjectType</p>

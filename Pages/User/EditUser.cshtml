@@ -43,13 +43,14 @@
     <a asp-page="AddSkillsToUser" class="btn btn-dark" style="color: black; background-color: #DEFAB2" asp-route-profileid="@Model.UserToUpdate.ProfileID">Edit Skills</a>
 
     <input type="submit" class="btn btn-dark" asp-page="EditUser" style="float: right; color: white; background-color: #34135B; border-color: rebeccapurple;" />
+        <a asp-page="Index" class="btn btn-dark" style="float: right;">Cancel</a>
 
 
     <br />
 
     <br /> <br />
 
-@*
+
     <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
     <input type="hidden" asp-for="@Model.UserToUpdate.UserType" />
     <input type="hidden" asp-for="@Model.UserToUpdate.PhoneNumber" />
@@ -58,7 +59,7 @@
     <input type="hidden" asp-for="@Model.UserToUpdate.FacultyAssociation" />
     <input type="hidden" asp-for="@Model.UserToUpdate.Passions" />
     <input type="hidden" asp-for="@Model.UserToUpdate.LinkedIn" />
-    <input type="hidden" asp-for="@Model.UserToUpdate.Username" />*@
+    <input type="hidden" asp-for="@Model.UserToUpdate.Username" />
 
 
 
@@ -90,7 +91,6 @@
     <button class="btn btn-outline-secondary" asp-page="EditUser" asp-page-handler="PopulateHandler" formnovalidate style="color: white; background-color:#AC9CD8">Populate</button>
 
 
-    <a asp-page="Index" class="btn btn-dark" style="float: right;">Cancel</a>
 
 
 
