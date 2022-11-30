@@ -1,10 +1,13 @@
 ﻿@page
+@using System.Data.SqlClient
+@using lab_1_part_3.Pages.DBClasses
 @model lab_1_part_3.Pages.Project.AddDesiredSkillsModel
 @{
 }
 
 
-<h1>Add Desired Skills for this Project</h1> <a asp-page="/Project/Index" asp-route-team="1" style="float:right; color: black; background-color: #34135B;" class="btn btn-dark"> Finish </a> <br />
+<h1>Add Desired Skills for this Project</h1> 
+<a asp-page="/Project/Index" asp-route-team="1" style="float:right; color: black; background-color: #34135B;" class="btn btn-dark"> Finish </a> <br />
 <table style="text-align:center;" class="table table-bordered table-striped table-hover table-responsive">
     <br />
     <thead>
@@ -87,7 +90,7 @@
 
 
 
-    <a asp-page="Index" class="btn btn-basic" style="color: black; background-color:#AC9CD8; border-radius:500px"> Finish </a>
+                <a asp-page="Index" class="btn btn-basic" asp-route-team="1" style="color: black; background-color:#AC9CD8; border-radius:500px"> Finish </a>
     <h2 class="h2">Skill List</h2>
 
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for skills..">
@@ -97,16 +100,37 @@
             <th>Skill Type</th>
             <th>Add Skill</th>
         </tr>
-        @{
-            foreach (var sk in Model.UserSkillList)
-            {
-                <tr>
-                    <td>@sk.SkillType</td>
-                    <td><a asp-page="AddDesiredSkills" class="btn btn-basic" asp-route-skillid="@sk.SkillID" style="color: black; background-color:#AC9CD8; border-radius:500px"> Add </a></td>
-                </tr>
+                    @{
+                        SqlDataReader skillReader = DBDesiredSkills.DesiredSkills2((int)HttpContext.Session.GetInt32("projid"));
+                        while (skillReader.Read())
+                        {
 
-            }
-        }
+                            Model.SkillIDList.Add(Int32.Parse(skillReader["SkillID"].ToString()));
+
+                        }
+                        foreach (var sk in Model.UserSkillList)
+                        {
+                            int k = 0;
+                            for (int i = 0; i < Model.SkillIDList.Count; i++)
+                            {
+                                if (sk.SkillID == Model.SkillIDList[i])
+                                {
+                                    k++;
+                                }
+
+
+                            }
+                            if (k == 0)
+                            {
+                                <tr>
+                                    <td>@sk.SkillType</td>
+                                    <td><a asp-page="AddDesiredSkills" class="btn btn-dark" asp-route-skillid="@sk.SkillID" style="color: white; background-color:#34135B;"> Add </a></td>
+                                </tr>
+                            }
+                            k = 0;
+                        }
+
+                    }
     </table>
 
 

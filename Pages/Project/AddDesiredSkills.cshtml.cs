@@ -9,13 +9,13 @@ namespace lab_1_part_3.Pages.Project
     public class AddDesiredSkillsModel : PageModel
     {
         public List<Skill> UserSkillList { get; set; }
-
+        public List<int> SkillIDList { get; set; }
 
         public AddDesiredSkillsModel()
         {
             
             UserSkillList = new List<Skill>();
-
+            SkillIDList = new List<int>();
         }
 
 

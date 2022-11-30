@@ -14,12 +14,13 @@ namespace lab_1_part_3.Pages.User
         [BindProperty]
         public Skill SkillToAdd { get; set; }
         public List<Skill> UserSkillList { get; set; }
-        public List<int> SkillIDLIst { get; set; }
+        public List<int> SkillIDList { get; set; }
 
         public AddSkillsToUserModel()
         {
             SkillToAdd = new Skill();
             UserSkillList = new List<Skill>();
+            SkillIDList = new List<int>();
 
         }
 

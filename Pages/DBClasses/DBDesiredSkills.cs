@@ -57,6 +57,21 @@ namespace lab_1_part_3.Pages.DBClasses
             }
             return desired;
         }
+        public static SqlDataReader DesiredSkills2(int ProjectID)
+        {
+            SqlCommand cmdProjectRead = new SqlCommand();
+            cmdProjectRead.Connection = new SqlConnection();
+            cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
+
+
+            cmdProjectRead.CommandText = @"select desired_skills.skillid from desired_skills
+            inner join project on Desired_Skills.projectid = project.projectid
+            where project.ProjectID =" + ProjectID;
+            cmdProjectRead.Connection.Open();
+            SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
+           
+            return tempReader;
+        }
         public static int[] skillReader(int ProfileID)
         {
             SqlCommand cmdProjectRead = new SqlCommand();
