@@ -168,6 +168,8 @@
                 </div>
                 <br />
                 <input type="submit" class="btn btn-dark" style="color: white; background-color: #34135B;" value="Sign Up" />
+                <button class="btn btn-outline-dark" asp-page="CreateHashLogin" asp-page-handler="PopulateHandler" formnovalidate style="color: white; background-color:#34135B">Populate</button>
+
                 </form>
                 <br/>
             
@@ -191,6 +193,7 @@
 
 <br />
 <a class="btn btn-outline-dark" style="color: white; background-color:#34135B" asp-page="CreateHashLogin">Create New User</a>
+
 @{
     if (HttpContext.Session.GetString("username") != null)
     {

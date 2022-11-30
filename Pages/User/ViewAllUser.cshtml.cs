@@ -10,12 +10,15 @@ namespace lab_1_part_3.Pages.User
     {
         [BindProperty]
         public string SearchText { get; set; }
+        [BindProperty]
+        public string skills { get; set; }
         public List<UserProfile> UserList { get; set; }
         public List<Skill> SkillList { get; set; }
         public ViewAllUserModel()
         {
             UserList = new List<UserProfile>();
             SkillList = new List<Skill>();
+            
         }
 
         public IActionResult OnGet(string teamid)
