@@ -65,5 +65,6 @@ namespace lab_1_part_3.Pages.User
 
             return RedirectToPage("Index");
         }
+
     }
 }
