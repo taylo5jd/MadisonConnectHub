@@ -10,7 +10,7 @@ namespace lab_1_part_3.Pages.User
         [BindProperty]
         public UserProfile UserToUpdate { get; set; }
 
-
+        
 
 
 
@@ -21,36 +21,39 @@ namespace lab_1_part_3.Pages.User
 
         public void OnGet(int ProfileID)
         {
+            HttpContext.Session.SetString("flag", "false");
             if (HttpContext.Session.GetString("username") == null)
             {
                 RedirectToPage("/DBLogin");
             }
-            SqlDataReader singleUser = DBUserClass.SingleUserReader(ProfileID);
-
-            while (singleUser.Read())
+            if (HttpContext.Session.GetString("flag").Equals("false"))
             {
-                UserToUpdate.Username = singleUser["Username"].ToString();
-                UserToUpdate.ProfileID = ProfileID;
-                UserToUpdate.FirstName = singleUser["FirstName"].ToString();
-                UserToUpdate.LastName = singleUser["LastName"].ToString();
-                UserToUpdate.Email = singleUser["Email"].ToString();
-                UserToUpdate.UserType = singleUser["UserType"].ToString();
-                UserToUpdate.PhoneNumber = singleUser["PhoneNumber"].ToString();
-                UserToUpdate.ProfessionalEmail = singleUser["Professional_Email"].ToString();
-                UserToUpdate.ProfessionalCompany = singleUser["Professional_Company"].ToString();
-                UserToUpdate.FacultyAssociation = singleUser["Faculty_Association"].ToString();
-                UserToUpdate.LinkedIn = singleUser["LinkedIn"].ToString();
-                UserToUpdate.VideoIntroduction = singleUser["Video_Introduction"].ToString();
-                UserToUpdate.Availability = singleUser["Availability"].ToString();
-                UserToUpdate.Passions = singleUser["Passions"].ToString();
-                UserToUpdate.Personality = singleUser["Personality"].ToString();
-                UserToUpdate.Bio = singleUser["Bio"].ToString();
+                SqlDataReader singleUser = DBUserClass.SingleUserReader(ProfileID);
 
+                while (singleUser.Read())
+                {
+                    UserToUpdate.Username = singleUser["Username"].ToString();
+                    UserToUpdate.ProfileID = ProfileID;
+                    UserToUpdate.FirstName = singleUser["FirstName"].ToString();
+                    UserToUpdate.LastName = singleUser["LastName"].ToString();
+                    UserToUpdate.Email = singleUser["Email"].ToString();
+                    UserToUpdate.UserType = singleUser["UserType"].ToString();
+                    UserToUpdate.PhoneNumber = singleUser["PhoneNumber"].ToString();
+                    UserToUpdate.ProfessionalEmail = singleUser["Professional_Email"].ToString();
+                    UserToUpdate.ProfessionalCompany = singleUser["Professional_Company"].ToString();
+                    UserToUpdate.FacultyAssociation = singleUser["Faculty_Association"].ToString();
+                    UserToUpdate.LinkedIn = singleUser["LinkedIn"].ToString();
+                    UserToUpdate.VideoIntroduction = singleUser["Video_Introduction"].ToString();
+                    UserToUpdate.Availability = singleUser["Availability"].ToString();
+                    UserToUpdate.Passions = singleUser["Passions"].ToString();
+                    UserToUpdate.Personality = singleUser["Personality"].ToString();
+                    UserToUpdate.Bio = singleUser["Bio"].ToString();
+
+                }
+
+
+                singleUser.Close();
             }
-
-
-            singleUser.Close();
-
             HttpContext.Session.SetString("profileid", ProfileID.ToString());
 
         }
@@ -66,6 +69,7 @@ namespace lab_1_part_3.Pages.User
         }
         public IActionResult OnPostPopulateHandler()
         {
+            HttpContext.Session.SetString("flag", "true");
             if (!ModelState.IsValid)
             {
 

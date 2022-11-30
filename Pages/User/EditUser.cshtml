@@ -49,7 +49,7 @@
 
     <br /> <br />
 
-@*
+
     <input type="hidden" asp-for="@Model.UserToUpdate.ProfileID" />
     <input type="hidden" asp-for="@Model.UserToUpdate.UserType" />
     <input type="hidden" asp-for="@Model.UserToUpdate.PhoneNumber" />
@@ -58,7 +58,7 @@
     <input type="hidden" asp-for="@Model.UserToUpdate.FacultyAssociation" />
     <input type="hidden" asp-for="@Model.UserToUpdate.Passions" />
     <input type="hidden" asp-for="@Model.UserToUpdate.LinkedIn" />
-    <input type="hidden" asp-for="@Model.UserToUpdate.Username" />*@
+    <input type="hidden" asp-for="@Model.UserToUpdate.Username" />
 
 
 
@@ -80,6 +80,10 @@
     <br />
     <label asp-for="@Model.UserToUpdate.VideoIntroduction" style="padding-right: 20px; width: 270px;">Video Introduction Link</label>
     <input type="text" style="padding-left: auto; width:60%;" asp-for="@Model.UserToUpdate.VideoIntroduction" />
+    <br />
+   
+    <label asp-for="@Model.UserToUpdate.LinkedIn" style="padding-right: 20px; width: 270px;">LinkedIn</label>
+    <input type="text" style="padding-left: auto; width:60%;" asp-for="@Model.UserToUpdate.LinkedIn" />
     <br />
     <label asp-for="@Model.UserToUpdate.Passions" style="padding-right: 20px; width: 270px;">Edit Passions - <em>optional</em></label>
     <input type="text" style="padding-left: auto; width:60%; " asp-for="@Model.UserToUpdate.Passions" />
