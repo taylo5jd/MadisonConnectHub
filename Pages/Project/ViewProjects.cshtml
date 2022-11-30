@@ -7,23 +7,17 @@
     ViewData["Title"] = "View Projects";
 }
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="wodth=device-width,initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="./style.css">
 
-
-
     <style>
         * {
             box-sizing: border-box;
             align-items: center;
         }
-
-
 
         body {
             align-items: center;
@@ -32,21 +26,15 @@
             align-content: center;
         }
 
-
-
         .container {
             display: flex;
             flex-flow: row wrap;
         }
 
-
-
         .row {
             margin: 0;
             padding-bottom: 10px;
         }
-
-
 
             .row:after {
                 content: "";
@@ -55,8 +43,6 @@
                 padding-bottom: 10px;
             }
 
-
-
         .column {
             float: left;
             padding: 10px;
@@ -64,8 +50,6 @@
             align-items: center;
             margin: auto;
         }
-
-
 
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -77,8 +61,6 @@
         }
 
 
-
-
             .card img {
                 overflow: hidden;
                 border-radius: 10%;
@@ -87,13 +69,9 @@
                 padding-bottom: 10px;
             }
 
-
-
         .grid-col-span-2 {
             grid-column: span 2;
         }
-
-
 
         .testimonial-grid {
             display: grid;
@@ -111,20 +89,15 @@
         <h3 style="font-weight:bold; color:#34135B">Explore all projects Madison Connect Hub has to offer!</h3>
     </article>
 
-
-
     <article class="testimonial">
         <h4 style="font-weight:lighter; color:#34135B">All Projects</h4>
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Projects..">
     </article>
 
-
     <article class="testimonial">
                         <a asp-page="/Index" style="float: right;" class="btn btn-dark" justify-item="center">Return</a>
     </article>
     <body>
-
-
 
 
         <script>
@@ -135,8 +108,6 @@
                 filter = input.value.toUpperCase();
                 table = document.getElementById("myTable");
                 tr = table.getElementsByTagName("tr");
-
-
 
                 // Loop through all table rows, and hide those who don't match the search query
                 for (i = 0; i < tr.length; i++) {
@@ -151,12 +122,8 @@
                     }
                 }
 
-
-
             }
         </script>
-
-
 
 
         @*
@@ -164,14 +131,10 @@
         <tr class="header">
         </tr>*@
 
-
-
         @{
             foreach (var proj in Model.ProjectList)
             {
                 SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
-
-
 
                 //<tr>
                 //    <td>
@@ -180,28 +143,22 @@
 
 
 
-
-                            <div class="card" style="color: black; background-color: #fff">
-                                <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:295px" height="200px">
-                                <h3>@proj.ProjectName</h3>
-                                <p>@proj.ProjectMissionStatement</p>
-                                <p>@proj.ProjectType</p>
-                                <p>@proj.ProjectDescription</p>
-                                <p>@proj.ProjectOwnerEmail</p>
-                                <p><a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B; border:none">Project Details</a></p><p>@Model.Message</p>
-
-
-
-                                <p>
-                                    @{
+                        <div class="card" style="color: black; background-color: #fff">
+                            <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:295px" height="200px">
+                            <h3>@proj.ProjectName</h3>
+                            <p>@proj.ProjectMissionStatement</p>
+                            <p>@proj.ProjectType</p>
+                            <p>@proj.ProjectDescription</p>
+                            <p>@proj.ProjectOwnerEmail</p>
+                            <p><a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B; border:none">Project Details</a></p><p>@Model.Message</p>
+                            <p>
+                                @{
                                     if (HttpContext.Session.GetString("username") == null)
                                     {
                                     }
                                     else
                                     {
                                                 <a asp-page="ViewProjects" class="btn btn-basic" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#34135B; border:none"> Request to Join </a>
-
-
 
                                     }
                                     }
@@ -210,16 +167,13 @@
                             <br />
 
 
-
-                        </div>
-                    </article>
+                    </div>
+                </article>
                 //    </td>
                 //</tr>
             }
         }
         @*            </table>
-
-
 
         *@
         <article class="testimonial">
@@ -228,7 +182,6 @@
         </article>
         <article class="testimonial">
         </article>
-
 
 
 

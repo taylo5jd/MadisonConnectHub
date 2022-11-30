@@ -131,7 +131,9 @@
                                                                                             Desired Skills:  @{
                                     while (desiredSkillReader.Read())
                                     {
-                                                                                                                                                                        <p>&#8226 @desiredSkillReader["Skill_Type"].ToString()</p>
+                                        <p>&#8226 @desiredSkillReader["Skill_Type"].ToString()</p>
+                                        int test= 0;
+                                        
                                     }
                                                                                                     }
                                                                                         </strong>
@@ -141,7 +143,7 @@
                                                                                             Team Members:  @{
                                     while (teamMembers.Read())
                                     {
-                                                                                                                                                                        <p>&#8226 @teamMembers["Name"].ToString()</p>
+                                     <p>&#8226 @teamMembers["Name"].ToString()</p>
                                     }
                                                                                                     }
                                                                                         </strong>
@@ -208,6 +210,7 @@
                                 }
                                 
                                                                                                                         }
+                                                                                                                        <br />
                                                                                                                     </p>
                                                                                                                     <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
                                                                                                                     <br />

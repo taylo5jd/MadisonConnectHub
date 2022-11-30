@@ -94,22 +94,36 @@
                 <th>Skill Type</th>
                 <th>Add Skill</th>
             </tr>
-            @{
+        @{
+            SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(HttpContext.Session.GetString("username"));
+            while (skillReader.Read())
+            {
+
+                Model.SkillIDList.Add(Int32.Parse(skillReader["SkillID"].ToString()));
+
+            }
             foreach (var sk in Model.UserSkillList)
             {
-               SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(HttpContext.Session.GetString("username"));
-                while(skillReader.Read()){
+                int k = 0;
+                for(int i = 0; i<Model.SkillIDList.Count; i++){
+                    if (sk.SkillID == Model.SkillIDList[i])
+                    {
+                        k++;
+                    }
 
-                    Model.SkillIDLIst.Add(Int32.Parse(skillReader["SkillID"].ToString()));
 
                 }
-                <tr>
-                    <td>@sk.SkillType</td>
+                if (k == 0)
+                {
+                    <tr>
+                        <td>@sk.SkillType</td>
                     <td><a asp-page="AddSkillsToUser" class="btn btn-dark" asp-route-skillid="@sk.SkillID" style="color: white; background-color:#34135B;"> Add </a></td>
                 </tr>
-   
+                }
+                k = 0;
+            }
+            
         }
-    }
      </table>
 
 
