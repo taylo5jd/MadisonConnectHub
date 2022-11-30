@@ -52,14 +52,6 @@ namespace lab_1_part_3.Pages.User
                 {
                     SkillType = skillReader["Skill_Type"].ToString(),
                     SkillID = Int32.Parse(skillReader["SkillID"].ToString()),
-                    
-                   
-                 
-
-
-
-
-
                 });
             }
             skillReader.Close();
@@ -72,5 +64,6 @@ namespace lab_1_part_3.Pages.User
 
             return RedirectToPage("Index");
         }
+
     }
 }
