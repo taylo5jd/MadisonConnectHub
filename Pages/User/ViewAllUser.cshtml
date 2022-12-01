@@ -58,8 +58,21 @@
         .icon {
             display: inline-block;
         }
-        .text-center{
+        .text-center {
             padding-left: 120px;
+        }
+
+        .grid-col-span-2 {
+            grid-column: span 2;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            padding-block: 2rem;
+            width: min(95%, 70rem);
+            margin-inline: auto;
         }
 
 
@@ -68,13 +81,33 @@
 
 
 <body>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <main class="testimonial-grid">
+
+        <article class="testimonial">
 
         <h1 style="font-weight:lighter; color:#3E1C66">Explore profiles</h1>
-        <h5 style="font-weight:bold; color:#3E1C66">Search by name or skills</h5>
-        <a asp-page="/Index" class="btn btn-dark" style="float:right">Return</a>
+                <h5 style="font-weight:bold; color:#3E1C66">Search by name or skills</h5>
 
-        <script>
+        </article>
+
+                <article class="testimonial">
+<form asp-page="SearchUser">
+            <input asp-for="SearchText" class="form-control" placeholder="Search for Users..." />
+            <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" />
+           
+        </form>
+            
+
+                </article>
+                                <article class="testimonial">
+
+        <a asp-page="/Index" class="btn btn-dark" style="float:right">Return</a>
+        </article>
+
+
+@*        <script>
         function myFunction() {
             // Declare variables
             var input, filter, table, tr, td, i, txtValue;
@@ -96,26 +129,24 @@
                 }
             }
         }
-    </script>
+    </script>*@
 
 
 
 
 
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for users...">
 
 
-            <table id="myTable">
-                <tr class="header">
-            </tr>
+
             @{
             foreach (var usr in Model.UserList)
 
             {
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
-                    <tr>
-                        <td>  <div class="column">
+                                       <article class="testimonial">
+                <div class="column">
+
                                                                 <div class="card" style="color: black; background-color:#fff">
                                                                 <div class="card_img">
                                                                     <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
@@ -145,15 +176,13 @@
 
                                                                                                                                                                                                                                                 <br />
                                                                                                                                                                                                                                             </div>
-
-                                                                                                                                                                                                                                        </div></td>
-                         </tr>
-   
+                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                        </div>
+        </article>
         }
     }
-     </table>
 
-
+     </main>
     </body>
 
     </html>

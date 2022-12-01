@@ -75,27 +75,43 @@
             width: min(95%, 70rem);
             margin-inline: auto;
         }
-
+                      .testimonial {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      } 
 
     </style>
 </head>
 
 <body>
-    
-    <a asp-page="ViewProjects" class="btn btn-dark" style="float:right"> Return</a>
+    <article class="testimonial-grid">
+        <article class="testimonial">
+
+            <h4 style="font-weight:lighter; color:#34135B">Explore projects</h4>
+
+        </article>
+        <article class="testimonial">
+
+            <a asp-page="ViewProjects" class="btn btn-dark" style="color: white; background-color:#34135B"> Search Again</a>
+        </article>
+        <article class="testimonial">
+            <a asp-page="ViewProjects" class="btn btn-dark"> Return</a>
+
+        </article>
+
 
     <article class="testimonial-grid">
 
 @{
     if (Model.SearchText == null)
     {
-    <form asp-page="SearchProject">
-                <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
-            <br />
-                <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" />
-    </form>
+    //<form asp-page="SearchProject">
+    //            <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
+    //        <br />
+    //            <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" />
+    //</form>
     <br />
-            <a asp-page="Index" class="btn btn-dark" style="color: black; background-color:#DEFAB2"> Return to My Projects </a>
     }
     else{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
