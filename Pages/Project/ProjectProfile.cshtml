@@ -107,6 +107,8 @@
 }
 
 <table class="profile" style="float:right; width: 75%;">
+               <a asp-page="/Index" class="btn btn-dark" style="float: right">Return</a>
+
     <th>
         @{
             foreach (var proj in Model.ProjectList)
@@ -116,6 +118,8 @@
                 SqlDataReader teamMembers = DBProjectClass.TeamMember(proj.ProjectID);
 
                                                                                                 <div class="name" style=" width: 100%;">
+
+
                                                                                                     <h1><strong> @proj.ProjectName</strong></h1>
                                                                                                     <h5>Category:<strong> @proj.ProjectType</strong></h5>
                                                                                                     <br />
