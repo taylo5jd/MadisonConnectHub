@@ -41,15 +41,16 @@ namespace lab_1_part_3.Pages
             if (!ModelState.IsValid)
             {
                 ModelState.Clear();
-                NewUser.Username = "je123";
-                NewUser.FirstName = "Jeremy";
-                NewUser.LastName = "Ezell";
-                NewUser.Email = "jz@gmail.com";
-                NewUser.UserType = "Professional";
+                NewUser.Username = "rr123";
+                NewUser.FirstName = "Rachel";
+                NewUser.LastName = "Reed";
+                NewUser.Email = "rr@dukes.jmu.edu";
+                NewUser.UserType = "Student";
                 NewUser.PhoneNumber = "5711231234";
-                NewUser.ProfessionalEmail = "jz@jmu.edu";
+                NewUser.ProfessionalEmail = "rr@jmu.edu";
                 NewUser.ProfessionalCompany = "JMU";
                 NewUser.FacultyAssociation = null;
+                
             }
             return Page();
         }
