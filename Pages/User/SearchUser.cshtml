@@ -69,79 +69,103 @@
             padding-left: 120px;
         }
 
+        .grid-col-span-2 {
+            grid-column: span 2;
+        }
 
+        .testimonial-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            padding-block: 2rem;
+            width: min(95%, 70rem);
+            margin-inline: auto;
+        }
+
+              .testimonial {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
     </style>
 </head>
 
 <body>
+        <article class="testimonial-grid">
+            <article class="testimonial">
 
         <h4 style="font-weight:lighter; color:#34135B">Explore profiles</h4>
+
+        </article>
+        <article class="testimonial">
+                    
+            <a asp-page="ViewAllUser" class="btn btn-dark" style="color: white; background-color:#34135B"> Search Again</a>
+        </article>
+        <article class="testimonial">
+                        <a asp-page="/Index" class="btn btn-dark"> Return</a>
+
+        </article>
 
 @{
     if (Model.SearchText == null)
     {
-    <form asp-page="SearchUser">
-                <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
-                <br />
-            <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" />
-    </form>
-    <br />
-        <a asp-page="Index" class="btn btn-dark" style="color: black; background-color:#DEFAB2"> Return to User Page </a>
+        <form asp-page="SearchUser">
+                    <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
+                    <br />
+                <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" />
+        </form>
+        <br />
     }
     else
     {
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 foreach (var usr in Model.UserList)
             {
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
                 // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
-                        <div class="column">
-                        <div class="card" style="color: black; background-color:#fff">
-                        <div class="card_img">
-                            <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
-                        </div class>
-                         <h1 style="color:black; font-size:30px" display="inline-block">@usr.FirstName @usr.LastName</h1>
 
-                            <div class="icon">
-                                <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
-                                <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
-                             </div>
-                             <br />
+    <article class="testimonial">
+                            <div class="card" style="color: black; background-color:#fff">
+                            <div class="card_img">
+                                <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
+                            </div class>
+                             <h1 style="color:black; font-size:30px" display="inline-block">@usr.FirstName @usr.LastName</h1>
+
+                                <div class="icon">
+                                    <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a> 
+                                    <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
+                                 </div>
+                                 <br />
 
 
-                        <h2 style="color: black; font-size:20px">Current projects:</h2>
-                        <p>
-                        @{
+                            <h2 style="color: black; font-size:20px">Current projects:</h2>
+                            <p>
+                            @{
                                 while (projReader.Read())
                                 {
-                                 @projReader["Project_Name"].ToString()
-                                 <br />
+                                         @projReader["Project_Name"].ToString()
+                                         <br />
                                 }
-                        }
-                        </p>
-                        <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
+                            }
+                            </p>
+                            <a asp-page="ViewUser" class="btn btn-dark" asp-route-username="@usr.Username" style="color: white; background-color:#34135B">View User</a>
 
-                        <br />
-                        </div>
-                        </div>
-           
+                            <br />
+                            </div>
+</article>               
 
+                }
+        <br />
             }
-    <br />
+
+
+        
         }
-
-        <a asp-page="SearchUser" class="btn btn-dark" style="color: white; background-color:#34135B"> Search Again</a>
-        <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B"> Return to User Page</a>
-
-        <a asp-page="ViewAllUser" class="btn btn-dark" style="color: white; background-color:#34135B"> Search Again</a>
-        <a asp-page="Index" class="btn btn-dark" style="color: black; background-color:#DEFAB2"> Return to User Page</a>
-
-    
-    }
-
- </body>
+        
+        </article>
+     </body>
 
 
- </html>
+     </html>
