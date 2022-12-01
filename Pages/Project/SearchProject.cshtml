@@ -88,12 +88,11 @@
     <article class="testimonial-grid">
         <article class="testimonial">
 
-            <h4 style="font-weight:lighter; color:#34135B">Explore projects</h4>
+            <h4 style="color:#34135B">Explore projects</h4>
 
         </article>
         <article class="testimonial">
 
-            <a asp-page="ViewProjects" class="btn btn-dark" style="color: white; background-color:#34135B"> Search Again</a>
         </article>
         <article class="testimonial">
             <a asp-page="ViewProjects" class="btn btn-dark"> Return</a>
@@ -101,7 +100,6 @@
         </article>
 
 
-    <article class="testimonial-grid">
 
 @{
     if (Model.SearchText == null)
@@ -126,6 +124,8 @@
                         <p>@proj.ProjectType</p>
                         <p>@proj.ProjectDescription</p>
                         <p>@proj.ProjectOwnerEmail</p>
+                            <p><a asp-page="ProjectProfile" class="btn btn-outline-dark" asp-route-projectid="@proj.ProjectID" style="color:white; background-color:#34135B; border:none">Project Details</a></p>
+
                         <a asp-page="SearchProject" class="btn btn-dark" asp-route-ProjID="@proj.ProjectID" style="color: white; background-color:#34135B; width: 50%"> Request to Join </a>
                         <br />
                     </div>
