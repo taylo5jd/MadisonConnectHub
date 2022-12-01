@@ -94,16 +94,14 @@
 <body>
         <article class="testimonial-grid">
             <article class="testimonial">
-
-        <h4 style="font-weight:lighter; color:#34135B">Explore profiles</h4>
+                            <h4 style="color:#34135B">Explore users</h4>
 
         </article>
         <article class="testimonial">
                     
-            <a asp-page="ViewAllUser" class="btn btn-dark" style="color: white; background-color:#34135B"> Search Again</a>
         </article>
         <article class="testimonial">
-                        <a asp-page="/Index" class="btn btn-dark"> Return</a>
+                        <a asp-page="ViewAllUser" class="btn btn-dark"> Return</a>
 
         </article>
 
@@ -111,9 +109,7 @@
     if (Model.SearchText == null)
     {
         <form asp-page="SearchUser">
-                    <input asp-for="SearchText" class="form-control" placeholder="Search Here" />
-                    <br />
-                <input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" />
+
         </form>
         <br />
     }

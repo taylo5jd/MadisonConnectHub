@@ -82,9 +82,9 @@
         }
     </script>
 
+    <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B; float:right;"> Finish </a>
 
 
-    <a asp-page="Index" class="btn btn-dark" style="color: white; background-color:#34135B;"> Finish </a>
             <h2 class="h2">Skill List</h2>
 
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for skills..">
@@ -115,10 +115,10 @@
                 }
                 if (k == 0)
                 {
-                    <tr>
-                        <td>@sk.SkillType</td>
-                    <td><a asp-page="AddSkillsToUser" class="btn btn-dark" asp-route-skillid="@sk.SkillID" style="color: white; background-color:#34135B;"> Add </a></td>
-                </tr>
+                        <tr>
+                            <td>@sk.SkillType</td>
+                        <td><a asp-page="AddSkillsToUser" class="btn btn-dark" asp-route-skillid="@sk.SkillID" style="color: white; background-color:#34135B;"> Add </a></td>
+                    </tr>
                 }
                 k = 0;
             }

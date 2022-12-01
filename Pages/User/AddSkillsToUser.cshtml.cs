@@ -15,6 +15,8 @@ namespace lab_1_part_3.Pages.User
         public Skill SkillToAdd { get; set; }
         public List<Skill> UserSkillList { get; set; }
         public List<int> SkillIDList { get; set; }
+        
+       
 
         public AddSkillsToUserModel()
         {
