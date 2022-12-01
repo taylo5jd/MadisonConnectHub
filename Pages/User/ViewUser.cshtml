@@ -55,6 +55,8 @@
 }
 
 <table class="profile" style="float:right; width: 75%;">
+    <a asp-page="/Index" class="btn btn-dark" style="float: right">Return</a>
+
     <th>
         @{
             foreach (var usr in Model.UserList)
@@ -63,6 +65,7 @@
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
 
                 <div class="name" style=" width: 100%;">
+
                     <h1><strong>@usr.FirstName @usr.LastName</strong></h1>
                     <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a>
                     <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
