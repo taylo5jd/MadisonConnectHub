@@ -24,18 +24,12 @@
             align-content: center;
         }
 
-        .card img {
-            width: 120 px;
-            height: 120 px;
-            overflow: hidden;
-            border-radius: 3%;
-            margin: 0pz auto 0;
-        }
 
+/*
         .container {
             display: flex;
             flex-flow: row wrap;
-        }
+        }*/
 
         .row {
             margin: 0;
@@ -59,7 +53,6 @@
 
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            padding: 10px;
             padding-bottom: 10px;
             width: 600px;
             text-align: center;
@@ -67,6 +60,14 @@
             flex: 0 0 100%;
             border-radius: 10%;
         }
+
+            .card img {
+                overflow: hidden;
+                border-radius: 10%;
+                margin: 0px auto 0;
+                object-fit: cover;
+                padding-bottom: 10px;
+            }
 
         .topnav {
             background-color: #e5dbf4;
@@ -86,14 +87,34 @@
                     background-color: #e5dbf4;
                     color: black;
                 }
+
+
+        .grid-col-span-2 {
+            grid-column: span 2;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            padding-block: 2rem;
+            width: min(95%, 70rem);
+            margin-inline: auto;
+        }
     </style>
 </head>
 <body>
-    <h2 class="h2">My Project List<a asp-page="/Index" class="btn btn-dark" style="float:right">Return</a></h2>
-     
+    <article class="testimonial-grid">
+        <article class="testimonial">
+    <h2 class="h2">My Project List</h2>
+        </article>
 
+        <article class="testimonial">
+        </article>
 
-
+        <article class="testimonial">
+            <a asp-page="/Index" class="btn btn-dark" style="float:right">Return</a>
+        </article>
     @{
 
 
@@ -102,8 +123,8 @@
         {
             SqlDataReader projectReader = DBProjectClass.SingleProjectReader(proj.ProjectID);
 
-                <div class="column">
-                    <div class="card" style="color: black; background-color: #fff">
+<article class="testimonial">
+              <div class="card" style="color: black; background-color: #fff">
                         <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:295px" height="220px">
                         <h3>@proj.ProjectName</h3>
                         <p>@proj.ProjectMissionStatement</p>
@@ -116,11 +137,10 @@
                         <br />
                     </div>
                     <br />
-                </div>
-
+                </article>
 
         }
     }
-
+    </article>
 </body>
 </html>
