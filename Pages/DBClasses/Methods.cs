@@ -14,6 +14,9 @@ namespace lab_1_part_3.Pages.DBClasses
             string newName = originalName[0] + "." + originalName[1];
             return Directory.GetCurrentDirectory() + @"\wwwroot\images\" + newName;
         }
+
+
+
         public static string imgFinder(string username)
         {
             string imagesDir = Directory.GetCurrentDirectory() + @"\wwwroot\images\";

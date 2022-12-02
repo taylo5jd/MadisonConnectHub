@@ -90,6 +90,20 @@
         p {
             margin:0;
         }
+
+                .grid-col-span-2 {
+            grid-column: span 2;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            padding-block: 2rem;
+            width: min(95%, 70rem);
+            margin-inline: auto;
+        }
+
     </style>
 </head>
 
@@ -184,8 +198,10 @@
 <br />
 
 
-<body>
+<body>    
     <h2>Potential Teammates</h2>
+    <main class="testimonial-grid">
+
     @{
         foreach (var usr in Model.UserList2)
         {
@@ -195,7 +211,7 @@
                 SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
                 SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
                 // SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
-                                                                                                                    <div class="column">
+    <article class="testimonial">
                                                                                                                         <div class="card" style="color: black; background-color:#fff">
                                                                                                                             <div class="card_img">
                                                                                                                                 <img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
@@ -235,11 +251,11 @@
 
 
                                                                                                                       
-                                                                                                                    </div>
+    </article>
             }
         }
         }
-
+        </main>
 
 </body>
 
