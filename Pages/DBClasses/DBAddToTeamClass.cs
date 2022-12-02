@@ -4,12 +4,12 @@ namespace lab_1_part_3.Pages.DBClasses
 {
     public class DBAddToTeamClass
     { //property with our connection string
-      private static readonly string Lab1ConnStr = @"Server=Localhost;Database=Lab3;Trusted_Connection=True;Pooling=False";
+     // private static readonly string Lab1ConnStr = @"Server=Localhost;Database=Lab3;Trusted_Connection=True;Pooling=False";
 
         // AWS connection string
-        //  private static readonly string Lab1ConnStr
-        //      = @"Server=madisonconnecthubdb.cu2y6i9mdjnr.us-east-1.rds.amazonaws.com;
-        //Database=Lab3;uid=MCH_Admin;password=MCH_Password;Pooling=False";
+          private static readonly string Lab1ConnStr
+              = @"Server=madisonconnecthubdb.cu2y6i9mdjnr.us-east-1.rds.amazonaws.com;
+        Database=Lab3;uid=MCH_Admin;password=MCH_Password;Pooling=False";
 
 
         public static void InsertUserTeamComposition(int ProfileID,int TeamID)
