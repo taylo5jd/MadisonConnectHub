@@ -7,6 +7,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         * {
             font-family: 'IBM Plex Sans';
@@ -50,13 +51,13 @@
         //<div class="connect">
 
         //<p style="clear:none">@usr.Email</p>
-    <a style="clear: none;" href="@usr.LinkedIn.ToString()" class="fa fa-linkedin"></a>
-    <a style="clear: none;" href="@usr.VideoIntroduction.ToString()" class="fa fa-youtube"></a>
+
         //</div>
     }
 }
 
 <table class="profile" style="float:right; width: 75%;">
+    <a asp-page="/Index" class="btn btn-dark" style="float: right">Return</a>
 
     <th>
         @{
@@ -69,13 +70,14 @@
                  
                                 <div class="name" style=" width: 100%;">
                                   
-                <a asp-page="/Index" class="btn btn-dark" style="float: right">Return</a>
-                <br /> <br />
                 <a asp-page="EditUser" class="btn btn-dark" style="float: right; color: black; background-color: #DEFAB2; border-color: black" asp-route-profileid="@usr.ProfileID">Edit Profile</a>
 
             
                                     <h1><strong>@usr.FirstName @usr.LastName</strong></h1>
-                                    <h5><strong>Affiliation: </strong>@usr.UserType</h5>
+                    <a target="_blank" rel="noopener noreferrer" href="@usr.LinkedIn.ToString()"><i class="fa fa-linkedin" style="color:#0072b1"></i></a>
+                    <a target="_blank" rel="noopener noreferrer" href="@usr.VideoIntroduction.ToString()"><i class="fa fa-youtube" style="color:#FF0000"></i></a>
+               
+                    <h5><strong>Affiliation: </strong>@usr.UserType</h5>
  <h5><strong>Biography: </strong> @usr.Bio</h5>
                                 </div>
 
