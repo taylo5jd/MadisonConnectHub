@@ -126,8 +126,7 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdProjectRead = new SqlCommand();
             cmdProjectRead.Connection = new SqlConnection();
             cmdProjectRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdProjectRead.CommandText = @"select UserProfile.Username from UserProfile
-                                        inner join Project on UserProfile.ProfileID = Project.ProfileID where Project.ProjectID =" + ProjID;
+            cmdProjectRead.CommandText = @"select UserProfile.Username from UserProfile inner join Project on UserProfile.ProfileID = Project.ProfileID where Project.ProjectID =" + ProjID;
             cmdProjectRead.Connection.Open();
             SqlDataReader tempReader = cmdProjectRead.ExecuteReader();
             while (tempReader.Read())
