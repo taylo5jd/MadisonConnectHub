@@ -45,18 +45,12 @@
             border-radius: 10%;
         }
 
-        .card_img {
-            width: 120 px;
-            height: 120 px;
-            overflow: hidden;
-            border-radius: 100%;
-            margin: 0px auto 0;
-        }
-
-            .card_img img {
-                width: 100px;
-                height: 100px;
+            .card img {
+                overflow: hidden;
+                border-radius: 10%;
+                margin: 0px auto 0;
                 object-fit: cover;
+                padding-bottom: 10px;
             }
 
         .icon {
@@ -116,7 +110,7 @@
                                                                 <article class="testimonial">
                                                             <div class="card" style="color: black; background-color:#fff">
                                                             <div class="card_img">
-                                                                <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:100px" height="100px">
+                                                                <img src="@Methods.projimgFinder(proj.ProjectName)" alt="" style="width:295px" height="200px">
                                                             </div class>
                                                              
                                                             <h3>@proj.ProjectName</h3>

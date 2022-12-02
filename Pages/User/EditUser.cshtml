@@ -69,19 +69,11 @@
     <label asp-for="@Model.UserToUpdate.Email" style="padding-right: 20px; width: 270px;"></label>
     <input type="text" asp-for="@Model.UserToUpdate.Email" style="padding-left: auto; width:60%; " />
     <br />
-
-@*    <div class="form-group">
-        <label class="control-label" for="ProfileExperience" style="padding-right: 20px; width: 270px">Biography</label>
-        <textarea class="form-control countdown" rows="5" id="ProfileExperience" data-id="ProfileExperience" data-temp-text="" spellcheck="true" style="height: 170px; width:60%;">
-             @Model.UserToUpdate.Bio
-    </textarea>
-    </div>*@
-
     <label asp-for="@Model.UserToUpdate.Bio" style="padding-right: 20px; width: 270px;">Biography</label>
-    <input type="textarea" asp-for="@Model.UserToUpdate.Bio" style="height: 170px; width:60%;" />
+    <input type="text" asp-for="@Model.UserToUpdate.Bio" style="padding-left: auto; width:60%; " />
     <br />
-    <label asp-for="@Model.UserToUpdate.Availability" style="padding-right: 20px; width: 270px;"></label>
-    <input type="textarea" asp-for="@Model.UserToUpdate.Availability" style="height: 170px; width:60%;" />
+    <label asp-for="@Model.UserToUpdate.Availability" style="padding-right: 20px; width: 270px;">Availability</label>
+    <input type="textarea" asp-for="@Model.UserToUpdate.Availability" style="height: auto; width:60%;" />
     <br />
     <label asp-for="@Model.UserToUpdate.VideoIntroduction" style="padding-right: 20px; width: 270px;">Video Introduction Link</label>
     <input type="text" asp-for="@Model.UserToUpdate.VideoIntroduction" style="padding-left: auto; width:60%;" />
@@ -92,7 +84,7 @@
     <label asp-for="@Model.UserToUpdate.Passions" style="padding-right: 20px; width: 270px;">Edit Passions - <em>optional</em></label>
     <input type="text" asp-for="@Model.UserToUpdate.Passions" style="padding-left: auto; width:60%; " />
     <br />
-    <label asp-for="@Model.UserToUpdate.Personality" style="padding-right: 20px; width: 270px;">Edit Meyer - Briggs Personality Type - <em>optional</em> - <a target ="_blank" rel = "noopener noreferrer" href="https://www.truity.com/test/type-finder-personality-test-new">Take Test Here</a></label>
+    <label asp-for="@Model.UserToUpdate.Personality" style="width: 270px;">Edit Meyer - Briggs Personality Type - <em>optional</em> - <a target="_blank" rel="noopener noreferrer" href="https://www.truity.com/test/type-finder-personality-test-new" style="font-size: 20px"><u>Take Test Here</u></a></label>
     <input type="text" asp-for="@Model.UserToUpdate.Personality" style="padding-left: auto; width:60%; " />
     <br />
 @*    <button class="btn btn-outline-secondary" asp-page="EditUser" asp-page-handler="PopulateHandler" formnovalidate style="color: white; background-color:#AC9CD8">Populate</button>
