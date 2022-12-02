@@ -21,12 +21,12 @@ namespace lab_1_part_3.Pages.User
 
         public void OnGet(int ProfileID)
         {
-            HttpContext.Session.SetString("flag", "false");
+            //HttpContext.Session.SetString("flag", "false");
             if (HttpContext.Session.GetString("username") == null)
             {
                 RedirectToPage("/DBLogin");
             }
-            if (HttpContext.Session.GetString("flag").Equals("false"))
+           // if (HttpContext.Session.GetString("flag").Equals("false"))
             {
                 SqlDataReader singleUser = DBUserClass.SingleUserReader(ProfileID);
 
@@ -67,29 +67,29 @@ namespace lab_1_part_3.Pages.User
 
 
         }
-        public IActionResult OnPostPopulateHandler()
-        {
-            HttpContext.Session.SetString("flag", "true");
-            if (!ModelState.IsValid)
-            {
+        //public IActionResult OnPostPopulateHandler()
+        //{
+        //    HttpContext.Session.SetString("flag", "true");
+        //    if (!ModelState.IsValid)
+        //    {
 
 
 
 
-                UserToUpdate.FirstName = "Jeremy";
-                UserToUpdate.LastName = "Ezell";
-                UserToUpdate.Email = "jz@gmail.com";
-                UserToUpdate.LinkedIn = "https://www.linkedin.com/in/chrisobrienux/";
-                UserToUpdate.VideoIntroduction = "https://www.youtube.com/watch?v=flKc89EE2bw";
-                UserToUpdate.Availability = "I am available Tuesdays and Thursdays in the afternoon.";
-                UserToUpdate.Passions = "I am passionate about the environment and the Valley";
-                UserToUpdate.Personality = "INFP";
-                UserToUpdate.Bio = "I am a Professor at JMU who cares for the environment";
+        //        UserToUpdate.FirstName = "Jeremy";
+        //        UserToUpdate.LastName = "Ezell";
+        //        UserToUpdate.Email = "jz@gmail.com";
+        //        UserToUpdate.LinkedIn = "https://www.linkedin.com/in/chrisobrienux/";
+        //        UserToUpdate.VideoIntroduction = "https://www.youtube.com/watch?v=flKc89EE2bw";
+        //        UserToUpdate.Availability = "I am available Tuesdays and Thursdays in the afternoon.";
+        //        UserToUpdate.Passions = "I am passionate about the environment and the Valley";
+        //        UserToUpdate.Personality = "INFP";
+        //        UserToUpdate.Bio = "I am a Professor at JMU who cares for the environment";
                 
 
 
-            }
-            return Page();
-        }
+        //    }
+        //    return Page();
+        //}
     }
 }

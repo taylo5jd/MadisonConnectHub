@@ -34,13 +34,30 @@ namespace lab_1_part_3.Pages.DBClasses
             SqlCommand cmdUserRead = new SqlCommand();
             cmdUserRead.Connection = new SqlConnection();
             cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
-            cmdUserRead.CommandText = @"select UserProfile.FirstName+ ' ' + UserProfile.LastName as Requester, Join_Request.RequestID, Join_Request._Type,
+            cmdUserRead.CommandText = @"select UserProfile.FirstName+ ' ' + UserProfile.LastName as Requester, Join_Request.RequestID, 
             Join_Request.ProfileID,Join_Request.ApproverID, (select Project.Project_Name
+
             from Project where Join_Request.ProjectID = Project.ProjectID) as 'Project Name',
-            Join_Request.StatusFlag, Join_Request._Type, Join_Request.ProjectID,TeamComposition.TeamID
+
+            Join_Request.StatusFlag, Join_Request._Type, Join_Request.ProjectID
+
             from Join_Request inner join UserProfile on Join_Request.ProfileID = UserProfile.ProfileID
-            inner join TeamComposition on Join_Request.ApproverID = TeamComposition.ProfileID
+
             WHERE (select UserProfile.Username from UserProfile where UserProfile.ProfileID = Join_Request.ApproverID)  =  '" + Username + "'";
+            cmdUserRead.Connection.Open();
+            SqlDataReader tempReader = cmdUserRead.ExecuteReader();
+            return tempReader;
+        }
+        public static SqlDataReader teamidreader(string Username)
+        {
+            SqlCommand cmdUserRead = new SqlCommand();
+            cmdUserRead.Connection = new SqlConnection();
+            cmdUserRead.Connection.ConnectionString = Lab1ConnStr;
+            cmdUserRead.CommandText = @" select UserProfile.ProfileID, TeamComposition.TeamID from UserProfile
+inner join TeamComposition on TeamComposition.ProfileID = UserProfile.ProfileID
+inner join Team on TeamComposition.teamid = Team.teamid
+inner join Project on team.ProjectID = project.ProjectID
+where UserProfile.Username =  '" + Username + "'";
             cmdUserRead.Connection.Open();
             SqlDataReader tempReader = cmdUserRead.ExecuteReader();
             return tempReader;

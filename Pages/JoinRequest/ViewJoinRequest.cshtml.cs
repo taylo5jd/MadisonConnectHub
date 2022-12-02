@@ -30,22 +30,21 @@ namespace lab_1_part_3.Pages.JoinRequest
 
             if (TeamID != 0 || ProfileID !=0)
             {
-                while (joinReader2.Read())
-                {
+               
                     if (requestType.Equals("Join Request"))
                     {
                         DBAddToTeamClass.InsertUserTeamComposition(ProfileID, TeamID);
                         DBJoinRequest.UpdateJoinRequest("y", RequestID);
-                        break;
+                       
                     }
                     else
                     {
                         DBAddToTeamClass.InsertUserTeamComposition(ApproverID, tmID);
                         DBJoinRequest.UpdateJoinRequest("y", RequestID);
-                        break;
+                        
 
                     }
-                }
+                
                
             }
             else
