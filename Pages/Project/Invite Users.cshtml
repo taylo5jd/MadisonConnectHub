@@ -14,7 +14,7 @@
 
 	<style>
 		* {
-			box-sizing: border-box;
+			boxh3-sizing: border-box;
 			align-items: center;
 		}
 
@@ -69,6 +69,18 @@
 			padding-left: 120px;
 		}
 
+		.grid-col-span-2 {
+            grid-column: span 2;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            padding-block: 2rem;
+            width: min(95%, 70rem);
+            margin-inline: auto;
+        }
 
 
 	</style>
@@ -97,35 +109,41 @@
 		<tbody>*@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+		    <main class="testimonial-grid">
 
-
-		
+        <article class="testimonial">
 		<h4 style="font-weight:lighter; color:#3E1C66">Explore profiles</h4>
-		<h3 style="font-weight:bold; color:#3E1C66">All Profiles</h3>
+				<h3 style="font-weight:bold; color:#3E1C66">All Profiles</h3>
+		</article>
+
 
 		
 		@{
 	if (Model.SearchText == null)
-	{
+	{		<article class="testimonial">
+
 	<form asp-page="SearchUser">
 				<input asp-for="SearchText" class="form-control" placeholder="Search Here" />
 				<br />
 			<input type="submit" class="btn btn-dark" style="color: white; background-color:#34135B" />
 	</form>
 	<br />
-		<a asp-page="Index" class="btn btn-dark" style="color: black; background-color:#DEFAB2"> Return to User Page </a>
+
+
+</article>
+
 	}
 	else
 	{
-		
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		foreach (var usr in Model.UserList)
 			{
 				SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
 				SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
 				// SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
-						<div class="column">
-						<div class="card" style="color: black; background-color:#fff">
+<article class="testimonial">
+<div class="card" style="color: black; background-color:#fff">
 						<div class="card_img">
 							<img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
 						</div class>
@@ -154,8 +172,7 @@
 
 																																																		<br />
 																																																	</div>
-																																																</div>
-																																									
+</article>																																									
 
 			}
 	<br />
@@ -166,17 +183,19 @@
 	}
 }
 
+			<article class="testimonial">
+					<a asp-page="Index" class="btn btn-dark" style="float:right">Return</a>
+			</article>
 
-					<div class="text-center">
-
-		@{<h3>@Model.message</h3>
+		@{
 			foreach (var usr in Model.UserList)
 			{
 				SqlDataReader skillReader = DBSkillClass.SingleUserSkillReader(usr.Username);
 				SqlDataReader projReader = DBProjectClass.UserProjectReader(usr.Username);
 				// SqlDataReader userReader = DBUserClass.UserReader(usr.Username);
-						<div class="column">
-						<div class="card" style="color: black; background-color:#fff">
+
+<article class="testimonial">
+<div class="card" style="color: black; background-color:#fff">
 						<div class="card_img">
 							<img src="@Methods.imgFinder(usr.Username)" alt="" style="width:100px" height="100px">
 						</div class>
@@ -203,14 +222,14 @@
 
 																																																		<br />
 																																																	</div>
-																																																</div>
+																																																	
+																																																</article>
 																																									
 
 			}
 		}
-	</div>
    
-
+	</main>
 
 </body>
 
