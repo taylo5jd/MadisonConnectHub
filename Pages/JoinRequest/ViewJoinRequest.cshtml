@@ -22,9 +22,22 @@
         @{
             // <td><a asp-page="Approve" class="btn btn-primary" asp-route-projectid="@proj.ProjectID"> Edit </a></td>
             SqlDataReader joinReader = DBJoinRequest.JoinRequestReader(HttpContext.Session.GetString("username"));
-
-
-
+            SqlDataReader joinReader2 = DBJoinRequest.JoinRequestReader(HttpContext.Session.GetString("username"));
+            int x=0;
+            while (joinReader2.Read()) {
+                x += Int32.Parse(joinReader2["ProfileID"].ToString()); 
+            }
+            SqlDataReader joinReader3 = DBUserClass.UsernameReader2(x);
+            string s = "";
+            while(joinReader3.Read()){
+                s += joinReader3["Username"].ToString();
+            }
+          
+            SqlDataReader teamReader  = DBJoinRequest.teamidreader(s);
+            int t = 0;
+            while(teamReader.Read()){
+                 t = Int32.Parse(teamReader["TeamID"].ToString());
+            }
 
 
             while (joinReader.Read())
@@ -45,7 +58,7 @@
 
                                     <td>@joinReader["Requester"].ToString()</td>
                                     <td>@joinReader["Project Name"].ToString()</td>
-                                    <td><a asp-page="ViewJoinRequest" class="btn btn-dark" style=" color: white; background-color: #008000;" asp-route-ApproverID="@Int32.Parse(joinReader["ApproverID"].ToString())" asp-route-RequestID="@Int32.Parse(joinReader["RequestID"].ToString())" asp-route-ProfileID="@Int32.Parse(joinReader["ProfileID"].ToString())" asp-route-TeamID="@Int32.Parse(joinReader["TeamID"].ToString())"> Approve </a></td>
+                                    <td><a asp-page="ViewJoinRequest" class="btn btn-dark" style=" color: white; background-color: #008000;" asp-route-ApproverID="@Int32.Parse(joinReader["ApproverID"].ToString())" asp-route-RequestID="@Int32.Parse(joinReader["RequestID"].ToString())" asp-route-ProfileID="@Int32.Parse(joinReader["ProfileID"].ToString())" asp-route-TeamID="@t"> Approve </a></td>
                                 <td><a asp-page="ViewJoinRequest" class="btn btn-dark" style=" color: white; background-color: #7b1113;" asp-route-RequestID="@Int32.Parse(joinReader["RequestID"].ToString())" asp-route-ProfileID="0" asp-route-TeamID="0"> Deny </a></td>
                                     <td><a asp-page="/User/ViewUser" class="btn btn-dark" asp-route-username="@Model.Username" style="color: white; background-color:#34135B">View User</a></td>
                                     <td>@joinReader["_Type"].ToString()</td>
